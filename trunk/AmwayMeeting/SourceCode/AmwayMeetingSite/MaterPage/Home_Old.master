@@ -1,0 +1,311 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home_Old.master.cs" Inherits="MaterPage_Home_Old" %>
+
+<%@ Register Src="../UserControl/uc_Menu.ascx" TagName="uc_Menu" TagPrefix="uc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ĐẠI TRƯỜNG PHÁT REPORT</title>
+    <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico" />
+    <link href="../css/css.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../scripts/Core/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="../scripts/Validation_User.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.simplemodal.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.ui.datepicker.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="../scripts/tabs_slides_comp.js"></script>
+    <script type="text/javascript" src="../scripts/tabs_slides_def_loader.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../scripts/jquery.treeview.js"></script>
+    <script type="text/javascript" src="../scripts/demo.js"></script>
+    <script type="text/javascript" src="../scripts/common.js"> </script>
+    <script type="text/javascript" src="../scripts/x.js"></script>
+    <script type="text/javascript" src="../scripts/xtableheaderfixed.js"></script>
+    <script type="text/javascript">
+        function onLoad(event) {
+        <% if (Session["UserID"] == null){%>            
+            event = event || window.event;
+            if (event.keyCode == 13) {
+                CallAjaxSignIn();
+            }
+            <% } %>
+
+        }
+    </script>
+</head>
+<body onkeypress="onLoad(event);">
+    <form id="form1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    </asp:ToolkitScriptManager>
+    <div id="maincontainer">
+        <div class="nav_login">
+            <div id='container' style="display: none" runat="server">
+                <div id='content'>
+                    <div id='basic-modal'>
+                        <div class="uniright_nagivate">
+                            <a class="btn_black" href="#" onclick="UserClick('signin');">Đăng nhập</a>
+                        </div>
+                        <!-- modal content -->
+                        <div id="basic-modal-content">
+                            <div id="divContent">
+                                <!--divSignIn-->
+                                <div id="divSignIn">
+                                    <div class="cssDivUserTitle">
+                                        <div class="cssDivUserTitleData">
+                                            ĐĂNG NHẬP</div>
+                                    </div>
+                                    <div style="height: 10px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div class="cssDivUserRow1">
+                                            <asp:Label ID="lbUserName_SignIn" runat="server" Text="Tài khoản:" ForeColor="Black"></asp:Label><span
+                                                style="color: Red">*</span>
+                                        </div>
+                                        <div class="cssDivUserRow2">
+                                            <input type="text" class="cssInput" id="txtUserName_SignIn" onkeyup="validateUserNameSignIn();" />
+                                        </div>
+                                        <div class="cssDivUserRow3">
+                                            <span id="UserName_SignInInfo"></span>
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div class="cssDivUserRow1">
+                                            <asp:Label ID="lbPassword_SignIn" runat="server" Text="Mật khẩu:" ForeColor="Black"></asp:Label><span
+                                                style="color: Red">*</span>
+                                        </div>
+                                        <div class="cssDivUserRow2">
+                                            <input type="password" class="cssInput" id="txtPassword_SignIn" onkeyup="validatePassSignIn();" />
+                                        </div>
+                                        <div class="cssDivUserRow3">
+                                            <span id="Password_SignInInfo"></span>
+                                        </div>
+                                    </div>
+                                    <div style="height: 1px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div style="height: 20px; width: 580px; float: left; text-align: center; margin-left: 10px;
+                                            color: Red">
+                                            <asp:Label ID="lbError_SignIn" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div class="cssDivUserFooter">
+                                        <div class="divpopupLeft">
+                                            <a href="#" onclick="CallAjaxSignIn();" class="btn_blue">Đăng nhập</a> &nbsp;&nbsp;&nbsp;
+                                        </div>
+                                        <div class="divpopupRight">
+                                            <a class="a_link" href="#" onclick="UserInSideClick('notrememberpass')">Quên mật
+                                                khẩu?</a></div>
+                                    </div>
+                                </div>
+                                <!--end divSignIn-->
+                                <!--divChangePass-->
+                                <div id="divChangePass">
+                                    <div class="cssDivUserTitle">
+                                        <div class="cssDivUserTitleData">
+                                            THAY ĐỔI MẬT KHẨU</div>
+                                    </div>
+                                    <div style="height: 10px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div class="cssDivUserRow1">
+                                            <asp:Label ID="lbOldPassword_ChangePass" runat="server" Text="Mật khẩu cũ:" ForeColor="Black"></asp:Label><span
+                                                style="color: Red">*</span>
+                                        </div>
+                                        <div class="cssDivUserRow2">
+                                            <input type="password" class="cssInput" id="txtOldPassword_ChangePass" onkeyup="validateOldPass();" />
+                                        </div>
+                                        <div class="cssDivUserRow3">
+                                            <span id="OldPassword_ChangePass"></span>
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div class="cssDivUserRow1">
+                                        <asp:Label ID="lbNewPassword_ChangePass" runat="server" Text="Mật khẩu mới:" ForeColor="Black"></asp:Label><span
+                                            style="color: Red">*</span>
+                                    </div>
+                                    <div class="cssDivUserRow2">
+                                        <input type="password" class="cssInput" id="txtNewPassword_ChangePass" onkeyup="validateNewPass();" />
+                                    </div>
+                                    <div class="cssDivUserRow3">
+                                        <span id="NewPassword_ChangePass"></span>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div class="cssDivUserRow1">
+                                        <asp:Label ID="lbReNewPassword_ChangePass" runat="server" Text="Nhập lại mật khẩu mới:"
+                                            ForeColor="Black"></asp:Label><span style="color: Red">*</span>
+                                    </div>
+                                    <div class="cssDivUserRow2">
+                                        <input type="password" class="cssInput" id="txtReNewPassword_ChangePass" onkeyup="validateReNewPass();" />
+                                    </div>
+                                    <div class="cssDivUserRow3">
+                                        <span id="ReNewPassword_ChangePass"></span>
+                                    </div>
+                                    <div style="height: 1px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div style="height: 20px; width: 580px; float: left; text-align: center; margin-left: 10px;
+                                            color: Red">
+                                            <asp:Label ID="lbError_ChangePass" runat="server" Text="" ForeColor="Red" Font-Bold="true"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div class="cssDivUserFooter">
+                                        <div class="divpopupLeft">
+                                            <a href="#" onclick="CallAjaxChangePass();" class="btn_blue">Thay đổi</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end divChangePass-->
+                                <!--divNotRememberPass-->
+                                <div id="divNotRememberPass">
+                                    <div class="cssDivUserTitle">
+                                        <div class="cssDivUserTitleData">
+                                            QUÊN MẬT KHẨU
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div style="height: 25px; width: 600px; float: left; text-align: left; margin-left: 10px">
+                                            <asp:Label ID="lbNotice_NoRememberPass" runat="server" Text="Nhập điạ chỉ email đã đăng ký, hệ thống sẽ gửi thông tin hướng dẫn khôi phục lại mật khẩu"
+                                                ForeColor="Black"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div class="cssDivUserRow1">
+                                            <asp:Label ID="lbEmail_NoRememberPass" runat="server" Text="Email:" ForeColor="Black"></asp:Label>
+                                            <span style="color: red">*</span>
+                                        </div>
+                                        <div class="cssDivUserRow2">
+                                            <input type="text" class="cssInput" id="txtEmail_NotRememberPass" onkeyup="CallAjaxCheckEmailNotRememberPass();" />
+                                        </div>
+                                        <div class="cssDivUserRow3">
+                                            <span id="Email_NotRememberPassInfo"></span>
+                                        </div>
+                                    </div>
+                                    <div style="height: 5px; clear: both">
+                                    </div>
+                                    <div class="cssDivUserFooter">
+                                        <div class="divpopupLeft">
+                                            <a href="#" onclick="CallAjaxNotRememberPass();" class="btn_blue">Gửi</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end divNotRememberPass-->
+                                <!--divNotRememberPassNotice-->
+                                <div id="divNotRememberPassNotice">
+                                    <div class="cssDivUserTitle">
+                                        <div class="cssDivUserTitleData">
+                                            QUÊN MẬT KHẨU</div>
+                                    </div>
+                                    <div style="height: 10px; clear: both">
+                                    </div>
+                                    <div>
+                                        <div style="height: 25px; width: 580px; float: left; text-align: left; padding-left: 10px;">
+                                            Thông tin mật khẩu đã được gửi đến email:
+                                            <asp:Label ID="lbEmail_NotRememberPassNotice" runat="server" Text="" Font-Bold="True"
+                                                ForeColor="Black"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div style="height: 1px; clear: both">
+                                    </div>
+                                    <div style="height: 55px; width: 580px; float: left; text-align: left; margin-left: 10px;">
+                                        <asp:Label ID="Label3" runat="server" Text="Vui lòng kiểm tra email và làm theo hướng dẫn để khôi phục lại mật khẩu! Email có thể nằm trong mục"
+                                            ForeColor="Black"></asp:Label>
+                                        <span style="font-weight: bold; color: Red">SpamMail</span>
+                                    </div>
+                                </div>
+                                <!--end divNotRememberPassNotice-->
+                                <!--divProcessing-->
+                                <div id="divProcessing">
+                                    <div style="height: 105px; background-color: #333333; text-align: center;">
+                                        <img src="../images/User/loading.gif" alt='' style="margin-top: 25px;" />
+                                    </div>
+                                </div>
+                                <!--end divNotRememberPass-->
+                            </div>
+                        </div>
+                        <!-- end modal content -->
+                        <!-- preload the images -->
+                        <div style='display: none'>
+                            <img alt="" src="../images/User/x.png" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='divLogined' style="display: block;" runat="server">
+                <div id='Div2'>
+                    <div id='Div3'>
+                        <div class="uniright_nagivate">
+                            Xin chào, <a class="unitibar" href="#" onclick="UserClick('changepass');">
+                                <asp:Label ID="lbNickName" runat="server"> </asp:Label></a> | <a class="unitibar"
+                                    href="#" onclick="CallAjaxSignOut();">Đăng xuất</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="header">
+            <div class="header_left">
+            </div>
+            <div class="header_right">
+            </div>
+        </div>
+        <div id="nav">
+            <ul class="nav_top">
+                <uc1:uc_Menu ID="uc_Menu1" runat="server" />
+            </ul>
+        </div>
+        <div id="marquee">
+            <div class="marquee">
+                <div style="margin: 12px;">
+                    <!--span id="sphour" style="float: right;"></span-->
+                </div>
+            </div>
+        </div>
+        <div id="slide_main">
+            <asp:ContentPlaceHolder ID="cphMainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div id="main">
+            <div class="left">
+                <asp:ContentPlaceHolder ID="cphBoxLeft" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div class="right">
+                <asp:ContentPlaceHolder ID="cphBoxRight" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="adress">
+                <p>
+                    CÔNG TY CỔ PHẦN GIÁO DỤC ĐẠI TRƯỜNG PHÁT</p>
+                Địa chỉ: 207/6 Nguyễn Văn Thủ, Phường Đa Kao, Quận 1, TP.Hồ Chí Minh.<br />
+                ĐT: (84-8) 35 210 540 - 35 210 541 - Fax (84-8) 35 210 866 - Email: dtp@daitruongphat.com
+                <br />
+            </div>
+            <div class="bg_online">
+                <div class="online">
+                </div>
+            </div>
+            <div class="gototop">
+                <div onclick="javascript:window.scrollTo(0,0);">
+                    Về đầu trang</div>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
