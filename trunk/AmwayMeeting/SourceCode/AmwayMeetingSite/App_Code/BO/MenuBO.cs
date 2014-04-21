@@ -9,12 +9,12 @@ using DAL;
 /// </summary>
 public class MenuBO : AMW_MEETINGDataContext
 {
-	public MenuBO()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public MenuBO()
+    {
+        //
+        // TODO: Add constructor logic here
+        //
+    }
 
     public List<PRC_SYS_AMW_MENU_GETBY_USERID_AND_MENUPARENTIDResult> Menu_GetBy_UserIDAndMenuParentId(int UserID, int MenuParentId)
     {
@@ -56,7 +56,7 @@ public class MenuBO : AMW_MEETINGDataContext
         }
     }
 
-    public List<PRC_SYS_AMW_MENU_PERMISSION_GETCHILD_BY_MENUIDResult> Menu_Get_Permission_Detail(int menuParentId,int DepId)
+    public List<PRC_SYS_AMW_MENU_PERMISSION_GETCHILD_BY_MENUIDResult> Menu_Get_Permission_Detail(int menuParentId, int DepId)
     {
         try
         {
@@ -69,7 +69,7 @@ public class MenuBO : AMW_MEETINGDataContext
             return null;
         }
     }
-    public int Menu_Properties_Insert(int DepId,string  DSMenuID)
+    public int Menu_Properties_Insert(int DepId, string DSMenuID)
     {
         try
         {

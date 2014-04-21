@@ -48,6 +48,20 @@ public class CategoryBO : AMW_MEETINGDataContext
         }
     }
 
+    public List<PRC_SYS_AMW_PROVINCE_CBOResult> ProvinceGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PROVINCE_CBOResult> result = new List<PRC_SYS_AMW_PROVINCE_CBOResult>();
+            result = PRC_SYS_AMW_PROVINCE_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
     public List<PRC_SYS_AMW_PROVINCE_GETLISTBYIDResult> ProvinceGetListByID(int ID)
     {
         try
@@ -122,6 +136,19 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_PAX_CBOResult> PaxGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PAX_CBOResult> result = new List<PRC_SYS_AMW_PAX_CBOResult>();
+            result = PRC_SYS_AMW_PAX_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_PAX_SEARCHResult> PaxGet_Search(SYS_AMW_PAX objPax)
     {
         try
@@ -185,12 +212,100 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_USERTYPE_CBOResult> UserTypeGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_CBOResult> result = new List<PRC_SYS_AMW_USERTYPE_CBOResult>();
+            result = PRC_SYS_AMW_USERTYPE_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_USERTYPE_SEARCHResult> UserTypeGet_Search(SYS_AMW_USERTYPE objUserType)
     {
         try
         {
             List<PRC_SYS_AMW_USERTYPE_SEARCHResult> result = new List<PRC_SYS_AMW_USERTYPE_SEARCHResult>();
             result = PRC_SYS_AMW_USERTYPE_SEARCH(objUserType.USERTYPENAME, objUserType.DESCRIPTION, objUserType.ACTIVE).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+
+
+    public int UserType_LevelInsert(SYS_AMW_USERTYPE_LEVEL objUserType_Level)
+    {
+        try
+        {
+            SYS_AMW_USERTYPE_LEVEL UserType_Level = new SYS_AMW_USERTYPE_LEVEL();
+            UserType_Level = objUserType_Level;
+            return PRC_SYS_AMW_USERTYPE_LEVEL_INSERT(UserType_Level.USERTYPEID,UserType_Level.USERTYPE_LEVELNAME, UserType_Level.DESCRIPTION, UserType_Level.ACTIVE);
+
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    public bool UserType_LevelUpdate(SYS_AMW_USERTYPE_LEVEL objUserType_Level)
+    {
+        try
+        {
+            SYS_AMW_USERTYPE_LEVEL UserType_Level = new SYS_AMW_USERTYPE_LEVEL();
+            UserType_Level = objUserType_Level;
+            int result = PRC_SYS_AMW_USERTYPE_LEVEL_UPDATE(UserType_Level.ID, UserType_Level.USERTYPEID, UserType_Level.USERTYPE_LEVELNAME, UserType_Level.DESCRIPTION, UserType_Level.ACTIVE);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public List<PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult> UserType_LevelGetListByID(int ID)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYID(ID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult> UserType_LevelGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult> result = new List<PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult>();
+            result = PRC_SYS_AMW_USERTYPE_LEVEL_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult> UserType_LevelGet_Search(SYS_AMW_USERTYPE_LEVEL objUserType_Level)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult> result = new List<PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult>();
+            result = PRC_SYS_AMW_USERTYPE_LEVEL_SEARCH(objUserType_Level.USERTYPEID, objUserType_Level.USERTYPE_LEVELNAME, objUserType_Level.DESCRIPTION, objUserType_Level.ACTIVE).ToList();
             return result;
         }
         catch (Exception ex)

@@ -1,8 +1,8 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Department.ascx.cs"
-    Inherits="Manager_UserControl_uc_Department" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Pax.ascx.cs"
+    Inherits="Category_UserControl_uc_Pax" %>
 <div style="min-height:800px; height: auto">
     <div class="TitlePage">
-        NHÓM NGƯỜI DÙNG</div>
+       PAX</div>
         
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -14,10 +14,10 @@
                                 <td class="tdsearch1">
                                 </td>
                                 <td align="left" class="tdsearch2">
-                                    Tên nhóm <span style="color: Red">(*)</span>:
+                                    Tên Pax <span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox runat="server" ID="txtDepartmentName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtPaxName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch4">
                                 </td>
@@ -74,13 +74,13 @@
             <div style="clear: both; height: 10px">
             </div>
             <div id="divUserList">
-                <asp:GridView ID="grdDepartmentList" runat="server" AutoGenerateColumns="false" DataKeyNames="ID"
+                <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="ID"
                     Width="100%" CssClass="grid" AllowPaging="True"
-                    PageSize="20" OnRowEditing="grdDepartmentList_RowEditing" OnPageIndexChanging="grdDepartmentList_PageIndexChanging">
+                    PageSize="20" OnRowEditing="grdList_RowEditing" OnPageIndexChanging="grdList_PageIndexChanging">
                     <Columns>
-                        <asp:TemplateField HeaderText="Tên nhóm">
+                        <asp:TemplateField HeaderText="Tên Pax">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingDepartmentName" runat="server" Text='<%# Eval("DEPARTMENTNAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingPaxName" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Ghi chú">
@@ -108,7 +108,7 @@
                     <PagerStyle CssClass="pager" HorizontalAlign="Right" />
                 </asp:GridView>
             </div>
-            <asp:HiddenField ID="hdfDepartmentId" runat="server" />
+            <asp:HiddenField ID="hdfPaxId" runat="server" />
         </ContentTemplate>
         </asp:UpdatePanel>
 </div>

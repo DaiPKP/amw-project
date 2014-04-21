@@ -29,8 +29,8 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
     {
 
         hdfDepartmentId.Value = "-1";
-        txtTenDepartment.Text = string.Empty;
-        txtGhiChu.Text = string.Empty;
+        txtDepartmentName.Text = string.Empty;
+        txtDescription.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
@@ -60,13 +60,13 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
         btnSave.Text = "Cập nhật";
         grdDepartmentList.EditIndex = e.NewEditIndex;
         hdfDepartmentId.Value = grdDepartmentList.DataKeys[e.NewEditIndex].Value.ToString();
-        string strTenDepartment = ((Label)grdDepartmentList.Rows[e.NewEditIndex].FindControl("lblListingTenDepartment")).Text;
-        string strDescription = ((Label)grdDepartmentList.Rows[e.NewEditIndex].FindControl("lblListingGhiChu")).Text;
+        string strDepartmentName = ((Label)grdDepartmentList.Rows[e.NewEditIndex].FindControl("lblListingDepartmentName")).Text;
+        string strDescription = ((Label)grdDepartmentList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
         bool Active = bool.Parse(((Label)grdDepartmentList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
 
         // Bind len control
-        txtTenDepartment.Text = strTenDepartment;
-        txtGhiChu.Text = strDescription;
+        txtDepartmentName.Text = strDepartmentName;
+        txtDescription.Text = strDescription;
         chkActive.Checked = Active;
 
     }
@@ -76,7 +76,7 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (txtTenDepartment.Text.Trim().Length <= 0)
+        if (txtDepartmentName.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập tên nhóm!";
             return;
@@ -85,8 +85,8 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
         // Thuc hien Insert Update
         SYS_AMW_DEPARTMENT objDep = new SYS_AMW_DEPARTMENT();
         objDep.ID = int.Parse(hdfDepartmentId.Value);
-        objDep.DEPARTMENTNAME = txtTenDepartment.Text.Trim();
-        objDep.DESCRIPTION = txtGhiChu.Text.Trim();
+        objDep.DEPARTMENTNAME = txtDepartmentName.Text.Trim();
+        objDep.DESCRIPTION = txtDescription.Text.Trim();
         objDep.ACTIVE = chkActive.Checked;
 
         DepartmentBO bphan = new DepartmentBO();
@@ -119,8 +119,8 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
     private void LoadGrid()
     {
         SYS_AMW_DEPARTMENT objDep = new SYS_AMW_DEPARTMENT();
-        objDep.DEPARTMENTNAME = txtTenDepartment.Text.Trim();
-        objDep.DESCRIPTION = txtGhiChu.Text.Trim();
+        objDep.DEPARTMENTNAME = txtDepartmentName.Text.Trim();
+        objDep.DESCRIPTION = txtDescription.Text.Trim();
         objDep.ACTIVE = chkActive.Checked;
         DisplayDepartmentInGrid(objDep);
 

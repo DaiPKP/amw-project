@@ -22,7 +22,7 @@ public partial class Manager_UserControl_uc_Permission : System.Web.UI.UserContr
 
     private void ClearTextBox()
     {
-        GetAllDepartmentId(-1);
+        GetDepartmentCBO();
         ddlDEPARTMENTID.SelectedValue = "0";
         lblAlerting.Text = string.Empty;
     }
@@ -58,13 +58,13 @@ public partial class Manager_UserControl_uc_Permission : System.Web.UI.UserContr
         }
 
     }
-    private void GetAllDepartmentId(int id)
+    private void GetDepartmentCBO()
     {
         try
         {
-            DepartmentBO bphanbo = new DepartmentBO();
-            List<DAL.PRC_SYS_AMW_DEPARTMENT_GETLISTBYIDResult> lst = new List<DAL.PRC_SYS_AMW_DEPARTMENT_GETLISTBYIDResult>();
-            lst = bphanbo.DepGetListByID(id);
+            DepartmentBO objBO = new DepartmentBO();
+            List<DAL.PRC_SYS_AMW_DEPARTMENT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DEPARTMENT_CBOResult>();
+            lst = objBO.DepGet_CBO();
             if (lst != null)
             {
                 ddlDEPARTMENTID.DataSource = lst;

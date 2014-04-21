@@ -8,8 +8,8 @@
     }
     void RegisterRoute(System.Web.Routing.RouteCollection routes)
     {
-        routes.Add("MAN", new System.Web.Routing.Route("man/{data}", new ManagerRouterHandler()));
-        routes.Add("CATE", new System.Web.Routing.Route("cate/{data}", new CategoryHandler()));
+        routes.Add("MANAGER", new System.Web.Routing.Route("manager/{data}", new ManagerRouterHandler()));
+        routes.Add("CATEGORY", new System.Web.Routing.Route("category/{data}", new CategoryRouterHandler()));
     }
     void Application_End(object sender, EventArgs e)
     {
