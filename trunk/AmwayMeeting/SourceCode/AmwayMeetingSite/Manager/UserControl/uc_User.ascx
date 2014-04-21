@@ -17,10 +17,45 @@
                                     <asp:TextBox runat="server" ID="txtADA" MaxLength="50" CssClass="txtBox" Width="150px"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch4"></td>
-                                <td align="left" class="tdsearch5">Người đại diện<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch5">
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:TextBox runat="server" ID="txtViceGerent" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                    </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                             <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                             <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Họ và tên đệm<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch3">
+                                    <asp:TextBox runat="server" ID="txtLastName" MaxLength="50" CssClass="txtBox" Width="150px"></asp:TextBox>
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">Tên<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch6">
+                                    <asp:TextBox runat="server" ID="txtFirstName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                             <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Họ và tên đệm(Vợ/Chồng):
+                                </td>
+                                <td align="left" class="tdsearch3">
+                                    <asp:TextBox runat="server" ID="txtRelativeLastName" MaxLength="50" CssClass="txtBox" Width="150px"></asp:TextBox>
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">Tên(Vợ/Chồng):
+                                </td>
+                                <td align="left" class="tdsearch6">
+                                    <asp:TextBox runat="server" ID="txtRelativeFirstName" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -29,17 +64,36 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Số điện thoại bàn:
+                                <td align="left" class="tdsearch2">Mã số đơn/kép<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch3">
+                                    <asp:TextBox runat="server" ID="txtCode" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
+
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">Số tài khoản<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch6">
+                                    <asp:TextBox runat="server" ID="txtAccBank" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                            <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Số điện thoại<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
                                     <asp:TextBox runat="server" ID="txtTelephone" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
 
                                 </td>
                                 <td class="tdsearch4"></td>
-                                <td align="left" class="tdsearch5">Số ĐTDĐ:
+                                <td align="left" class="tdsearch5">Fax:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:TextBox runat="server" ID="txtMobile" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtFax" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -86,7 +140,7 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Loại người dùng<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Danh hiệu<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
                                     <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="102.5%">
@@ -106,14 +160,17 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Tình trạng <span style="color: Red">(*)</span>:
-                                </td>
+                                <td align="left" class="tdsearch2">Ghi chú :</td>
+
                                 <td align="left" class="tdsearch3">
-                                    <asp:CheckBox ID="chkActive" runat="server" Checked="true" />
+                                    <asp:TextBox ID="txtDescription" runat="server" CssClass="txtBox" MaxLength="500" Width="100%"></asp:TextBox>
+                               
                                 </td>
                                 <td class="tdsearch4"></td>
-                                <td align="left" class="tdsearch5"></td>
-                                <td align="left" class="tdsearch6"></td>
+                                <td align="left" class="tdsearch5">
+                                    Tình trạng<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch6"><asp:CheckBox ID="chkActive" runat="server" Checked="true" /></td>
                                 <td class="tdsearch7"></td>
                             </tr>
                             <tr>
@@ -140,16 +197,16 @@
             <div id="divUserList">
                 <asp:GridView ID="grdUserList" runat="server" AutoGenerateColumns="false" DataKeyNames="UserID"
                     Width="100%" CssClass="grid" AllowPaging="True"
-                    PageSize="20" OnRowEditing="grdUserList_RowEditing" OnPageIndexChanging="grdUserList_PageIndexChanging" OnRowCommand="grdUserList_RowCommand">
+                    PageSize="20" OnRowEditing="grdUserList_RowEditing" OnPageIndexChanging="grdUserList_PageIndexChanging">
                     <Columns>
                         <asp:TemplateField HeaderText="Mã số Amway">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingADA" runat="server" Text='<%# Eval("ADA") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Người đại diện">
+                        <asp:TemplateField HeaderText="Họ và tên">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingViceGerent" runat="server" Text='<%# Eval("VICEGERENT") %>'></asp:Label>
+                                <asp:Label ID="lblListingViceGerent" runat="server" Text='<%# Eval("FULLNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Email">
@@ -162,7 +219,7 @@
                                 <asp:Label ID="lblListingWorkProvinceName" runat="server" Text='<%# Eval("WORKPROVINCENAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Loại người dùng">
+                        <asp:TemplateField HeaderText="Danh hiệu">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
                             </ItemTemplate>
@@ -182,9 +239,39 @@
                                 <asp:Label ID="lblListingTelephone" runat="server" Text='<%# Eval("TELEPHONE") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="MOBILE" Visible="false">
+                        <asp:TemplateField HeaderText="FAX" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingMobile" runat="server" Text='<%# Eval("MOBILE") %>'></asp:Label>
+                                <asp:Label ID="lblListingFax" runat="server" Text='<%# Eval("FAX") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                         <asp:TemplateField HeaderText="FirstName" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingFirstName" runat="server" Text='<%# Eval("FIRSTNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="LastName" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingLastName" runat="server" Text='<%# Eval("LASTNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="RelativeFirstName" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingRelativeFirstName" runat="server" Text='<%# Eval("RELATIVE_FIRSTNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="RelativeFirstName" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingRelativeLastName" runat="server" Text='<%# Eval("RELATIVE_LASTNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Mã số đơn/kép" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingCode" runat="server" Text='<%# Eval("CODE") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                         <asp:TemplateField HeaderText="AccBank" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingAccBank" runat="server" Text='<%# Eval("ACCBANK") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Địa Chỉ" Visible="false">
@@ -192,12 +279,17 @@
                                 <asp:Label ID="lblListingAddress" runat="server" Text='<%# Eval("ADDRESS") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Description" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingDescription" runat="server" Text='<%# Eval("DESCRIPTION") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Active" Visible="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingActive" runat="server" Text='<%# Eval("Active") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Loại người dùng" Visible="false">
+                         <asp:TemplateField HeaderText="Mã số Danh Hiệu " Visible="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingUserTypeId" runat="server" Text='<%# Eval("USERTYPEID") %>'></asp:Label>
                             </ItemTemplate>

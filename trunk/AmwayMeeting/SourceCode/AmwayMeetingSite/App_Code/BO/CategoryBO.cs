@@ -240,14 +240,13 @@ public class CategoryBO : AMW_MEETINGDataContext
     }
 
 
-
-    public int UserType_LevelInsert(SYS_AMW_USERTYPE_LEVEL objUserType_Level)
+    public int Pax_ProvinceInsert(SYS_AMW_PAX_PROVINCE objPax_Province)
     {
         try
         {
-            SYS_AMW_USERTYPE_LEVEL UserType_Level = new SYS_AMW_USERTYPE_LEVEL();
-            UserType_Level = objUserType_Level;
-            return PRC_SYS_AMW_USERTYPE_LEVEL_INSERT(UserType_Level.USERTYPEID,UserType_Level.USERTYPE_LEVELNAME, UserType_Level.DESCRIPTION, UserType_Level.ACTIVE);
+            SYS_AMW_PAX_PROVINCE Pax_Province = new SYS_AMW_PAX_PROVINCE();
+            Pax_Province = objPax_Province;
+            return PRC_SYS_AMW_PAX_PROVINCE_INSERT( Pax_Province.PAXID, Pax_Province.PROVINCEID, Pax_Province.DESCRIPTION, Pax_Province.ACTIVE);
 
         }
         catch
@@ -256,13 +255,13 @@ public class CategoryBO : AMW_MEETINGDataContext
         }
     }
 
-    public bool UserType_LevelUpdate(SYS_AMW_USERTYPE_LEVEL objUserType_Level)
+    public bool Pax_ProvinceUpdate(SYS_AMW_PAX_PROVINCE objPax_Province)
     {
         try
         {
-            SYS_AMW_USERTYPE_LEVEL UserType_Level = new SYS_AMW_USERTYPE_LEVEL();
-            UserType_Level = objUserType_Level;
-            int result = PRC_SYS_AMW_USERTYPE_LEVEL_UPDATE(UserType_Level.ID, UserType_Level.USERTYPEID, UserType_Level.USERTYPE_LEVELNAME, UserType_Level.DESCRIPTION, UserType_Level.ACTIVE);
+            SYS_AMW_PAX_PROVINCE Pax_Province = new SYS_AMW_PAX_PROVINCE();
+            Pax_Province = objPax_Province;
+            int result = PRC_SYS_AMW_PAX_PROVINCE_UPDATE(Pax_Province.ID, Pax_Province.PAXID, Pax_Province.PROVINCEID, Pax_Province.DESCRIPTION, Pax_Province.ACTIVE);
             if (result == 1)
                 return true;
             else
@@ -274,38 +273,25 @@ public class CategoryBO : AMW_MEETINGDataContext
         }
     }
 
-    public List<PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult> UserType_LevelGetListByID(int ID)
+    public List<PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult> Pax_ProvinceGetListByID(int ID)
     {
         try
         {
-            List<PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult>();
-            result = PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYID(ID).ToList();
+            List<PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYID(ID).ToList();
             return result;
         }
         catch (Exception ex)
         {
             return null;
         }
-    }
-    public List<PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult> UserType_LevelGet_CBO()
+    }   
+    public List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult> Pax_ProvinceGet_Search(SYS_AMW_PAX_PROVINCE objPax_Province)
     {
         try
         {
-            List<PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult> result = new List<PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult>();
-            result = PRC_SYS_AMW_USERTYPE_LEVEL_CBO().ToList();
-            return result;
-        }
-        catch (Exception ex)
-        {
-            return null;
-        }
-    }
-    public List<PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult> UserType_LevelGet_Search(SYS_AMW_USERTYPE_LEVEL objUserType_Level)
-    {
-        try
-        {
-            List<PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult> result = new List<PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult>();
-            result = PRC_SYS_AMW_USERTYPE_LEVEL_SEARCH(objUserType_Level.USERTYPEID, objUserType_Level.USERTYPE_LEVELNAME, objUserType_Level.DESCRIPTION, objUserType_Level.ACTIVE).ToList();
+            List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult> result = new List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult>();
+            result = PRC_SYS_AMW_PAX_PROVINCE_SEARCH(objPax_Province.PAXID, objPax_Province.PROVINCEID, objPax_Province.DESCRIPTION, objPax_Province.ACTIVE).ToList();
             return result;
         }
         catch (Exception ex)

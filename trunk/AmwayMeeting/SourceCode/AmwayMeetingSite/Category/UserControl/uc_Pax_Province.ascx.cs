@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL;
 
-public partial class Category_UserControl_uc_Pax : System.Web.UI.UserControl
+public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -19,34 +19,88 @@ public partial class Category_UserControl_uc_Pax : System.Web.UI.UserControl
     {
         ClearTextBox();
         SYS_AMW_PAX_PROVINCE obj = new SYS_AMW_PAX_PROVINCE();
-        obj. = string.Empty;
+        obj.PAXID = 0;
+        obj.PROVINCEID = 0;
         obj.DESCRIPTION = string.Empty;
         obj.ACTIVE = chkActive.Checked;
         DisplayPaxInGrid(obj);
     }
 
+    private void GetPaxCBO()
+    {
+        try
+        {
+            CategoryBO catebo = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_PAX_CBOResult> lst = new List<DAL.PRC_SYS_AMW_PAX_CBOResult>();
+            lst = catebo.PaxGet_CBO().ToList();
+            if (lst != null)
+            {
+                ddlPax.DataSource = lst;
+                ddlPax.DataTextField = "PAXNAME";
+                ddlPax.DataValueField = "ID";
+                ddlPax.DataBind();
+
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlPax.Items.Insert(0, lstParent);
+                ddlPax.SelectedIndex = ddlPax.Items.IndexOf(lstParent);
+
+
+            }
+        }
+        catch
+        {
+        }
+    }
+    private void GetProvinceCBO()
+    {
+        try
+        {
+            CategoryBO catebo = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_PROVINCE_CBOResult> lst = new List<DAL.PRC_SYS_AMW_PROVINCE_CBOResult>();
+            lst = catebo.ProvinceGet_CBO().ToList();
+            if (lst != null)
+            {
+                ddlProvince.DataSource = lst;
+                ddlProvince.DataTextField = "PROVINCENAME";
+                ddlProvince.DataValueField = "ID";
+                ddlProvince.DataBind();
+
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlProvince.Items.Insert(0, lstParent);
+                ddlProvince.SelectedIndex = ddlProvince.Items.IndexOf(lstParent);
+
+                
+            }
+        }
+        catch
+        {
+        }
+    }
     private void ClearTextBox()
     {
 
+        GetPaxCBO();
+        GetProvinceCBO();
         hdfPaxId.Value = "-1";
-        txtPaxName.Text = string.Empty;
+        ddlPax.Text = "0";
+        ddlProvince.Text = "0";
         txtDescription.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
     }
-    protected void DisplayPaxInGrid(SYS_AMW_PAX obj)
+    protected void DisplayPaxInGrid(SYS_AMW_PAX_PROVINCE obj)
     {
         CategoryBO objBO = new CategoryBO();
-        List<PRC_SYS_AMW_PAX_SEARCHResult> lst = new List<PRC_SYS_AMW_PAX_SEARCHResult>();
-        lst = objBO.PaxGet_Search(obj).ToList();
+        List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult> lst = new List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult>();
+        lst = objBO.Pax_ProvinceGet_Search(obj).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
             grdList.PageIndex = 0;
         }
         grdList.DataBind();
-    }    
+    }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         hdfPaxId.Value = "-1";
@@ -60,12 +114,14 @@ public partial class Category_UserControl_uc_Pax : System.Web.UI.UserControl
         btnSave.Text = "Cập nhật";
         grdList.EditIndex = e.NewEditIndex;
         hdfPaxId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
-        string strPaxName = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingPaxName")).Text;
+        string strPaxId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingPaxId")).Text;
+        string strProvinceId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingProvinceId")).Text;
         string strDescription = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
         bool Active = bool.Parse(((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
 
         // Bind len control
-        txtPaxName.Text = strPaxName;
+        ddlPax.SelectedValue = strPaxId;
+        ddlProvince.SelectedValue = strProvinceId;
         txtDescription.Text = strDescription;
         chkActive.Checked = Active;
 
@@ -76,50 +132,57 @@ public partial class Category_UserControl_uc_Pax : System.Web.UI.UserControl
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (txtPaxName.Text.Trim().Length <= 0)
+        if (ddlPax.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập tên pax!";
+            lblAlerting.Text = "Bạn chưa chọn pax!";
             return;
         }
 
+        if (ddlProvince.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn tỉnh thành!";
+            return;
+        }
         // Thuc hien Insert Update
-        SYS_AMW_PAX obj = new SYS_AMW_PAX();
+        SYS_AMW_PAX_PROVINCE obj = new SYS_AMW_PAX_PROVINCE();
         obj.ID = int.Parse(hdfPaxId.Value);
-        obj.PAXNAME = txtPaxName.Text.Trim();
+        obj.PAXID = int.Parse(ddlPax.SelectedValue);
+        obj.PROVINCEID = int.Parse(ddlProvince.SelectedValue);
         obj.DESCRIPTION = txtDescription.Text.Trim();
         obj.ACTIVE = chkActive.Checked;
 
         CategoryBO objBO = new CategoryBO();
         if (int.Parse(hdfPaxId.Value) <= 0)
         {
-            hdfPaxId.Value = objBO.PaxInsert(obj).ToString();
+            hdfPaxId.Value = objBO.Pax_ProvinceInsert(obj).ToString();
             if (int.Parse(hdfPaxId.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Thêm mới pax thành công!";
+                lblAlerting.Text = "Thêm mới pax-tỉnh thành thành công!";
             }
             else
             {
-                lblAlerting.Text = "Thêm mới pax thất bại, bạn vui lòng thử lại!";
+                lblAlerting.Text = "Thêm mới pax-tỉnh thành thất bại, bạn vui lòng thử lại!";
             }
         }
         else
-            if (objBO.PaxUpdate(obj))
+            if (objBO.Pax_ProvinceUpdate(obj))
             {
                 //btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Cập nhật pax thành công!";
+                lblAlerting.Text = "Cập nhật pax-tỉnh thành thành công!";
             }
             else
             {
-                lblAlerting.Text = "Cập nhật pax thất bại, bạn vui lòng thử lại!";
+                lblAlerting.Text = "Cập nhật pax-tỉnh thành thất bại, bạn vui lòng thử lại!";
             }
         LoadGrid();
 
     }
     private void LoadGrid()
     {
-        SYS_AMW_PAX obj = new SYS_AMW_PAX();
-        obj.PAXNAME = txtPaxName.Text.Trim();
+        SYS_AMW_PAX_PROVINCE obj = new SYS_AMW_PAX_PROVINCE();
+        obj.PAXID = int.Parse(ddlPax.SelectedValue);
+        obj.PROVINCEID = int.Parse(ddlProvince.SelectedValue);
         obj.DESCRIPTION = txtDescription.Text.Trim();
         obj.ACTIVE = chkActive.Checked;
         DisplayPaxInGrid(obj);
