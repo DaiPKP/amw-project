@@ -1,9 +1,10 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Department.ascx.cs"
-    Inherits="Manager_UserControl_uc_Department" %>
-<div style="min-height:800px; height: auto">
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Pax_Province.ascx.cs"
+    Inherits="Category_UserControl_uc_Pax" %>
+<div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        NHÓM NGƯỜI DÙNG</div>
-        
+        PAX - TỈNH THÀNH
+    </div>
+
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:Panel runat="server" ID="pnlSearch">
@@ -11,47 +12,41 @@
                     <fieldset>
                         <table width="100%">
                             <tr>
-                                <td class="tdsearch1">
-                                </td>
-                                <td align="left" class="tdsearch2">
-                                    Tên nhóm <span style="color: Red">(*)</span>:
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Chọn pax <span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox runat="server" ID="txtDepartmentName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                   <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="102.5%">
+                                    </asp:DropDownList>
                                 </td>
-                                <td class="tdsearch4">
-                                </td>
+                                <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">
-                                    Ghi chú :
+                                    Chọn tỉnh thành <span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
+                                    <asp:DropDownList ID="ddlProvince" CssClass="txtBox" runat="server" Width="102.5%">
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                            <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Ghi chú : 
+                                </td>
+                                <td align="left" class="tdsearch3">
                                     <asp:TextBox runat="server" ID="txtDescription" MaxLength="50" CssClass="txtBox" Width="100%"
                                         TextMode="SingleLine"></asp:TextBox>
                                 </td>
-                                <td class="tdsearch7">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td align="left" class="divClearBothInAdmin">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="tdsearch1">
-                                </td>
-                                <td align="left" class="tdsearch2">
-                                    Tình trạng <span style="color: Red">(*)</span>:
-                                </td>
-                                <td align="left" class="tdsearch3">
-                                    <asp:CheckBox ID="chkActive" runat="server" Checked="true" />
-                                </td>
-                                <td class="tdsearch4">
-                                </td>
-                                <td align="left" class="tdsearch5">
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">Tình trạng <span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
+                                    <asp:CheckBox ID="chkActive" runat="server" Checked="true" />
                                 </td>
-                                <td class="tdsearch7">
-                                </td>
+                                <td class="tdsearch7"></td>
                             </tr>
                             <tr>
                                 <td align="center" colspan="7">
@@ -74,13 +69,18 @@
             <div style="clear: both; height: 10px">
             </div>
             <div id="divUserList">
-                <asp:GridView ID="grdDepartmentList" runat="server" AutoGenerateColumns="false" DataKeyNames="ID"
+                <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="ID"
                     Width="100%" CssClass="grid" AllowPaging="True"
-                    PageSize="20" OnRowEditing="grdDepartmentList_RowEditing" OnPageIndexChanging="grdDepartmentList_PageIndexChanging">
+                    PageSize="20" OnRowEditing="grdList_RowEditing" OnPageIndexChanging="grdList_PageIndexChanging">
                     <Columns>
-                        <asp:TemplateField HeaderText="Tên nhóm">
+                        <asp:TemplateField HeaderText="Pax">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingDepartmentName" runat="server" Text='<%# Eval("DEPARTMENTNAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingPaxName" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Tỉnh thành">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingProvinceName" runat="server" Text='<%# Eval("PROVINCENAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Ghi chú">
@@ -98,6 +98,16 @@
                                 <asp:Label ID="lblListingActive" runat="server" Text='<%# Eval("Active") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Pax" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingPaxId" runat="server" Text='<%# Eval("PAXID") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Tỉnh thành" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingProvinceId" runat="server" Text='<%# Eval("PROVINCEID") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
                                 <asp:LinkButton ID="btnListingEdit" runat="server" Text="Sửa" CommandName="Edit"
@@ -108,7 +118,7 @@
                     <PagerStyle CssClass="pager" HorizontalAlign="Right" />
                 </asp:GridView>
             </div>
-            <asp:HiddenField ID="hdfDepartmentId" runat="server" />
+            <asp:HiddenField ID="hdfPaxId" runat="server" />
         </ContentTemplate>
-        </asp:UpdatePanel>
+    </asp:UpdatePanel>
 </div>

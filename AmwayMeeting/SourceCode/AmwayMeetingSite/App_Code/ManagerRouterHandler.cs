@@ -26,8 +26,8 @@ public class ManagerRouterHandler : IRouteHandler
             switch (data)
             {
                 case "user": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/User.aspx", typeof(Page)) as Page;
-                case "per": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/Permission.aspx", typeof(Page)) as Page;
-                case "dept": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/Department.aspx", typeof(Page)) as Page;
+                case "permission": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/Permission.aspx", typeof(Page)) as Page;
+                case "department": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/Department.aspx", typeof(Page)) as Page;
 
                 default:
                     {

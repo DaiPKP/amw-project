@@ -20,7 +20,7 @@
                                 <td align="left" class="tdsearch5">Người đại diện<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:TextBox runat="server" ID="txtNguoiDaiDien" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtViceGerent" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -32,14 +32,14 @@
                                 <td align="left" class="tdsearch2">Số điện thoại bàn:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox runat="server" ID="txtSoDTBan" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtTelephone" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
 
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Số ĐTDĐ:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:TextBox runat="server" ID="txtSoDTDD" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtMobile" MaxLength="20" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -57,7 +57,7 @@
                                 <td align="left" class="tdsearch5">Địa chỉ<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:TextBox ID="txtDiaChi" runat="server" CssClass="txtBox" MaxLength="200" Width="100%"></asp:TextBox>
+                                    <asp:TextBox ID="txtAddress" runat="server" CssClass="txtBox" MaxLength="200" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -69,14 +69,14 @@
                                 <td align="left" class="tdsearch2">Tỉnh thành đang ở<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlTinhThanhDangO" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlHomeProvince" CssClass="txtBox" runat="server" Width="102.5%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Tỉnh thành làm việc<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:DropDownList ID="ddlTinhThanhLamViec" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlWorkProvince" CssClass="txtBox" runat="server" Width="102.5%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>
@@ -89,14 +89,14 @@
                                 <td align="left" class="tdsearch2">Loại người dùng<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlLoaiNguoiDung" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="102.5%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Nhóm người dùng <span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:DropDownList ID="ddlNhomNguoiDung" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlDepartment" CssClass="txtBox" runat="server" Width="102.5%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>
@@ -149,7 +149,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Người đại diện">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingNguoiDaiDien" runat="server" Text='<%# Eval("VICEGERENT") %>'></asp:Label>
+                                <asp:Label ID="lblListingViceGerent" runat="server" Text='<%# Eval("VICEGERENT") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Email">
@@ -159,17 +159,17 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Tỉnh thành làm việc">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingTenTinhThanhLamViec" runat="server" Text='<%# Eval("WORKPROVINCENAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingWorkProvinceName" runat="server" Text='<%# Eval("WORKPROVINCENAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Loại người dùng">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingTenLoaiNguoiDung" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Nhóm người dùng">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingTenNhomNguoiDung" runat="server" Text='<%# Eval("DEPARTMENTNAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingDepartmentName" runat="server" Text='<%# Eval("DEPARTMENTNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Tình trạng" ItemStyle-HorizontalAlign="Center">
@@ -179,17 +179,17 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="TELEPHONE" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingSoDTBan" runat="server" Text='<%# Eval("TELEPHONE") %>'></asp:Label>
+                                <asp:Label ID="lblListingTelephone" runat="server" Text='<%# Eval("TELEPHONE") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="MOBILE" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingSoDTDD" runat="server" Text='<%# Eval("MOBILE") %>'></asp:Label>
+                                <asp:Label ID="lblListingMobile" runat="server" Text='<%# Eval("MOBILE") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Địa Chỉ" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingDiaChi" runat="server" Text='<%# Eval("ADDRESS") %>'></asp:Label>
+                                <asp:Label ID="lblListingAddress" runat="server" Text='<%# Eval("ADDRESS") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Active" Visible="false">
@@ -199,22 +199,22 @@
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Loại người dùng" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingLoaiNguoiDung" runat="server" Text='<%# Eval("USERTYPEID") %>'></asp:Label>
+                                <asp:Label ID="lblListingUserTypeId" runat="server" Text='<%# Eval("USERTYPEID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Mã số nhóm" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingNhomNguoiDung" runat="server" Text='<%# Eval("DEPARTMENTID") %>'></asp:Label>
+                                <asp:Label ID="lblListingDepartmentId" runat="server" Text='<%# Eval("DEPARTMENTID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Mã số Tỉnh thành đang ở" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingTinhThanhDangO" runat="server" Text='<%# Eval("HOMEPROVINCEID") %>'></asp:Label>
+                                <asp:Label ID="lblListingHomeProvinceId" runat="server" Text='<%# Eval("HOMEPROVINCEID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Mã số Tỉnh Thành Làm Việc" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingTinhThanhLamViec" runat="server" Text='<%# Eval("WORKPROVINCEID") %>'></asp:Label>
+                                <asp:Label ID="lblListingWorkProvinceId" runat="server" Text='<%# Eval("WORKPROVINCEID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField ItemStyle-HorizontalAlign="Center">

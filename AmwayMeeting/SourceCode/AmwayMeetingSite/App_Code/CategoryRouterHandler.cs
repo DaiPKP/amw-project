@@ -10,9 +10,9 @@ using System.Web.UI;
 /// <summary>
 /// Summary description for CategoryHandler
 /// </summary>
-public class CategoryHandler : IRouteHandler
+public class CategoryRouterHandler : IRouteHandler
 {
-    public CategoryHandler()
+    public CategoryRouterHandler()
     {
         //
         // TODO: Add constructor logic here
@@ -25,11 +25,13 @@ public class CategoryHandler : IRouteHandler
             string data = requestContext.RouteData.Values["data"] as string;
             switch (data)
             {
-                case "cost": return BuildManager.CreateInstanceFromVirtualPath("~/Category/ChiPhi.aspx", typeof(Page)) as Page;
+                case "province": return BuildManager.CreateInstanceFromVirtualPath("~/Category/Province.aspx", typeof(Page)) as Page;
+                case "pax": return BuildManager.CreateInstanceFromVirtualPath("~/Category/Pax.aspx", typeof(Page)) as Page;
+                case "paxprovince": return BuildManager.CreateInstanceFromVirtualPath("~/Category/Pax_Province.aspx", typeof(Page)) as Page;
                
                 default:
                     {
-                        return BuildManager.CreateInstanceFromVirtualPath("~/Category/ChiPhi.aspx", typeof(Page)) as Page;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Category/Province.aspx", typeof(Page)) as Page;
 
                     }
 

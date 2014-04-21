@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Manager_Permission : System.Web.UI.Page
+public partial class Category_Province : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("5")))
+        if ((Session["UserID"] == null) ||(!CheckPermission("8")))
         {
             Response.Redirect("~/home");
         }

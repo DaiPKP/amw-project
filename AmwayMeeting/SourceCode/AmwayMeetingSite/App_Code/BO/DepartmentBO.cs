@@ -48,6 +48,19 @@ public class DepartmentBO : AMW_MEETINGDataContext
         }
     }
 
+    public List<PRC_SYS_AMW_DEPARTMENT_CBOResult> DepGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_DEPARTMENT_CBOResult> result = new List<PRC_SYS_AMW_DEPARTMENT_CBOResult>();
+            result = PRC_SYS_AMW_DEPARTMENT_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_DEPARTMENT_GETLISTBYIDResult> DepGetListByID(int ID)
     {
         try

@@ -36,20 +36,20 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
 
     private void ClearTextBox()
     {
-        GetAllDepartment(-1);
-        GetAllLoaiNguoiDung(-1);
-        GetAllTinhThanh(-1);
+        GetDepartmentCBO();
+        GetAllUserType();
+        GetAllProvince();
         hdfUserID.Value = "-1";
         txtADA.Text = string.Empty;
-        txtNguoiDaiDien.Text = string.Empty;
-        txtSoDTBan.Text = string.Empty;
-        txtSoDTDD.Text = string.Empty;
+        txtViceGerent.Text = string.Empty;
+        txtTelephone.Text = string.Empty;
+        txtMobile.Text = string.Empty;
         txtEmail.Text = string.Empty;
-        txtDiaChi.Text = string.Empty;
-        ddlNhomNguoiDung.SelectedValue = "0";
-        ddlLoaiNguoiDung.SelectedValue = "0";
-        ddlTinhThanhDangO.SelectedValue = "0";
-        ddlTinhThanhLamViec.SelectedValue = "0";
+        txtAddress.Text = string.Empty;
+        ddlDepartment.SelectedValue = "0";
+        ddlUserType.SelectedValue = "0";
+        ddlHomeProvince.SelectedValue = "0";
+        ddlWorkProvince.SelectedValue = "0";
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
@@ -66,23 +66,23 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         }
         grdUserList.DataBind();
     }
-    private void GetAllDepartment(int id)
+    private void GetDepartmentCBO()
     {
         try
         {
-            DepartmentBO bphanbo = new DepartmentBO();
-            List<DAL.PRC_SYS_AMW_DEPARTMENT_GETLISTBYIDResult> lst = new List<DAL.PRC_SYS_AMW_DEPARTMENT_GETLISTBYIDResult>();
-            lst = bphanbo.DepGetListByID(id).ToList();
+            DepartmentBO objBO = new DepartmentBO();
+            List<DAL.PRC_SYS_AMW_DEPARTMENT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DEPARTMENT_CBOResult>();
+            lst = objBO.DepGet_CBO().ToList();
             if (lst != null)
             {
-                ddlNhomNguoiDung.DataSource = lst;
-                ddlNhomNguoiDung.DataTextField = "DEPARTMENTNAME";
-                ddlNhomNguoiDung.DataValueField = "ID";
-                ddlNhomNguoiDung.DataBind();
+                ddlDepartment.DataSource = lst;
+                ddlDepartment.DataTextField = "DEPARTMENTNAME";
+                ddlDepartment.DataValueField = "ID";
+                ddlDepartment.DataBind();
 
                 ListItem lstParent = new ListItem("--Chọn--", "0");
-                ddlNhomNguoiDung.Items.Insert(0, lstParent);
-                ddlNhomNguoiDung.SelectedIndex = ddlNhomNguoiDung.Items.IndexOf(lstParent);
+                ddlDepartment.Items.Insert(0, lstParent);
+                ddlDepartment.SelectedIndex = ddlDepartment.Items.IndexOf(lstParent);
             }
         }
         catch
@@ -90,54 +90,54 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         }
     }
 
-    private void GetAllLoaiNguoiDung(int id)
+    private void GetUserTypeBO()
     {
         try
         {
             CategoryBO catebo = new CategoryBO();
-            List<DAL.PRC_SYS_AMW_USERTYPE_GETLISTBYIDResult> lst = new List<DAL.PRC_SYS_AMW_USERTYPE_GETLISTBYIDResult>();
-            lst = catebo.UserTypeGetListByID(id).ToList();
+            List<DAL.PRC_SYS_AMW_USERTYPE_CBOResult> lst = new List<DAL.PRC_SYS_AMW_USERTYPE_CBOResult>();
+            lst = catebo.UserTypeGet_CBO().ToList();
             if (lst != null)
             {
-                ddlLoaiNguoiDung.DataSource = lst;
-                ddlLoaiNguoiDung.DataTextField = "USERTYPENAME";
-                ddlLoaiNguoiDung.DataValueField = "ID";
-                ddlLoaiNguoiDung.DataBind();
+                ddlUserType.DataSource = lst;
+                ddlUserType.DataTextField = "USERTYPENAME";
+                ddlUserType.DataValueField = "ID";
+                ddlUserType.DataBind();
 
                 ListItem lstParent = new ListItem("--Chọn--", "0");
-                ddlLoaiNguoiDung.Items.Insert(0, lstParent);
-                ddlLoaiNguoiDung.SelectedIndex = ddlLoaiNguoiDung.Items.IndexOf(lstParent);
+                ddlUserType.Items.Insert(0, lstParent);
+                ddlUserType.SelectedIndex = ddlUserType.Items.IndexOf(lstParent);
             }
         }
         catch
         {
         }
     }
-    private void GetAllTinhThanh(int id)
+    private void GetProvinceCBO()
     {
         try
         {
             CategoryBO catebo = new CategoryBO();
-            List<DAL.PRC_SYS_AMW_PROVINCE_GETLISTBYIDResult> lst = new List<DAL.PRC_SYS_AMW_PROVINCE_GETLISTBYIDResult>();
-            lst = catebo.ProvinceGetListByID(id).ToList();
+            List<DAL.PRC_SYS_AMW_PROVINCE_CBOResult> lst = new List<DAL.PRC_SYS_AMW_PROVINCE_CBOResult>();
+            lst = catebo.ProvinceGet_CBO().ToList();
             if (lst != null)
             {
-                ddlTinhThanhDangO.DataSource = lst;
-                ddlTinhThanhDangO.DataTextField = "PROVINCENAME";
-                ddlTinhThanhDangO.DataValueField = "ID";
-                ddlTinhThanhDangO.DataBind();
+                ddlHomeProvince.DataSource = lst;
+                ddlHomeProvince.DataTextField = "PROVINCENAME";
+                ddlHomeProvince.DataValueField = "ID";
+                ddlHomeProvince.DataBind();
 
                 ListItem lstParent = new ListItem("--Chọn--", "0");
-                ddlTinhThanhDangO.Items.Insert(0, lstParent);
-                ddlTinhThanhDangO.SelectedIndex = ddlTinhThanhDangO.Items.IndexOf(lstParent);
+                ddlHomeProvince.Items.Insert(0, lstParent);
+                ddlHomeProvince.SelectedIndex = ddlHomeProvince.Items.IndexOf(lstParent);
 
-                ddlTinhThanhLamViec.DataSource = lst;
-                ddlTinhThanhLamViec.DataTextField = "PROVINCENAME";
-                ddlTinhThanhLamViec.DataValueField = "ID";
-                ddlTinhThanhLamViec.DataBind();
+                ddlWorkProvince.DataSource = lst;
+                ddlWorkProvince.DataTextField = "PROVINCENAME";
+                ddlWorkProvince.DataValueField = "ID";
+                ddlWorkProvince.DataBind();
 
-                ddlTinhThanhLamViec.Items.Insert(0, lstParent);
-                ddlTinhThanhLamViec.SelectedIndex = ddlTinhThanhLamViec.Items.IndexOf(lstParent);
+                ddlWorkProvince.Items.Insert(0, lstParent);
+                ddlWorkProvince.SelectedIndex = ddlWorkProvince.Items.IndexOf(lstParent);
             }
         }
         catch
@@ -158,28 +158,28 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         grdUserList.EditIndex = e.NewEditIndex;
         hdfUserID.Value = grdUserList.DataKeys[e.NewEditIndex].Value.ToString();
         string strADA = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingADA")).Text;
-        string strNguoiDaiDien = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingNguoiDaiDien")).Text;
-        string strSoDTBan = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingSoDTBan")).Text;
-        string strSoDTDD = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingSoDTDD")).Text;
+        string strViceGerent = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingViceGerent")).Text;
+        string strTelephone = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingTelephone")).Text;
+        string strMobile = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingMobile")).Text;
         string strEmail = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingEmail")).Text;
-        string strDiaChi = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDiaChi")).Text;
-        string strNhomNguoiDung = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingNhomNguoiDung")).Text;
-        string strLoaiNguoiDung = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingLoaiNguoiDung")).Text;
-        string strTinhThanhDangO = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingTinhThanhDangO")).Text;
-        string strTinhThanhLamViec = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingTinhThanhLamViec")).Text;
+        string strAddress = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingAddress")).Text;
+        string strDepartment = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDepartmentId")).Text;
+        string strUserType = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUserTypeId")).Text;
+        string strHomeProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingHomeProvinceId")).Text;
+        string strWorkProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingWorkProvinceId")).Text;
         bool Active = bool.Parse(((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
 
         // Bind len control
         txtADA.Text = strADA;
-        txtNguoiDaiDien.Text = strNguoiDaiDien;
-        txtSoDTBan.Text = strSoDTBan;
-        txtSoDTDD.Text = strSoDTDD;
+        txtViceGerent.Text = strViceGerent;
+        txtTelephone.Text = strTelephone;
+        txtMobile.Text = strMobile;
         txtEmail.Text = strEmail;
-        txtDiaChi.Text = strDiaChi;
-        ddlNhomNguoiDung.SelectedValue = strNhomNguoiDung;
-        ddlLoaiNguoiDung.SelectedValue = strLoaiNguoiDung;
-        ddlTinhThanhDangO.SelectedValue = strTinhThanhDangO;
-        ddlTinhThanhLamViec.SelectedValue = strTinhThanhLamViec;
+        txtAddress.Text = strAddress;
+        ddlDepartment.SelectedValue = strDepartment;
+        ddlUserType.SelectedValue = strUserType;
+        ddlHomeProvince.SelectedValue = strHomeProvince;
+        ddlWorkProvince.SelectedValue = strWorkProvince;
         chkActive.Checked = Active;
 
     }
@@ -194,12 +194,12 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lblAlerting.Text = "Bạn chưa nhập mã số amway!";
             return;
         }
-        if (txtNguoiDaiDien.Text.Trim().Length <= 0)
+        if (txtViceGerent.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập người đại diện!";
             return;
         }
-        if (txtDiaChi.Text.Trim().Length <= 0)
+        if (txtAddress.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập địa chỉ!";
             return;
@@ -217,22 +217,22 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
                 return;
             }
         }
-        if (int.Parse(ddlLoaiNguoiDung.SelectedValue) <= 0)
+        if (int.Parse(ddlUserType.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại người dùng!";
             return;
         }
-        if (int.Parse(ddlNhomNguoiDung.SelectedValue) <= 0)
+        if (int.Parse(ddlDepartment.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn nhóm người dùng!";
             return;
         }
-        if (int.Parse(ddlTinhThanhDangO.SelectedValue) <= 0)
+        if (int.Parse(ddlHomeProvince.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn tỉnh thành đang ở!";
             return;
         }
-        if (int.Parse(ddlTinhThanhLamViec.SelectedValue) <= 0)
+        if (int.Parse(ddlWorkProvince.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn tỉnh thành đang làm việc!";
             return;
@@ -242,15 +242,15 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         SYS_AMW_USER objUser = new SYS_AMW_USER();
         objUser.USERID = int.Parse(hdfUserID.Value);
         objUser.ADA = txtADA.Text.Trim();
-        objUser.VICEGERENT = txtNguoiDaiDien.Text.Trim();
-        objUser.ADDRESS = txtDiaChi.Text.Trim();
-        objUser.TELEPHONE = txtSoDTBan.Text.Trim();
-        objUser.MOBILE = txtSoDTDD.Text.Trim();
+        objUser.VICEGERENT = txtViceGerent.Text.Trim();
+        objUser.ADDRESS = txtAddress.Text.Trim();
+        objUser.TELEPHONE = txtTelephone.Text.Trim();
+        objUser.MOBILE = txtMobile.Text.Trim();
         objUser.EMAIL = txtEmail.Text.Trim();
-        objUser.USERTYPEID = int.Parse(ddlLoaiNguoiDung.SelectedValue);
-        objUser.DEPARTMENTID = int.Parse(ddlNhomNguoiDung.SelectedValue);
-        objUser.HOMEPROVINCEID = int.Parse(ddlTinhThanhDangO.SelectedValue);
-        objUser.WORKPROVINCEID = int.Parse(ddlTinhThanhLamViec.SelectedValue);
+        objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
+        objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
+        objUser.HOMEPROVINCEID = int.Parse(ddlHomeProvince.SelectedValue);
+        objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
         objUser.ACTIVE = chkActive.Checked;
         UserBO acc = new UserBO();
         if (int.Parse(hdfUserID.Value) <= 0)
@@ -285,15 +285,15 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         SYS_AMW_USER objUser = new SYS_AMW_USER();
         objUser.USERID = int.Parse(hdfUserID.Value);
         objUser.ADA = txtADA.Text.Trim();
-        objUser.VICEGERENT = txtNguoiDaiDien.Text.Trim();
-        objUser.ADDRESS = txtDiaChi.Text.Trim();
-        objUser.TELEPHONE = txtSoDTBan.Text.Trim();
-        objUser.MOBILE = txtSoDTDD.Text.Trim();
+        objUser.VICEGERENT = txtViceGerent.Text.Trim();
+        objUser.ADDRESS = txtAddress.Text.Trim();
+        objUser.TELEPHONE = txtTelephone.Text.Trim();
+        objUser.MOBILE = txtMobile.Text.Trim();
         objUser.EMAIL = txtEmail.Text.Trim();
-        objUser.USERTYPEID = int.Parse(ddlLoaiNguoiDung.SelectedValue);
-        objUser.DEPARTMENTID = int.Parse(ddlNhomNguoiDung.SelectedValue);
-        objUser.HOMEPROVINCEID = int.Parse(ddlTinhThanhDangO.SelectedValue);
-        objUser.WORKPROVINCEID = int.Parse(ddlTinhThanhLamViec.SelectedValue);
+        objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
+        objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
+        objUser.HOMEPROVINCEID = int.Parse(ddlHomeProvince.SelectedValue);
+        objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
         objUser.ACTIVE = chkActive.Checked;
         DisplayUsersInGrid(objUser);
     }

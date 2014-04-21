@@ -30,7 +30,7 @@ input, select, textarea
 }
 div#header
 {
-    height: 200px;
+    height: 150px;
     clear: both;
     overflow: hidden;
     margin: 0px 0px 1px 0px;

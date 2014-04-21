@@ -9,7 +9,7 @@ public partial class Manager_User : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (CheckPermission("man")))
+        if ((Session["UserID"] == null) || (!CheckPermission("4")))
         {
             Response.Redirect("~/home");
         }
