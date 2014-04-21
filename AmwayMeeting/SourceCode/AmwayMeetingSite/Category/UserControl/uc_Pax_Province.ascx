@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Pax_Province.ascx.cs"
-    Inherits="Category_UserControl_uc_Pax" %>
+    Inherits="Category_UserControl_uc_Pax_Province" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
         PAX - TỈNH THÀNH

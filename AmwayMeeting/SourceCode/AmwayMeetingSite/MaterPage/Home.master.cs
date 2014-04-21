@@ -30,6 +30,6 @@ public partial class MaterPage_Home : System.Web.UI.MasterPage
         UserBO objUser = new UserBO();
         PRC_SYS_AMW_USER_GETLISTBYUSERIDResult result = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
         result = objUser.UserGetListByUserID(UserID);
-        lbNickName.Text = result.VICEGERENT;
+        lbNickName.Text = result.FULLNAME;
     }
 }

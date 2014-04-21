@@ -8,11 +8,10 @@
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.SYS_AMW_USERTYPE_LEVEL" Member="SYS_AMW_USERTYPE_LEVELs">
-    <Type Name="SYS_AMW_USERTYPE_LEVEL">
+  <Table Name="dbo.SYS_AMW_USERTYPE" Member="SYS_AMW_USERTYPEs">
+    <Type Name="SYS_AMW_USERTYPE">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
@@ -42,6 +41,15 @@
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+  <Table Name="dbo.SYS_AMW_PAX_PROVINCE" Member="SYS_AMW_PAX_PROVINCEs">
+    <Type Name="SYS_AMW_PAX_PROVINCE">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.SYS_AMW_POLICY" Member="SYS_AMW_POLICies">
     <Type Name="SYS_AMW_POLICY">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -64,24 +72,22 @@
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="VICEGERENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SYS_AMW_USERTYPE" Member="SYS_AMW_USERTYPEs">
-    <Type Name="SYS_AMW_USERTYPE">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.PRC_SYS_AMW_DEPARTMENT_CBO" Method="PRC_SYS_AMW_DEPARTMENT_CBO">
@@ -209,6 +215,49 @@
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYID" Method="PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYID">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_PAX_PROVINCE_INSERT" Method="PRC_SYS_AMW_PAX_PROVINCE_INSERT">
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_PAX_PROVINCE_SEARCH" Method="PRC_SYS_AMW_PAX_PROVINCE_SEARCH">
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_PAX_PROVINCE_UPDATE" Method="PRC_SYS_AMW_PAX_PROVINCE_UPDATE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.PRC_SYS_AMW_PAX_SEARCH" Method="PRC_SYS_AMW_PAX_SEARCH">
     <Parameter Name="PAXNAME" Parameter="pAXNAME" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
@@ -285,16 +334,23 @@
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="VICEGERENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -308,16 +364,23 @@
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="VICEGERENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.PRC_SYS_AMW_USER_GETLISTBYUSERID" Method="PRC_SYS_AMW_USER_GETLISTBYUSERID">
@@ -326,16 +389,23 @@
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="VICEGERENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -345,11 +415,17 @@
   <Function Name="dbo.PRC_SYS_AMW_USER_INSERT" Method="PRC_SYS_AMW_USER_INSERT">
     <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(500)" />
-    <Parameter Name="VICEGERENT" Parameter="vICEGERENT" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FIRSTNAME" Parameter="fIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LASTNAME" Parameter="lASTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RELATIVE_FIRSTNAME" Parameter="rELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RELATIVE_LASTNAME" Parameter="rELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="ADDRESS" Parameter="aDDRESS" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="TELEPHONE" Parameter="tELEPHONE" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="MOBILE" Parameter="mOBILE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CODE" Parameter="cODE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FAX" Parameter="fAX" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ACCBANK" Parameter="aCCBANK" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
     <Parameter Name="DEPARTMENTID" Parameter="dEPARTMENTID" Type="System.Int32" DbType="Int" />
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
@@ -359,11 +435,17 @@
   </Function>
   <Function Name="dbo.PRC_SYS_AMW_USER_SEARCH" Method="PRC_SYS_AMW_USER_SEARCH">
     <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="VICEGERENT" Parameter="vICEGERENT" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FIRSTNAME" Parameter="fIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LASTNAME" Parameter="lASTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RELATIVE_FIRSTNAME" Parameter="rELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RELATIVE_LASTNAME" Parameter="rELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="ADDRESS" Parameter="aDDRESS" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="TELEPHONE" Parameter="tELEPHONE" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="MOBILE" Parameter="mOBILE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CODE" Parameter="cODE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FAX" Parameter="fAX" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ACCBANK" Parameter="aCCBANK" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
     <Parameter Name="DEPARTMENTID" Parameter="dEPARTMENTID" Type="System.Int32" DbType="Int" />
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
@@ -373,16 +455,23 @@
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="VICEGERENT" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
       <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
       <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="HOMEPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
@@ -393,11 +482,17 @@
   <Function Name="dbo.PRC_SYS_AMW_USER_UPDATE" Method="PRC_SYS_AMW_USER_UPDATE">
     <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
     <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="VICEGERENT" Parameter="vICEGERENT" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="FIRSTNAME" Parameter="fIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LASTNAME" Parameter="lASTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RELATIVE_FIRSTNAME" Parameter="rELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="RELATIVE_LASTNAME" Parameter="rELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="ADDRESS" Parameter="aDDRESS" Type="System.String" DbType="NVarChar(200)" />
     <Parameter Name="TELEPHONE" Parameter="tELEPHONE" Type="System.String" DbType="VarChar(20)" />
-    <Parameter Name="MOBILE" Parameter="mOBILE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="CODE" Parameter="cODE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="FAX" Parameter="fAX" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="EMAIL" Parameter="eMAIL" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ACCBANK" Parameter="aCCBANK" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
     <Parameter Name="DEPARTMENTID" Parameter="dEPARTMENTID" Type="System.Int32" DbType="Int" />
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
@@ -429,56 +524,6 @@
   </Function>
   <Function Name="dbo.PRC_SYS_AMW_USERTYPE_INSERT" Method="PRC_SYS_AMW_USERTYPE_INSERT">
     <Parameter Name="USERTYPENAME" Parameter="uSERTYPENAME" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_LEVEL_CBO" Method="PRC_SYS_AMW_USERTYPE_LEVEL_CBO">
-    <ElementType Name="PRC_SYS_AMW_USERTYPE_LEVEL_CBOResult">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYID" Method="PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYID">
-    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <ElementType Name="PRC_SYS_AMW_USERTYPE_LEVEL_GETLISTBYIDResult">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_LEVEL_INSERT" Method="PRC_SYS_AMW_USERTYPE_LEVEL_INSERT">
-    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERTYPE_LEVELNAME" Parameter="uSERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_LEVEL_SEARCH" Method="PRC_SYS_AMW_USERTYPE_LEVEL_SEARCH">
-    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERTYPE_LEVELNAME" Parameter="uSERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="PRC_SYS_AMW_USERTYPE_LEVEL_SEARCHResult">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="TINHTRANG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_LEVEL_UPDATE" Method="PRC_SYS_AMW_USERTYPE_LEVEL_UPDATE">
-    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERTYPE_LEVELNAME" Parameter="uSERTYPE_LEVELNAME" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />

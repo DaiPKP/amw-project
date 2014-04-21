@@ -21,15 +21,21 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         ClearTextBox();
         SYS_AMW_USER objUser = new SYS_AMW_USER();
         objUser.ADA = string.Empty;
-        objUser.VICEGERENT = string.Empty;
-        objUser.ADDRESS = string.Empty;
+        objUser.FIRSTNAME = string.Empty;
+        objUser.LASTNAME = string.Empty;
+        objUser.RELATIVE_FIRSTNAME = string.Empty;
+        objUser.RELATIVE_LASTNAME = string.Empty;
+        objUser.CODE = string.Empty;
+        objUser.ACCBANK = string.Empty;
         objUser.TELEPHONE = string.Empty;
-        objUser.MOBILE = string.Empty;
+        objUser.FAX = string.Empty;
+        objUser.ADDRESS = string.Empty;
         objUser.EMAIL = string.Empty;
         objUser.USERTYPEID = 0;
         objUser.DEPARTMENTID = 0;
         objUser.HOMEPROVINCEID = 0;
         objUser.WORKPROVINCEID = 0;
+        objUser.DESCRIPTION = string.Empty;
         objUser.ACTIVE = chkActive.Checked;
         DisplayUsersInGrid(objUser);
     }
@@ -37,19 +43,25 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
     private void ClearTextBox()
     {
         GetDepartmentCBO();
-        GetAllUserType();
-        GetAllProvince();
+        GetUserTypeBO();
+        GetProvinceCBO();
         hdfUserID.Value = "-1";
         txtADA.Text = string.Empty;
-        txtViceGerent.Text = string.Empty;
+        txtFirstName.Text = string.Empty;
+        txtLastName.Text = string.Empty;
+        txtRelativeFirstName.Text = string.Empty;
+        txtRelativeLastName.Text = string.Empty;
+        txtCode.Text = string.Empty;
+        txtAccBank.Text = string.Empty;
         txtTelephone.Text = string.Empty;
-        txtMobile.Text = string.Empty;
+        txtFax.Text = string.Empty;
         txtEmail.Text = string.Empty;
         txtAddress.Text = string.Empty;
         ddlDepartment.SelectedValue = "0";
         ddlUserType.SelectedValue = "0";
         ddlHomeProvince.SelectedValue = "0";
         ddlWorkProvince.SelectedValue = "0";
+        txtDescription.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
@@ -158,9 +170,14 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         grdUserList.EditIndex = e.NewEditIndex;
         hdfUserID.Value = grdUserList.DataKeys[e.NewEditIndex].Value.ToString();
         string strADA = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingADA")).Text;
-        string strViceGerent = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingViceGerent")).Text;
+        string strFirstName = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingFirstName")).Text;
+        string strLastName = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingLastName")).Text;
+        string strRelativeFirstName = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingRelativeFirstName")).Text;
+        string strRelativeLastName = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingRelativeLastName")).Text;
+        string strCode = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingCode")).Text;
+        string strAccBank = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingAccBank")).Text;       
         string strTelephone = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingTelephone")).Text;
-        string strMobile = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingMobile")).Text;
+        string strFax = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingFax")).Text;
         string strEmail = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingEmail")).Text;
         string strAddress = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingAddress")).Text;
         string strDepartment = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDepartmentId")).Text;
@@ -168,12 +185,19 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         string strHomeProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingHomeProvinceId")).Text;
         string strWorkProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingWorkProvinceId")).Text;
         bool Active = bool.Parse(((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
+        string strDescription = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
 
         // Bind len control
+
         txtADA.Text = strADA;
-        txtViceGerent.Text = strViceGerent;
+        txtFirstName.Text = strFirstName;
+        txtLastName.Text = strLastName;
+        txtRelativeFirstName.Text = strRelativeFirstName;
+        txtRelativeLastName.Text = strRelativeLastName;
+        txtCode.Text = strCode;
+        txtAccBank.Text = strAccBank;
         txtTelephone.Text = strTelephone;
-        txtMobile.Text = strMobile;
+        txtFax.Text = strFax;
         txtEmail.Text = strEmail;
         txtAddress.Text = strAddress;
         ddlDepartment.SelectedValue = strDepartment;
@@ -181,6 +205,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         ddlHomeProvince.SelectedValue = strHomeProvince;
         ddlWorkProvince.SelectedValue = strWorkProvince;
         chkActive.Checked = Active;
+        txtDescription.Text = strDescription;
 
     }
     protected void btnXoaTrang_Click(object sender, EventArgs e)
@@ -194,9 +219,14 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lblAlerting.Text = "Bạn chưa nhập mã số amway!";
             return;
         }
-        if (txtViceGerent.Text.Trim().Length <= 0)
+        if (txtLastName.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập người đại diện!";
+            lblAlerting.Text = "Bạn chưa nhập họ và tên đệm!";
+            return;
+        }
+        if (txtFirstName.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập tên!";
             return;
         }
         if (txtAddress.Text.Trim().Length <= 0)
@@ -242,10 +272,16 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         SYS_AMW_USER objUser = new SYS_AMW_USER();
         objUser.USERID = int.Parse(hdfUserID.Value);
         objUser.ADA = txtADA.Text.Trim();
-        objUser.VICEGERENT = txtViceGerent.Text.Trim();
-        objUser.ADDRESS = txtAddress.Text.Trim();
+        objUser.FIRSTNAME = txtFirstName.Text.Trim();
+        objUser.LASTNAME = txtLastName.Text.Trim();
+        objUser.RELATIVE_FIRSTNAME = txtRelativeFirstName.Text.Trim();
+        objUser.RELATIVE_FIRSTNAME = txtRelativeLastName.Text.Trim();
+        objUser.CODE = txtCode.Text.Trim();
+        objUser.ACCBANK = txtAccBank.Text.Trim();
         objUser.TELEPHONE = txtTelephone.Text.Trim();
-        objUser.MOBILE = txtMobile.Text.Trim();
+        objUser.FAX = txtFax.Text.Trim();
+        objUser.ADDRESS = txtAddress.Text.Trim();
+        objUser.DESCRIPTION = txtDescription.Text.Trim();
         objUser.EMAIL = txtEmail.Text.Trim();
         objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
@@ -285,10 +321,16 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         SYS_AMW_USER objUser = new SYS_AMW_USER();
         objUser.USERID = int.Parse(hdfUserID.Value);
         objUser.ADA = txtADA.Text.Trim();
-        objUser.VICEGERENT = txtViceGerent.Text.Trim();
-        objUser.ADDRESS = txtAddress.Text.Trim();
+        objUser.FIRSTNAME = txtFirstName.Text.Trim();
+        objUser.LASTNAME = txtLastName.Text.Trim();
+        objUser.RELATIVE_FIRSTNAME = txtRelativeFirstName.Text.Trim();
+        objUser.RELATIVE_LASTNAME = txtRelativeLastName.Text.Trim();
+        objUser.CODE = txtCode.Text.Trim();
+        objUser.ACCBANK = txtAccBank.Text.Trim();
         objUser.TELEPHONE = txtTelephone.Text.Trim();
-        objUser.MOBILE = txtMobile.Text.Trim();
+        objUser.FAX = txtFax.Text.Trim();
+        objUser.ADDRESS = txtAddress.Text.Trim();
+        objUser.DESCRIPTION = txtDescription.Text.Trim();
         objUser.EMAIL = txtEmail.Text.Trim();
         objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
@@ -315,8 +357,5 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         else
             return false;
     }
-    protected void grdUserList_RowCommand(object sender, GridViewCommandEventArgs e)
-    {
-
-    }
+   
 }
