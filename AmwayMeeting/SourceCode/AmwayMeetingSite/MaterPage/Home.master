@@ -286,13 +286,13 @@
             </div>
             <div class="header_right">
             </div>
-        </div>
+        </div>         
         <div>
             <ul class="topnav">
                 <uc1:uc_Menu ID="uc_Menu1" runat="server" />
             </ul>
         </div>
-        <div id="marquee">
+        <div id="marquee1">
             <div class="marquee">
                 <div style="margin: 12px;">
                     <!--span id="sphour" style="float: right;"></span-->
@@ -315,11 +315,7 @@
         </div>
         <div id="footer">
             <div class="adress">
-                <p>
-                    CÔNG TY CỔ PHẦN GIÁO DỤC ĐẠI TRƯỜNG PHÁT</p>
-                Địa chỉ: 207/6 Nguyễn Văn Thủ, Phường Đa Kao, Quận 1, TP.Hồ Chí Minh.<br />
-                ĐT: (84-8) 35 210 540 - 35 210 541 - Fax (84-8) 35 210 866 - Email: dtp@daitruongphat.com
-                <br />
+                <p>Amway</p>
             </div>
             <div class="bg_online">
                 <div class="online">
