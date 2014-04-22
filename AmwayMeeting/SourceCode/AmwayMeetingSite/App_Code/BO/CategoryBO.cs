@@ -299,4 +299,65 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+
+    public int PolicyInsert(SYS_AMW_POLICY objPolicy)
+    {
+        try
+        {
+            SYS_AMW_POLICY Policy = new SYS_AMW_POLICY();
+            Policy = objPolicy;
+            return PRC_SYS_AMW_POLICY_INSERT(Policy.PAXID, Policy.USERTYPEID, Policy.QUOTA, Policy.CONDITIONCOMBINED);
+
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    public bool PolicyUpdate(SYS_AMW_POLICY objPolicy)
+    {
+        try
+        {
+            SYS_AMW_POLICY Policy = new SYS_AMW_POLICY();
+            Policy = objPolicy;
+            int result = PRC_SYS_AMW_POLICY_UPDATE(Policy.ID, Policy.PAXID, Policy.USERTYPEID, Policy.QUOTA, Policy.CONDITIONCOMBINED);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public List<PRC_SYS_AMW_POLICY_GETLISTBYIDResult> PolicyGetListByID(int ID)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_POLICY_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_POLICY_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_POLICY_GETLISTBYID(ID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_POLICY_SEARCHResult> PolicyGet_Search(SYS_AMW_POLICY objPolicy)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_POLICY_SEARCHResult> result = new List<PRC_SYS_AMW_POLICY_SEARCHResult>();
+            result = PRC_SYS_AMW_POLICY_SEARCH(objPolicy.PAXID, objPolicy.USERTYPEID, objPolicy.QUOTA, objPolicy.CONDITIONCOMBINED).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }

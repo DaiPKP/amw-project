@@ -277,6 +277,48 @@
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_SYS_AMW_POLICY_GETLISTBYID" Method="PRC_SYS_AMW_POLICY_GETLISTBYID">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_POLICY_GETLISTBYIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUOTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CONDITIONCOMBINED" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_POLICY_INSERT" Method="PRC_SYS_AMW_POLICY_INSERT">
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUOTA" Parameter="qUOTA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CONDITIONCOMBINED" Parameter="cONDITIONCOMBINED" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_POLICY_SEARCH" Method="PRC_SYS_AMW_POLICY_SEARCH">
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUOTA" Parameter="qUOTA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CONDITIONCOMBINED" Parameter="cONDITIONCOMBINED" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_POLICY_SEARCHResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUOTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CONDITIONCOMBINED" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_POLICY_UPDATE" Method="PRC_SYS_AMW_POLICY_UPDATE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUOTA" Parameter="qUOTA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CONDITIONCOMBINED" Parameter="cONDITIONCOMBINED" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Name="dbo.PRC_SYS_AMW_PROVINCE_CBO" Method="PRC_SYS_AMW_PROVINCE_CBO">
     <ElementType Name="PRC_SYS_AMW_PROVINCE_CBOResult">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
