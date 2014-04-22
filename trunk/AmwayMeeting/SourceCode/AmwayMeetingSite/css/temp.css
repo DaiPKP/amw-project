@@ -30,10 +30,10 @@ input, select, textarea
 }
 div#header
 {
-    height: 150px;
+    height: 130px;
     clear: both;
     overflow: hidden;
-    margin: 0px 0px 1px 0px;
+    margin: 0px 0px 0px 0px;
     position: relative;
     background: url(../images/banner_top.jpg) no-repeat center top;
 }
@@ -48,6 +48,15 @@ div.header_right
     width: 160px;
     float: right;
     margin: 0px 36px 0px 0px;
+}
+
+div#marquee1
+{
+    height: 5px;
+    background: #BFCE33;
+    width: 1000px;
+    margin: 0px 0px 0px 0px;
+    overflow: hidden;
 }
 
 div#marquee
@@ -119,12 +128,12 @@ form[name=formsearch] input[type=submit]:hover
 }
 div#slide_main
 {
-    width: 995px;
+    width: 1000px;
     background: #F3F3F3;
     height: auto;
     overflow: hidden;
-    margin: 0px 0px 2px 0px;
-    padding: 0px 0px 0px 5px;
+    margin: 2px 0px 2px 0px;
+    padding: 0px 0px 0px 0px;
 }
 div#slide_main > div.left
 {
