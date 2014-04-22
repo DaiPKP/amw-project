@@ -14,7 +14,7 @@
                                 <td class="tdsearch1">
                                 </td>
                                 <td align="left" class="tdsearch2">
-                                    Tên Pax <span style="color: Red">(*)</span>:
+                                    Tên Pax<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
                                     <asp:TextBox runat="server" ID="txtPaxName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
@@ -22,7 +22,7 @@
                                 <td class="tdsearch4">
                                 </td>
                                 <td align="left" class="tdsearch5">
-                                    Ghi chú :
+                                    Ghi chú:
                                 </td>
                                 <td align="left" class="tdsearch6">
                                     <asp:TextBox runat="server" ID="txtDescription" MaxLength="50" CssClass="txtBox" Width="100%"

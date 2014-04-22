@@ -78,7 +78,7 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
     {
         if (txtDepartmentName.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập tên nhóm!";
+            lblAlerting.Text = "Bạn chưa nhập tên nhóm người dùng!";
             return;
         }
 
@@ -96,22 +96,22 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
             if (int.Parse(hdfDepartmentId.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Thêm mới bộ phận thành công!";
+                lblAlerting.Text = "Thêm mới nhóm người dùng thành công!";
             }
             else
             {
-                lblAlerting.Text = "Thêm mới bộ phận thất bại, bạn vui lòng thử lại!";
+                lblAlerting.Text = "Thêm mới nhóm người dùng thất bại, bạn vui lòng thử lại!";
             }
         }
         else
             if (bphan.DepUpdate(objDep))
             {
                 //btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Cập nhật bộ phận thành công!";
+                lblAlerting.Text = "Cập nhật nhóm người dùng thành công!";
             }
             else
             {
-                lblAlerting.Text = "Cập nhật bộ phận thất bại, bạn vui lòng thử lại!";
+                lblAlerting.Text = "Cập nhật nhóm người dùng thất bại, bạn vui lòng thử lại!";
             }
         LoadGrid();
 

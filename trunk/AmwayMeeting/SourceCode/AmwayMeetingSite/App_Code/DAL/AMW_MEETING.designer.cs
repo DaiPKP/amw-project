@@ -298,6 +298,34 @@ namespace DAL
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_POLICY_GETLISTBYID")]
+		public ISingleResult<PRC_SYS_AMW_POLICY_GETLISTBYIDResult> PRC_SYS_AMW_POLICY_GETLISTBYID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<PRC_SYS_AMW_POLICY_GETLISTBYIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_POLICY_INSERT")]
+		public int PRC_SYS_AMW_POLICY_INSERT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPEID", DbType="Int")] System.Nullable<int> uSERTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTA", DbType="Int")] System.Nullable<int> qUOTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONDITIONCOMBINED", DbType="Int")] System.Nullable<int> cONDITIONCOMBINED)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pAXID, uSERTYPEID, qUOTA, cONDITIONCOMBINED);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_POLICY_SEARCH")]
+		public ISingleResult<PRC_SYS_AMW_POLICY_SEARCHResult> PRC_SYS_AMW_POLICY_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPEID", DbType="Int")] System.Nullable<int> uSERTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTA", DbType="Int")] System.Nullable<int> qUOTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONDITIONCOMBINED", DbType="Int")] System.Nullable<int> cONDITIONCOMBINED)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pAXID, uSERTYPEID, qUOTA, cONDITIONCOMBINED);
+			return ((ISingleResult<PRC_SYS_AMW_POLICY_SEARCHResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_POLICY_UPDATE")]
+		public int PRC_SYS_AMW_POLICY_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPEID", DbType="Int")] System.Nullable<int> uSERTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTA", DbType="Int")] System.Nullable<int> qUOTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CONDITIONCOMBINED", DbType="Int")] System.Nullable<int> cONDITIONCOMBINED)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, pAXID, uSERTYPEID, qUOTA, cONDITIONCOMBINED);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_PROVINCE_CBO")]
 		public ISingleResult<PRC_SYS_AMW_PROVINCE_CBOResult> PRC_SYS_AMW_PROVINCE_CBO()
 		{
@@ -3366,6 +3394,274 @@ namespace DAL
 				if ((this._TINHTRANG != value))
 				{
 					this._TINHTRANG = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_SYS_AMW_POLICY_GETLISTBYIDResult
+	{
+		
+		private int _ID;
+		
+		private int _USERTYPEID;
+		
+		private int _PAXID;
+		
+		private int _QUOTA;
+		
+		private int _CONDITIONCOMBINED;
+		
+		private string _PAXNAME;
+		
+		private string _USERTYPENAME;
+		
+		public PRC_SYS_AMW_POLICY_GETLISTBYIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPEID", DbType="Int NOT NULL")]
+		public int USERTYPEID
+		{
+			get
+			{
+				return this._USERTYPEID;
+			}
+			set
+			{
+				if ((this._USERTYPEID != value))
+				{
+					this._USERTYPEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int NOT NULL")]
+		public int PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOTA", DbType="Int NOT NULL")]
+		public int QUOTA
+		{
+			get
+			{
+				return this._QUOTA;
+			}
+			set
+			{
+				if ((this._QUOTA != value))
+				{
+					this._QUOTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONDITIONCOMBINED", DbType="Int NOT NULL")]
+		public int CONDITIONCOMBINED
+		{
+			get
+			{
+				return this._CONDITIONCOMBINED;
+			}
+			set
+			{
+				if ((this._CONDITIONCOMBINED != value))
+				{
+					this._CONDITIONCOMBINED = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERTYPENAME
+		{
+			get
+			{
+				return this._USERTYPENAME;
+			}
+			set
+			{
+				if ((this._USERTYPENAME != value))
+				{
+					this._USERTYPENAME = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_SYS_AMW_POLICY_SEARCHResult
+	{
+		
+		private int _ID;
+		
+		private int _USERTYPEID;
+		
+		private int _PAXID;
+		
+		private int _QUOTA;
+		
+		private int _CONDITIONCOMBINED;
+		
+		private string _PAXNAME;
+		
+		private string _USERTYPENAME;
+		
+		public PRC_SYS_AMW_POLICY_SEARCHResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPEID", DbType="Int NOT NULL")]
+		public int USERTYPEID
+		{
+			get
+			{
+				return this._USERTYPEID;
+			}
+			set
+			{
+				if ((this._USERTYPEID != value))
+				{
+					this._USERTYPEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int NOT NULL")]
+		public int PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOTA", DbType="Int NOT NULL")]
+		public int QUOTA
+		{
+			get
+			{
+				return this._QUOTA;
+			}
+			set
+			{
+				if ((this._QUOTA != value))
+				{
+					this._QUOTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CONDITIONCOMBINED", DbType="Int NOT NULL")]
+		public int CONDITIONCOMBINED
+		{
+			get
+			{
+				return this._CONDITIONCOMBINED;
+			}
+			set
+			{
+				if ((this._CONDITIONCOMBINED != value))
+				{
+					this._CONDITIONCOMBINED = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERTYPENAME
+		{
+			get
+			{
+				return this._USERTYPENAME;
+			}
+			set
+			{
+				if ((this._USERTYPENAME != value))
+				{
+					this._USERTYPENAME = value;
 				}
 			}
 		}
