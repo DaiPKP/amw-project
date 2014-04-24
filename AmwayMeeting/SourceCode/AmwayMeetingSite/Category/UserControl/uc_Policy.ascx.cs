@@ -132,13 +132,13 @@ public partial class Category_UserControl_uc_Policy : System.Web.UI.UserControl
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (ddlPax.Text.Trim().Length <= 0)
+        if (int.Parse(ddlPax.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn pax!";
             return;
         }
 
-        if (ddlUserType.Text.Trim().Length <= 0)
+        if (int.Parse(ddlUserType.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn danh hiệu!";
             return;

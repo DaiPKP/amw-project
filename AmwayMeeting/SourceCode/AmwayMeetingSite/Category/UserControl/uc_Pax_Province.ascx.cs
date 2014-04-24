@@ -132,13 +132,13 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (ddlPax.Text.Trim().Length <= 0)
+        if (int.Parse(ddlPax.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn pax!";
             return;
         }
 
-        if (ddlProvince.Text.Trim().Length <= 0)
+        if (int.Parse(ddlProvince.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn tỉnh thành!";
             return;
