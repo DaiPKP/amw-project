@@ -1,0 +1,18 @@
+﻿- Form Kiểm tra và cập nhật thông tin của NPP (thông tin cá nhân)
+	+ Kiểm tra quota
+	+ Meeting History
+- Xem và xác nhận qui định
+- Form đăng ký meeting
+	+ Không hỗ trợ
+		- Có người nước ngoài
+		- Không có người nước ngoài
+	+ Đi nước ngoài
+	+ Hỗ trợ 80%
+		- Có người nước ngoài
+		- Không có người nước ngoài
+- Báo cáo sau hội họp
+
+	
+- Tìm kiếm & Approval Registry Meeting
+	
+	
