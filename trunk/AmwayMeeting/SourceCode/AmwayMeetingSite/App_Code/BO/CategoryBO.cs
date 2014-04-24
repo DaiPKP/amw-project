@@ -360,4 +360,65 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+
+    public int PeriodInsert(SYS_AMW_PERIOD objPeriod)
+    {
+        try
+        {
+            SYS_AMW_PERIOD Period = new SYS_AMW_PERIOD();
+            Period = objPeriod;
+            return PRC_SYS_AMW_PERIOD_INSERT(Period.PERIODNAME, Period.STARTDATE, Period.ENDDATE, Period.DESCRIPTION, Period.ACTIVE, Period.CREATEUSER);
+
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    public bool PeriodUpdate(SYS_AMW_PERIOD objPeriod)
+    {
+        try
+        {
+            SYS_AMW_PERIOD Period = new SYS_AMW_PERIOD();
+            Period = objPeriod;
+            int result = PRC_SYS_AMW_PERIOD_UPDATE(Period.ID, Period.PERIODNAME, Period.STARTDATE, Period.ENDDATE, Period.DESCRIPTION, Period.ACTIVE, Period.UPDATEUSER);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public List<PRC_SYS_AMW_PERIOD_GETLISTBYIDResult> PeriodGetListByID(int ID)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PERIOD_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_PERIOD_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_PERIOD_GETLISTBYID(ID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_PERIOD_SEARCHResult> PeriodGet_Search(SYS_AMW_PERIOD objPeriod)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PERIOD_SEARCHResult> result = new List<PRC_SYS_AMW_PERIOD_SEARCHResult>();
+            result = PRC_SYS_AMW_PERIOD_SEARCH(objPeriod.PERIODNAME, objPeriod.STARTDATE, objPeriod.ENDDATE, objPeriod.DESCRIPTION, objPeriod.ACTIVE).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }

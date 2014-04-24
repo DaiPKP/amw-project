@@ -52,8 +52,8 @@ div.header_right
 
 div#marquee1
 {
-    height: 5px;
-    background: #BFCE33;
+    height: 3px;
+    background: #3F913C;
     width: 1000px;
     margin: 0px 0px 0px 0px;
     overflow: hidden;
@@ -61,8 +61,8 @@ div#marquee1
 
 div#marquee
 {
-    height: 5px;
-    background: #BFCE33;
+    height: 3px;
+    background: #3F913C;
     width: 1000px;
     margin: 0px 0px 0px 0px;
     overflow: hidden;
@@ -1579,4 +1579,42 @@ ul.nav_top
     background: url(../images/bg_nav.jpg) repeat-x center top;
     height: 34px;
     position: relative;
+}
+
+
+.tdmeeting1
+{
+    width: 10px;
+}
+.tdmeeting2
+{
+    width: 230px;
+    padding-right: 0px;
+}
+.tdmeeting3
+{
+    width: 240px;
+    padding-right: 0px;
+}
+.tdmeeting4
+{
+    width: 20px;
+}
+.tdmeeting5
+{
+    width: 230px;
+    padding-right: 0px;
+}
+.tdmeeting6
+{
+    width: 240px;
+    padding-right: 0px;
+}
+.tdmeeting7
+{
+    width: 10px;
+}
+.marginLeft10
+{
+    margin-left:10px;
 }

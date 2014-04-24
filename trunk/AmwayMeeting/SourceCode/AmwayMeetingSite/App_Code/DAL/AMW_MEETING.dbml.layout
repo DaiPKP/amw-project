@@ -56,5 +56,11 @@
         <elementListCompartment Id="b5c85eff-a16c-44df-a7c2-088e4822b663" absoluteBounds="6.765, 7.21, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="3720b489-a087-4781-9341-46ebf7d8242a" absoluteBounds="5.25, 3, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/AMW_MEETINGDataContext/SYS_AMW_PERIOD" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e1829216-c1d3-432b-afea-533c82f436a3" absoluteBounds="5.265, 3.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

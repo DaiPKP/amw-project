@@ -158,6 +158,14 @@ namespace DAL
 			}
 		}
 		
+		public System.Data.Linq.Table<SYS_AMW_PERIOD> SYS_AMW_PERIODs
+		{
+			get
+			{
+				return this.GetTable<SYS_AMW_PERIOD>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_DEPARTMENT_CBO")]
 		public ISingleResult<PRC_SYS_AMW_DEPARTMENT_CBOResult> PRC_SYS_AMW_DEPARTMENT_CBO()
 		{
@@ -503,6 +511,34 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERTYPENAME, dESCRIPTION, aCTIVE);
 			return ((ISingleResult<PRC_SYS_AMW_USERTYPE_SEARCHResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_PERIOD_UPDATE")]
+		public int PRC_SYS_AMW_PERIOD_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PERIODNAME", DbType="NVarChar(50)")] string pERIODNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STARTDATE", DbType="DateTime")] System.Nullable<System.DateTime> sTARTDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENDDATE", DbType="DateTime")] System.Nullable<System.DateTime> eNDDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DESCRIPTION", DbType="NVarChar(500)")] string dESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVE", DbType="Bit")] System.Nullable<bool> aCTIVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UPDATEUSER", DbType="Int")] System.Nullable<int> uPDATEUSER)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, pERIODNAME, sTARTDATE, eNDDATE, dESCRIPTION, aCTIVE, uPDATEUSER);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_PERIOD_INSERT")]
+		public int PRC_SYS_AMW_PERIOD_INSERT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PERIODNAME", DbType="NVarChar(50)")] string pERIODNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STARTDATE", DbType="DateTime")] System.Nullable<System.DateTime> sTARTDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENDDATE", DbType="DateTime")] System.Nullable<System.DateTime> eNDDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DESCRIPTION", DbType="NVarChar(500)")] string dESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVE", DbType="Bit")] System.Nullable<bool> aCTIVE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CREATEUSER", DbType="Int")] System.Nullable<int> cREATEUSER)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pERIODNAME, sTARTDATE, eNDDATE, dESCRIPTION, aCTIVE, cREATEUSER);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_PERIOD_SEARCH")]
+		public ISingleResult<PRC_SYS_AMW_PERIOD_SEARCHResult> PRC_SYS_AMW_PERIOD_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PERIODNAME", DbType="NVarChar(50)")] string pERIODNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STARTDATE", DbType="DateTime")] System.Nullable<System.DateTime> sTARTDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ENDDATE", DbType="DateTime")] System.Nullable<System.DateTime> eNDDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DESCRIPTION", DbType="NVarChar(500)")] string dESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVE", DbType="Bit")] System.Nullable<bool> aCTIVE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pERIODNAME, sTARTDATE, eNDDATE, dESCRIPTION, aCTIVE);
+			return ((ISingleResult<PRC_SYS_AMW_PERIOD_SEARCHResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_PERIOD_GETLISTBYID")]
+		public ISingleResult<PRC_SYS_AMW_PERIOD_GETLISTBYIDResult> PRC_SYS_AMW_PERIOD_GETLISTBYID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<PRC_SYS_AMW_PERIOD_GETLISTBYIDResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2093,6 +2129,195 @@ namespace DAL
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SYS_AMW_PERIOD")]
+	public partial class SYS_AMW_PERIOD
+	{
+		
+		private int _ID;
+		
+		private string _PERIODNAME;
+		
+		private System.DateTime _STARTDATE;
+		
+		private System.DateTime _ENDDATE;
+		
+		private string _DESCRIPTION;
+		
+		private bool _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		public SYS_AMW_PERIOD()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERIODNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PERIODNAME
+		{
+			get
+			{
+				return this._PERIODNAME;
+			}
+			set
+			{
+				if ((this._PERIODNAME != value))
+				{
+					this._PERIODNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STARTDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime STARTDATE
+		{
+			get
+			{
+				return this._STARTDATE;
+			}
+			set
+			{
+				if ((this._STARTDATE != value))
+				{
+					this._STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENDDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime ENDDATE
+		{
+			get
+			{
+				return this._ENDDATE;
+			}
+			set
+			{
+				if ((this._ENDDATE != value))
+				{
+					this._ENDDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit NOT NULL")]
+		public bool ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
 			}
 		}
 	}
@@ -5884,6 +6109,472 @@ namespace DAL
 				if ((this._TINHTRANG != value))
 				{
 					this._TINHTRANG = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_SYS_AMW_PERIOD_SEARCHResult
+	{
+		
+		private int _ID;
+		
+		private string _PERIODNAME;
+		
+		private System.DateTime _STARTDATE;
+		
+		private System.DateTime _ENDDATE;
+		
+		private string _DESCRIPTION;
+		
+		private bool _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		private string _STR_STARTDATE;
+		
+		private string _STR_ENDDATE;
+		
+		private string _TINHTRANG;
+		
+		public PRC_SYS_AMW_PERIOD_SEARCHResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERIODNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PERIODNAME
+		{
+			get
+			{
+				return this._PERIODNAME;
+			}
+			set
+			{
+				if ((this._PERIODNAME != value))
+				{
+					this._PERIODNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STARTDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime STARTDATE
+		{
+			get
+			{
+				return this._STARTDATE;
+			}
+			set
+			{
+				if ((this._STARTDATE != value))
+				{
+					this._STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENDDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime ENDDATE
+		{
+			get
+			{
+				return this._ENDDATE;
+			}
+			set
+			{
+				if ((this._ENDDATE != value))
+				{
+					this._ENDDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit NOT NULL")]
+		public bool ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_STARTDATE", DbType="NVarChar(30)")]
+		public string STR_STARTDATE
+		{
+			get
+			{
+				return this._STR_STARTDATE;
+			}
+			set
+			{
+				if ((this._STR_STARTDATE != value))
+				{
+					this._STR_STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_ENDDATE", DbType="NVarChar(30)")]
+		public string STR_ENDDATE
+		{
+			get
+			{
+				return this._STR_ENDDATE;
+			}
+			set
+			{
+				if ((this._STR_ENDDATE != value))
+				{
+					this._STR_ENDDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINHTRANG", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string TINHTRANG
+		{
+			get
+			{
+				return this._TINHTRANG;
+			}
+			set
+			{
+				if ((this._TINHTRANG != value))
+				{
+					this._TINHTRANG = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_SYS_AMW_PERIOD_GETLISTBYIDResult
+	{
+		
+		private int _ID;
+		
+		private string _PERIODNAME;
+		
+		private System.DateTime _STARTDATE;
+		
+		private System.DateTime _ENDDATE;
+		
+		private string _DESCRIPTION;
+		
+		private bool _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		private string _STR_STARTDATE;
+		
+		private string _STR_ENDDATE;
+		
+		public PRC_SYS_AMW_PERIOD_GETLISTBYIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERIODNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PERIODNAME
+		{
+			get
+			{
+				return this._PERIODNAME;
+			}
+			set
+			{
+				if ((this._PERIODNAME != value))
+				{
+					this._PERIODNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STARTDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime STARTDATE
+		{
+			get
+			{
+				return this._STARTDATE;
+			}
+			set
+			{
+				if ((this._STARTDATE != value))
+				{
+					this._STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ENDDATE", DbType="DateTime NOT NULL")]
+		public System.DateTime ENDDATE
+		{
+			get
+			{
+				return this._ENDDATE;
+			}
+			set
+			{
+				if ((this._ENDDATE != value))
+				{
+					this._ENDDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit NOT NULL")]
+		public bool ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_STARTDATE", DbType="NVarChar(30)")]
+		public string STR_STARTDATE
+		{
+			get
+			{
+				return this._STR_STARTDATE;
+			}
+			set
+			{
+				if ((this._STR_STARTDATE != value))
+				{
+					this._STR_STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_ENDDATE", DbType="NVarChar(30)")]
+		public string STR_ENDDATE
+		{
+			get
+			{
+				return this._STR_ENDDATE;
+			}
+			set
+			{
+				if ((this._STR_ENDDATE != value))
+				{
+					this._STR_ENDDATE = value;
 				}
 			}
 		}
