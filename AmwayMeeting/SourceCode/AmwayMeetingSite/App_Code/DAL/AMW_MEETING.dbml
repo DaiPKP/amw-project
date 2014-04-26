@@ -687,6 +687,7 @@
       <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="AVAILABLE" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
     </ElementType>
