@@ -6851,6 +6851,8 @@ namespace DAL
 		
 		private string _ADA;
 		
+		private System.Nullable<int> _AVAILABLE;
+		
 		private string _PAXNAME;
 		
 		private string _PERIODNAME;
@@ -7079,6 +7081,22 @@ namespace DAL
 				if ((this._ADA != value))
 				{
 					this._ADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AVAILABLE", DbType="Int")]
+		public System.Nullable<int> AVAILABLE
+		{
+			get
+			{
+				return this._AVAILABLE;
+			}
+			set
+			{
+				if ((this._AVAILABLE != value))
+				{
+					this._AVAILABLE = value;
 				}
 			}
 		}
