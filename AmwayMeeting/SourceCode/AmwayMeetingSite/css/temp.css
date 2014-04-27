@@ -1618,3 +1618,15 @@ ul.nav_top
 {
     margin-left:10px;
 }
+.divImgCheckIcon {
+    float: right;
+    margin-right: 30px;
+    margin-top: 0;
+    width: 26px;
+}
+.divImgCheckIcon10 {
+    float: right;
+    margin-right:10px;
+    margin-top: 0;
+    width: 26px;
+}
