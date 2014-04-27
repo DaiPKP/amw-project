@@ -4,9 +4,6 @@
     <div class="TitlePage">
         TRA CỨU ĐĂNG KÝ HỘI HỌP
     </div>
-
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
             <asp:Panel runat="server" ID="pnlSearch">
                 <div style="text-align: left; width: 100%">
                     <fieldset>
@@ -131,6 +128,4 @@
                 </asp:GridView>
             </div>
             <asp:HiddenField ID="hdfId" runat="server" />
-        </ContentTemplate>
-    </asp:UpdatePanel>
 </div>

@@ -472,7 +472,7 @@
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            Giá phiếu nước uống<span style="color: Red">(*)</span>:
+                                            Giá phiếu nước uống:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtWATER_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="addCommas(event,this);"></asp:TextBox>
                                             đồng/phiếu.
@@ -486,7 +486,7 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2">:
+                                    <td align="left" class="tdmeeting2">Phiếu thức ăn<span style="color: Red">(*)</span>:
                                     
                                     </td>
                                     <td align="left" class="tdmeeting3">
