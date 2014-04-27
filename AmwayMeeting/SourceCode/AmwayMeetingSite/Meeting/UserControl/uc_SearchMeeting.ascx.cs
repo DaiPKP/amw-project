@@ -138,16 +138,14 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         grdList.EditIndex = e.NewEditIndex;
         hdfId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
         //kiem tra xem no thuoc loai hoi hop gi nua?
+       // string strUrl = @System.Configuration.ConfigurationManager.AppSettings["AbsoluteUri"].ToString() + "meeting/notsuportcostview_" + hdfId.Value;
 
-        Page page = (Page)HttpContext.Current.Handler;
-        string strURL= "~/notsuportcostview_"+hdfId.Value;
-        strURL = page.ResolveClientUrl(strURL); 
-        Response.Redirect(strURL);
-        
+        string strUrl = @"../meeting/notsuportcostview_" + hdfId.Value;
 
+        Response.Redirect(strUrl);
     }
     protected void btnXoaTrang_Click(object sender, EventArgs e)
-    {
+    { 
         ClearTextBox();
     }
     
