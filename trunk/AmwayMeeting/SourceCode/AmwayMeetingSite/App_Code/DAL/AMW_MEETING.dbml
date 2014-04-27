@@ -1294,4 +1294,84 @@
     <Parameter Name="SPEAKER_NATION_2" Parameter="sPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID" Method="PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID">
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ORGANIZER_ADAID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ORGANIZER_USERTYPENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ORGANIZER_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ORGANIZER_EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ORGANIZER_ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ORGANIZER_TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MEETINGNAME" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="NUMBER_OF_PARTICIPANT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MEETING_PLACE_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MEETING_ADDRESS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="COUNTRYNAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="MEETING_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DEPARTURE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ARRIVAL_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MEETING_STARTDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MEETING_ENDDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MEETING_TIME" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="FORMS_OF_PAYMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INVITATIONID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BANNERID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SEND_INVITATION_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="WATER" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WATER_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="FOOD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FOOD_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="AMWAY_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DISTRIBUTOR_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MEETINGTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS_MEETING_PAYMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STATUS_MEETING_REGISTERID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FOREIGNER" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="REPORTED" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_ADAID_1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_USERTYPENAME_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_NAME_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_ADAID_2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_USERTYPENAME_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_NAME_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_ADAID_3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_USERTYPENAME_3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CO_ORGANIZER_NAME_3" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_ADAID_1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_USERTYPENAME_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_NAME_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_TITLE_1" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SPEAKER_NATION_1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_ADAID_2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_USERTYPENAME_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_NAME_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SPEAKER_TITLE_2" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STR_MEETING_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STR_DEPARTURE_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STR_ARRIVAL_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STR_MEETING_STARTDATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STR_MEETING_ENDDATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STR_CREATEDATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="STR_SEND_INVITATION_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FORMS_OF_PAYMENT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="STATUS_INVITATION" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="STATUS_MEETING_PAYMENTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS_MEETING_REGISTERNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="STATUS_BANNER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="BANNERNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
 </Database>
