@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Profile.ascx.cs" Inherits="Distributor_UserControl_uc_Profile" %>
-<div style="min-height: 800px; height: auto">
+<div style="min-height: 600px; height: auto">
     <div class="TitlePage">
         Thông Tin Tài Khoản
     </div>
@@ -149,9 +149,9 @@
                 Lịch Sử Đăng Ký Hội Họp
             </div>
             <div id="divMeetingHistory" style="text-align:center;">
-                <asp:GridView ID="grdMeetingList" runat="server" AutoGenerateColumns="false" DataKeyNames="UserID"
+                <asp:GridView ID="grdMeetingList" runat="server" AutoGenerateColumns="false" DataKeyNames="ID"
                     Width="100%" CssClass="grid" AllowPaging="True"
-                    PageSize="20">
+                    PageSize="20" OnPageIndexChanging="grdMeetingList_PageIndexChanging" OnRowEditing="grdMeetingList_RowEditing">
                     <Columns>
                         <asp:TemplateField HeaderText="Loại hội họp">
                             <ItemTemplate>
@@ -160,7 +160,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Ngày hội họp">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingMEETING_STARTDATE" runat="server" Text='<%# Eval("MEETING_STARTDATE") %>'></asp:Label>
+                                <asp:Label ID="lblListingMEETING_STARTDATE" runat="server" Text='<%# Eval("STR_MEETING_STARTDATE") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Giờ họp">
@@ -180,22 +180,22 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Có yếu tố nước ngoài">
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkListingFOREIGNER" runat="server" Checked='<%# Eval("FOREIGNER") %>'></asp:CheckBox>
+                                <asp:CheckBox ID="chkListingFOREIGNER" runat="server" Checked='<%# Eval("FOREIGNER") %>' Enabled="false"></asp:CheckBox>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Đã lập báo cáo">
                             <ItemTemplate>
-                                <asp:CheckBox ID="chkListingREPORTED" runat="server" Checked='<%# Eval("REPORTED") %>'></asp:CheckBox>
+                                <asp:CheckBox ID="chkListingREPORTED" runat="server" Checked='<%# Eval("REPORTED") %>' Enabled ="false"></asp:CheckBox>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Tráng thái">
+                        <asp:TemplateField HeaderText="Trạng thái">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingSTATUS" runat="server" Text='<%# Eval("STATUSNAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingSTATUS" runat="server" Text='<%# Eval("STATUS_MEETING_REGISTERNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField ItemStyle-HorizontalAlign="Center">
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center"> 
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnListingView" runat="server" Text="Xem" CommandName="View"
+                                <asp:LinkButton ID="btnListingView" runat="server" Text="Xem" CommandName="Edit"
                                     CommandArgument='<%# Eval("ID") %>' Font-Underline="false" />
                             </ItemTemplate>
                         </asp:TemplateField>
@@ -203,7 +203,7 @@
                     <PagerStyle CssClass="pager" HorizontalAlign="Right" />
                 </asp:GridView>
             </div>
-            <asp:HiddenField ID="hdfUserID" runat="server" />
+            <asp:HiddenField ID="hdfMeetingID" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>
