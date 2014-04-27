@@ -421,4 +421,96 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult> FormsOfPaymentGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult> result = new List<PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult>();
+            result = PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_STATUS_INVITATION_CBOResult> InvitationGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_STATUS_INVITATION_CBOResult> result = new List<PRC_SYS_AMW_STATUS_INVITATION_CBOResult>();
+            result = PRC_SYS_AMW_STATUS_INVITATION_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_STATUS_MEETING_PAYMENT_CBOResult> StatusMeetingPaymentGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_STATUS_MEETING_PAYMENT_CBOResult> result = new List<PRC_SYS_AMW_STATUS_MEETING_PAYMENT_CBOResult>();
+            result = PRC_SYS_AMW_STATUS_MEETING_PAYMENT_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_STATUS_MEETING_REGISTER_CBOResult> StatusMeetingRegisterGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_STATUS_MEETING_REGISTER_CBOResult> result = new List<PRC_SYS_AMW_STATUS_MEETING_REGISTER_CBOResult>();
+            result = PRC_SYS_AMW_STATUS_MEETING_REGISTER_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_SYS_AMW_STATUS_MEETING_REGISTER_APPROVAL_CBOResult> StatusMeetingRegisterGet_ApprovalCBO(int statusId)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_STATUS_MEETING_REGISTER_APPROVAL_CBOResult> result = new List<PRC_SYS_AMW_STATUS_MEETING_REGISTER_APPROVAL_CBOResult>();
+            result = PRC_SYS_AMW_STATUS_MEETING_REGISTER_APPROVAL_CBO(statusId).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_STATUS_BANNER_CBOResult> StatusBannerGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_STATUS_BANNER_CBOResult> result = new List<PRC_SYS_AMW_STATUS_BANNER_CBOResult>();
+            result = PRC_SYS_AMW_STATUS_BANNER_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> PlaceGet_ByProvinceId(int provinceId)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> result = new List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult>();
+            result = PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEID(provinceId).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }

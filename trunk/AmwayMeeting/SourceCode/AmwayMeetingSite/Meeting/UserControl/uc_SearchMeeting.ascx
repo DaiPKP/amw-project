@@ -1,8 +1,8 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Policy.ascx.cs"
-    Inherits="Category_UserControl_uc_Policy" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SearchMeeting.ascx.cs"
+    Inherits="Meeting_UserControl_uc_SearchMeeting" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        POLICY
+        TRA CỨU ĐĂNG KÝ HỘI HỌP
     </div>
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -13,20 +13,18 @@
                         <table width="100%">
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Chọn pax<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Mã số ADA:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="102.5%">
-                                    </asp:DropDownList>
+                                    <asp:TextBox runat="server" ID="txtADA" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch4"></td>
-                                <td align="left" class="tdsearch5">Chọn danh hiệu<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch5">Tình trạng đăng ký:
+
                                 </td>
                                 <td align="left" class="tdsearch6">
-
-                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="102.5%">
+                                      <asp:DropDownList ID="ddlSTATUS_MEETING_REGISTERID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
                                     </asp:DropDownList>
-
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -35,18 +33,37 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Quota:<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Pax:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox runat="server" ID="txtQuota" MaxLength="50" CssClass="txtBox" Width="100%"
-                                        onKeyUp="addCommas(event,this);"></asp:TextBox>
+                                    <asp:DropDownList ID="ddlPAXID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                                    </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
-                                <td align="left" class="tdsearch5">Điều kiện tổ chức<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch5">Tỉnh thành:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:TextBox runat="server" ID="txtConditionCombined" MaxLength="50" CssClass="txtNumberBox" Width="100%"
-                                        onKeyUp="addCommas(event,this);"></asp:TextBox>
+                                    <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                            <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Người nước ngoài:
+                                  
+                                </td>
+                                <td align="left" class="tdsearch3">
+                                    <asp:CheckBox id="chkHaveForeign" runat="server" Checked="false" />
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">Báo cáo:
+                                </td>
+                                <td align="left" class="tdsearch6">
+                                      <asp:CheckBox id="chkIsReport" runat="server" Checked="false" />
                                 </td>
                                 <td class="tdsearch7"></td>
                             </tr>
@@ -60,8 +77,6 @@
                                     <asp:Button CssClass="btn_admin" ID="btnSearch" runat="server" Text="Tìm kiếm" OnClick="btnSearch_Click" />&nbsp;&nbsp;
                                     <asp:Button CssClass="btn_admin" ID="btnXoaTrang" runat="server" Text="Xóa trắng"
                                         OnClick="btnXoaTrang_Click" />
-                                    &nbsp;&nbsp;
-                                    <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Thêm mới" OnClick="btnSave_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -75,39 +90,39 @@
                     Width="100%" CssClass="grid" AllowPaging="True"
                     PageSize="20" OnRowEditing="grdList_RowEditing" OnPageIndexChanging="grdList_PageIndexChanging">
                     <Columns>
-                        <asp:TemplateField HeaderText="Pax">
+                        <asp:TemplateField HeaderText="Mã số ADA">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingPaxName" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingORGANIZER_ADAID" runat="server" Text='<%# Eval("ORGANIZER_ADAID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Danh hiệu">
+                         <asp:TemplateField HeaderText="Họ tên người đăng ký">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingProvinceName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingORGANIZER_NAME" runat="server" Text='<%# Eval("ORGANIZER_NAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Quota" ItemStyle-HorizontalAlign="Right">
+                        <asp:TemplateField HeaderText="Ngày đăng ký">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingQuota" runat="server" Text='<%# string.Format("{0:N0}", Eval("QUOTA")) %>'>></asp:Label>
+                                <asp:Label ID="lblListingCREATEDATE" runat="server" Text='<%# Eval("STR_CREATEDATE") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Điều kiện tổ chức" ItemStyle-HorizontalAlign="Right">
+                        <asp:TemplateField HeaderText="Tên pax">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingConditionCombined" runat="server" Text='<%# string.Format("{0:N0}", Eval("CONDITIONCOMBINED")) %>'>></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>                       
-                        <asp:TemplateField HeaderText="PaxId" Visible="false">
-                            <ItemTemplate>
-                                <asp:Label ID="lblListingPaxId" runat="server" Text='<%# Eval("PAXID") %>'></asp:Label>
+                                <asp:Label ID="lblListingPAXNAME" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="UserTypeId" Visible="false">
+                        <asp:TemplateField HeaderText="Tỉnh thành" >
                             <ItemTemplate>
-                                <asp:Label ID="lblListingUserTypeId" runat="server" Text='<%# Eval("USERTYPEID") %>'></asp:Label>
+                                <asp:Label ID="lblListingPROVINCENAME" runat="server" Text='<%# Eval("PROVINCENAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Tình trạng">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingTinhTrang" runat="server" Text='<%# Eval("STATUS_MEETING_REGISTERNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                             <ItemTemplate>
-                                <asp:LinkButton ID="btnListingEdit" runat="server" Text="Sửa" CommandName="Edit"
+                                <asp:LinkButton ID="btnListingEdit" runat="server" Text="Xem" CommandName="Edit"
                                     Font-Underline="false" />
                             </ItemTemplate>
                         </asp:TemplateField>
