@@ -278,9 +278,10 @@
                                         đến&nbsp;&nbsp;
                                         <asp:Label ID="lblMEETING_ENDDATE" CssClass="lblMeeting" runat="server" Width="100px"></asp:Label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        Giờ họp(không quá 22 giờ)<span style="color: Red">(*)</span>:
+                                        Giờ họp(không quá 22 giờ):
                                         <div style="float: right; margin-right: 4px;">
-                                            <asp:Label ID="lblMEETING_TIME" runat="server" Width="150px" CssClass="lblMeeting"></asp:Label>
+                                            <asp:Label ID="lblMEETING_TIME" runat="server" Width="250px" CssClass="lblMeeting"></asp:Label>
+                                            
                                         </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
@@ -377,8 +378,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ <div id="divHaveForeign" runat="server" visible="true">
-                                            NGƯỜI NƯỚC NGOÀI</div></b>
+                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ <asp:Label ID="lblFOREIGNER" runat="server" Width="200px"></asp:Label></b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -480,7 +480,7 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Tình trạng hiện tại: </td>
+                                    <td align="left" class="tdmeeting5">Tình trạng đăng ký: </td>
                                     <td align="left" class="tdmeeting6"><asp:Label ID="lblSTATTUS_MEETING_REGISTERNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>

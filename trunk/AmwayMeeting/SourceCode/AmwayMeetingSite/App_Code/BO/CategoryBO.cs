@@ -500,6 +500,20 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+    public List<PRC_SYS_AMW_MEETING_TYPE_CBOResult> MeetingType_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_MEETING_TYPE_CBOResult> result = new List<PRC_SYS_AMW_MEETING_TYPE_CBOResult>();
+            result = PRC_SYS_AMW_MEETING_TYPE_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> PlaceGet_ByProvinceId(int provinceId)
     {
         try

@@ -76,7 +76,7 @@
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Mã số ADA<span style="color: Red">(*)</span>:
                                     <asp:TextBox ID="txtORGANIZER_ADAID" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
-                                        <asp:HiddenField ID="hdfORGANIZER_ADAID" runat="server"></asp:HiddenField>
+                                        <asp:HiddenField ID="hdfORGANIZER_USERID" runat="server"></asp:HiddenField>
                                         &nbsp;
 
                                         <div class="divImgCheckIcon">
@@ -198,7 +198,7 @@
                                         <div class="marginLeft10">
                                             1. Mã số ADA:
                                     <asp:TextBox ID="txtCO_ORGANIZER_ADAID_1" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
-                                            <asp:HiddenField ID="hdfCO_ORGANIZER_ADAID_1" runat="server"></asp:HiddenField>
+                                             <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_1" runat="server"></asp:HiddenField>
                                             <div class="divImgCheckIcon10">
                                                 <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ADA1_CHECK" runat="server" Height="23px"
                                                     ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnCO_ORGANIZER_ADA1_CHECK_Click" />
@@ -236,7 +236,7 @@
                                         <div class="marginLeft10">
                                             2. Mã số ADA:
                                     <asp:TextBox ID="txtCO_ORGANIZER_ADAID_2" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
-                                            <asp:HiddenField ID="hdfCO_ORGANIZER_ADAID_2" runat="server"></asp:HiddenField>
+                                            <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_2" runat="server"></asp:HiddenField>
                                             <div class="divImgCheckIcon10">
                                                 <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ADA2_CHECK" runat="server" Height="23px"
                                                     ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnCO_ORGANIZER_ADA2_CHECK_Click" />
@@ -274,7 +274,7 @@
                                         <div class="marginLeft10">
                                             3. Mã số ADA:
                                     <asp:TextBox ID="txtCO_ORGANIZER_ADAID_3" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
-                                            <asp:HiddenField ID="hdfCO_ORGANIZER_ADAID_3" runat="server"></asp:HiddenField>
+                                            <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_3" runat="server"></asp:HiddenField>
                                             <div class="divImgCheckIcon10">
                                                 <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ADA3_CHECK" runat="server" Height="23px"
                                                     ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnCO_ORGANIZER_ADA3_CHECK_Click" />
@@ -584,8 +584,9 @@
                                     <td align="left" class="tdmeeting5">Danh hiệu:
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
                                     </td>
-                                    <td align="left" class="tdmeeting6">Quốc tịch:
+                                    <td align="left" class="tdmeeting6">
                                          <div style="float: right; margin-right: 4px">
+                                             Quốc tịch:
                                              <asp:TextBox ID="txtSPEAKER_NATION_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
                                          </div>
                                     </td>

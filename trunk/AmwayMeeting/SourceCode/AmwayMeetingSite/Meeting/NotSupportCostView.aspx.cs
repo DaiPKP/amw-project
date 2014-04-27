@@ -16,7 +16,15 @@ public partial class Meeting_NotSupportCostView : System.Web.UI.Page
         else
         {
             int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
-            uc_NotSupportCostView1._ID = id;
+            if (id<=0)
+            {
+                Response.Redirect("~/home");
+            }
+            else
+            {
+                uc_NotSupportCostView1._ID = id;
+            }
+           
         }
 
     }
