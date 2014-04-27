@@ -97,7 +97,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
     {
         grdMeetingList.EditIndex = e.NewEditIndex;
         hdfMeetingID.Value = grdMeetingList.DataKeys[e.NewEditIndex].Value.ToString();
-        string strURL = "distributor/Meetingview_" + hdfMeetingID.Value;
+        string strURL = "../meeting/notsupportcostR" + hdfMeetingID.Value;
         Response.Redirect(strURL);
     }
     private bool CheckEmail(string strEmail)

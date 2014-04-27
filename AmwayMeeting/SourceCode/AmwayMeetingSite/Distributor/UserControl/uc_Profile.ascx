@@ -6,8 +6,6 @@
     <div class="menuTitle">
         Thông Tin Cá Nhân
     </div>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
             <asp:Panel runat="server" ID="pnlSearch">
                 <div style="text-align: left; width: 100%">
                     <fieldset>
@@ -204,6 +202,4 @@
                 </asp:GridView>
             </div>
             <asp:HiddenField ID="hdfMeetingID" runat="server" />
-        </ContentTemplate>
-    </asp:UpdatePanel>
 </div>

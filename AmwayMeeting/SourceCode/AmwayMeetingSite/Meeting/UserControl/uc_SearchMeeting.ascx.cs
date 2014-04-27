@@ -19,27 +19,53 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
     {
         ClearTextBox();
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
-        obj.ORGANIZER_ADAID = string.Empty;
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.REPORTED = chkIsReport.Checked;
         obj.FOREIGNER = chkHaveForeign.Checked;
-        DisplayInGrid(obj);
+        DisplayInGrid(string.Empty,obj);
     }
 
     private void ClearTextBox()
     {
         GetPaxCBO();
+        GetMeetingTypeCBO();
         GetStatusMeetingRegisterCBO();
         GetProvinceCBO();
         hdfId.Value = "-1";
         txtADA.Text = string.Empty;
         ddlPAXID.SelectedValue = "0";
         ddlPROVINCEID.SelectedValue = "0";
+        ddlMEETINGTYPEID.SelectedValue = "0";
         ddlSTATUS_MEETING_REGISTERID.SelectedValue = "0";
         chkHaveForeign.Checked = false;
         chkIsReport.Checked = false;
+    }
+
+    private void GetMeetingTypeCBO()
+    {
+        try
+        {
+            CategoryBO objBO = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_MEETING_TYPE_CBOResult> lst = new List<DAL.PRC_SYS_AMW_MEETING_TYPE_CBOResult>();
+            lst = objBO.MeetingType_CBO().ToList();
+            if (lst != null)
+            {
+                ddlMEETINGTYPEID.DataSource = lst;
+                ddlMEETINGTYPEID.DataTextField = "MEETINGTYPENAME";
+                ddlMEETINGTYPEID.DataValueField = "ID";
+                ddlMEETINGTYPEID.DataBind();
+
+                ListItem lstParent = new ListItem("--Tất cả--", "0");
+                ddlMEETINGTYPEID.Items.Insert(0, lstParent);
+                ddlMEETINGTYPEID.SelectedIndex = ddlMEETINGTYPEID.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
     }
 
     private void GetStatusMeetingRegisterCBO()
@@ -113,11 +139,11 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         {
         }
     }
-    protected void DisplayInGrid(USR_AMW_MEETING_REGISTER obj)
+    protected void DisplayInGrid(string strADA,USR_AMW_MEETING_REGISTER obj)
     {
         MeetingBO objBO = new MeetingBO();
         List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> lst = new List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>();
-        lst = objBO.Meeting_Search(obj).ToList();
+        lst = objBO.Meeting_Search(strADA,obj).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
@@ -138,11 +164,9 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         grdList.EditIndex = e.NewEditIndex;
         hdfId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
         //kiem tra xem no thuoc loai hoi hop gi nua?
-       // string strUrl = @System.Configuration.ConfigurationManager.AppSettings["AbsoluteUri"].ToString() + "meeting/notsuportcostview_" + hdfId.Value;
+       string strUrl = "../meeting/notsuportcostviewR" + hdfId.Value;
 
-        string strUrl = @"../meeting/notsuportcostview_" + hdfId.Value;
-
-        Response.Redirect(strUrl);
+       Response.Redirect(strUrl);
     }
     protected void btnXoaTrang_Click(object sender, EventArgs e)
     { 
@@ -152,13 +176,14 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
     private void LoadGrid()
     {
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
-        obj.ORGANIZER_ADAID = txtADA.Text.Trim();
+       
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.REPORTED = chkIsReport.Checked;
         obj.FOREIGNER = chkHaveForeign.Checked;
-        DisplayInGrid(obj);
+        DisplayInGrid(txtADA.Text.Trim(),obj);
     }
 
 

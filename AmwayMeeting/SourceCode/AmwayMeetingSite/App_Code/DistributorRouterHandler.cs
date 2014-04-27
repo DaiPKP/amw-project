@@ -29,7 +29,7 @@ public class DistributorRouterHandler : IRouteHandler
 
                 default:
                     {
-                        return BuildManager.CreateInstanceFromVirtualPath("~/Distributo/Profile.aspx", typeof(Page)) as Page;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/Profile.aspx", typeof(Page)) as Page;
                     }
 
             }

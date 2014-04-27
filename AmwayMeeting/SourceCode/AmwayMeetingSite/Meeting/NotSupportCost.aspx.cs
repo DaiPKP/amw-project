@@ -13,7 +13,13 @@ public partial class Meeting_NotSupportCost : System.Web.UI.Page
         {
             Response.Redirect("~/home");
         }
-      
+        else
+        {
+            int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
+
+            uc_NotSupportCost1._ID = id;
+        }
+
     }
     private bool CheckPermission(string func)
     {
