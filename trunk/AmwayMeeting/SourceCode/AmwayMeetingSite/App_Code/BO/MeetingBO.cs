@@ -132,4 +132,18 @@ public class MeetingBO : AMW_MEETINGDataContext
         }
     }
 
+    public List<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult> MeetingGet_ListByUserID(int Id)
+    {
+        try
+        {
+            List<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult> result = new List<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult>();
+            result = PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID(Id).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
 }
