@@ -38,6 +38,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         objUser.ACTIVE = true;
         LoadDistributorInfo(int.Parse(Session["UserID"].ToString()));
         DisplayQuotaInGrid(int.Parse(Session["UserID"].ToString()));
+        DisplayMeetingHistory(int.Parse(Session["UserID"].ToString()));
     }
     private void LoadDistributorInfo(int DistID)
     {
@@ -73,6 +74,32 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         }
         grdQuotaList.DataBind();
     }
+    private void DisplayMeetingHistory(int DistID)
+    {
+        MeetingBO meeting = new MeetingBO();
+        List<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult> list = new List<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult>();
+        list = meeting.MeetingGet_ListByUserID(DistID).ToList();
+        grdMeetingList.DataSource = list;
+        if (list.Count > 0)
+        {
+            grdMeetingList.PageIndex = 0;
+        }
+        grdMeetingList.DataBind();
+    }
+
+    protected void grdMeetingList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        DisplayMeetingHistory(int.Parse(Session["UserID"].ToString()));
+        grdMeetingList.PageIndex = e.NewPageIndex;
+        grdMeetingList.DataBind();
+    }
+    protected void grdMeetingList_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        grdMeetingList.EditIndex = e.NewEditIndex;
+        hdfMeetingID.Value = grdMeetingList.DataKeys[e.NewEditIndex].Value.ToString();
+        string strURL = "distributor/Meetingview_" + hdfMeetingID.Value;
+        Response.Redirect(strURL);
+    }
     private bool CheckEmail(string strEmail)
     {
         string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
@@ -83,5 +110,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         else
             return false;
     }
-   
+
+
+    
 }
