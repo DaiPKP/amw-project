@@ -28,6 +28,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             btnSave.Text = "Cập nhật";
             LoadData(int.Parse(hdfID.Value));
         }
+        else
+        {
+            GetInfoUserLogin(int.Parse(Session["UserID"].ToString()));
+
+        }
     }
 
     private void LoadData(int Id)
@@ -38,101 +43,107 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         result = objBO.MeetingGet_ListByID(Id);
         if (result != null)
         {
-            txtORGANIZER_ADAID.Text = result.ORGANIZER_ADAID == null ? string.Empty : result.ORGANIZER_ADAID;
-            lblORGANIZER_NAME.Text = result.ORGANIZER_NAME == null ? string.Empty : result.ORGANIZER_NAME;
-            lblORGANIZER_EMAIL.Text = result.ORGANIZER_EMAIL == null ? string.Empty : result.ORGANIZER_EMAIL;
-            lblORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS == null ? string.Empty : result.ORGANIZER_ADDRESS;
-            lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
-            lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
-            ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
-            ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
-
-            txtCO_ORGANIZER_ADAID_1.Text = result.CO_ORGANIZER_ADAID_1 == null ? string.Empty : result.CO_ORGANIZER_ADAID_1;
-            lblCO_ORGANIZER_NAME_1.Text = result.CO_ORGANIZER_NAME_1 == null ? string.Empty : result.CO_ORGANIZER_NAME_1;
-            lblCO_ORGANIZER_USERTYPENAME_1.Text = result.CO_ORGANIZER_USERTYPENAME_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_1;
-            txtCO_ORGANIZER_ADAID_2.Text = result.CO_ORGANIZER_ADAID_2 == null ? string.Empty : result.CO_ORGANIZER_ADAID_2;
-            lblCO_ORGANIZER_NAME_2.Text = result.CO_ORGANIZER_NAME_2 == null ? string.Empty : result.CO_ORGANIZER_NAME_2;
-            lblCO_ORGANIZER_USERTYPENAME_2.Text = result.CO_ORGANIZER_USERTYPENAME_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_2;
-            txtCO_ORGANIZER_ADAID_3.Text = result.CO_ORGANIZER_ADAID_3 == null ? string.Empty : result.CO_ORGANIZER_ADAID_3;
-            lblCO_ORGANIZER_NAME_3.Text = result.CO_ORGANIZER_NAME_3 == null ? string.Empty : result.CO_ORGANIZER_NAME_3;
-            lblCO_ORGANIZER_USERTYPENAME_3.Text = result.CO_ORGANIZER_USERTYPENAME_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_3;
-            txtMEETINGNAME.Text = result.MEETINGNAME == null ? string.Empty : result.MEETINGNAME;
-            txtNUMBER_OF_PARTICIPANT.Text = result.NUMBER_OF_PARTICIPANT == null ? string.Empty : string.Format("{0:N0}", result.NUMBER_OF_PARTICIPANT);
-            txtMEETING_PLACE_NAME.Text = result.MEETING_PLACE_NAME == null ? string.Empty : result.MEETING_PLACE_NAME;
-            txtMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
-            txtMEETING_ENDDATE.Text = result.MEETING_ENDDATE == null ? string.Empty : result.STR_MEETING_ENDDATE;
-            txtMEETING_STARTDATE.Text = result.MEETING_STARTDATE == null ? string.Empty : result.STR_MEETING_STARTDATE;
-            txtMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
-            ddlINVITATIONID.SelectedValue = result.INVITATIONID == null ? string.Empty : result.INVITATIONID.ToString();
-            ddlBANNERID.SelectedValue = result.BANNERID == null ? string.Empty : result.BANNERID.ToString();
-            txtSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
-            chkForeigner.Checked = result.FOREIGNER ?? false;
-            ddlWATER.SelectedValue = result.WATER.ToString();
-            ddlFOOD.SelectedValue = result.FOOD.ToString();
-            txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE.ToString());
-            txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE.ToString());
-            txtSPEAKER_TITLE_1.Text = result.SPEAKER_TITLE_1 == null ? string.Empty : result.SPEAKER_TITLE_1;
-            txtSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
-            txtSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
-            txtSPEAKER_USERTYPENAME_1.Text = result.SPEAKER_USERTYPENAME_1 == null ? string.Empty : result.SPEAKER_USERTYPENAME_1;
-            txtSPEAKER_NATION_1.Text = result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
-            txtSPEAKER_TITLE_2.Text = result.SPEAKER_TITLE_2 == null ? string.Empty : result.SPEAKER_TITLE_2;
-            txtSPEAKER_ADAID_2.Text = result.SPEAKER_ADAID_2 == null ? string.Empty : result.SPEAKER_ADAID_2;
-            txtSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
-            txtSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
-            txtSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
-
-            hdfORGANIZER_QUOTA_CHECK.Value = "true";
-            hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "true";
-            hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "true";
-            hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "true";
-            hdfORGANIZER_QUOTA_CHECK.Value = "true";
-            hdfCO_ORGANIZER_USERID_1.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
-            hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
-            hdfCO_ORGANIZER_USERID_3.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
-            hdfORGANIZER_USERID.Value = result.ORGANIZER_USERID == null ? string.Empty : result.ORGANIZER_USERID.ToString();
-            hdfORGANIZER_USERTYPEID.Value = result.ORGANIZER_USERTYPEID == null ? string.Empty : result.ORGANIZER_USERTYPEID.ToString();
-            hdfCO_ORGANIZER_USERTYPEID_1.Value = result.CO_ORGANIZER_USERTYPEID_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_1.ToString();
-            hdfCO_ORGANIZER_USERTYPEID_2.Value = result.CO_ORGANIZER_USERTYPEID_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_2.ToString();
-            hdfCO_ORGANIZER_USERTYPEID_3.Value = result.CO_ORGANIZER_USERTYPEID_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_3.ToString();
-            if (result.STATUS_MEETING_REGISTERID>1)
+            if ((int.Parse(Session["UserID"].ToString()) == result.ORGANIZER_USERID) && (result.ORGANIZER_USERID == result.CREATEUSER))
             {
-                btnSave.Visible = false;
+                txtORGANIZER_ADAID.Text = result.ORGANIZER_ADAID == null ? string.Empty : result.ORGANIZER_ADAID;
+                lblORGANIZER_NAME.Text = result.ORGANIZER_NAME == null ? string.Empty : result.ORGANIZER_NAME;
+                lblORGANIZER_EMAIL.Text = result.ORGANIZER_EMAIL == null ? string.Empty : result.ORGANIZER_EMAIL;
+                lblORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS == null ? string.Empty : result.ORGANIZER_ADDRESS;
+                lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
+                lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
+                ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
+                ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
+
+                txtCO_ORGANIZER_ADAID_1.Text = result.CO_ORGANIZER_ADAID_1 == null ? string.Empty : result.CO_ORGANIZER_ADAID_1;
+                lblCO_ORGANIZER_NAME_1.Text = result.CO_ORGANIZER_NAME_1 == null ? string.Empty : result.CO_ORGANIZER_NAME_1;
+                lblCO_ORGANIZER_USERTYPENAME_1.Text = result.CO_ORGANIZER_USERTYPENAME_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_1;
+                txtCO_ORGANIZER_ADAID_2.Text = result.CO_ORGANIZER_ADAID_2 == null ? string.Empty : result.CO_ORGANIZER_ADAID_2;
+                lblCO_ORGANIZER_NAME_2.Text = result.CO_ORGANIZER_NAME_2 == null ? string.Empty : result.CO_ORGANIZER_NAME_2;
+                lblCO_ORGANIZER_USERTYPENAME_2.Text = result.CO_ORGANIZER_USERTYPENAME_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_2;
+                txtCO_ORGANIZER_ADAID_3.Text = result.CO_ORGANIZER_ADAID_3 == null ? string.Empty : result.CO_ORGANIZER_ADAID_3;
+                lblCO_ORGANIZER_NAME_3.Text = result.CO_ORGANIZER_NAME_3 == null ? string.Empty : result.CO_ORGANIZER_NAME_3;
+                lblCO_ORGANIZER_USERTYPENAME_3.Text = result.CO_ORGANIZER_USERTYPENAME_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_3;
+                txtMEETINGNAME.Text = result.MEETINGNAME == null ? string.Empty : result.MEETINGNAME;
+                txtNUMBER_OF_PARTICIPANT.Text = result.NUMBER_OF_PARTICIPANT == null ? string.Empty : string.Format("{0:N0}", result.NUMBER_OF_PARTICIPANT);
+                txtMEETING_PLACE_NAME.Text = result.MEETING_PLACE_NAME == null ? string.Empty : result.MEETING_PLACE_NAME;
+                txtMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
+                txtMEETING_ENDDATE.Text = result.MEETING_ENDDATE == null ? string.Empty : result.STR_MEETING_ENDDATE;
+                txtMEETING_STARTDATE.Text = result.MEETING_STARTDATE == null ? string.Empty : result.STR_MEETING_STARTDATE;
+                txtMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
+                ddlINVITATIONID.SelectedValue = result.INVITATIONID == null ? string.Empty : result.INVITATIONID.ToString();
+                ddlBANNERID.SelectedValue = result.BANNERID == null ? string.Empty : result.BANNERID.ToString();
+                txtSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
+                chkForeigner.Checked = result.FOREIGNER ?? false;
+                ddlWATER.SelectedValue = result.WATER.ToString();
+                ddlFOOD.SelectedValue = result.FOOD.ToString();
+                txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE.ToString());
+                txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE.ToString());
+                txtSPEAKER_TITLE_1.Text = result.SPEAKER_TITLE_1 == null ? string.Empty : result.SPEAKER_TITLE_1;
+                txtSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
+                txtSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
+                txtSPEAKER_USERTYPENAME_1.Text = result.SPEAKER_USERTYPENAME_1 == null ? string.Empty : result.SPEAKER_USERTYPENAME_1;
+                txtSPEAKER_NATION_1.Text = result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
+                txtSPEAKER_TITLE_2.Text = result.SPEAKER_TITLE_2 == null ? string.Empty : result.SPEAKER_TITLE_2;
+                txtSPEAKER_ADAID_2.Text = result.SPEAKER_ADAID_2 == null ? string.Empty : result.SPEAKER_ADAID_2;
+                txtSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
+                txtSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
+                txtSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
+
+
+                hdfCO_ORGANIZER_USERID_1.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
+                hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
+                hdfCO_ORGANIZER_USERID_3.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
+                hdfORGANIZER_USERID.Value = result.ORGANIZER_USERID == null ? string.Empty : result.ORGANIZER_USERID.ToString();
+                hdfORGANIZER_USERTYPEID.Value = result.ORGANIZER_USERTYPEID == null ? string.Empty : result.ORGANIZER_USERTYPEID.ToString();
+                hdfCO_ORGANIZER_USERTYPEID_1.Value = result.CO_ORGANIZER_USERTYPEID_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_1.ToString();
+                hdfCO_ORGANIZER_USERTYPEID_2.Value = result.CO_ORGANIZER_USERTYPEID_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_2.ToString();
+                hdfCO_ORGANIZER_USERTYPEID_3.Value = result.CO_ORGANIZER_USERTYPEID_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_3.ToString();
+                if (result.STATUS_MEETING_REGISTERID > 1)
+                {
+                    btnSave.Visible = false;
+
+                }
+                else
+                {
+                    btnSave.Visible = true;
+                }
+                if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0)
+                {
+                    divCO_ORGANIZER_QUOTA_1.Visible = true;
+                    ImgBtnCO_ORGANIZER_OK_1.Visible = true;
+                    hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "true";
+                    ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
+                }
+                if (hdfCO_ORGANIZER_USERID_2.Value.Length > 0)
+                {
+                    divCO_ORGANIZER_QUOTA_2.Visible = true;
+                    ImgBtnCO_ORGANIZER_OK_2.Visible = true;
+                    hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "true";
+                    ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+                }
+                if (hdfCO_ORGANIZER_USERID_3.Value.Length > 0)
+                {
+                    divCO_ORGANIZER_QUOTA_3.Visible = true;
+                    ImgBtnCO_ORGANIZER_OK_3.Visible = true;
+                    hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "true";
+                    ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
+                }
+
+
+                hdfORGANIZER_QUOTA_CHECK.Value = "true";
+                divORGANIZER_QUOTA_BTN.Visible = true;
+                ImgBtnORGANIZER_CHECK.Visible = true;
+                ImgBtnORGANIZER_OK.Visible = true;
+                ImgBtnORGANIZER_ERROR.Visible = false;
+                divORGANIZER_QUOTA.Visible = true;
+
 
             }
-            else
-            {
-                btnSave.Visible = true;
-            }
-
-            if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0)
-            {
-                divCO_ORGANIZER_QUOTA_1.Visible = true;
-                ImgBtnCO_ORGANIZER_OK_1.Visible = true;
-                ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
-            }
-            if (hdfCO_ORGANIZER_USERID_2.Value.Length > 0)
-            {
-                divCO_ORGANIZER_QUOTA_2.Visible = true;
-                ImgBtnCO_ORGANIZER_OK_2.Visible = true;
-                ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
-            }
-            if (hdfCO_ORGANIZER_USERID_3.Value.Length > 0)
-            {
-                divCO_ORGANIZER_QUOTA_3.Visible = true;
-                ImgBtnCO_ORGANIZER_OK_3.Visible = true;
-                ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
-            }
-
-            divORGANIZER_QUOTA_BTN.Visible = true;
-            ImgBtnORGANIZER_CHECK.Visible = true;
-            ImgBtnORGANIZER_OK.Visible = true;
-            ImgBtnORGANIZER_ERROR.Visible = false;
-            divORGANIZER_QUOTA.Visible = true;
-           
-
         }
-
+        else
+        {
+            ClearTextBox();
+        }
 
     }
     private void ClearTextBox()
@@ -142,9 +153,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         GetBannerCBO();
         GetInvitationCBO();
         GetPlaceCBO(0);
-        lblAlerting.Text = string.Empty;            
+        lblAlerting.Text = string.Empty;
         hdfID.Value = "-1";
+        btnSave.Text = "Đăng ký";
         btnSave.Visible = false;
+        txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
         lblORGANIZER_NAME.Text = string.Empty;
@@ -430,7 +443,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             MeetingBO objBO = new MeetingBO();
 
             int ConditionCombine = objBO.MeetingGet_ConditionCombine(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfORGANIZER_USERTYPEID.Value));
-            int quantity = 0;
+            int quantity = 1;
             if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0) quantity++;
             if (hdfCO_ORGANIZER_USERID_2.Value.Length > 0) quantity++;
             if (hdfCO_ORGANIZER_USERID_3.Value.Length > 0) quantity++;
@@ -465,7 +478,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             }
             else
             {
-                if (quantity > 0)
+                if (quantity > 1)
                 {
                     lblAlerting.Text = "Cuộc họp này không cần người đồng tổ chức!";
                     return;
@@ -506,6 +519,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             obj.MEETINGTYPEID = 1;
             obj.STATUS_MEETING_REGISTERID = 1;
             obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+            obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
             obj.FOREIGNER = chkForeigner.Checked;
             obj.REPORTED = false;
             obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
@@ -561,8 +575,9 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
         }
     }
-    protected void ImgBtnORGANIZER_ADA_CHECK_Click(object sender, ImageClickEventArgs e)
+    public void GetInfoUserLogin(int UserID)
     {
+
         lblAlerting.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
         lblORGANIZER_NAME.Text = string.Empty;
@@ -571,22 +586,19 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         lblORGANIZER_TELEPHONE.Text = string.Empty;
         lblORGANIZER_ADDRESS.Text = string.Empty;
         hdfORGANIZER_USERTYPEID.Value = string.Empty;
-        if (txtORGANIZER_ADAID.Text.Trim().Length > 0)
+        UserBO objBO = new UserBO();
+        PRC_SYS_AMW_USER_GETLISTBYUSERIDResult result = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
+        result = objBO.UserGetListByUserID(UserID);
+        if (result != null)
         {
-
-            MeetingBO objBO = new MeetingBO();
-            PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
-            result = objBO.Meeting_GetDistributor_ByADA(txtORGANIZER_ADAID.Text.Trim());
-            if (result != null)
-            {
-                hdfORGANIZER_USERID.Value = result.USERID.ToString();
-                lblORGANIZER_NAME.Text = result.FULLNAME;
-                lblORGANIZER_USERTYPENAME.Text = result.USERTYPENAME;
-                lblORGANIZER_EMAIL.Text = result.EMAIL;
-                lblORGANIZER_TELEPHONE.Text = result.TELEPHONE;
-                lblORGANIZER_ADDRESS.Text = result.ADDRESS;
-                hdfORGANIZER_USERTYPEID.Value = result.USERTYPEID.ToString();
-            }
+            txtORGANIZER_ADAID.Text = result.ADA;
+            hdfORGANIZER_USERID.Value = result.USERID.ToString();
+            lblORGANIZER_NAME.Text = result.FULLNAME;
+            lblORGANIZER_USERTYPENAME.Text = result.USERTYPENAME;
+            lblORGANIZER_EMAIL.Text = result.EMAIL;
+            lblORGANIZER_TELEPHONE.Text = result.TELEPHONE;
+            lblORGANIZER_ADDRESS.Text = result.ADDRESS;
+            hdfORGANIZER_USERTYPEID.Value = result.USERTYPEID.ToString();
         }
     }
     protected void ImgBtnCO_ORGANIZER_ADA1_CHECK_Click(object sender, ImageClickEventArgs e)
@@ -740,7 +752,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     }
     protected void ImgBtnORGANIZER_CHECK_Click(object sender, ImageClickEventArgs e)
     {
-        
+
         if (txtORGANIZER_ADAID.Text.Trim().Length > 0)
         {
             lblAlerting.Text = string.Empty;
