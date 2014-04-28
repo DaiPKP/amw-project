@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 17.125" name="AMW_MEETING">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 17.625" name="AMW_MEETING">
   <DataContextMoniker Name="/AMW_MEETINGDataContext" />
   <nestedChildShapes>
     <classShape Id="478ea2ca-1279-47f9-ba37-4641969bd449" absoluteBounds="0.75, 0.75, 2, 1.5785953776041666">
@@ -68,10 +68,10 @@
         <elementListCompartment Id="0d24b165-7c19-402e-aa95-42ac66d72e42" absoluteBounds="0.89000000000000012, 2.835, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="90f180cb-2737-4dec-b8c2-4f00931ebed7" absoluteBounds="5.75, 6.125, 2, 10.809064127604165">
+    <classShape Id="c1761a18-1a21-43e2-b7a8-7f2ba3abc129" absoluteBounds="5.625, 6.375, 2, 11.001365559895833">
       <DataClassMoniker Name="/AMW_MEETINGDataContext/USR_AMW_MEETING_REGISTER" />
       <nestedChildShapes>
-        <elementListCompartment Id="eabcafab-a912-40a2-a41f-80d56406c9bd" absoluteBounds="5.765, 6.585, 1.9700000000000002, 10.249064127604166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f5f5b467-629f-478f-b8a6-a02223bad504" absoluteBounds="5.64, 6.835, 1.9700000000000002, 10.441365559895832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

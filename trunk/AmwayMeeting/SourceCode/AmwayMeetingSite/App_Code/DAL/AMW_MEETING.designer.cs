@@ -634,6 +634,27 @@ namespace DAL
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_DEL")]
+		public int PRC_USR_AMW_MEETING_REGISTER_DEL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_MEETING_TYPE_CBO")]
+		public ISingleResult<PRC_SYS_AMW_MEETING_TYPE_CBOResult> PRC_SYS_AMW_MEETING_TYPE_CBO()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<PRC_SYS_AMW_MEETING_TYPE_CBOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYID")]
+		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult> PRC_USR_AMW_MEETING_REGISTER_GETLISTBYID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA")]
 		public ISingleResult<PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult> PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PROVINCEID", DbType="Int")] System.Nullable<int> pROVINCEID)
 		{
@@ -641,11 +662,11 @@ namespace DAL
 			return ((ISingleResult<PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_DEL")]
-		public int PRC_USR_AMW_MEETING_REGISTER_DEL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID")]
+		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult> PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
-			return ((int)(result.ReturnValue));
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID);
+			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_INSERT")]
@@ -679,6 +700,7 @@ namespace DAL
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_PAYMENTID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_PAYMENTID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CREATEUSER_USERTYPEID", DbType="Int")] System.Nullable<int> cREATEUSER_USERTYPEID, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CREATEUSER", DbType="Int")] System.Nullable<int> cREATEUSER, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOREIGNER", DbType="Bit")] System.Nullable<bool> fOREIGNER, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPORTED", DbType="Bit")] System.Nullable<bool> rEPORTED, 
@@ -699,8 +721,15 @@ namespace DAL
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_TITLE_2", DbType="NVarChar(500)")] string sPEAKER_TITLE_2, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NATION_2", DbType="NVarChar(50)")] string sPEAKER_NATION_2)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), oRGANIZER_USERID, oRGANIZER_USERTYPEID, pAXID, pROVINCEID, mEETINGNAME, nUMBER_OF_PARTICIPANT, mEETING_PLACE_NAME, mEETING_ADDRESS, cOUNTRYNAME, mEETING_DATE, dEPARTURE_DATE, aRRIVAL_DATE, mEETING_STARTDATE, mEETING_ENDDATE, mEETING_TIME, fORMS_OF_PAYMENTID, iNVITATIONID, bANNERID, sEND_INVITATION_DATE, wATER, wATER_PRICE, fOOD, fOOD_PRICE, tOTAL_PAY, aMWAY_PAY, dISTRIBUTOR_PAY, mEETINGTYPEID, sTATUS_MEETING_PAYMENTID, sTATUS_MEETING_REGISTERID, cREATEUSER, fOREIGNER, rEPORTED, cO_ORGANIZER_USERID_1, cO_ORGANIZER_USERTYPEID_1, cO_ORGANIZER_USERID_2, cO_ORGANIZER_USERTYPEID_2, cO_ORGANIZER_USERID_3, cO_ORGANIZER_USERTYPEID_3, sPEAKER_ADAID_1, sPEAKER_USERTYPENAME_1, sPEAKER_NAME_1, sPEAKER_TITLE_1, sPEAKER_NATION_1, sPEAKER_ADAID_2, sPEAKER_USERTYPENAME_2, sPEAKER_NAME_2, sPEAKER_TITLE_2, sPEAKER_NATION_2);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), oRGANIZER_USERID, oRGANIZER_USERTYPEID, pAXID, pROVINCEID, mEETINGNAME, nUMBER_OF_PARTICIPANT, mEETING_PLACE_NAME, mEETING_ADDRESS, cOUNTRYNAME, mEETING_DATE, dEPARTURE_DATE, aRRIVAL_DATE, mEETING_STARTDATE, mEETING_ENDDATE, mEETING_TIME, fORMS_OF_PAYMENTID, iNVITATIONID, bANNERID, sEND_INVITATION_DATE, wATER, wATER_PRICE, fOOD, fOOD_PRICE, tOTAL_PAY, aMWAY_PAY, dISTRIBUTOR_PAY, mEETINGTYPEID, sTATUS_MEETING_PAYMENTID, sTATUS_MEETING_REGISTERID, cREATEUSER_USERTYPEID, cREATEUSER, fOREIGNER, rEPORTED, cO_ORGANIZER_USERID_1, cO_ORGANIZER_USERTYPEID_1, cO_ORGANIZER_USERID_2, cO_ORGANIZER_USERTYPEID_2, cO_ORGANIZER_USERID_3, cO_ORGANIZER_USERTYPEID_3, sPEAKER_ADAID_1, sPEAKER_USERTYPENAME_1, sPEAKER_NAME_1, sPEAKER_TITLE_1, sPEAKER_NATION_1, sPEAKER_ADAID_2, sPEAKER_USERTYPENAME_2, sPEAKER_NAME_2, sPEAKER_TITLE_2, sPEAKER_NATION_2);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_SEARCH")]
+		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> PRC_USR_AMW_MEETING_REGISTER_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_ADAID", DbType="VarChar(50)")] string oRGANIZER_ADAID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PROVINCEID", DbType="Int")] System.Nullable<int> pROVINCEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOREIGNER", DbType="Bit")] System.Nullable<bool> fOREIGNER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPORTED", DbType="Bit")] System.Nullable<bool> rEPORTED)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), oRGANIZER_ADAID, pAXID, pROVINCEID, mEETINGTYPEID, sTATUS_MEETING_REGISTERID, fOREIGNER, rEPORTED);
+			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE")]
@@ -757,34 +786,6 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, oRGANIZER_USERID, oRGANIZER_USERTYPEID, pAXID, pROVINCEID, mEETINGNAME, nUMBER_OF_PARTICIPANT, mEETING_PLACE_NAME, mEETING_ADDRESS, cOUNTRYNAME, mEETING_DATE, dEPARTURE_DATE, aRRIVAL_DATE, mEETING_STARTDATE, mEETING_ENDDATE, mEETING_TIME, fORMS_OF_PAYMENTID, iNVITATIONID, bANNERID, sEND_INVITATION_DATE, wATER, wATER_PRICE, fOOD, fOOD_PRICE, tOTAL_PAY, aMWAY_PAY, dISTRIBUTOR_PAY, mEETINGTYPEID, sTATUS_MEETING_PAYMENTID, sTATUS_MEETING_REGISTERID, uPDATEUSER, fOREIGNER, rEPORTED, cO_ORGANIZER_USERID_1, cO_ORGANIZER_USERTYPEID_1, cO_ORGANIZER_USERID_2, cO_ORGANIZER_USERTYPEID_2, cO_ORGANIZER_USERID_3, cO_ORGANIZER_USERTYPEID_3, sPEAKER_ADAID_1, sPEAKER_USERTYPENAME_1, sPEAKER_NAME_1, sPEAKER_TITLE_1, sPEAKER_NATION_1, sPEAKER_ADAID_2, sPEAKER_USERTYPENAME_2, sPEAKER_NAME_2, sPEAKER_TITLE_2, sPEAKER_NATION_2);
 			return ((int)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_MEETING_TYPE_CBO")]
-		public ISingleResult<PRC_SYS_AMW_MEETING_TYPE_CBOResult> PRC_SYS_AMW_MEETING_TYPE_CBO()
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
-			return ((ISingleResult<PRC_SYS_AMW_MEETING_TYPE_CBOResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_SEARCH")]
-		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> PRC_USR_AMW_MEETING_REGISTER_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_ADAID", DbType="VarChar(50)")] string oRGANIZER_ADAID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PROVINCEID", DbType="Int")] System.Nullable<int> pROVINCEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOREIGNER", DbType="Bit")] System.Nullable<bool> fOREIGNER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPORTED", DbType="Bit")] System.Nullable<bool> rEPORTED)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), oRGANIZER_ADAID, pAXID, pROVINCEID, mEETINGTYPEID, sTATUS_MEETING_REGISTERID, fOREIGNER, rEPORTED);
-			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID")]
-		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult> PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID);
-			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult>)(result.ReturnValue));
-		}
-		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYID")]
-		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult> PRC_USR_AMW_MEETING_REGISTER_GETLISTBYID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
-			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -2857,6 +2858,8 @@ namespace DAL
 		
 		private System.Nullable<int> _STATUS_MEETING_REGISTERID;
 		
+		private System.Nullable<int> _CREATEUSER_USERTYPEID;
+		
 		private System.Nullable<int> _CREATEUSER;
 		
 		private System.Nullable<System.DateTime> _CREATEDATE;
@@ -3381,6 +3384,22 @@ namespace DAL
 				if ((this._STATUS_MEETING_REGISTERID != value))
 				{
 					this._STATUS_MEETING_REGISTERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPEID", DbType="Int")]
+		public System.Nullable<int> CREATEUSER_USERTYPEID
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPEID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPEID != value))
+				{
+					this._CREATEUSER_USERTYPEID = value;
 				}
 			}
 		}
@@ -11514,6 +11533,1750 @@ namespace DAL
 		}
 	}
 	
+	public partial class PRC_SYS_AMW_MEETING_TYPE_CBOResult
+	{
+		
+		private int _ID;
+		
+		private string _MEETINGTYPENAME;
+		
+		private string _DESCRIPTION;
+		
+		private System.Nullable<bool> _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		public PRC_SYS_AMW_MEETING_TYPE_CBOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MEETINGTYPENAME
+		{
+			get
+			{
+				return this._MEETINGTYPENAME;
+			}
+			set
+			{
+				if ((this._MEETINGTYPENAME != value))
+				{
+					this._MEETINGTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit")]
+		public System.Nullable<bool> ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult
+	{
+		
+		private int _ID;
+		
+		private int _ORGANIZER_USERID;
+		
+		private System.Nullable<int> _ORGANIZER_USERTYPEID;
+		
+		private System.Nullable<int> _PAXID;
+		
+		private System.Nullable<int> _PROVINCEID;
+		
+		private string _MEETINGNAME;
+		
+		private System.Nullable<int> _NUMBER_OF_PARTICIPANT;
+		
+		private string _MEETING_PLACE_NAME;
+		
+		private string _MEETING_ADDRESS;
+		
+		private string _COUNTRYNAME;
+		
+		private System.Nullable<System.DateTime> _MEETING_DATE;
+		
+		private System.Nullable<System.DateTime> _DEPARTURE_DATE;
+		
+		private System.Nullable<System.DateTime> _ARRIVAL_DATE;
+		
+		private System.Nullable<System.DateTime> _MEETING_STARTDATE;
+		
+		private System.Nullable<System.DateTime> _MEETING_ENDDATE;
+		
+		private string _MEETING_TIME;
+		
+		private System.Nullable<int> _FORMS_OF_PAYMENTID;
+		
+		private System.Nullable<int> _INVITATIONID;
+		
+		private System.Nullable<int> _BANNERID;
+		
+		private System.Nullable<System.DateTime> _SEND_INVITATION_DATE;
+		
+		private System.Nullable<bool> _WATER;
+		
+		private System.Nullable<decimal> _WATER_PRICE;
+		
+		private System.Nullable<bool> _FOOD;
+		
+		private System.Nullable<decimal> _FOOD_PRICE;
+		
+		private System.Nullable<decimal> _TOTAL_PAY;
+		
+		private System.Nullable<decimal> _AMWAY_PAY;
+		
+		private System.Nullable<decimal> _DISTRIBUTOR_PAY;
+		
+		private System.Nullable<int> _MEETINGTYPEID;
+		
+		private System.Nullable<int> _STATUS_MEETING_PAYMENTID;
+		
+		private System.Nullable<int> _STATUS_MEETING_REGISTERID;
+		
+		private System.Nullable<int> _CREATEUSER_USERTYPEID;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		private System.Nullable<bool> _FOREIGNER;
+		
+		private System.Nullable<bool> _REPORTED;
+		
+		private System.Nullable<int> _CO_ORGANIZER_USERID_1;
+		
+		private System.Nullable<int> _CO_ORGANIZER_USERTYPEID_1;
+		
+		private System.Nullable<int> _CO_ORGANIZER_USERID_2;
+		
+		private System.Nullable<int> _CO_ORGANIZER_USERTYPEID_2;
+		
+		private System.Nullable<int> _CO_ORGANIZER_USERID_3;
+		
+		private System.Nullable<int> _CO_ORGANIZER_USERTYPEID_3;
+		
+		private string _SPEAKER_ADAID_1;
+		
+		private string _SPEAKER_USERTYPENAME_1;
+		
+		private string _SPEAKER_NAME_1;
+		
+		private string _SPEAKER_TITLE_1;
+		
+		private string _SPEAKER_NATION_1;
+		
+		private string _SPEAKER_ADAID_2;
+		
+		private string _SPEAKER_USERTYPENAME_2;
+		
+		private string _SPEAKER_NAME_2;
+		
+		private string _SPEAKER_TITLE_2;
+		
+		private string _SPEAKER_NATION_2;
+		
+		private string _ORGANIZER_ADAID;
+		
+		private string _ORGANIZER_USERTYPENAME;
+		
+		private string _ORGANIZER_NAME;
+		
+		private string _ORGANIZER_EMAIL;
+		
+		private string _ORGANIZER_ADDRESS;
+		
+		private string _ORGANIZER_TELEPHONE;
+		
+		private string _CO_ORGANIZER_ADAID_1;
+		
+		private string _CO_ORGANIZER_USERTYPENAME_1;
+		
+		private string _CO_ORGANIZER_NAME_1;
+		
+		private string _CO_ORGANIZER_ADAID_2;
+		
+		private string _CO_ORGANIZER_USERTYPENAME_2;
+		
+		private string _CO_ORGANIZER_NAME_2;
+		
+		private string _CO_ORGANIZER_ADAID_3;
+		
+		private string _CO_ORGANIZER_USERTYPENAME_3;
+		
+		private string _CO_ORGANIZER_NAME_3;
+		
+		private string _CREATEUSER_ADAID;
+		
+		private string _CREATEUSER_USERTYPENAME;
+		
+		private string _CREATEUSER__NAME;
+		
+		private string _MEETINGTYPENAME;
+		
+		private string _STR_MEETING_DATE;
+		
+		private string _STR_DEPARTURE_DATE;
+		
+		private string _STR_ARRIVAL_DATE;
+		
+		private string _STR_MEETING_STARTDATE;
+		
+		private string _STR_MEETING_ENDDATE;
+		
+		private string _STR_CREATEDATE;
+		
+		private string _STR_SEND_INVITATION_DATE;
+		
+		private string _PAXNAME;
+		
+		private string _PROVINCENAME;
+		
+		private string _FORMS_OF_PAYMENT;
+		
+		private string _STATUS_INVITATION;
+		
+		private string _STATUS_MEETING_PAYMENTNAME;
+		
+		private string _STATUS_MEETING_REGISTERNAME;
+		
+		private string _STATUS_BANNER;
+		
+		private string _INVITATIONNAME;
+		
+		private string _BANNERNAME;
+		
+		public PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_USERID", DbType="Int NOT NULL")]
+		public int ORGANIZER_USERID
+		{
+			get
+			{
+				return this._ORGANIZER_USERID;
+			}
+			set
+			{
+				if ((this._ORGANIZER_USERID != value))
+				{
+					this._ORGANIZER_USERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_USERTYPEID", DbType="Int")]
+		public System.Nullable<int> ORGANIZER_USERTYPEID
+		{
+			get
+			{
+				return this._ORGANIZER_USERTYPEID;
+			}
+			set
+			{
+				if ((this._ORGANIZER_USERTYPEID != value))
+				{
+					this._ORGANIZER_USERTYPEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int")]
+		public System.Nullable<int> PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROVINCEID", DbType="Int")]
+		public System.Nullable<int> PROVINCEID
+		{
+			get
+			{
+				return this._PROVINCEID;
+			}
+			set
+			{
+				if ((this._PROVINCEID != value))
+				{
+					this._PROVINCEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGNAME", DbType="NVarChar(500)")]
+		public string MEETINGNAME
+		{
+			get
+			{
+				return this._MEETINGNAME;
+			}
+			set
+			{
+				if ((this._MEETINGNAME != value))
+				{
+					this._MEETINGNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMBER_OF_PARTICIPANT", DbType="Int")]
+		public System.Nullable<int> NUMBER_OF_PARTICIPANT
+		{
+			get
+			{
+				return this._NUMBER_OF_PARTICIPANT;
+			}
+			set
+			{
+				if ((this._NUMBER_OF_PARTICIPANT != value))
+				{
+					this._NUMBER_OF_PARTICIPANT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_PLACE_NAME", DbType="NVarChar(100)")]
+		public string MEETING_PLACE_NAME
+		{
+			get
+			{
+				return this._MEETING_PLACE_NAME;
+			}
+			set
+			{
+				if ((this._MEETING_PLACE_NAME != value))
+				{
+					this._MEETING_PLACE_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_ADDRESS", DbType="NVarChar(100)")]
+		public string MEETING_ADDRESS
+		{
+			get
+			{
+				return this._MEETING_ADDRESS;
+			}
+			set
+			{
+				if ((this._MEETING_ADDRESS != value))
+				{
+					this._MEETING_ADDRESS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COUNTRYNAME", DbType="NVarChar(30)")]
+		public string COUNTRYNAME
+		{
+			get
+			{
+				return this._COUNTRYNAME;
+			}
+			set
+			{
+				if ((this._COUNTRYNAME != value))
+				{
+					this._COUNTRYNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MEETING_DATE
+		{
+			get
+			{
+				return this._MEETING_DATE;
+			}
+			set
+			{
+				if ((this._MEETING_DATE != value))
+				{
+					this._MEETING_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPARTURE_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DEPARTURE_DATE
+		{
+			get
+			{
+				return this._DEPARTURE_DATE;
+			}
+			set
+			{
+				if ((this._DEPARTURE_DATE != value))
+				{
+					this._DEPARTURE_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ARRIVAL_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ARRIVAL_DATE
+		{
+			get
+			{
+				return this._ARRIVAL_DATE;
+			}
+			set
+			{
+				if ((this._ARRIVAL_DATE != value))
+				{
+					this._ARRIVAL_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_STARTDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MEETING_STARTDATE
+		{
+			get
+			{
+				return this._MEETING_STARTDATE;
+			}
+			set
+			{
+				if ((this._MEETING_STARTDATE != value))
+				{
+					this._MEETING_STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_ENDDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MEETING_ENDDATE
+		{
+			get
+			{
+				return this._MEETING_ENDDATE;
+			}
+			set
+			{
+				if ((this._MEETING_ENDDATE != value))
+				{
+					this._MEETING_ENDDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_TIME", DbType="NVarChar(20)")]
+		public string MEETING_TIME
+		{
+			get
+			{
+				return this._MEETING_TIME;
+			}
+			set
+			{
+				if ((this._MEETING_TIME != value))
+				{
+					this._MEETING_TIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORMS_OF_PAYMENTID", DbType="Int")]
+		public System.Nullable<int> FORMS_OF_PAYMENTID
+		{
+			get
+			{
+				return this._FORMS_OF_PAYMENTID;
+			}
+			set
+			{
+				if ((this._FORMS_OF_PAYMENTID != value))
+				{
+					this._FORMS_OF_PAYMENTID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVITATIONID", DbType="Int")]
+		public System.Nullable<int> INVITATIONID
+		{
+			get
+			{
+				return this._INVITATIONID;
+			}
+			set
+			{
+				if ((this._INVITATIONID != value))
+				{
+					this._INVITATIONID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANNERID", DbType="Int")]
+		public System.Nullable<int> BANNERID
+		{
+			get
+			{
+				return this._BANNERID;
+			}
+			set
+			{
+				if ((this._BANNERID != value))
+				{
+					this._BANNERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_INVITATION_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> SEND_INVITATION_DATE
+		{
+			get
+			{
+				return this._SEND_INVITATION_DATE;
+			}
+			set
+			{
+				if ((this._SEND_INVITATION_DATE != value))
+				{
+					this._SEND_INVITATION_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WATER", DbType="Bit")]
+		public System.Nullable<bool> WATER
+		{
+			get
+			{
+				return this._WATER;
+			}
+			set
+			{
+				if ((this._WATER != value))
+				{
+					this._WATER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WATER_PRICE", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> WATER_PRICE
+		{
+			get
+			{
+				return this._WATER_PRICE;
+			}
+			set
+			{
+				if ((this._WATER_PRICE != value))
+				{
+					this._WATER_PRICE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOOD", DbType="Bit")]
+		public System.Nullable<bool> FOOD
+		{
+			get
+			{
+				return this._FOOD;
+			}
+			set
+			{
+				if ((this._FOOD != value))
+				{
+					this._FOOD = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOOD_PRICE", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> FOOD_PRICE
+		{
+			get
+			{
+				return this._FOOD_PRICE;
+			}
+			set
+			{
+				if ((this._FOOD_PRICE != value))
+				{
+					this._FOOD_PRICE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_PAY", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> TOTAL_PAY
+		{
+			get
+			{
+				return this._TOTAL_PAY;
+			}
+			set
+			{
+				if ((this._TOTAL_PAY != value))
+				{
+					this._TOTAL_PAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMWAY_PAY", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> AMWAY_PAY
+		{
+			get
+			{
+				return this._AMWAY_PAY;
+			}
+			set
+			{
+				if ((this._AMWAY_PAY != value))
+				{
+					this._AMWAY_PAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRIBUTOR_PAY", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> DISTRIBUTOR_PAY
+		{
+			get
+			{
+				return this._DISTRIBUTOR_PAY;
+			}
+			set
+			{
+				if ((this._DISTRIBUTOR_PAY != value))
+				{
+					this._DISTRIBUTOR_PAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPEID", DbType="Int")]
+		public System.Nullable<int> MEETINGTYPEID
+		{
+			get
+			{
+				return this._MEETINGTYPEID;
+			}
+			set
+			{
+				if ((this._MEETINGTYPEID != value))
+				{
+					this._MEETINGTYPEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_PAYMENTID", DbType="Int")]
+		public System.Nullable<int> STATUS_MEETING_PAYMENTID
+		{
+			get
+			{
+				return this._STATUS_MEETING_PAYMENTID;
+			}
+			set
+			{
+				if ((this._STATUS_MEETING_PAYMENTID != value))
+				{
+					this._STATUS_MEETING_PAYMENTID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_REGISTERID", DbType="Int")]
+		public System.Nullable<int> STATUS_MEETING_REGISTERID
+		{
+			get
+			{
+				return this._STATUS_MEETING_REGISTERID;
+			}
+			set
+			{
+				if ((this._STATUS_MEETING_REGISTERID != value))
+				{
+					this._STATUS_MEETING_REGISTERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPEID", DbType="Int")]
+		public System.Nullable<int> CREATEUSER_USERTYPEID
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPEID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPEID != value))
+				{
+					this._CREATEUSER_USERTYPEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOREIGNER", DbType="Bit")]
+		public System.Nullable<bool> FOREIGNER
+		{
+			get
+			{
+				return this._FOREIGNER;
+			}
+			set
+			{
+				if ((this._FOREIGNER != value))
+				{
+					this._FOREIGNER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REPORTED", DbType="Bit")]
+		public System.Nullable<bool> REPORTED
+		{
+			get
+			{
+				return this._REPORTED;
+			}
+			set
+			{
+				if ((this._REPORTED != value))
+				{
+					this._REPORTED = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERID_1", DbType="Int")]
+		public System.Nullable<int> CO_ORGANIZER_USERID_1
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERID_1;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERID_1 != value))
+				{
+					this._CO_ORGANIZER_USERID_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPEID_1", DbType="Int")]
+		public System.Nullable<int> CO_ORGANIZER_USERTYPEID_1
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERTYPEID_1;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERTYPEID_1 != value))
+				{
+					this._CO_ORGANIZER_USERTYPEID_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERID_2", DbType="Int")]
+		public System.Nullable<int> CO_ORGANIZER_USERID_2
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERID_2;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERID_2 != value))
+				{
+					this._CO_ORGANIZER_USERID_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPEID_2", DbType="Int")]
+		public System.Nullable<int> CO_ORGANIZER_USERTYPEID_2
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERTYPEID_2;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERTYPEID_2 != value))
+				{
+					this._CO_ORGANIZER_USERTYPEID_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERID_3", DbType="Int")]
+		public System.Nullable<int> CO_ORGANIZER_USERID_3
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERID_3;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERID_3 != value))
+				{
+					this._CO_ORGANIZER_USERID_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPEID_3", DbType="Int")]
+		public System.Nullable<int> CO_ORGANIZER_USERTYPEID_3
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERTYPEID_3;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERTYPEID_3 != value))
+				{
+					this._CO_ORGANIZER_USERTYPEID_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_ADAID_1", DbType="VarChar(50)")]
+		public string SPEAKER_ADAID_1
+		{
+			get
+			{
+				return this._SPEAKER_ADAID_1;
+			}
+			set
+			{
+				if ((this._SPEAKER_ADAID_1 != value))
+				{
+					this._SPEAKER_ADAID_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_USERTYPENAME_1", DbType="NVarChar(50)")]
+		public string SPEAKER_USERTYPENAME_1
+		{
+			get
+			{
+				return this._SPEAKER_USERTYPENAME_1;
+			}
+			set
+			{
+				if ((this._SPEAKER_USERTYPENAME_1 != value))
+				{
+					this._SPEAKER_USERTYPENAME_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NAME_1", DbType="NVarChar(50)")]
+		public string SPEAKER_NAME_1
+		{
+			get
+			{
+				return this._SPEAKER_NAME_1;
+			}
+			set
+			{
+				if ((this._SPEAKER_NAME_1 != value))
+				{
+					this._SPEAKER_NAME_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_TITLE_1", DbType="NVarChar(500)")]
+		public string SPEAKER_TITLE_1
+		{
+			get
+			{
+				return this._SPEAKER_TITLE_1;
+			}
+			set
+			{
+				if ((this._SPEAKER_TITLE_1 != value))
+				{
+					this._SPEAKER_TITLE_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NATION_1", DbType="NVarChar(50)")]
+		public string SPEAKER_NATION_1
+		{
+			get
+			{
+				return this._SPEAKER_NATION_1;
+			}
+			set
+			{
+				if ((this._SPEAKER_NATION_1 != value))
+				{
+					this._SPEAKER_NATION_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_ADAID_2", DbType="VarChar(50)")]
+		public string SPEAKER_ADAID_2
+		{
+			get
+			{
+				return this._SPEAKER_ADAID_2;
+			}
+			set
+			{
+				if ((this._SPEAKER_ADAID_2 != value))
+				{
+					this._SPEAKER_ADAID_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_USERTYPENAME_2", DbType="NVarChar(50)")]
+		public string SPEAKER_USERTYPENAME_2
+		{
+			get
+			{
+				return this._SPEAKER_USERTYPENAME_2;
+			}
+			set
+			{
+				if ((this._SPEAKER_USERTYPENAME_2 != value))
+				{
+					this._SPEAKER_USERTYPENAME_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NAME_2", DbType="NVarChar(50)")]
+		public string SPEAKER_NAME_2
+		{
+			get
+			{
+				return this._SPEAKER_NAME_2;
+			}
+			set
+			{
+				if ((this._SPEAKER_NAME_2 != value))
+				{
+					this._SPEAKER_NAME_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_TITLE_2", DbType="NVarChar(500)")]
+		public string SPEAKER_TITLE_2
+		{
+			get
+			{
+				return this._SPEAKER_TITLE_2;
+			}
+			set
+			{
+				if ((this._SPEAKER_TITLE_2 != value))
+				{
+					this._SPEAKER_TITLE_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NATION_2", DbType="NVarChar(50)")]
+		public string SPEAKER_NATION_2
+		{
+			get
+			{
+				return this._SPEAKER_NATION_2;
+			}
+			set
+			{
+				if ((this._SPEAKER_NATION_2 != value))
+				{
+					this._SPEAKER_NATION_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_ADAID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ORGANIZER_ADAID
+		{
+			get
+			{
+				return this._ORGANIZER_ADAID;
+			}
+			set
+			{
+				if ((this._ORGANIZER_ADAID != value))
+				{
+					this._ORGANIZER_ADAID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string ORGANIZER_USERTYPENAME
+		{
+			get
+			{
+				return this._ORGANIZER_USERTYPENAME;
+			}
+			set
+			{
+				if ((this._ORGANIZER_USERTYPENAME != value))
+				{
+					this._ORGANIZER_USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_NAME", DbType="NVarChar(101)")]
+		public string ORGANIZER_NAME
+		{
+			get
+			{
+				return this._ORGANIZER_NAME;
+			}
+			set
+			{
+				if ((this._ORGANIZER_NAME != value))
+				{
+					this._ORGANIZER_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_EMAIL", DbType="NVarChar(50)")]
+		public string ORGANIZER_EMAIL
+		{
+			get
+			{
+				return this._ORGANIZER_EMAIL;
+			}
+			set
+			{
+				if ((this._ORGANIZER_EMAIL != value))
+				{
+					this._ORGANIZER_EMAIL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_ADDRESS", DbType="NVarChar(200)")]
+		public string ORGANIZER_ADDRESS
+		{
+			get
+			{
+				return this._ORGANIZER_ADDRESS;
+			}
+			set
+			{
+				if ((this._ORGANIZER_ADDRESS != value))
+				{
+					this._ORGANIZER_ADDRESS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_TELEPHONE", DbType="VarChar(20)")]
+		public string ORGANIZER_TELEPHONE
+		{
+			get
+			{
+				return this._ORGANIZER_TELEPHONE;
+			}
+			set
+			{
+				if ((this._ORGANIZER_TELEPHONE != value))
+				{
+					this._ORGANIZER_TELEPHONE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_1", DbType="VarChar(50)")]
+		public string CO_ORGANIZER_ADAID_1
+		{
+			get
+			{
+				return this._CO_ORGANIZER_ADAID_1;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_ADAID_1 != value))
+				{
+					this._CO_ORGANIZER_ADAID_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_1", DbType="NVarChar(50)")]
+		public string CO_ORGANIZER_USERTYPENAME_1
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERTYPENAME_1;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERTYPENAME_1 != value))
+				{
+					this._CO_ORGANIZER_USERTYPENAME_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_NAME_1", DbType="NVarChar(101)")]
+		public string CO_ORGANIZER_NAME_1
+		{
+			get
+			{
+				return this._CO_ORGANIZER_NAME_1;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_NAME_1 != value))
+				{
+					this._CO_ORGANIZER_NAME_1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_2", DbType="VarChar(50)")]
+		public string CO_ORGANIZER_ADAID_2
+		{
+			get
+			{
+				return this._CO_ORGANIZER_ADAID_2;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_ADAID_2 != value))
+				{
+					this._CO_ORGANIZER_ADAID_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_2", DbType="NVarChar(50)")]
+		public string CO_ORGANIZER_USERTYPENAME_2
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERTYPENAME_2;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERTYPENAME_2 != value))
+				{
+					this._CO_ORGANIZER_USERTYPENAME_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_NAME_2", DbType="NVarChar(101)")]
+		public string CO_ORGANIZER_NAME_2
+		{
+			get
+			{
+				return this._CO_ORGANIZER_NAME_2;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_NAME_2 != value))
+				{
+					this._CO_ORGANIZER_NAME_2 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_3", DbType="VarChar(50)")]
+		public string CO_ORGANIZER_ADAID_3
+		{
+			get
+			{
+				return this._CO_ORGANIZER_ADAID_3;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_ADAID_3 != value))
+				{
+					this._CO_ORGANIZER_ADAID_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_3", DbType="NVarChar(50)")]
+		public string CO_ORGANIZER_USERTYPENAME_3
+		{
+			get
+			{
+				return this._CO_ORGANIZER_USERTYPENAME_3;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_USERTYPENAME_3 != value))
+				{
+					this._CO_ORGANIZER_USERTYPENAME_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_NAME_3", DbType="NVarChar(101)")]
+		public string CO_ORGANIZER_NAME_3
+		{
+			get
+			{
+				return this._CO_ORGANIZER_NAME_3;
+			}
+			set
+			{
+				if ((this._CO_ORGANIZER_NAME_3 != value))
+				{
+					this._CO_ORGANIZER_NAME_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_ADAID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CREATEUSER_ADAID
+		{
+			get
+			{
+				return this._CREATEUSER_ADAID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_ADAID != value))
+				{
+					this._CREATEUSER_ADAID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CREATEUSER_USERTYPENAME
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPENAME;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPENAME != value))
+				{
+					this._CREATEUSER_USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER__NAME", DbType="NVarChar(101)")]
+		public string CREATEUSER__NAME
+		{
+			get
+			{
+				return this._CREATEUSER__NAME;
+			}
+			set
+			{
+				if ((this._CREATEUSER__NAME != value))
+				{
+					this._CREATEUSER__NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MEETINGTYPENAME
+		{
+			get
+			{
+				return this._MEETINGTYPENAME;
+			}
+			set
+			{
+				if ((this._MEETINGTYPENAME != value))
+				{
+					this._MEETINGTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_MEETING_DATE", DbType="NVarChar(30)")]
+		public string STR_MEETING_DATE
+		{
+			get
+			{
+				return this._STR_MEETING_DATE;
+			}
+			set
+			{
+				if ((this._STR_MEETING_DATE != value))
+				{
+					this._STR_MEETING_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_DEPARTURE_DATE", DbType="NVarChar(30)")]
+		public string STR_DEPARTURE_DATE
+		{
+			get
+			{
+				return this._STR_DEPARTURE_DATE;
+			}
+			set
+			{
+				if ((this._STR_DEPARTURE_DATE != value))
+				{
+					this._STR_DEPARTURE_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_ARRIVAL_DATE", DbType="NVarChar(30)")]
+		public string STR_ARRIVAL_DATE
+		{
+			get
+			{
+				return this._STR_ARRIVAL_DATE;
+			}
+			set
+			{
+				if ((this._STR_ARRIVAL_DATE != value))
+				{
+					this._STR_ARRIVAL_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_MEETING_STARTDATE", DbType="NVarChar(30)")]
+		public string STR_MEETING_STARTDATE
+		{
+			get
+			{
+				return this._STR_MEETING_STARTDATE;
+			}
+			set
+			{
+				if ((this._STR_MEETING_STARTDATE != value))
+				{
+					this._STR_MEETING_STARTDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_MEETING_ENDDATE", DbType="NVarChar(30)")]
+		public string STR_MEETING_ENDDATE
+		{
+			get
+			{
+				return this._STR_MEETING_ENDDATE;
+			}
+			set
+			{
+				if ((this._STR_MEETING_ENDDATE != value))
+				{
+					this._STR_MEETING_ENDDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_CREATEDATE", DbType="NVarChar(30)")]
+		public string STR_CREATEDATE
+		{
+			get
+			{
+				return this._STR_CREATEDATE;
+			}
+			set
+			{
+				if ((this._STR_CREATEDATE != value))
+				{
+					this._STR_CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_SEND_INVITATION_DATE", DbType="NVarChar(30)")]
+		public string STR_SEND_INVITATION_DATE
+		{
+			get
+			{
+				return this._STR_SEND_INVITATION_DATE;
+			}
+			set
+			{
+				if ((this._STR_SEND_INVITATION_DATE != value))
+				{
+					this._STR_SEND_INVITATION_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROVINCENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PROVINCENAME
+		{
+			get
+			{
+				return this._PROVINCENAME;
+			}
+			set
+			{
+				if ((this._PROVINCENAME != value))
+				{
+					this._PROVINCENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORMS_OF_PAYMENT", DbType="NVarChar(100)")]
+		public string FORMS_OF_PAYMENT
+		{
+			get
+			{
+				return this._FORMS_OF_PAYMENT;
+			}
+			set
+			{
+				if ((this._FORMS_OF_PAYMENT != value))
+				{
+					this._FORMS_OF_PAYMENT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_INVITATION", DbType="NVarChar(100)")]
+		public string STATUS_INVITATION
+		{
+			get
+			{
+				return this._STATUS_INVITATION;
+			}
+			set
+			{
+				if ((this._STATUS_INVITATION != value))
+				{
+					this._STATUS_INVITATION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_PAYMENTNAME", DbType="NVarChar(50)")]
+		public string STATUS_MEETING_PAYMENTNAME
+		{
+			get
+			{
+				return this._STATUS_MEETING_PAYMENTNAME;
+			}
+			set
+			{
+				if ((this._STATUS_MEETING_PAYMENTNAME != value))
+				{
+					this._STATUS_MEETING_PAYMENTNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_REGISTERNAME", DbType="NVarChar(50)")]
+		public string STATUS_MEETING_REGISTERNAME
+		{
+			get
+			{
+				return this._STATUS_MEETING_REGISTERNAME;
+			}
+			set
+			{
+				if ((this._STATUS_MEETING_REGISTERNAME != value))
+				{
+					this._STATUS_MEETING_REGISTERNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_BANNER", DbType="NVarChar(100)")]
+		public string STATUS_BANNER
+		{
+			get
+			{
+				return this._STATUS_BANNER;
+			}
+			set
+			{
+				if ((this._STATUS_BANNER != value))
+				{
+					this._STATUS_BANNER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVITATIONNAME", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string INVITATIONNAME
+		{
+			get
+			{
+				return this._INVITATIONNAME;
+			}
+			set
+			{
+				if ((this._INVITATIONNAME != value))
+				{
+					this._INVITATIONNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANNERNAME", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string BANNERNAME
+		{
+			get
+			{
+				return this._BANNERNAME;
+			}
+			set
+			{
+				if ((this._BANNERNAME != value))
+				{
+					this._BANNERNAME = value;
+				}
+			}
+		}
+	}
+	
 	public partial class PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult
 	{
 		
@@ -12044,1678 +13807,6 @@ namespace DAL
 		}
 	}
 	
-	public partial class PRC_SYS_AMW_MEETING_TYPE_CBOResult
-	{
-		
-		private int _ID;
-		
-		private string _MEETINGTYPENAME;
-		
-		private string _DESCRIPTION;
-		
-		private System.Nullable<bool> _ACTIVE;
-		
-		private System.Nullable<int> _CREATEUSER;
-		
-		private System.Nullable<System.DateTime> _CREATEDATE;
-		
-		private System.Nullable<int> _UPDATEUSER;
-		
-		private System.Nullable<System.DateTime> _UPDATEDATE;
-		
-		public PRC_SYS_AMW_MEETING_TYPE_CBOResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MEETINGTYPENAME
-		{
-			get
-			{
-				return this._MEETINGTYPENAME;
-			}
-			set
-			{
-				if ((this._MEETINGTYPENAME != value))
-				{
-					this._MEETINGTYPENAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
-		public string DESCRIPTION
-		{
-			get
-			{
-				return this._DESCRIPTION;
-			}
-			set
-			{
-				if ((this._DESCRIPTION != value))
-				{
-					this._DESCRIPTION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit")]
-		public System.Nullable<bool> ACTIVE
-		{
-			get
-			{
-				return this._ACTIVE;
-			}
-			set
-			{
-				if ((this._ACTIVE != value))
-				{
-					this._ACTIVE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
-		public System.Nullable<int> CREATEUSER
-		{
-			get
-			{
-				return this._CREATEUSER;
-			}
-			set
-			{
-				if ((this._CREATEUSER != value))
-				{
-					this._CREATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATEDATE
-		{
-			get
-			{
-				return this._CREATEDATE;
-			}
-			set
-			{
-				if ((this._CREATEDATE != value))
-				{
-					this._CREATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
-		public System.Nullable<int> UPDATEUSER
-		{
-			get
-			{
-				return this._UPDATEUSER;
-			}
-			set
-			{
-				if ((this._UPDATEUSER != value))
-				{
-					this._UPDATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATEDATE
-		{
-			get
-			{
-				return this._UPDATEDATE;
-			}
-			set
-			{
-				if ((this._UPDATEDATE != value))
-				{
-					this._UPDATEDATE = value;
-				}
-			}
-		}
-	}
-	
-	public partial class PRC_USR_AMW_MEETING_REGISTER_SEARCHResult
-	{
-		
-		private int _ID;
-		
-		private int _ORGANIZER_USERID;
-		
-		private System.Nullable<int> _ORGANIZER_USERTYPEID;
-		
-		private System.Nullable<int> _PAXID;
-		
-		private System.Nullable<int> _PROVINCEID;
-		
-		private string _MEETINGNAME;
-		
-		private System.Nullable<int> _NUMBER_OF_PARTICIPANT;
-		
-		private string _MEETING_PLACE_NAME;
-		
-		private string _MEETING_ADDRESS;
-		
-		private string _COUNTRYNAME;
-		
-		private System.Nullable<System.DateTime> _MEETING_DATE;
-		
-		private System.Nullable<System.DateTime> _DEPARTURE_DATE;
-		
-		private System.Nullable<System.DateTime> _ARRIVAL_DATE;
-		
-		private System.Nullable<System.DateTime> _MEETING_STARTDATE;
-		
-		private System.Nullable<System.DateTime> _MEETING_ENDDATE;
-		
-		private string _MEETING_TIME;
-		
-		private System.Nullable<int> _FORMS_OF_PAYMENTID;
-		
-		private System.Nullable<int> _INVITATIONID;
-		
-		private System.Nullable<int> _BANNERID;
-		
-		private System.Nullable<System.DateTime> _SEND_INVITATION_DATE;
-		
-		private System.Nullable<bool> _WATER;
-		
-		private System.Nullable<decimal> _WATER_PRICE;
-		
-		private System.Nullable<bool> _FOOD;
-		
-		private System.Nullable<decimal> _FOOD_PRICE;
-		
-		private System.Nullable<decimal> _TOTAL_PAY;
-		
-		private System.Nullable<decimal> _AMWAY_PAY;
-		
-		private System.Nullable<decimal> _DISTRIBUTOR_PAY;
-		
-		private System.Nullable<int> _MEETINGTYPEID;
-		
-		private System.Nullable<int> _STATUS_MEETING_PAYMENTID;
-		
-		private System.Nullable<int> _STATUS_MEETING_REGISTERID;
-		
-		private System.Nullable<int> _CREATEUSER;
-		
-		private System.Nullable<System.DateTime> _CREATEDATE;
-		
-		private System.Nullable<int> _UPDATEUSER;
-		
-		private System.Nullable<System.DateTime> _UPDATEDATE;
-		
-		private System.Nullable<bool> _FOREIGNER;
-		
-		private System.Nullable<bool> _REPORTED;
-		
-		private System.Nullable<int> _CO_ORGANIZER_USERID_1;
-		
-		private System.Nullable<int> _CO_ORGANIZER_USERTYPEID_1;
-		
-		private System.Nullable<int> _CO_ORGANIZER_USERID_2;
-		
-		private System.Nullable<int> _CO_ORGANIZER_USERTYPEID_2;
-		
-		private System.Nullable<int> _CO_ORGANIZER_USERID_3;
-		
-		private System.Nullable<int> _CO_ORGANIZER_USERTYPEID_3;
-		
-		private string _SPEAKER_ADAID_1;
-		
-		private string _SPEAKER_USERTYPENAME_1;
-		
-		private string _SPEAKER_NAME_1;
-		
-		private string _SPEAKER_TITLE_1;
-		
-		private string _SPEAKER_NATION_1;
-		
-		private string _SPEAKER_ADAID_2;
-		
-		private string _SPEAKER_USERTYPENAME_2;
-		
-		private string _SPEAKER_NAME_2;
-		
-		private string _SPEAKER_TITLE_2;
-		
-		private string _SPEAKER_NATION_2;
-		
-		private string _ORGANIZER_ADAID;
-		
-		private string _ORGANIZER_USERTYPENAME;
-		
-		private string _ORGANIZER_NAME;
-		
-		private string _ORGANIZER_EMAIL;
-		
-		private string _ORGANIZER_ADDRESS;
-		
-		private string _ORGANIZER_TELEPHONE;
-		
-		private string _CO_ORGANIZER_ADAID_1;
-		
-		private string _CO_ORGANIZER_USERTYPENAME_1;
-		
-		private string _CO_ORGANIZER_NAME_1;
-		
-		private string _CO_ORGANIZER_ADAID_2;
-		
-		private string _CO_ORGANIZER_USERTYPENAME_2;
-		
-		private string _CO_ORGANIZER_NAME_2;
-		
-		private string _CO_ORGANIZER_ADAID_3;
-		
-		private string _CO_ORGANIZER_USERTYPENAME_3;
-		
-		private string _CO_ORGANIZER_NAME_3;
-		
-		private string _MEETINGTYPENAME;
-		
-		private string _STR_MEETING_DATE;
-		
-		private string _STR_DEPARTURE_DATE;
-		
-		private string _STR_ARRIVAL_DATE;
-		
-		private string _STR_MEETING_STARTDATE;
-		
-		private string _STR_MEETING_ENDDATE;
-		
-		private string _STR_CREATEDATE;
-		
-		private string _STR_SEND_INVITATION_DATE;
-		
-		private string _PAXNAME;
-		
-		private string _PROVINCENAME;
-		
-		private string _FORMS_OF_PAYMENT;
-		
-		private string _STATUS_INVITATION;
-		
-		private string _STATUS_MEETING_PAYMENTNAME;
-		
-		private string _STATUS_MEETING_REGISTERNAME;
-		
-		private string _STATUS_BANNER;
-		
-		private string _INVITATIONNAME;
-		
-		private string _BANNERNAME;
-		
-		public PRC_USR_AMW_MEETING_REGISTER_SEARCHResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_USERID", DbType="Int NOT NULL")]
-		public int ORGANIZER_USERID
-		{
-			get
-			{
-				return this._ORGANIZER_USERID;
-			}
-			set
-			{
-				if ((this._ORGANIZER_USERID != value))
-				{
-					this._ORGANIZER_USERID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_USERTYPEID", DbType="Int")]
-		public System.Nullable<int> ORGANIZER_USERTYPEID
-		{
-			get
-			{
-				return this._ORGANIZER_USERTYPEID;
-			}
-			set
-			{
-				if ((this._ORGANIZER_USERTYPEID != value))
-				{
-					this._ORGANIZER_USERTYPEID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int")]
-		public System.Nullable<int> PAXID
-		{
-			get
-			{
-				return this._PAXID;
-			}
-			set
-			{
-				if ((this._PAXID != value))
-				{
-					this._PAXID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROVINCEID", DbType="Int")]
-		public System.Nullable<int> PROVINCEID
-		{
-			get
-			{
-				return this._PROVINCEID;
-			}
-			set
-			{
-				if ((this._PROVINCEID != value))
-				{
-					this._PROVINCEID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGNAME", DbType="NVarChar(500)")]
-		public string MEETINGNAME
-		{
-			get
-			{
-				return this._MEETINGNAME;
-			}
-			set
-			{
-				if ((this._MEETINGNAME != value))
-				{
-					this._MEETINGNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMBER_OF_PARTICIPANT", DbType="Int")]
-		public System.Nullable<int> NUMBER_OF_PARTICIPANT
-		{
-			get
-			{
-				return this._NUMBER_OF_PARTICIPANT;
-			}
-			set
-			{
-				if ((this._NUMBER_OF_PARTICIPANT != value))
-				{
-					this._NUMBER_OF_PARTICIPANT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_PLACE_NAME", DbType="NVarChar(100)")]
-		public string MEETING_PLACE_NAME
-		{
-			get
-			{
-				return this._MEETING_PLACE_NAME;
-			}
-			set
-			{
-				if ((this._MEETING_PLACE_NAME != value))
-				{
-					this._MEETING_PLACE_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_ADDRESS", DbType="NVarChar(100)")]
-		public string MEETING_ADDRESS
-		{
-			get
-			{
-				return this._MEETING_ADDRESS;
-			}
-			set
-			{
-				if ((this._MEETING_ADDRESS != value))
-				{
-					this._MEETING_ADDRESS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COUNTRYNAME", DbType="NVarChar(30)")]
-		public string COUNTRYNAME
-		{
-			get
-			{
-				return this._COUNTRYNAME;
-			}
-			set
-			{
-				if ((this._COUNTRYNAME != value))
-				{
-					this._COUNTRYNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MEETING_DATE
-		{
-			get
-			{
-				return this._MEETING_DATE;
-			}
-			set
-			{
-				if ((this._MEETING_DATE != value))
-				{
-					this._MEETING_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEPARTURE_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DEPARTURE_DATE
-		{
-			get
-			{
-				return this._DEPARTURE_DATE;
-			}
-			set
-			{
-				if ((this._DEPARTURE_DATE != value))
-				{
-					this._DEPARTURE_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ARRIVAL_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ARRIVAL_DATE
-		{
-			get
-			{
-				return this._ARRIVAL_DATE;
-			}
-			set
-			{
-				if ((this._ARRIVAL_DATE != value))
-				{
-					this._ARRIVAL_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_STARTDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MEETING_STARTDATE
-		{
-			get
-			{
-				return this._MEETING_STARTDATE;
-			}
-			set
-			{
-				if ((this._MEETING_STARTDATE != value))
-				{
-					this._MEETING_STARTDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_ENDDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> MEETING_ENDDATE
-		{
-			get
-			{
-				return this._MEETING_ENDDATE;
-			}
-			set
-			{
-				if ((this._MEETING_ENDDATE != value))
-				{
-					this._MEETING_ENDDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_TIME", DbType="NVarChar(20)")]
-		public string MEETING_TIME
-		{
-			get
-			{
-				return this._MEETING_TIME;
-			}
-			set
-			{
-				if ((this._MEETING_TIME != value))
-				{
-					this._MEETING_TIME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORMS_OF_PAYMENTID", DbType="Int")]
-		public System.Nullable<int> FORMS_OF_PAYMENTID
-		{
-			get
-			{
-				return this._FORMS_OF_PAYMENTID;
-			}
-			set
-			{
-				if ((this._FORMS_OF_PAYMENTID != value))
-				{
-					this._FORMS_OF_PAYMENTID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVITATIONID", DbType="Int")]
-		public System.Nullable<int> INVITATIONID
-		{
-			get
-			{
-				return this._INVITATIONID;
-			}
-			set
-			{
-				if ((this._INVITATIONID != value))
-				{
-					this._INVITATIONID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANNERID", DbType="Int")]
-		public System.Nullable<int> BANNERID
-		{
-			get
-			{
-				return this._BANNERID;
-			}
-			set
-			{
-				if ((this._BANNERID != value))
-				{
-					this._BANNERID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_INVITATION_DATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> SEND_INVITATION_DATE
-		{
-			get
-			{
-				return this._SEND_INVITATION_DATE;
-			}
-			set
-			{
-				if ((this._SEND_INVITATION_DATE != value))
-				{
-					this._SEND_INVITATION_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WATER", DbType="Bit")]
-		public System.Nullable<bool> WATER
-		{
-			get
-			{
-				return this._WATER;
-			}
-			set
-			{
-				if ((this._WATER != value))
-				{
-					this._WATER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WATER_PRICE", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> WATER_PRICE
-		{
-			get
-			{
-				return this._WATER_PRICE;
-			}
-			set
-			{
-				if ((this._WATER_PRICE != value))
-				{
-					this._WATER_PRICE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOOD", DbType="Bit")]
-		public System.Nullable<bool> FOOD
-		{
-			get
-			{
-				return this._FOOD;
-			}
-			set
-			{
-				if ((this._FOOD != value))
-				{
-					this._FOOD = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOOD_PRICE", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> FOOD_PRICE
-		{
-			get
-			{
-				return this._FOOD_PRICE;
-			}
-			set
-			{
-				if ((this._FOOD_PRICE != value))
-				{
-					this._FOOD_PRICE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_PAY", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> TOTAL_PAY
-		{
-			get
-			{
-				return this._TOTAL_PAY;
-			}
-			set
-			{
-				if ((this._TOTAL_PAY != value))
-				{
-					this._TOTAL_PAY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMWAY_PAY", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> AMWAY_PAY
-		{
-			get
-			{
-				return this._AMWAY_PAY;
-			}
-			set
-			{
-				if ((this._AMWAY_PAY != value))
-				{
-					this._AMWAY_PAY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRIBUTOR_PAY", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> DISTRIBUTOR_PAY
-		{
-			get
-			{
-				return this._DISTRIBUTOR_PAY;
-			}
-			set
-			{
-				if ((this._DISTRIBUTOR_PAY != value))
-				{
-					this._DISTRIBUTOR_PAY = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPEID", DbType="Int")]
-		public System.Nullable<int> MEETINGTYPEID
-		{
-			get
-			{
-				return this._MEETINGTYPEID;
-			}
-			set
-			{
-				if ((this._MEETINGTYPEID != value))
-				{
-					this._MEETINGTYPEID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_PAYMENTID", DbType="Int")]
-		public System.Nullable<int> STATUS_MEETING_PAYMENTID
-		{
-			get
-			{
-				return this._STATUS_MEETING_PAYMENTID;
-			}
-			set
-			{
-				if ((this._STATUS_MEETING_PAYMENTID != value))
-				{
-					this._STATUS_MEETING_PAYMENTID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_REGISTERID", DbType="Int")]
-		public System.Nullable<int> STATUS_MEETING_REGISTERID
-		{
-			get
-			{
-				return this._STATUS_MEETING_REGISTERID;
-			}
-			set
-			{
-				if ((this._STATUS_MEETING_REGISTERID != value))
-				{
-					this._STATUS_MEETING_REGISTERID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
-		public System.Nullable<int> CREATEUSER
-		{
-			get
-			{
-				return this._CREATEUSER;
-			}
-			set
-			{
-				if ((this._CREATEUSER != value))
-				{
-					this._CREATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATEDATE
-		{
-			get
-			{
-				return this._CREATEDATE;
-			}
-			set
-			{
-				if ((this._CREATEDATE != value))
-				{
-					this._CREATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
-		public System.Nullable<int> UPDATEUSER
-		{
-			get
-			{
-				return this._UPDATEUSER;
-			}
-			set
-			{
-				if ((this._UPDATEUSER != value))
-				{
-					this._UPDATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATEDATE
-		{
-			get
-			{
-				return this._UPDATEDATE;
-			}
-			set
-			{
-				if ((this._UPDATEDATE != value))
-				{
-					this._UPDATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FOREIGNER", DbType="Bit")]
-		public System.Nullable<bool> FOREIGNER
-		{
-			get
-			{
-				return this._FOREIGNER;
-			}
-			set
-			{
-				if ((this._FOREIGNER != value))
-				{
-					this._FOREIGNER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REPORTED", DbType="Bit")]
-		public System.Nullable<bool> REPORTED
-		{
-			get
-			{
-				return this._REPORTED;
-			}
-			set
-			{
-				if ((this._REPORTED != value))
-				{
-					this._REPORTED = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERID_1", DbType="Int")]
-		public System.Nullable<int> CO_ORGANIZER_USERID_1
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERID_1;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERID_1 != value))
-				{
-					this._CO_ORGANIZER_USERID_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPEID_1", DbType="Int")]
-		public System.Nullable<int> CO_ORGANIZER_USERTYPEID_1
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERTYPEID_1;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERTYPEID_1 != value))
-				{
-					this._CO_ORGANIZER_USERTYPEID_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERID_2", DbType="Int")]
-		public System.Nullable<int> CO_ORGANIZER_USERID_2
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERID_2;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERID_2 != value))
-				{
-					this._CO_ORGANIZER_USERID_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPEID_2", DbType="Int")]
-		public System.Nullable<int> CO_ORGANIZER_USERTYPEID_2
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERTYPEID_2;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERTYPEID_2 != value))
-				{
-					this._CO_ORGANIZER_USERTYPEID_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERID_3", DbType="Int")]
-		public System.Nullable<int> CO_ORGANIZER_USERID_3
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERID_3;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERID_3 != value))
-				{
-					this._CO_ORGANIZER_USERID_3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPEID_3", DbType="Int")]
-		public System.Nullable<int> CO_ORGANIZER_USERTYPEID_3
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERTYPEID_3;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERTYPEID_3 != value))
-				{
-					this._CO_ORGANIZER_USERTYPEID_3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_ADAID_1", DbType="VarChar(50)")]
-		public string SPEAKER_ADAID_1
-		{
-			get
-			{
-				return this._SPEAKER_ADAID_1;
-			}
-			set
-			{
-				if ((this._SPEAKER_ADAID_1 != value))
-				{
-					this._SPEAKER_ADAID_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_USERTYPENAME_1", DbType="NVarChar(50)")]
-		public string SPEAKER_USERTYPENAME_1
-		{
-			get
-			{
-				return this._SPEAKER_USERTYPENAME_1;
-			}
-			set
-			{
-				if ((this._SPEAKER_USERTYPENAME_1 != value))
-				{
-					this._SPEAKER_USERTYPENAME_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NAME_1", DbType="NVarChar(50)")]
-		public string SPEAKER_NAME_1
-		{
-			get
-			{
-				return this._SPEAKER_NAME_1;
-			}
-			set
-			{
-				if ((this._SPEAKER_NAME_1 != value))
-				{
-					this._SPEAKER_NAME_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_TITLE_1", DbType="NVarChar(500)")]
-		public string SPEAKER_TITLE_1
-		{
-			get
-			{
-				return this._SPEAKER_TITLE_1;
-			}
-			set
-			{
-				if ((this._SPEAKER_TITLE_1 != value))
-				{
-					this._SPEAKER_TITLE_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NATION_1", DbType="NVarChar(50)")]
-		public string SPEAKER_NATION_1
-		{
-			get
-			{
-				return this._SPEAKER_NATION_1;
-			}
-			set
-			{
-				if ((this._SPEAKER_NATION_1 != value))
-				{
-					this._SPEAKER_NATION_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_ADAID_2", DbType="VarChar(50)")]
-		public string SPEAKER_ADAID_2
-		{
-			get
-			{
-				return this._SPEAKER_ADAID_2;
-			}
-			set
-			{
-				if ((this._SPEAKER_ADAID_2 != value))
-				{
-					this._SPEAKER_ADAID_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_USERTYPENAME_2", DbType="NVarChar(50)")]
-		public string SPEAKER_USERTYPENAME_2
-		{
-			get
-			{
-				return this._SPEAKER_USERTYPENAME_2;
-			}
-			set
-			{
-				if ((this._SPEAKER_USERTYPENAME_2 != value))
-				{
-					this._SPEAKER_USERTYPENAME_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NAME_2", DbType="NVarChar(50)")]
-		public string SPEAKER_NAME_2
-		{
-			get
-			{
-				return this._SPEAKER_NAME_2;
-			}
-			set
-			{
-				if ((this._SPEAKER_NAME_2 != value))
-				{
-					this._SPEAKER_NAME_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_TITLE_2", DbType="NVarChar(500)")]
-		public string SPEAKER_TITLE_2
-		{
-			get
-			{
-				return this._SPEAKER_TITLE_2;
-			}
-			set
-			{
-				if ((this._SPEAKER_TITLE_2 != value))
-				{
-					this._SPEAKER_TITLE_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPEAKER_NATION_2", DbType="NVarChar(50)")]
-		public string SPEAKER_NATION_2
-		{
-			get
-			{
-				return this._SPEAKER_NATION_2;
-			}
-			set
-			{
-				if ((this._SPEAKER_NATION_2 != value))
-				{
-					this._SPEAKER_NATION_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_ADAID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ORGANIZER_ADAID
-		{
-			get
-			{
-				return this._ORGANIZER_ADAID;
-			}
-			set
-			{
-				if ((this._ORGANIZER_ADAID != value))
-				{
-					this._ORGANIZER_ADAID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ORGANIZER_USERTYPENAME
-		{
-			get
-			{
-				return this._ORGANIZER_USERTYPENAME;
-			}
-			set
-			{
-				if ((this._ORGANIZER_USERTYPENAME != value))
-				{
-					this._ORGANIZER_USERTYPENAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_NAME", DbType="NVarChar(101)")]
-		public string ORGANIZER_NAME
-		{
-			get
-			{
-				return this._ORGANIZER_NAME;
-			}
-			set
-			{
-				if ((this._ORGANIZER_NAME != value))
-				{
-					this._ORGANIZER_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_EMAIL", DbType="NVarChar(50)")]
-		public string ORGANIZER_EMAIL
-		{
-			get
-			{
-				return this._ORGANIZER_EMAIL;
-			}
-			set
-			{
-				if ((this._ORGANIZER_EMAIL != value))
-				{
-					this._ORGANIZER_EMAIL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_ADDRESS", DbType="NVarChar(200)")]
-		public string ORGANIZER_ADDRESS
-		{
-			get
-			{
-				return this._ORGANIZER_ADDRESS;
-			}
-			set
-			{
-				if ((this._ORGANIZER_ADDRESS != value))
-				{
-					this._ORGANIZER_ADDRESS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORGANIZER_TELEPHONE", DbType="VarChar(20)")]
-		public string ORGANIZER_TELEPHONE
-		{
-			get
-			{
-				return this._ORGANIZER_TELEPHONE;
-			}
-			set
-			{
-				if ((this._ORGANIZER_TELEPHONE != value))
-				{
-					this._ORGANIZER_TELEPHONE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string CO_ORGANIZER_ADAID_1
-		{
-			get
-			{
-				return this._CO_ORGANIZER_ADAID_1;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_ADAID_1 != value))
-				{
-					this._CO_ORGANIZER_ADAID_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CO_ORGANIZER_USERTYPENAME_1
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERTYPENAME_1;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERTYPENAME_1 != value))
-				{
-					this._CO_ORGANIZER_USERTYPENAME_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_NAME_1", DbType="NVarChar(101)")]
-		public string CO_ORGANIZER_NAME_1
-		{
-			get
-			{
-				return this._CO_ORGANIZER_NAME_1;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_NAME_1 != value))
-				{
-					this._CO_ORGANIZER_NAME_1 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_2", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string CO_ORGANIZER_ADAID_2
-		{
-			get
-			{
-				return this._CO_ORGANIZER_ADAID_2;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_ADAID_2 != value))
-				{
-					this._CO_ORGANIZER_ADAID_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CO_ORGANIZER_USERTYPENAME_2
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERTYPENAME_2;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERTYPENAME_2 != value))
-				{
-					this._CO_ORGANIZER_USERTYPENAME_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_NAME_2", DbType="NVarChar(101)")]
-		public string CO_ORGANIZER_NAME_2
-		{
-			get
-			{
-				return this._CO_ORGANIZER_NAME_2;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_NAME_2 != value))
-				{
-					this._CO_ORGANIZER_NAME_2 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_3", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string CO_ORGANIZER_ADAID_3
-		{
-			get
-			{
-				return this._CO_ORGANIZER_ADAID_3;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_ADAID_3 != value))
-				{
-					this._CO_ORGANIZER_ADAID_3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_3", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string CO_ORGANIZER_USERTYPENAME_3
-		{
-			get
-			{
-				return this._CO_ORGANIZER_USERTYPENAME_3;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_USERTYPENAME_3 != value))
-				{
-					this._CO_ORGANIZER_USERTYPENAME_3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_NAME_3", DbType="NVarChar(101)")]
-		public string CO_ORGANIZER_NAME_3
-		{
-			get
-			{
-				return this._CO_ORGANIZER_NAME_3;
-			}
-			set
-			{
-				if ((this._CO_ORGANIZER_NAME_3 != value))
-				{
-					this._CO_ORGANIZER_NAME_3 = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MEETINGTYPENAME
-		{
-			get
-			{
-				return this._MEETINGTYPENAME;
-			}
-			set
-			{
-				if ((this._MEETINGTYPENAME != value))
-				{
-					this._MEETINGTYPENAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_MEETING_DATE", DbType="NVarChar(30)")]
-		public string STR_MEETING_DATE
-		{
-			get
-			{
-				return this._STR_MEETING_DATE;
-			}
-			set
-			{
-				if ((this._STR_MEETING_DATE != value))
-				{
-					this._STR_MEETING_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_DEPARTURE_DATE", DbType="NVarChar(30)")]
-		public string STR_DEPARTURE_DATE
-		{
-			get
-			{
-				return this._STR_DEPARTURE_DATE;
-			}
-			set
-			{
-				if ((this._STR_DEPARTURE_DATE != value))
-				{
-					this._STR_DEPARTURE_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_ARRIVAL_DATE", DbType="NVarChar(30)")]
-		public string STR_ARRIVAL_DATE
-		{
-			get
-			{
-				return this._STR_ARRIVAL_DATE;
-			}
-			set
-			{
-				if ((this._STR_ARRIVAL_DATE != value))
-				{
-					this._STR_ARRIVAL_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_MEETING_STARTDATE", DbType="NVarChar(30)")]
-		public string STR_MEETING_STARTDATE
-		{
-			get
-			{
-				return this._STR_MEETING_STARTDATE;
-			}
-			set
-			{
-				if ((this._STR_MEETING_STARTDATE != value))
-				{
-					this._STR_MEETING_STARTDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_MEETING_ENDDATE", DbType="NVarChar(30)")]
-		public string STR_MEETING_ENDDATE
-		{
-			get
-			{
-				return this._STR_MEETING_ENDDATE;
-			}
-			set
-			{
-				if ((this._STR_MEETING_ENDDATE != value))
-				{
-					this._STR_MEETING_ENDDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_CREATEDATE", DbType="NVarChar(30)")]
-		public string STR_CREATEDATE
-		{
-			get
-			{
-				return this._STR_CREATEDATE;
-			}
-			set
-			{
-				if ((this._STR_CREATEDATE != value))
-				{
-					this._STR_CREATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STR_SEND_INVITATION_DATE", DbType="NVarChar(30)")]
-		public string STR_SEND_INVITATION_DATE
-		{
-			get
-			{
-				return this._STR_SEND_INVITATION_DATE;
-			}
-			set
-			{
-				if ((this._STR_SEND_INVITATION_DATE != value))
-				{
-					this._STR_SEND_INVITATION_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PAXNAME
-		{
-			get
-			{
-				return this._PAXNAME;
-			}
-			set
-			{
-				if ((this._PAXNAME != value))
-				{
-					this._PAXNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROVINCENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PROVINCENAME
-		{
-			get
-			{
-				return this._PROVINCENAME;
-			}
-			set
-			{
-				if ((this._PROVINCENAME != value))
-				{
-					this._PROVINCENAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FORMS_OF_PAYMENT", DbType="NVarChar(100)")]
-		public string FORMS_OF_PAYMENT
-		{
-			get
-			{
-				return this._FORMS_OF_PAYMENT;
-			}
-			set
-			{
-				if ((this._FORMS_OF_PAYMENT != value))
-				{
-					this._FORMS_OF_PAYMENT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_INVITATION", DbType="NVarChar(100)")]
-		public string STATUS_INVITATION
-		{
-			get
-			{
-				return this._STATUS_INVITATION;
-			}
-			set
-			{
-				if ((this._STATUS_INVITATION != value))
-				{
-					this._STATUS_INVITATION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_PAYMENTNAME", DbType="NVarChar(50)")]
-		public string STATUS_MEETING_PAYMENTNAME
-		{
-			get
-			{
-				return this._STATUS_MEETING_PAYMENTNAME;
-			}
-			set
-			{
-				if ((this._STATUS_MEETING_PAYMENTNAME != value))
-				{
-					this._STATUS_MEETING_PAYMENTNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_MEETING_REGISTERNAME", DbType="NVarChar(50)")]
-		public string STATUS_MEETING_REGISTERNAME
-		{
-			get
-			{
-				return this._STATUS_MEETING_REGISTERNAME;
-			}
-			set
-			{
-				if ((this._STATUS_MEETING_REGISTERNAME != value))
-				{
-					this._STATUS_MEETING_REGISTERNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STATUS_BANNER", DbType="NVarChar(100)")]
-		public string STATUS_BANNER
-		{
-			get
-			{
-				return this._STATUS_BANNER;
-			}
-			set
-			{
-				if ((this._STATUS_BANNER != value))
-				{
-					this._STATUS_BANNER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INVITATIONNAME", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string INVITATIONNAME
-		{
-			get
-			{
-				return this._INVITATIONNAME;
-			}
-			set
-			{
-				if ((this._INVITATIONNAME != value))
-				{
-					this._INVITATIONNAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANNERNAME", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
-		public string BANNERNAME
-		{
-			get
-			{
-				return this._BANNERNAME;
-			}
-			set
-			{
-				if ((this._BANNERNAME != value))
-				{
-					this._BANNERNAME = value;
-				}
-			}
-		}
-	}
-	
 	public partial class PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERIDResult
 	{
 		
@@ -13779,6 +13870,8 @@ namespace DAL
 		
 		private System.Nullable<int> _STATUS_MEETING_REGISTERID;
 		
+		private System.Nullable<int> _CREATEUSER_USERTYPEID;
+		
 		private System.Nullable<int> _CREATEUSER;
 		
 		private System.Nullable<System.DateTime> _CREATEDATE;
@@ -13852,6 +13945,12 @@ namespace DAL
 		private string _CO_ORGANIZER_USERTYPENAME_3;
 		
 		private string _CO_ORGANIZER_NAME_3;
+		
+		private string _CREATEUSER_ADAID;
+		
+		private string _CREATEUSER_USERTYPENAME;
+		
+		private string _CREATEUSER__NAME;
 		
 		private string _MEETINGTYPENAME;
 		
@@ -14371,6 +14470,22 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPEID", DbType="Int")]
+		public System.Nullable<int> CREATEUSER_USERTYPEID
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPEID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPEID != value))
+				{
+					this._CREATEUSER_USERTYPEID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
 		public System.Nullable<int> CREATEUSER
 		{
@@ -14819,7 +14934,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_1", DbType="VarChar(50)")]
 		public string CO_ORGANIZER_ADAID_1
 		{
 			get
@@ -14835,7 +14950,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_1", DbType="NVarChar(50)")]
 		public string CO_ORGANIZER_USERTYPENAME_1
 		{
 			get
@@ -14867,7 +14982,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_2", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_2", DbType="VarChar(50)")]
 		public string CO_ORGANIZER_ADAID_2
 		{
 			get
@@ -14883,7 +14998,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_2", DbType="NVarChar(50)")]
 		public string CO_ORGANIZER_USERTYPENAME_2
 		{
 			get
@@ -14915,7 +15030,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_3", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_3", DbType="VarChar(50)")]
 		public string CO_ORGANIZER_ADAID_3
 		{
 			get
@@ -14931,7 +15046,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_3", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_3", DbType="NVarChar(50)")]
 		public string CO_ORGANIZER_USERTYPENAME_3
 		{
 			get
@@ -14959,6 +15074,54 @@ namespace DAL
 				if ((this._CO_ORGANIZER_NAME_3 != value))
 				{
 					this._CO_ORGANIZER_NAME_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_ADAID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CREATEUSER_ADAID
+		{
+			get
+			{
+				return this._CREATEUSER_ADAID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_ADAID != value))
+				{
+					this._CREATEUSER_ADAID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CREATEUSER_USERTYPENAME
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPENAME;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPENAME != value))
+				{
+					this._CREATEUSER_USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER__NAME", DbType="NVarChar(101)")]
+		public string CREATEUSER__NAME
+		{
+			get
+			{
+				return this._CREATEUSER__NAME;
+			}
+			set
+			{
+				if ((this._CREATEUSER__NAME != value))
+				{
+					this._CREATEUSER__NAME = value;
 				}
 			}
 		}
@@ -15236,7 +15399,7 @@ namespace DAL
 		}
 	}
 	
-	public partial class PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult
+	public partial class PRC_USR_AMW_MEETING_REGISTER_SEARCHResult
 	{
 		
 		private int _ID;
@@ -15298,6 +15461,8 @@ namespace DAL
 		private System.Nullable<int> _STATUS_MEETING_PAYMENTID;
 		
 		private System.Nullable<int> _STATUS_MEETING_REGISTERID;
+		
+		private System.Nullable<int> _CREATEUSER_USERTYPEID;
 		
 		private System.Nullable<int> _CREATEUSER;
 		
@@ -15373,6 +15538,12 @@ namespace DAL
 		
 		private string _CO_ORGANIZER_NAME_3;
 		
+		private string _CREATEUSER_ADAID;
+		
+		private string _CREATEUSER_USERTYPENAME;
+		
+		private string _CREATEUSER__NAME;
+		
 		private string _MEETINGTYPENAME;
 		
 		private string _STR_MEETING_DATE;
@@ -15407,7 +15578,7 @@ namespace DAL
 		
 		private string _BANNERNAME;
 		
-		public PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult()
+		public PRC_USR_AMW_MEETING_REGISTER_SEARCHResult()
 		{
 		}
 		
@@ -15891,6 +16062,22 @@ namespace DAL
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPEID", DbType="Int")]
+		public System.Nullable<int> CREATEUSER_USERTYPEID
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPEID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPEID != value))
+				{
+					this._CREATEUSER_USERTYPEID = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
 		public System.Nullable<int> CREATEUSER
 		{
@@ -16339,7 +16526,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_1", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_1", DbType="VarChar(50)")]
 		public string CO_ORGANIZER_ADAID_1
 		{
 			get
@@ -16355,7 +16542,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_1", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_1", DbType="NVarChar(50)")]
 		public string CO_ORGANIZER_USERTYPENAME_1
 		{
 			get
@@ -16387,7 +16574,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_2", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_2", DbType="VarChar(50)")]
 		public string CO_ORGANIZER_ADAID_2
 		{
 			get
@@ -16403,7 +16590,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_2", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_2", DbType="NVarChar(50)")]
 		public string CO_ORGANIZER_USERTYPENAME_2
 		{
 			get
@@ -16435,7 +16622,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_3", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_ADAID_3", DbType="VarChar(50)")]
 		public string CO_ORGANIZER_ADAID_3
 		{
 			get
@@ -16451,7 +16638,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_3", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CO_ORGANIZER_USERTYPENAME_3", DbType="NVarChar(50)")]
 		public string CO_ORGANIZER_USERTYPENAME_3
 		{
 			get
@@ -16479,6 +16666,54 @@ namespace DAL
 				if ((this._CO_ORGANIZER_NAME_3 != value))
 				{
 					this._CO_ORGANIZER_NAME_3 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_ADAID", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string CREATEUSER_ADAID
+		{
+			get
+			{
+				return this._CREATEUSER_ADAID;
+			}
+			set
+			{
+				if ((this._CREATEUSER_ADAID != value))
+				{
+					this._CREATEUSER_ADAID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CREATEUSER_USERTYPENAME
+		{
+			get
+			{
+				return this._CREATEUSER_USERTYPENAME;
+			}
+			set
+			{
+				if ((this._CREATEUSER_USERTYPENAME != value))
+				{
+					this._CREATEUSER_USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER__NAME", DbType="NVarChar(101)")]
+		public string CREATEUSER__NAME
+		{
+			get
+			{
+				return this._CREATEUSER__NAME;
+			}
+			set
+			{
+				if ((this._CREATEUSER__NAME != value))
+				{
+					this._CREATEUSER__NAME = value;
 				}
 			}
 		}
