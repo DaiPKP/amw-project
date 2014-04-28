@@ -78,11 +78,6 @@
                                     <asp:TextBox ID="txtORGANIZER_ADAID" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
                                         <asp:HiddenField ID="hdfORGANIZER_USERID" runat="server"></asp:HiddenField>
                                         &nbsp;
-
-                                        <div class="divImgCheckIcon">
-                                            <asp:ImageButton ID="ImgBtnORGANIZER_ADA_CHECK" runat="server" Height="23px"
-                                                ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnORGANIZER_ADA_CHECK_Click" />
-                                        </div>
                                     </td>
                                     <td align="left" class="tdmeeting3">Họ tên:
                                      <asp:Label ID="lblORGANIZER_NAME" runat="server" CssClass="lblMeeting"></asp:Label>
