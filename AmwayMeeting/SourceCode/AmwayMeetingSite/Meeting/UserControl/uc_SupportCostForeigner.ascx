@@ -1,25 +1,18 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCost.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCost" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostForeigner.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCostForeigner" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ
+        ĐĂNG KÝ HỘI HỌP HỖ TRỢ CHI PHÍ - CÓ NGƯỜI NƯỚC NGOÀI
     </div>
     <script type="text/javascript">
         function BindEvents() {
             $(document).ready(function () {
-                var objTuNgay = document.getElementById("<%=txtMEETING_STARTDATE.ClientID %>");
-                var objDenNgay = document.getElementById("<%=txtMEETING_ENDDATE.ClientID %>");
+                var objTuNgay = document.getElementById("<%=txtMEETING_DATE.ClientID %>");
                 var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
                 $(objTuNgay).datepicker({
                     showOn: "button",
                     buttonImage: "../images/calendar.gif",
                     buttonImageOnly: true
                 }),
-                $(objDenNgay).datepicker({
-                    showOn: "button",
-                    buttonImage: "../images/calendar.gif",
-                    buttonImageOnly: true
-                }),
-
                $(objSend).datepicker({
                    showOn: "button",
                    buttonImage: "../images/calendar.gif",
@@ -27,6 +20,37 @@
                });
             });
         }
+    </script>
+    <script  type="text/javascript">
+        function maxPayment(objTotal) {
+            var objMaxPayment = document.getElementById("<%=hdfMAXPAYMENT.ClientID %>");
+            var objAmwPay = document.getElementById("<%=lblAMWAY_PAY.ClientID %>");
+            var objDistributor = document.getElementById("<%=lblDISTRIBUTOR_PAY.ClientID %>");
+            var MaxPayment = 0;
+            var AmwayPay = 0;
+            var Total=0;
+            var DistributorPay = 0;
+            if (parseFloat(replaceAll(objMaxPayment.value,',','')) > 0)
+            {
+                MaxPayment = parseFloat(replaceAll(objMaxPayment.value, ',', ''));
+                Total =parseFloat(replaceAll(objTotal.value, ',', ''));
+                // tinh tien theo 80%
+                AmwayPay = Math.round(Total * 0.8);
+                if(AmwayPay > MaxPayment)
+                {
+                    AmwayPay=MaxPayment;
+                }
+                DistributorPay = Total - AmwayPay;
+                objAmwPay.innerHTML = addCommasString(AmwayPay);
+                objDistributor.innerHTML = addCommasString(DistributorPay);
+            }
+            else
+            {
+                return;
+            }
+            
+        }
+       
     </script>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -37,20 +61,13 @@
                 });
 
                 $(function () {
-                    var objTuNgay = document.getElementById("<%=txtMEETING_STARTDATE.ClientID %>");
-                    var objDenNgay = document.getElementById("<%=txtMEETING_ENDDATE.ClientID %>");
+                    var objTuNgay = document.getElementById("<%=txtMEETING_DATE.ClientID %>");
                     var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
                     $(objTuNgay).datepicker({
                         showOn: "button",
                         buttonImage: "../images/calendar.gif",
                         buttonImageOnly: true
-                    }),
-                    $(objDenNgay).datepicker({
-                        showOn: "button",
-                        buttonImage: "../images/calendar.gif",
-                        buttonImageOnly: true
-                    }),
-
+                    }),                   
                    $(objSend).datepicker({
                        showOn: "button",
                        buttonImage: "../images/calendar.gif",
@@ -87,9 +104,7 @@
                                      <asp:Label ID="lblORGANIZER_USERTYPENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td class="tdmeeting6">
-                                        
-                                    </td>
+                                    <td class="tdmeeting6"></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -193,7 +208,7 @@
                                         <div class="marginLeft10">
                                             1. Mã số ADA:
                                     <asp:TextBox ID="txtCO_ORGANIZER_ADAID_1" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
-                                             <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_1" runat="server"></asp:HiddenField>
+                                            <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_1" runat="server"></asp:HiddenField>
                                             <div class="divImgCheckIcon10">
                                                 <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ADA1_CHECK" runat="server" Height="23px"
                                                     ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnCO_ORGANIZER_ADA1_CHECK_Click" />
@@ -357,7 +372,7 @@
                                         
                                         <asp:DropDownList ID="ddlPLACE" runat="server" Width="408.8px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPLACE_SelectedIndexChanged">
                                         </asp:DropDownList>
-                                        
+
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -395,15 +410,27 @@
                                     <td align="left" class="tdmeeting2">Ngày họp<span style="color: Red">(*)</span>:
                                      
                                     </td>
-                                    <td align="left" class="tdmeeting3" colspan="4">
-                                        <asp:TextBox ID="txtMEETING_STARTDATE" CssClass="txtBoxDate" runat="server" Width="100px"></asp:TextBox>
-                                        đến&nbsp;&nbsp;
-                                        <asp:TextBox ID="txtMEETING_ENDDATE" CssClass="txtBoxDate" runat="server" Width="100px"></asp:TextBox>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        Giờ họp(không quá 22 giờ)<span style="color: Red">(*)</span>:
+                                    <td align="left" class="tdmeeting3" colspan="2">
+                                        <asp:TextBox ID="txtMEETING_DATE" CssClass="txtBoxDate" runat="server" Width="150px"></asp:TextBox>
+                                    <td align="left" class="tdmeeting5" colspan="2">Giờ họp(tối đa là 4 giờ)<span style="color: Red">(*)</span>:
                                         <div style="float: right; margin-right: 4px;">
                                             <asp:TextBox ID="txtMEETING_TIME" runat="server" Width="150px" CssClass="txtBox"></asp:TextBox>
                                         </div>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Hình thức thanh toán<span style="color: Red">(*)</span>:
+                                    
+                                        
+                                    </td>
+                                    <td align="left" class="tdmeeting3" colspan="4">
+                                        <asp:DropDownList ID="ddlFORMS_OF_PAYMENTID" runat="server" Width="99.8%" Height="22px" CssClass="txtBox">
+                                        </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -509,7 +536,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ <asp:CheckBox ID="chkForeigner" Checked="false" runat="server" />NGƯỜI NƯỚC NGOÀI</b>
+                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ NGƯỜI NƯỚC NGOÀI</b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -573,17 +600,70 @@
                                     <asp:TextBox ID="txtSPEAKER_ADAID_2" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
                                     </td>
                                     <td align="left" class="tdmeeting3">Họ tên:
-                                     <asp:TextBox ID="txtSPEAKER_NAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
+                                     <asp:TextBox ID="txtSPEAKER_NAME_2" CssClass="txtBox" runat="server" Width="180px"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Danh hiệu:
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
                                     </td>
                                     <td align="left" class="tdmeeting6">
-                                         <div style="float: right; margin-right: 4px">
-                                             Quốc tịch:
+                                        <div style="float: right; margin-right: 4px">
+                                            Quốc tịch:
                                              <asp:TextBox ID="txtSPEAKER_NATION_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
-                                         </div>
+                                        </div>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">
+                                        <hr />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        <b>IV.	CHI PHÍ</b>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Tổng chi phí<span style="color: Red">(*)</span>:
+                                    
+                                    </td>
+                                    <td align="right" class="tdmeeting3">
+                                        <asp:TextBox ID="txtTOTAL_PAY" CssClass="txtNumberBox" runat="server" Width="198px" onKeyUp="addCommas(event,this);maxPayment(this);"></asp:TextBox>&nbsp;(VNĐ)
+                                        <asp:HiddenField ID="hdfMAXPAYMENT" runat="server"/>
+                                    </td>
+                                    <td class="tdmeeting4"></td>
+                                    <td align="left" class="tdmeeting5">                                    
+                                    </td>
+                                    <td align="left" class="tdmeeting6">
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Số tiền Amway trả:
+                                    
+                                    </td>
+                                    <td align="right" class="tdmeeting3">
+                                        <asp:Label id="lblAMWAY_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)
+                                    </td>
+                                    <td class="tdmeeting4"></td>
+                                    <td align="left" class="tdmeeting5">Số tiền nhà phân phối trả:
+                                    
+                                    </td>
+                                    <td align="right" class="tdmeeting6">
+                                        <asp:Label id="lblDISTRIBUTOR_PAY" CssClass="lblMeeting" runat="server" Width="180px" ></asp:Label>&nbsp;(VNĐ)
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>

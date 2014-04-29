@@ -537,7 +537,7 @@
                                 <tr>
                                     <td colspan="6">
                                         <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ
-                                            <asp:CheckBox ID="chkForeigner" Checked="false" runat="server" />NGƯỜI NƯỚC NGOÀI</b>
+                                            
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -691,6 +691,7 @@
                 </fieldset>
             </asp:Panel>
             <asp:HiddenField runat="server" ID="hdfID" />
+            <asp:HiddenField ID="hdfReported" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>

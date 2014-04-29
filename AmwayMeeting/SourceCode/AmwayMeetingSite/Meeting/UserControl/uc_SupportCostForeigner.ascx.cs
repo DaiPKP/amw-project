@@ -8,7 +8,7 @@ using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI.UserControl
 {
     public int _ID = -1;
     protected void Page_Load(object sender, EventArgs e)
@@ -53,7 +53,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
                 ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
                 ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
-
+                hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
                 txtCO_ORGANIZER_ADAID_1.Text = result.CO_ORGANIZER_ADAID_1 == null ? string.Empty : result.CO_ORGANIZER_ADAID_1;
                 lblCO_ORGANIZER_NAME_1.Text = result.CO_ORGANIZER_NAME_1 == null ? string.Empty : result.CO_ORGANIZER_NAME_1;
                 lblCO_ORGANIZER_USERTYPENAME_1.Text = result.CO_ORGANIZER_USERTYPENAME_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_1;
@@ -67,17 +67,16 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 txtNUMBER_OF_PARTICIPANT.Text = result.NUMBER_OF_PARTICIPANT == null ? string.Empty : string.Format("{0:N0}", result.NUMBER_OF_PARTICIPANT);
                 txtMEETING_PLACE_NAME.Text = result.MEETING_PLACE_NAME == null ? string.Empty : result.MEETING_PLACE_NAME;
                 txtMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
-                txtMEETING_ENDDATE.Text = result.MEETING_ENDDATE == null ? string.Empty : result.STR_MEETING_ENDDATE;
-                txtMEETING_STARTDATE.Text = result.MEETING_STARTDATE == null ? string.Empty : result.STR_MEETING_STARTDATE;
+                txtMEETING_DATE.Text = result.MEETING_DATE == null ? string.Empty : result.STR_MEETING_DATE;
                 txtMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
+                ddlFORMS_OF_PAYMENTID.SelectedValue = result.FORMS_OF_PAYMENTID == null ? string.Empty : result.FORMS_OF_PAYMENTID.ToString();
                 ddlINVITATIONID.SelectedValue = result.INVITATIONID == null ? string.Empty : result.INVITATIONID.ToString();
                 ddlBANNERID.SelectedValue = result.BANNERID == null ? string.Empty : result.BANNERID.ToString();
                 txtSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
-                hdfReported.Value = result.REPORTED == null ? "false" : result.REPORTED.ToString();                 
                 ddlWATER.SelectedValue = result.WATER.ToString();
                 ddlFOOD.SelectedValue = result.FOOD.ToString();
-                txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE.ToString());
-                txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE.ToString());
+                txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE);
+                txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE);
                 txtSPEAKER_TITLE_1.Text = result.SPEAKER_TITLE_1 == null ? string.Empty : result.SPEAKER_TITLE_1;
                 txtSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
                 txtSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
@@ -88,8 +87,10 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 txtSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
                 txtSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
                 txtSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
-
-
+                txtTOTAL_PAY.Text = result.TOTAL_PAY == null ? string.Empty : string.Format("{0:N0}", result.TOTAL_PAY);
+                lblAMWAY_PAY.Text = result.AMWAY_PAY == null ? string.Empty : string.Format("{0:N0}", result.TOTAL_PAY);
+                lblDISTRIBUTOR_PAY.Text = result.DISTRIBUTOR_PAY == null ? string.Empty : string.Format("{0:N0}", result.DISTRIBUTOR_PAY);
+                hdfReported.Value = result.REPORTED == null ? "false" : result.REPORTED.ToString();
                 hdfCO_ORGANIZER_USERID_1.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
                 hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
                 hdfCO_ORGANIZER_USERID_3.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
@@ -153,6 +154,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         GetBannerCBO();
         GetInvitationCBO();
         GetPlaceCBO(0);
+        GetFormOfPaymentCBO();
         lblAlerting.Text = string.Empty;
         hdfReported.Value = "false";
         hdfID.Value = "-1";
@@ -190,12 +192,12 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
         txtMEETINGNAME.Text = string.Empty;
         txtNUMBER_OF_PARTICIPANT.Text = string.Empty;
+        ddlFORMS_OF_PAYMENTID.SelectedIndex = 0;
         ddlPROVINCE_PLACE.SelectedIndex = 0;
         ddlPLACE.SelectedIndex = 0;
         txtMEETING_PLACE_NAME.Text = string.Empty;
         txtMEETING_ADDRESS.Text = string.Empty;
-        txtMEETING_ENDDATE.Text = string.Empty;
-        txtMEETING_STARTDATE.Text = string.Empty;
+        txtMEETING_DATE.Text = string.Empty;
         txtMEETING_TIME.Text = string.Empty;
 
         ddlINVITATIONID.SelectedIndex = 0;
@@ -261,6 +263,30 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         }
     }
 
+
+    private void GetFormOfPaymentCBO()
+    {
+        try
+        {
+            CategoryBO objBO = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult>();
+            lst = objBO.FormsOfPaymentGet_CBO().ToList();
+            if (lst != null)
+            {
+                ddlFORMS_OF_PAYMENTID.DataSource = lst;
+                ddlFORMS_OF_PAYMENTID.DataTextField = "STATUSNAME";
+                ddlFORMS_OF_PAYMENTID.DataValueField = "ID";
+                ddlFORMS_OF_PAYMENTID.DataBind();
+
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlFORMS_OF_PAYMENTID.Items.Insert(0, lstParent);
+                ddlFORMS_OF_PAYMENTID.SelectedIndex = ddlFORMS_OF_PAYMENTID.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
     private void GetPlaceCBO(int provinceId)
     {
         try
@@ -365,215 +391,243 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        // Kiem tra neu chua có báo cáo của cuộc họp trước thì không cho đăng ký nưa? (chua lam)
-
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
         // Thuc hien Insert Update
         //Kiem tra lai nhap đủ dữ liệu chưa?
 
-            if (txtORGANIZER_ADAID.Text.Trim().Length <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa nhập mã số ADA của người tổ chức!";
-                return;
-            }
+        if (txtORGANIZER_ADAID.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập mã số ADA của người tổ chức!";
+            return;
+        }
 
-            if (lblORGANIZER_NAME.Text.Trim().Length <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa lấy thông tin của người tổ chức!";
-                return;
-            }
+        if (lblORGANIZER_NAME.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa lấy thông tin của người tổ chức!";
+            return;
+        }
 
-            if (int.Parse(ddlPAXID.SelectedValue) <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa chọn loại phòng hội họp!";
-                return;
-            }
+        if (int.Parse(ddlPAXID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn loại phòng hội họp!";
+            return;
+        }
 
 
-            if (int.Parse(ddlPROVINCEID.SelectedValue) <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa chọn tỉnh thành tổ chức hội họp!";
-                return;
-            }
+        if (int.Parse(ddlPROVINCEID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn tỉnh thành tổ chức hội họp!";
+            return;
+        }
 
-            if (txtMEETINGNAME.Text.Trim().Length <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
-                return;
-            }
-            if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())))
-            {
-                lblAlerting.Text = "Bạn chưa nhập số lượng người tham gia cuộc họp!";
-                return;
-            }
-            if (txtMEETING_PLACE_NAME.Text.Trim().Length <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa nhập tên địa điểm họp!";
-                return;
-            }
-            if (txtMEETING_ADDRESS.Text.Trim().Length <= 0)
-            {
-                lblAlerting.Text = "Bạn chưa nhập địa điểm họp!";
-                return;
-            }
-            if ((txtMEETING_STARTDATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_STARTDATE.Text)) || (txtMEETING_ENDDATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_ENDDATE.Text)))
-            {
-                lblAlerting.Text = "Bạn nhập ngày họp không đúng!";
-                return;
-            }
+        if (txtMEETINGNAME.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
+            return;
+        }
+        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())))
+        {
+            lblAlerting.Text = "Bạn chưa nhập số lượng người tham gia cuộc họp!";
+            return;
+        }
+        if (txtMEETING_PLACE_NAME.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập tên địa điểm họp!";
+            return;
+        }
+        if (txtMEETING_ADDRESS.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập địa điểm họp!";
+            return;
+        }
+        if ((txtMEETING_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_DATE.Text)))
+        {
+            lblAlerting.Text = "Bạn nhập ngày họp không đúng!";
+            return;
+        }
+        if (int.Parse(ddlFORMS_OF_PAYMENTID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn hình thức thanh toán!";
+            return;
+        }
 
-            if (int.Parse(ddlINVITATIONID.SelectedValue) <= 0)
+
+        if (int.Parse(ddlINVITATIONID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn loại giấy mời!";
+            return;
+        }
+
+        if (int.Parse(ddlBANNERID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn loại biểu ngữ!";
+            return;
+        }
+
+        if ((txtSEND_INVITATION_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtSEND_INVITATION_DATE.Text)))
+        {
+            lblAlerting.Text = "Bạn nhập ngày phát giấy mời không đúng!";
+            return;
+        }
+        if ((txtTOTAL_PAY.Text.Trim().Length <= 0) || !(CheckNumber(txtTOTAL_PAY.Text.Trim())))
+        {
+            lblAlerting.Text = "Bạn chưa nhập tổng chi phí!";
+            return;
+        }
+
+        // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
+        MeetingBO objBO = new MeetingBO();
+
+        int ConditionCombine = objBO.MeetingGet_ConditionCombine(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfORGANIZER_USERTYPEID.Value));
+        int quantity = 0;
+        if (bool.Parse(hdfORGANIZER_QUOTA_CHECK.Value)) quantity++;
+        if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) quantity++;
+        if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) quantity++;
+        if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)) quantity++;
+
+        if (ConditionCombine > 0)
+        {
+            //Kiem tra xem nhung thang dong to chuc co du DK ko?
+            //Kiểm tra xem có du quantity voi ConditionCombine ko
+            if (ConditionCombine != quantity)
             {
-                lblAlerting.Text = "Bạn chưa chọn loại giấy mời!";
+                lblAlerting.Text = "Bạn nhập số lượng người đồng tổ chức không đủ!";
                 return;
             }
-
-            if (int.Parse(ddlBANNERID.SelectedValue) <= 0)
+            //Kiem tra xem nhung thang dong to chuc co cung usertype hay ko?
+            if ((hdfORGANIZER_USERTYPEID.Value != hdfCO_ORGANIZER_USERTYPEID_1.Value) || (hdfORGANIZER_USERTYPEID.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
             {
-                lblAlerting.Text = "Bạn chưa chọn loại biểu ngữ!";
+                lblAlerting.Text = "Bạn nhập người đồng tổ chức cùng danh hiệu!";
                 return;
             }
-
-            if ((txtSEND_INVITATION_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtSEND_INVITATION_DATE.Text)))
+            //Kiem tra xem no con quota ko?
+            if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
             {
-                lblAlerting.Text = "Bạn nhập ngày phát giấy mời không đúng!";
+                lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
                 return;
             }
-
-            // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
-            MeetingBO objBO = new MeetingBO();
-
-            int ConditionCombine = objBO.MeetingGet_ConditionCombine(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfORGANIZER_USERTYPEID.Value));
-            int quantity = 0;
-            if (bool.Parse(hdfORGANIZER_QUOTA_CHECK.Value)) quantity++;
-            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) quantity++;
-            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) quantity++;
-            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)) quantity++;
-
-            if (ConditionCombine > 0)
+            obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
+            obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
+            obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
+            obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
+            obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
+            obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
+        }
+        else
+        {
+            if (quantity > 1)
             {
-                //Kiem tra xem nhung thang dong to chuc co du DK ko?
-                //Kiểm tra xem có du quantity voi ConditionCombine ko
-                if (ConditionCombine != quantity)
-                {
-                    lblAlerting.Text = "Bạn nhập số lượng người đồng tổ chức không đủ!";
-                    return;
-                }
-                //Kiem tra xem nhung thang dong to chuc co cung usertype hay ko?
-                if ((hdfORGANIZER_USERTYPEID.Value != hdfCO_ORGANIZER_USERTYPEID_1.Value) || (hdfORGANIZER_USERTYPEID.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
-                {
-                    lblAlerting.Text = "Bạn nhập người đồng tổ chức cùng danh hiệu!";
-                    return;
-                }
-                //Kiem tra xem no con quota ko?
-                if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
-                {
-                    lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
-                    return;
-                }
-                obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
-                obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
-                obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
-                obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
-                obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
-                obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
+                lblAlerting.Text = "Cuộc họp này không cần người đồng tổ chức!";
+                return;
+            }
+        }
+
+
+        //Thực hiên Insert
+
+        obj.ID = int.Parse(hdfID.Value);
+        obj.ORGANIZER_USERID = int.Parse(hdfORGANIZER_USERID.Value);
+        obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
+        obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
+        obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.MEETINGNAME = txtMEETINGNAME.Text.Trim();
+        obj.NUMBER_OF_PARTICIPANT = int.Parse(txtNUMBER_OF_PARTICIPANT.Text.Trim().Replace(",", ""));
+        obj.MEETING_PLACE_NAME = txtMEETING_PLACE_NAME.Text.Trim();
+        obj.MEETING_ADDRESS = txtMEETING_ADDRESS.Text.Trim();
+
+        obj.MEETING_DATE = DateTime.ParseExact(txtMEETING_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        obj.MEETING_TIME = txtMEETING_TIME.Text.Trim();
+        obj.FORMS_OF_PAYMENTID=int.Parse(ddlFORMS_OF_PAYMENTID.SelectedValue);
+        obj.INVITATIONID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
+        obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        obj.WATER = bool.Parse(ddlWATER.SelectedValue);
+        if (CheckNumber(txtWATER_PRICE.Text.Trim()))
+        {
+            obj.WATER_PRICE = int.Parse(txtWATER_PRICE.Text.Trim().Replace(",", ""));
+        }
+
+        obj.FOOD = bool.Parse(ddlFOOD.SelectedValue);
+        if (CheckNumber(txtFOOD_PRICE.Text.Trim()))
+        {
+            obj.FOOD_PRICE = int.Parse(txtFOOD_PRICE.Text.Trim().Replace(",", ""));
+        }
+
+        obj.MEETINGTYPEID = 2;
+        obj.STATUS_MEETING_REGISTERID = 1;
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
+        obj.FOREIGNER = true;
+        obj.REPORTED = bool.Parse(hdfReported.Value);
+        obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
+        obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
+        obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
+        obj.SPEAKER_TITLE_1 = txtSPEAKER_TITLE_1.Text.Trim();
+        obj.SPEAKER_NATION_1 = txtSPEAKER_NATION_1.Text.Trim();
+        obj.SPEAKER_ADAID_2 = txtSPEAKER_ADAID_2.Text.Trim();
+        obj.SPEAKER_USERTYPENAME_2 = txtSPEAKER_USERTYPENAME_2.Text.Trim();
+        obj.SPEAKER_NAME_2 = txtSPEAKER_NAME_2.Text.Trim();
+        obj.SPEAKER_TITLE_2 = txtSPEAKER_TITLE_2.Text.Trim();
+        obj.SPEAKER_NATION_2 = txtSPEAKER_NATION_2.Text.Trim();
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+        
+        if (CheckNumber(txtTOTAL_PAY.Text.Trim()))
+        {
+            double TOTAL_PAY = double.Parse(txtTOTAL_PAY.Text.Trim().Replace(",", ""));
+            double AMWAY_PAY = 0;
+            double DISTRIBUTOR_PAY = 0;
+            // tinh tien theo 80%
+            AMWAY_PAY = TOTAL_PAY * 0.8;
+            if(AMWAY_PAY > double.Parse(hdfMAXPAYMENT.Value))
+            {
+                AMWAY_PAY=double.Parse(hdfMAXPAYMENT.Value);
+            }
+            DISTRIBUTOR_PAY = TOTAL_PAY - AMWAY_PAY;
+            obj.TOTAL_PAY = (decimal)TOTAL_PAY;
+            obj.AMWAY_PAY = (decimal)AMWAY_PAY;
+            obj.DISTRIBUTOR_PAY = (decimal)DISTRIBUTOR_PAY;
+        }
+        lblAMWAY_PAY.Text=string.Format("{0:N0}",obj.AMWAY_PAY);
+        lblDISTRIBUTOR_PAY.Text = string.Format("{0:N0}", obj.DISTRIBUTOR_PAY);
+        if (int.Parse(hdfID.Value) <= 0)
+        {
+            hdfID.Value = objBO.MeetingInsert(obj).ToString();
+            if (int.Parse(hdfID.Value) > 0)
+            {
+                btnSave.Text = "Cập nhật";
+                lblAlerting.Text = "Đăng ký hội họp mới thành công!";
+                return;
             }
             else
             {
-                if (quantity > 1)
+                lblAlerting.Text = "Đăng ký hội họp mới thất bại, bạn vui lòng thử lại!";
+                return;
+            }
+        }
+        else
+        {
+            //kiem tra xem cuộc họp này đã được duyệt chưa mà sửa
+            if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
+            {
+                //Neu duyet roi thì được sửa
+                if (objBO.MeetingUpdate(obj))
                 {
-                    lblAlerting.Text = "Cuộc họp này không cần người đồng tổ chức!";
-                    return;
-                }
-            }
-
-
-            //Thực hiên Insert
-
-            obj.ID = int.Parse(hdfID.Value);
-            obj.ORGANIZER_USERID = int.Parse(hdfORGANIZER_USERID.Value);
-            obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-            obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
-            obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
-            obj.MEETINGNAME = txtMEETINGNAME.Text.Trim();
-            obj.NUMBER_OF_PARTICIPANT = int.Parse(txtNUMBER_OF_PARTICIPANT.Text.Trim().Replace(",", ""));
-            obj.MEETING_PLACE_NAME = txtMEETING_PLACE_NAME.Text.Trim();
-            obj.MEETING_ADDRESS = txtMEETING_ADDRESS.Text.Trim();
-
-            obj.MEETING_STARTDATE = DateTime.ParseExact(txtMEETING_STARTDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            obj.MEETING_ENDDATE = DateTime.ParseExact(txtMEETING_ENDDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            obj.MEETING_TIME = txtMEETING_TIME.Text.Trim();
-            obj.INVITATIONID = int.Parse(ddlPROVINCEID.SelectedValue);
-            obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
-            obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            obj.WATER = bool.Parse(ddlWATER.SelectedValue);
-            if (CheckNumber(txtWATER_PRICE.Text.Trim()))
-            {
-                obj.WATER_PRICE = int.Parse(txtWATER_PRICE.Text.Trim().Replace(",", ""));
-            }
-
-            obj.FOOD = bool.Parse(ddlFOOD.SelectedValue);
-            if (CheckNumber(txtFOOD_PRICE.Text.Trim()))
-            {
-                obj.FOOD_PRICE = int.Parse(txtFOOD_PRICE.Text.Trim().Replace(",", ""));
-            }
-
-            obj.MEETINGTYPEID = 1;
-            obj.STATUS_MEETING_REGISTERID = 1;
-            obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
-            obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-            obj.FOREIGNER = false;
-            obj.REPORTED = bool.Parse(hdfReported.Value);
-            obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
-            obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
-            obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
-            obj.SPEAKER_TITLE_1 = txtSPEAKER_TITLE_1.Text.Trim();
-            obj.SPEAKER_NATION_1 = txtSPEAKER_NATION_1.Text.Trim();
-            obj.SPEAKER_ADAID_2 = txtSPEAKER_ADAID_2.Text.Trim();
-            obj.SPEAKER_USERTYPENAME_2 = txtSPEAKER_USERTYPENAME_2.Text.Trim();
-            obj.SPEAKER_NAME_2 = txtSPEAKER_NAME_2.Text.Trim();
-            obj.SPEAKER_TITLE_2 = txtSPEAKER_TITLE_2.Text.Trim();
-            obj.SPEAKER_NATION_2 = txtSPEAKER_NATION_2.Text.Trim();
-            obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
-            obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
-            if (int.Parse(hdfID.Value) <= 0)
-            {
-                hdfID.Value = objBO.MeetingInsert(obj).ToString();
-                if (int.Parse(hdfID.Value) > 0)
-                {
-                    btnSave.Text = "Cập nhật";
-                    lblAlerting.Text = "Đăng ký hội họp mới thành công!";
+                    lblAlerting.Text = "Cập nhật đăng ký hội họp thành công!";
                     return;
                 }
                 else
                 {
-                    lblAlerting.Text = "Đăng ký hội họp mới thất bại, bạn vui lòng thử lại!";
+                    lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, bạn vui lòng thử lại!";
                     return;
                 }
             }
             else
             {
-                //kiem tra xem cuộc họp này đã được duyệt chưa mà sửa
-                if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
-                {
-                    //Neu duyet roi thì được sửa
-                    if (objBO.MeetingUpdate(obj))
-                    {
-                        lblAlerting.Text = "Cập nhật đăng ký hội họp thành công!";
-                        return;
-                    }
-                    else
-                    {
-                        lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, bạn vui lòng thử lại!";
-                        return;
-                    }
-                }
-                else
-                {
-                    lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, đăng ký này đã được phê duyệt!";
-                    return;
-                }
+                lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, đăng ký này đã được phê duyệt!";
+                return;
             }
+        }
 
     }
     public void GetInfoUserLogin(int UserID)
@@ -725,8 +779,10 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         ImgBtnORGANIZER_OK.Visible = false;
         ImgBtnORGANIZER_ERROR.Visible = false;
         hdfORGANIZER_QUOTA_CHECK.Value = "false";
+        hdfMAXPAYMENT.Value = "0";
         if ((int.Parse(ddlPROVINCEID.SelectedValue) > 0) && (int.Parse(ddlPAXID.SelectedValue) > 0))
         {
+            hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
             divORGANIZER_QUOTA_BTN.Visible = true;
         }
         else
@@ -735,6 +791,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         }
 
     }
+    private int GetMaxPayment()
+    {
+        MeetingBO objBO = new MeetingBO();
+        return objBO.MeetingGet_MaxPayment(int.Parse(ddlPAXID.SelectedValue), int.Parse(ddlPROVINCEID.SelectedValue));
+    }
     protected void ddlPAXID_SelectedIndexChanged(object sender, EventArgs e)
     {
         lblAlerting.Text = string.Empty;
@@ -742,8 +803,10 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         ImgBtnORGANIZER_OK.Visible = false;
         ImgBtnORGANIZER_ERROR.Visible = false;
         hdfORGANIZER_QUOTA_CHECK.Value = "false";
+        hdfMAXPAYMENT.Value = "0";
         if ((int.Parse(ddlPROVINCEID.SelectedValue) > 0) && (int.Parse(ddlPAXID.SelectedValue) > 0))
         {
+            hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
             divORGANIZER_QUOTA_BTN.Visible = true;
         }
         else

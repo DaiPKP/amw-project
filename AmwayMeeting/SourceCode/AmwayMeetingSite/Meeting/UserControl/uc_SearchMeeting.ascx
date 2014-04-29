@@ -107,6 +107,11 @@
             Width="100%" CssClass="grid" AllowPaging="True"
             PageSize="20" OnRowEditing="grdList_RowEditing" OnPageIndexChanging="grdList_PageIndexChanging">
             <Columns>
+                 <asp:TemplateField HeaderText="Loại đăng ký hộp họp">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingMEETINGTYPENAME" runat="server" Text='<%# Eval("MEETINGTYPENAME") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Mã số ADA">
                     <ItemTemplate>
                         <asp:Label ID="lblListingORGANIZER_ADAID" runat="server" Text='<%# Eval("ORGANIZER_ADAID") %>'></asp:Label>

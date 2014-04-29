@@ -25,7 +25,7 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.REPORTED = chkIsReport.Checked;
         obj.FOREIGNER = chkHaveForeign.Checked;
-        DisplayInGrid(string.Empty,obj);
+        DisplayInGrid(string.Empty, obj);
     }
 
     private void ClearTextBox()
@@ -139,18 +139,18 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         {
         }
     }
-    protected void DisplayInGrid(string strADA,USR_AMW_MEETING_REGISTER obj)
+    protected void DisplayInGrid(string strADA, USR_AMW_MEETING_REGISTER obj)
     {
         MeetingBO objBO = new MeetingBO();
         List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> lst = new List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>();
-        lst = objBO.Meeting_Search(strADA,obj).ToList();
+        lst = objBO.Meeting_Search(strADA, obj).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
             grdList.PageIndex = 0;
         }
         grdList.DataBind();
-    }    
+    }
     protected void btnSearch_Click(object sender, EventArgs e)
     {
         hdfId.Value = "-1";
@@ -164,26 +164,67 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         grdList.EditIndex = e.NewEditIndex;
         hdfId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
         //kiem tra xem no thuoc loai hoi hop gi nua?
-       string strUrl = "../meeting/notsuportcostviewR" + hdfId.Value;
+        MeetingBO objBO = new MeetingBO();
+        PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult result = new PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult();
+        result = objBO.MeetingGet_ListByID(int.Parse(hdfId.Value));
+        if (result != null)
+        {
+            string strUrl = string.Empty;
 
-       Response.Redirect(strUrl);
+            int MeetingType = result.MEETINGTYPEID ?? 0;
+            bool Foreigner = result.FOREIGNER ?? false;
+            if (MeetingType == 1)
+            {
+                if (Foreigner)
+                {
+                    strUrl = "../meeting/notsuportcostforeignerviewR" + hdfId.Value;
+                }
+                else
+                {
+
+                    strUrl = "../meeting/notsuportcostviewR" + hdfId.Value;
+                }
+
+            }
+            if (MeetingType == 2)
+            {
+                if (Foreigner)
+                {
+                    strUrl = "../meeting/suportcostforeignerviewR" + hdfId.Value;
+                }
+                else
+                {
+
+                    strUrl = "../meeting/suportcostviewR" + hdfId.Value;
+                }
+
+            }
+            if (MeetingType == 3)
+            {
+                
+                    strUrl = "../meeting/outsidecountryviewR" + hdfId.Value;
+                
+
+            }
+            Response.Redirect(strUrl);
+        }
     }
     protected void btnXoaTrang_Click(object sender, EventArgs e)
-    { 
+    {
         ClearTextBox();
     }
-    
+
     private void LoadGrid()
     {
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
-       
+
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
         obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.REPORTED = chkIsReport.Checked;
         obj.FOREIGNER = chkHaveForeign.Checked;
-        DisplayInGrid(txtADA.Text.Trim(),obj);
+        DisplayInGrid(txtADA.Text.Trim(), obj);
     }
 
 
