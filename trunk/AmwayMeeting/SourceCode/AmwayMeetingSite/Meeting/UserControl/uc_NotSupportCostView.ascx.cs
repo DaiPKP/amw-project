@@ -114,8 +114,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
                 lblFOOD.Text = "Không";
             }
 
-            lblWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}",result.WATER_PRICE.ToString());
-            lblFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}",result.FOOD_PRICE.ToString());
+            lblWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}",result.WATER_PRICE);
+            lblFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}",result.FOOD_PRICE);
             lblSPEAKER_TITLE_1.Text = result.SPEAKER_TITLE_1 == null ? string.Empty : result.SPEAKER_TITLE_1;
             lblSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
             lblSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
