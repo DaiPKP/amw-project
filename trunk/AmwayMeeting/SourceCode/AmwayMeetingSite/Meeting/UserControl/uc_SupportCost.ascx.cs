@@ -73,7 +73,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
                 ddlINVITATIONID.SelectedValue = result.INVITATIONID == null ? string.Empty : result.INVITATIONID.ToString();
                 ddlBANNERID.SelectedValue = result.BANNERID == null ? string.Empty : result.BANNERID.ToString();
                 txtSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
-                chkForeigner.Checked = result.FOREIGNER ?? false;
+                hdfReported.Value = result.REPORTED == null ? "false" : result.REPORTED.ToString(); 
                 ddlWATER.SelectedValue = result.WATER.ToString();
                 ddlFOOD.SelectedValue = result.FOOD.ToString();
                 txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE);
@@ -157,6 +157,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         GetPlaceCBO(0);
         GetFormOfPaymentCBO();
         lblAlerting.Text = string.Empty;
+        hdfReported.Value = "false";
         hdfID.Value = "-1";
         btnSave.Text = "Đăng ký";
         btnSave.Visible = true;
@@ -557,8 +558,8 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         obj.STATUS_MEETING_REGISTERID = 1;
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-        obj.FOREIGNER = chkForeigner.Checked;
-        obj.REPORTED = false;
+        obj.FOREIGNER = false;
+        obj.REPORTED = bool.Parse(hdfReported.Value);
         obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
         obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
         obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();

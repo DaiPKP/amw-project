@@ -1,7 +1,7 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCost.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCost" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCostForeigner.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCostForeigner" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ
+        ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ - CÓ NGƯỜI NƯỚC NGOÀI
     </div>
     <script type="text/javascript">
         function BindEvents() {
@@ -509,7 +509,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ <asp:CheckBox ID="chkForeigner" Checked="false" runat="server" />NGƯỜI NƯỚC NGOÀI</b>
+                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ NGƯỜI NƯỚC NGOÀI</b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -610,7 +610,7 @@
                 </fieldset>
             </asp:Panel>
             <asp:HiddenField runat="server" ID="hdfID" />
-            <asp:HiddenField runat="server" ID="hdfReported" />
+            <asp:HiddenField ID="hdfReported" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>

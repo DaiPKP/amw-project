@@ -8,7 +8,7 @@ using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web.UI.UserControl
 {
     public int _ID = -1;
     protected void Page_Load(object sender, EventArgs e)
@@ -154,7 +154,6 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         GetInvitationCBO();
         GetPlaceCBO(0);
         lblAlerting.Text = string.Empty;
-        hdfReported.Value = "false";
         hdfID.Value = "-1";
         btnSave.Text = "Đăng ký";
         btnSave.Visible = true;
@@ -522,8 +521,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             obj.STATUS_MEETING_REGISTERID = 1;
             obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
             obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-            obj.FOREIGNER = false;
-            obj.REPORTED = bool.Parse(hdfReported.Value);
+            obj.FOREIGNER = chkForeigner.Checked;
+            obj.REPORTED = false;
             obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
             obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
             obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
