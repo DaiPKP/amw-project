@@ -33,7 +33,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.EMAIL = string.Empty;
         objUser.USERTYPEID = 0;
         objUser.DEPARTMENTID = 0;
-        objUser.HOMEPROVINCEID = 0;
+        objUser.WORKDISTRICTID = 0;
         objUser.WORKPROVINCEID = 0;
         objUser.DESCRIPTION = string.Empty;
         objUser.ACTIVE = chkActive.Checked;
@@ -45,6 +45,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         GetDepartmentCBO();
         GetUserTypeBO();
         GetProvinceCBO();
+        GetDistrictCBO(0);
         hdfUserID.Value = "-1";
         txtADA.Text = string.Empty;
         txtFirstName.Text = string.Empty;
@@ -59,7 +60,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         txtAddress.Text = string.Empty;
         ddlDepartment.SelectedValue = "0";
         ddlUserType.SelectedValue = "0";
-        ddlHomeProvince.SelectedValue = "0";
+        ddlWorkDistrict.SelectedValue = "0";
         ddlWorkProvince.SelectedValue = "0";
         txtDescription.Text = string.Empty;
         chkActive.Checked = true;
@@ -134,20 +135,11 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lst = catebo.ProvinceGet_CBO().ToList();
             if (lst != null)
             {
-                ddlHomeProvince.DataSource = lst;
-                ddlHomeProvince.DataTextField = "PROVINCENAME";
-                ddlHomeProvince.DataValueField = "ID";
-                ddlHomeProvince.DataBind();
-
-                ListItem lstParent = new ListItem("--Chọn--", "0");
-                ddlHomeProvince.Items.Insert(0, lstParent);
-                ddlHomeProvince.SelectedIndex = ddlHomeProvince.Items.IndexOf(lstParent);
-
                 ddlWorkProvince.DataSource = lst;
                 ddlWorkProvince.DataTextField = "PROVINCENAME";
                 ddlWorkProvince.DataValueField = "ID";
                 ddlWorkProvince.DataBind();
-
+                ListItem lstParent = new ListItem("--Chọn--", "0");
                 ddlWorkProvince.Items.Insert(0, lstParent);
                 ddlWorkProvince.SelectedIndex = ddlWorkProvince.Items.IndexOf(lstParent);
             }
@@ -156,6 +148,42 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         {
         }
     }
+
+    private void GetDistrictCBO(int provinceId)
+    {
+        try
+        {
+            if (provinceId > 0)
+            {
+                CategoryBO catebo = new CategoryBO();
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                lst = catebo.DistrictGet_CBO(provinceId).ToList();
+                if (lst != null)
+                {
+
+                    ListItem lstParent = new ListItem("--Chọn--", "0");
+                    ddlWorkDistrict.DataSource = lst;
+                    ddlWorkDistrict.DataTextField = "DISTRICTNAME";
+                    ddlWorkDistrict.DataValueField = "ID";
+                    ddlWorkDistrict.DataBind();
+
+                    ddlWorkDistrict.Items.Insert(0, lstParent);
+                    ddlWorkDistrict.SelectedIndex = ddlWorkProvince.Items.IndexOf(lstParent);
+                }
+            }
+            else
+            {
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlWorkDistrict.Items.Add(lstParent);
+                ddlWorkDistrict.SelectedIndex = ddlWorkDistrict.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
+
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
@@ -175,14 +203,14 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         string strRelativeFirstName = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingRelativeFirstName")).Text;
         string strRelativeLastName = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingRelativeLastName")).Text;
         string strCode = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingCode")).Text;
-        string strAccBank = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingAccBank")).Text;       
+        string strAccBank = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingAccBank")).Text;
         string strTelephone = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingTelephone")).Text;
         string strFax = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingFax")).Text;
         string strEmail = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingEmail")).Text;
         string strAddress = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingAddress")).Text;
         string strDepartment = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDepartmentId")).Text;
         string strUserType = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUserTypeId")).Text;
-        string strHomeProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingHomeProvinceId")).Text;
+        string strWorkDistrict = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingWorkDistrictId")).Text;
         string strWorkProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingWorkProvinceId")).Text;
         bool Active = bool.Parse(((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
         string strDescription = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
@@ -202,8 +230,9 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         txtAddress.Text = strAddress;
         ddlDepartment.SelectedValue = strDepartment;
         ddlUserType.SelectedValue = strUserType;
-        ddlHomeProvince.SelectedValue = strHomeProvince;
         ddlWorkProvince.SelectedValue = strWorkProvince;
+        GetDistrictCBO(int.Parse( strWorkProvince));
+        ddlWorkDistrict.SelectedValue = strWorkDistrict;
         chkActive.Checked = Active;
         txtDescription.Text = strDescription;
 
@@ -257,14 +286,15 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lblAlerting.Text = "Bạn chưa chọn nhóm người dùng!";
             return;
         }
-        if (int.Parse(ddlHomeProvince.SelectedValue) <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa chọn tỉnh thành đang ở!";
-            return;
-        }
+
         if (int.Parse(ddlWorkProvince.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn tỉnh thành đang làm việc!";
+            return;
+        }
+        if (int.Parse(ddlWorkDistrict.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn quận huyện đang ở!";
             return;
         }
 
@@ -285,8 +315,12 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.EMAIL = txtEmail.Text.Trim();
         objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
-        objUser.HOMEPROVINCEID = int.Parse(ddlHomeProvince.SelectedValue);
+        objUser.WORKDISTRICTID = int.Parse(ddlWorkDistrict.SelectedValue);
         objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
+
+        objUser.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        objUser.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+
         objUser.ACTIVE = chkActive.Checked;
         UserBO acc = new UserBO();
         if (int.Parse(hdfUserID.Value) <= 0)
@@ -334,7 +368,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.EMAIL = txtEmail.Text.Trim();
         objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
-        objUser.HOMEPROVINCEID = int.Parse(ddlHomeProvince.SelectedValue);
+        objUser.WORKDISTRICTID = int.Parse(ddlWorkDistrict.SelectedValue);
         objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
         objUser.ACTIVE = chkActive.Checked;
         DisplayUsersInGrid(objUser);
@@ -357,5 +391,9 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         else
             return false;
     }
-   
+
+    protected void ddlWorkProvince_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetDistrictCBO(int.Parse(ddlWorkProvince.SelectedValue));
+    }
 }

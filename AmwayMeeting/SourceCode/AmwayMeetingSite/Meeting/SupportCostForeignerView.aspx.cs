@@ -5,19 +5,26 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Meeting_NotSupportCostForeigner : System.Web.UI.Page
+public partial class Meeting_SupportCostForeignerView : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("28")))
+        if ((Session["UserID"] == null) || (!CheckPermission("26")))
         {
             Response.Redirect("~/home");
         }
         else
         {
             int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
-
-            uc_NotSupportCostForeigner1._ID = id;
+            if (id<=0)
+            {
+                Response.Redirect("~/home");
+            }
+            else
+            {
+                uc_SupportCostForeignerView1._ID = id;
+            }
+           
         }
 
     }

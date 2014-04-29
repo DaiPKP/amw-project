@@ -25,6 +25,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
 
         hdfID.Value = _ID.ToString();
         GetStatusMeetingRegisterCBO();
+        GetStatusMeetingPaymentCBO();
         LoadData(int.Parse(hdfID.Value));
     }
     private void GetStatusMeetingRegisterCBO()
@@ -103,22 +104,13 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblNUMBER_OF_PARTICIPANT.Text = result.NUMBER_OF_PARTICIPANT == null ? string.Empty : string.Format("{0:N0}", result.NUMBER_OF_PARTICIPANT);
             lblMEETING_PLACE_NAME.Text = result.MEETING_PLACE_NAME == null ? string.Empty : result.MEETING_PLACE_NAME;
             lblMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
-            lblMEETING_DATE.Text = result.MEETING_ENDDATE == null ? string.Empty : result.STR_MEETING_ENDDATE;
+            lblMEETING_DATE.Text = result.MEETING_DATE == null ? string.Empty : result.STR_MEETING_DATE;
             lblMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
             lblINVITATIONNAME.Text = result.INVITATIONNAME == null ? string.Empty : result.INVITATIONNAME;
             lblBANNERNAME.Text = result.BANNERNAME == null ? string.Empty : result.BANNERNAME;
             lblSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
             lblSTATTUS_MEETING_REGISTERNAME.Text = result.STATUS_MEETING_REGISTERNAME == null ? string.Empty : result.STATUS_MEETING_REGISTERNAME;
-            if (result.FOREIGNER ?? false == true)
-            {
-                lblFOREIGNER.Text = "NGƯỜI NƯỚC NGOÀI";
-
-            }
-            else
-            {
-                lblFOREIGNER.Text = string.Empty;
-            }
-
+            
             if (result.WATER ?? false == true)
             {
                 lblWATER.Text = "Có";
@@ -152,7 +144,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblAMWAY_PAY.Text = result.AMWAY_PAY == null ? string.Empty : string.Format("{0:N0}", result.AMWAY_PAY);
             lblDISTRIBUTOR_PAY.Text = result.DISTRIBUTOR_PAY == null ? string.Empty : string.Format("{0:N0}", result.DISTRIBUTOR_PAY);
             ddlSTATUS_MEETING_REGISTERID.SelectedValue = result.STATUS_MEETING_REGISTERID.ToString();
-            ddlSTATUS_MEETING_PAYMENTID.SelectedValue = result.STATUS_MEETING_PAYMENTID.ToString();
+            ddlSTATUS_MEETING_PAYMENTID.SelectedValue = result.STATUS_MEETING_PAYMENTID==null ? "0" : result.STATUS_MEETING_PAYMENTID.ToString();
         }
 
 

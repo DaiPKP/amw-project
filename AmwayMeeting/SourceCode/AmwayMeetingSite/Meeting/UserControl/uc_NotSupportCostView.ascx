@@ -378,7 +378,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ <asp:Label ID="lblFOREIGNER" runat="server" Width="200px"></asp:Label></b>
+                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ</b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>

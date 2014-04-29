@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Meeting_NotSupportCostForeigner : System.Web.UI.Page
+public partial class Meeting_OutSideCountry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("28")))
+        if ((Session["UserID"] == null) || (!CheckPermission("22")))
         {
             Response.Redirect("~/home");
         }
@@ -17,7 +17,7 @@ public partial class Meeting_NotSupportCostForeigner : System.Web.UI.Page
         {
             int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
 
-            uc_NotSupportCostForeigner1._ID = id;
+            uc_OutSideCountry1._ID = id;
         }
 
     }

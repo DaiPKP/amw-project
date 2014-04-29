@@ -21,7 +21,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_PROVINCE Province = new SYS_AMW_PROVINCE();
             Province = objProvince;
-           return PRC_SYS_AMW_PROVINCE_INSERT(Province.PROVINCENAME, Province.DESCRIPTION,Province.ACTIVE);
+           return PRC_SYS_AMW_PROVINCE_INSERT(Province.PROVINCENAME, Province.DESCRIPTION,Province.ACTIVE,Province.CREATEUSER);
             
         }
         catch
@@ -36,7 +36,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_PROVINCE Province = new SYS_AMW_PROVINCE();
             Province = objProvince;
-            int result = PRC_SYS_AMW_PROVINCE_UPDATE(Province.ID, Province.PROVINCENAME, Province.DESCRIPTION, Province.ACTIVE);
+            int result = PRC_SYS_AMW_PROVINCE_UPDATE(Province.ID, Province.PROVINCENAME, Province.DESCRIPTION, Province.ACTIVE,Province.UPDATEUSER);
             if (result == 1)
                 return true;
             else
@@ -96,7 +96,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_PAX Pax = new SYS_AMW_PAX();
             Pax = objPax;
-            return PRC_SYS_AMW_PAX_INSERT(Pax.PAXNAME, Pax.DESCRIPTION, Pax.ACTIVE);
+            return PRC_SYS_AMW_PAX_INSERT(Pax.PAXNAME, Pax.DESCRIPTION, Pax.ACTIVE,Pax.CREATEUSER);
 
         }
         catch
@@ -111,7 +111,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_PAX Pax = new SYS_AMW_PAX();
             Pax = objPax;
-            int result = PRC_SYS_AMW_PAX_UPDATE(Pax.ID, Pax.PAXNAME, Pax.DESCRIPTION, Pax.ACTIVE);
+            int result = PRC_SYS_AMW_PAX_UPDATE(Pax.ID, Pax.PAXNAME, Pax.DESCRIPTION, Pax.ACTIVE,Pax.UPDATEUSER);
             if (result == 1)
                 return true;
             else
@@ -172,7 +172,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_USERTYPE UserType = new SYS_AMW_USERTYPE();
             UserType = objUserType;
-            return PRC_SYS_AMW_USERTYPE_INSERT(UserType.USERTYPENAME, UserType.DESCRIPTION, UserType.ACTIVE);
+            return PRC_SYS_AMW_USERTYPE_INSERT(UserType.USERTYPENAME, UserType.DESCRIPTION, UserType.ACTIVE,UserType.CREATEUSER);
 
         }
         catch
@@ -187,7 +187,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_USERTYPE UserType = new SYS_AMW_USERTYPE();
             UserType = objUserType;
-            int result = PRC_SYS_AMW_USERTYPE_UPDATE(UserType.ID, UserType.USERTYPENAME, UserType.DESCRIPTION, UserType.ACTIVE);
+            int result = PRC_SYS_AMW_USERTYPE_UPDATE(UserType.ID, UserType.USERTYPENAME, UserType.DESCRIPTION, UserType.ACTIVE,UserType.UPDATEUSER);
             if (result == 1)
                 return true;
             else
@@ -205,6 +205,19 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             List<PRC_SYS_AMW_USERTYPE_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_USERTYPE_GETLISTBYIDResult>();
             result = PRC_SYS_AMW_USERTYPE_GETLISTBYID(ID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_DISTRICT_CBOResult>DistrictGet_CBO(int provinceId)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_DISTRICT_CBOResult> result = new List<PRC_SYS_AMW_DISTRICT_CBOResult>();
+            result = PRC_SYS_AMW_DISTRICT_CBO(provinceId).ToList();
             return result;
         }
         catch (Exception ex)
@@ -240,13 +253,13 @@ public class CategoryBO : AMW_MEETINGDataContext
     }
 
 
-    public int Pax_ProvinceInsert(SYS_AMW_PAX_PROVINCE objPax_Province)
+    public int Pax_DistrictInsert(SYS_AMW_PAX_DISTRICT objPax_District)
     {
         try
         {
-            SYS_AMW_PAX_PROVINCE Pax_Province = new SYS_AMW_PAX_PROVINCE();
-            Pax_Province = objPax_Province;
-            return PRC_SYS_AMW_PAX_PROVINCE_INSERT( Pax_Province.PAXID, Pax_Province.PROVINCEID, Pax_Province.DESCRIPTION, Pax_Province.ACTIVE);
+            SYS_AMW_PAX_DISTRICT Pax_District = new SYS_AMW_PAX_DISTRICT();
+            Pax_District = objPax_District;
+            return PRC_SYS_AMW_PAX_DISTRICT_INSERT(Pax_District.PAXID, Pax_District.PROVINCEID, Pax_District.DISTRICTID, Pax_District.DESCRIPTION, Pax_District.ACTIVE, Pax_District.CREATEUSER);
 
         }
         catch
@@ -255,13 +268,13 @@ public class CategoryBO : AMW_MEETINGDataContext
         }
     }
 
-    public bool Pax_ProvinceUpdate(SYS_AMW_PAX_PROVINCE objPax_Province)
+    public bool Pax_DistrictUpdate(SYS_AMW_PAX_DISTRICT objPax_District)
     {
         try
         {
-            SYS_AMW_PAX_PROVINCE Pax_Province = new SYS_AMW_PAX_PROVINCE();
-            Pax_Province = objPax_Province;
-            int result = PRC_SYS_AMW_PAX_PROVINCE_UPDATE(Pax_Province.ID, Pax_Province.PAXID, Pax_Province.PROVINCEID, Pax_Province.DESCRIPTION, Pax_Province.ACTIVE);
+            SYS_AMW_PAX_DISTRICT Pax_District = new SYS_AMW_PAX_DISTRICT();
+            Pax_District = objPax_District;
+            int result = PRC_SYS_AMW_PAX_DISTRICT_UPDATE(Pax_District.ID, Pax_District.PAXID, Pax_District.PROVINCEID, Pax_District.DISTRICTID, Pax_District.DESCRIPTION, Pax_District.ACTIVE, Pax_District.UPDATEUSER);
             if (result == 1)
                 return true;
             else
@@ -273,25 +286,25 @@ public class CategoryBO : AMW_MEETINGDataContext
         }
     }
 
-    public List<PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult> Pax_ProvinceGetListByID(int ID)
+    public List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBYIDResult> Pax_DistrictGetListByID(int ID)
     {
         try
         {
-            List<PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYIDResult>();
-            result = PRC_SYS_AMW_PAX_PROVINCE_GETLISTBYID(ID).ToList();
+            List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_PAX_DISTRICT_GETLISTBYID(ID).ToList();
             return result;
         }
         catch (Exception ex)
         {
             return null;
         }
-    }   
-    public List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult> Pax_ProvinceGet_Search(SYS_AMW_PAX_PROVINCE objPax_Province)
+    }
+    public List<PRC_SYS_AMW_PAX_DISTRICT_SEARCHResult> Pax_DistrictGet_Search(SYS_AMW_PAX_DISTRICT objPax_District)
     {
         try
         {
-            List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult> result = new List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult>();
-            result = PRC_SYS_AMW_PAX_PROVINCE_SEARCH(objPax_Province.PAXID, objPax_Province.PROVINCEID, objPax_Province.DESCRIPTION, objPax_Province.ACTIVE).ToList();
+            List<PRC_SYS_AMW_PAX_DISTRICT_SEARCHResult> result = new List<PRC_SYS_AMW_PAX_DISTRICT_SEARCHResult>();
+            result = PRC_SYS_AMW_PAX_DISTRICT_SEARCH(objPax_District.PAXID, objPax_District.PROVINCEID, objPax_District.DISTRICTID, objPax_District.DESCRIPTION, objPax_District.ACTIVE).ToList();
             return result;
         }
         catch (Exception ex)
@@ -307,7 +320,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_POLICY Policy = new SYS_AMW_POLICY();
             Policy = objPolicy;
-            return PRC_SYS_AMW_POLICY_INSERT(Policy.PAXID, Policy.USERTYPEID, Policy.QUOTA, Policy.CONDITIONCOMBINED);
+            return PRC_SYS_AMW_POLICY_INSERT(Policy.PAXID, Policy.USERTYPEID, Policy.QUOTA, Policy.CONDITIONCOMBINED,Policy.CREATEUSER);
 
         }
         catch
@@ -322,7 +335,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             SYS_AMW_POLICY Policy = new SYS_AMW_POLICY();
             Policy = objPolicy;
-            int result = PRC_SYS_AMW_POLICY_UPDATE(Policy.ID, Policy.PAXID, Policy.USERTYPEID, Policy.QUOTA, Policy.CONDITIONCOMBINED);
+            int result = PRC_SYS_AMW_POLICY_UPDATE(Policy.ID, Policy.PAXID, Policy.USERTYPEID, Policy.QUOTA, Policy.CONDITIONCOMBINED,Policy.UPDATEUSER);
             if (result == 1)
                 return true;
             else
@@ -514,12 +527,12 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
-    public List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> PlaceGet_ByProvinceId(int provinceId)
+    public List<PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult> PlaceGet_ByDistrictId(int districtId)
     {
         try
         {
-            List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> result = new List<PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult>();
-            result = PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEID(provinceId).ToList();
+            List<PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult> result = new List<PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult>();
+            result = PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTID(districtId).ToList();
             return result;
         }
         catch (Exception ex)

@@ -1,7 +1,7 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCostForeignerView.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCostView" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostForeignerView.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCostForeignerView" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        DUYỆT ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ - CÓ NGƯỜI NƯỚC NGOÀI
+        DUYỆT ĐĂNG KÝ HỘI HỌP HỖ TRỢ CHI PHÍ - CÓ NGƯỜI NƯỚC NGOÀI
     </div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -272,16 +272,13 @@
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Ngày họp:
                                      
-                                    </td>
-                                    <td align="left" class="tdmeeting3" colspan="4">
-                                        <asp:Label ID="lblMEETING_STARTDATE" CssClass="lblMeeting" runat="server" Width="100px"></asp:Label>
-                                        đến&nbsp;&nbsp;
-                                        <asp:Label ID="lblMEETING_ENDDATE" CssClass="lblMeeting" runat="server" Width="100px"></asp:Label>
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        Giờ họp(không quá 22 giờ):
+                                    </td>                                    
+
+                                     <td align="left" class="tdmeeting3" colspan="2">
+                                        <asp:Label ID="lblMEETING_DATE" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
+                                    <td align="left" class="tdmeeting5" colspan="2">Giờ họp(tối đa là 4 giờ):
                                         <div style="float: right; margin-right: 4px;">
                                             <asp:Label ID="lblMEETING_TIME" runat="server" Width="250px" CssClass="lblMeeting"></asp:Label>
-                                            
                                         </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
@@ -459,7 +456,7 @@
                                 <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
-
+                               
                                 <tr>
                                     <td colspan="7">
                                         <hr />
@@ -467,7 +464,56 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>IV.	DUYỆT ĐĂNG KÝ</div></b>
+                                        <b>IV.	CHI PHÍ</b>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Tổng chi phí:
+                                    
+                                    </td>
+                                    <td align="right" class="tdmeeting3">
+                                        <asp:Label ID="lblTOTAL_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)                                       
+                                    </td>
+                                    <td class="tdmeeting4"></td>
+                                    <td align="left" class="tdmeeting5">                                    
+                                    </td>
+                                    <td align="left" class="tdmeeting6">
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Số tiền Amway trả:
+                                    
+                                    </td>
+                                    <td align="right" class="tdmeeting3">
+                                        <asp:Label id="lblAMWAY_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)
+                                    </td>
+                                    <td class="tdmeeting4"></td>
+                                    <td align="left" class="tdmeeting5">Số tiền nhà phân phối trả:
+                                    
+                                    </td>
+                                    <td align="right" class="tdmeeting6">
+                                        <asp:Label id="lblDISTRIBUTOR_PAY" CssClass="lblMeeting" runat="server" Width="180px" ></asp:Label>&nbsp;(VNĐ)
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">
+                                        <hr />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        <b>V.	DUYỆT ĐĂNG KÝ</b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -482,6 +528,33 @@
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Tình trạng đăng ký: </td>
                                     <td align="left" class="tdmeeting6"><asp:Label ID="lblSTATTUS_MEETING_REGISTERNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                          <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                        <tr>
+                                    <td colspan="7">
+                                        <hr />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6">
+                                        <b>VI.	CẬP NHẬP TÌNH TRẠNG CHI PHÍ</b>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Tình trạng:                                        
+                                    </td>
+                                    <td align="left" class="tdmeeting3">
+                                        <asp:DropDownList ID="ddlSTATUS_MEETING_PAYMENTID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td class="tdmeeting4"></td>
+                                    <td align="left" class="tdmeeting5">Tình trạng chi phí: </td>
+                                    <td align="left" class="tdmeeting6"><asp:Label ID="lblSTATTUS_MEETING_PAYMENTNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -506,7 +579,7 @@
                     </asp:Panel>
                 </fieldset>
             </asp:Panel>
-            <asp:HiddenField runat="server" ID="hdfID" />    
+            <asp:HiddenField runat="server" ID="hdfID" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>

@@ -276,9 +276,9 @@
 
                                      <td align="left" class="tdmeeting3" colspan="2">
                                         <asp:Label ID="lblMEETING_DATE" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                    <td align="left" class="tdmeeting5" colspan="2">Giờ họp(tối đa là 4 giờ)<span style="color: Red">(*)</span>:
+                                    <td align="left" class="tdmeeting5" colspan="2">Giờ họp(tối đa là 4 giờ):
                                         <div style="float: right; margin-right: 4px;">
-                                            <asp:Label ID="lblMEETING_TIME" runat="server" Width="150px" CssClass="lblMeeting"></asp:Label>
+                                            <asp:Label ID="lblMEETING_TIME" runat="server" Width="250px" CssClass="lblMeeting"></asp:Label>
                                         </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
@@ -375,7 +375,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ <asp:Label ID="lblFOREIGNER" runat="server" Width="200px"></asp:Label></b>
+                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ</b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -473,7 +473,7 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2">Tổng chi phí<span style="color: Red">(*)</span>:
+                                    <td align="left" class="tdmeeting2">Tổng chi phí:
                                     
                                     </td>
                                     <td align="right" class="tdmeeting3">
@@ -546,7 +546,7 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2">Tình trạng<span style="color: Red">(*)</span>:                                        
+                                    <td align="left" class="tdmeeting2">Tình trạng:                                        
                                     </td>
                                     <td align="left" class="tdmeeting3">
                                         <asp:DropDownList ID="ddlSTATUS_MEETING_PAYMENTID" CssClass="txtBox" runat="server" Width="140px" Height="22px">

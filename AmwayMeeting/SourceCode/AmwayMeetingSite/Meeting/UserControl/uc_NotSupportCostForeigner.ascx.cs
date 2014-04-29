@@ -154,6 +154,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         GetInvitationCBO();
         GetPlaceCBO(0);
         lblAlerting.Text = string.Empty;
+        hdfReported.Value = "false";
         hdfID.Value = "-1";
         btnSave.Text = "Đăng ký";
         btnSave.Visible = true;
@@ -260,13 +261,13 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         }
     }
 
-    private void GetPlaceCBO(int provinceId)
+    private void GetPlaceCBO(int districtId)
     {
         try
         {
             CategoryBO objBO = new CategoryBO();
-            List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> lst = new List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult>();
-            lst = objBO.PlaceGet_ByProvinceId(provinceId).ToList();
+            List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult> lst = new List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult>();
+            lst = objBO.PlaceGet_ByDistrictId(districtId).ToList();
             if (lst != null)
             {
                 ddlPLACE.DataSource = lst;
@@ -521,8 +522,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             obj.STATUS_MEETING_REGISTERID = 1;
             obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
             obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-            obj.FOREIGNER = chkForeigner.Checked;
-            obj.REPORTED = false;
+            obj.FOREIGNER = true;
+            obj.REPORTED = bool.Parse(hdfReported.Value);
             obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
             obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
             obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();

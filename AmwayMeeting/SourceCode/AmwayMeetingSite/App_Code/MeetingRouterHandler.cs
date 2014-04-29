@@ -91,8 +91,40 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCostForeigner.aspx", typeof(Page)) as Page;
                     }  
-                case "outside": return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutSide.aspx", typeof(Page)) as Page;
+                case "outsidecountry":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutSideCountry.aspx", typeof(Page)) as Page;
                
+                    }
+                case "outsidecountryview":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutSideCountryView.aspx", typeof(Page)) as Page;
+                    }
+                    
                 case "notsuportcostview":
                     {
                         string strid = "-1";
@@ -157,22 +189,7 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCostForeignerView.aspx", typeof(Page)) as Page;
                     }
-                case "outsidecountryview":
-                    {
-                        string strid = "-1";
-                        try
-                        {
-                            strid = arrData[1];
-                        }
-                        catch
-                        {
-
-                            strid = "-1";
-                        }
-
-                        HttpContext.Current.Items["id"] = strid;
-                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutsideCountryview.aspx", typeof(Page)) as Page;
-                    }
+               
                 default:
                     {
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/Province.aspx", typeof(Page)) as Page;

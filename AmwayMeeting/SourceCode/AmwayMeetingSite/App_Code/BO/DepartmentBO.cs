@@ -21,7 +21,7 @@ public class DepartmentBO : AMW_MEETINGDataContext
         {
             SYS_AMW_DEPARTMENT Dep = new SYS_AMW_DEPARTMENT();
             Dep = objDep;
-           return PRC_SYS_AMW_DEPARTMENT_INSERT(Dep.DEPARTMENTNAME, Dep.DESCRIPTION,Dep.ACTIVE);
+           return PRC_SYS_AMW_DEPARTMENT_INSERT(Dep.DEPARTMENTNAME, Dep.DESCRIPTION,Dep.ACTIVE,Dep.CREATEUSER);
             
         }
         catch
@@ -36,7 +36,7 @@ public class DepartmentBO : AMW_MEETINGDataContext
         {
             SYS_AMW_DEPARTMENT Dep = new SYS_AMW_DEPARTMENT();
             Dep = objDep;
-            int result = PRC_SYS_AMW_DEPARTMENT_UPDATE(Dep.ID, Dep.DEPARTMENTNAME, Dep.DESCRIPTION, Dep.ACTIVE);
+            int result = PRC_SYS_AMW_DEPARTMENT_UPDATE(Dep.ID, Dep.DEPARTMENTNAME, Dep.DESCRIPTION, Dep.ACTIVE,Dep.UPDATEUSER);
             if (result == 1)
                 return true;
             else

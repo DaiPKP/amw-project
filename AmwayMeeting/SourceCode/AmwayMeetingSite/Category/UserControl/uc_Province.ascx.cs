@@ -89,6 +89,8 @@ public partial class Category_UserControl_uc_Province : System.Web.UI.UserContro
         obj.DESCRIPTION = txtDescription.Text.Trim();
         obj.ACTIVE = chkActive.Checked;
 
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         CategoryBO objBO = new CategoryBO();
         if (int.Parse(hdfProvinceId.Value) <= 0)
         {

@@ -22,7 +22,7 @@ public partial class Meeting_NotSupportCostForeignerView : System.Web.UI.Page
             }
             else
             {
-                uc_NotSupportCostView1._ID = id;
+                uc_NotSupportCostForeignerView1._ID = id;
             }
            
         }
