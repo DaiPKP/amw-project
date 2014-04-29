@@ -177,6 +177,31 @@
       <Column Name="SPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.USR_AMW_MEETING_REPORT" Member="USR_AMW_MEETING_REPORTs">
+    <Type Name="USR_AMW_MEETING_REPORT">
+      <Column Name="MEETING_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="INVITE_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WATER_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FOOD_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUMMARY_WATER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUMMARY_FOOD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[20_PERCENT]" Member="_20_PERCENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRINTING_INVITATION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_OVERVIEW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_ROOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_SUPPORT_USE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_SUPPORT_CHANGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_SUMMARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_COMMENT_ROOM" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="OTHER_COMMENT_STAFT" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.PRC_SYS_AMW_DEPARTMENT_CBO" Method="PRC_SYS_AMW_DEPARTMENT_CBO">
     <ElementType Name="PRC_SYS_AMW_DEPARTMENT_CBOResult">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -1501,5 +1526,51 @@
       <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REPORT_UPDATE" Method="PRC_USR_AMW_MEETING_REPORT_UPDATE1">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INVITE_QUANTITY" Parameter="iNVITE_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WATER_QUANTITY" Parameter="wATER_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FOOD_QUANTITY" Parameter="fOOD_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_WATER" Parameter="sUMMARY_WATER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_FOOD" Parameter="sUMMARY_FOOD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PERCENT" Parameter="pERCENT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRINTING_INVITATION" Parameter="pRINTING_INVITATION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_1" Parameter="oTHER_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_2" Parameter="oTHER_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_3" Parameter="oTHER_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_4" Parameter="oTHER_4" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_5" Parameter="oTHER_5" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_OVERVIEW" Parameter="rATING_OVERVIEW" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_ROOM" Parameter="rATING_ROOM" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_USE" Parameter="rATING_SUPPORT_USE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_CHANGE" Parameter="rATING_SUPPORT_CHANGE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUMMARY" Parameter="rATING_SUMMARY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_COMMENT_ROOM" Parameter="oTHER_COMMENT_ROOM" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="OTHER_COMMENT_STAFT" Parameter="oTHER_COMMENT_STAFT" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REPORT_INSERT" Method="PRC_USR_AMW_MEETING_REPORT_INSERT1">
+    <Parameter Name="MEETING_ID" Parameter="mEETING_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INVITE_QUANTITY" Parameter="iNVITE_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WATER_QUANTITY" Parameter="wATER_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FOOD_QUANTITY" Parameter="fOOD_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_WATER" Parameter="sUMMARY_WATER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_FOOD" Parameter="sUMMARY_FOOD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PERCENT" Parameter="pERCENT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRINTING_INVITATION" Parameter="pRINTING_INVITATION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_1" Parameter="oTHER_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_2" Parameter="oTHER_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_3" Parameter="oTHER_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_4" Parameter="oTHER_4" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_5" Parameter="oTHER_5" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_OVERVIEW" Parameter="rATING_OVERVIEW" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_ROOM" Parameter="rATING_ROOM" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_USE" Parameter="rATING_SUPPORT_USE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_CHANGE" Parameter="rATING_SUPPORT_CHANGE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUMMARY" Parameter="rATING_SUMMARY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_COMMENT_ROOM" Parameter="oTHER_COMMENT_ROOM" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="OTHER_COMMENT_STAFT" Parameter="oTHER_COMMENT_STAFT" Type="System.String" DbType="NVarChar(150)" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>
