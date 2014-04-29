@@ -18,7 +18,7 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
     private void InitData()
     {
         ClearTextBox();
-        SYS_AMW_PAX_PROVINCE obj = new SYS_AMW_PAX_PROVINCE();
+        SYS_AMW_PAX_DISTRICT obj = new SYS_AMW_PAX_DISTRICT();
         obj.PAXID = 0;
         obj.PROVINCEID = 0;
         obj.DESCRIPTION = string.Empty;
@@ -76,24 +76,60 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
         {
         }
     }
+    private void GetDistrictCBO(int provinceId)
+    {
+        try
+        {
+            if (provinceId > 0)
+            {
+                CategoryBO catebo = new CategoryBO();
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                lst = catebo.DistrictGet_CBO(provinceId).ToList();
+                if (lst != null)
+                {
+
+                    ListItem lstParent = new ListItem("--Chọn--", "0");
+                    ddlDistrict.DataSource = lst;
+                    ddlDistrict.DataTextField = "DISTRICTNAME";
+                    ddlDistrict.DataValueField = "ID";
+                    ddlDistrict.DataBind();
+
+                    ddlDistrict.Items.Insert(0, lstParent);
+                    ddlDistrict.SelectedIndex = ddlDistrict.Items.IndexOf(lstParent);
+                }
+            }
+            else
+            {
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlDistrict.Items.Add(lstParent);
+                ddlDistrict.SelectedIndex = ddlDistrict.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
     private void ClearTextBox()
     {
 
         GetPaxCBO();
         GetProvinceCBO();
+        GetDistrictCBO(0);
         hdfId.Value = "-1";
-        ddlPax.Text = "0";
-        ddlProvince.Text = "0";
+        ddlPax.SelectedIndex = 0;
+        ddlProvince.SelectedIndex = 0;
+        ddlProvince.SelectedIndex = 0;
         txtDescription.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
     }
-    protected void DisplayPaxInGrid(SYS_AMW_PAX_PROVINCE obj)
+    protected void DisplayPaxInGrid(SYS_AMW_PAX_DISTRICT obj)
     {
         CategoryBO objBO = new CategoryBO();
-        List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult> lst = new List<PRC_SYS_AMW_PAX_PROVINCE_SEARCHResult>();
-        lst = objBO.Pax_ProvinceGet_Search(obj).ToList();
+        List<PRC_SYS_AMW_PAX_DISTRICT_SEARCHResult> lst = new List<PRC_SYS_AMW_PAX_DISTRICT_SEARCHResult>();
+        lst = objBO.Pax_DistrictGet_Search(obj).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
@@ -116,12 +152,15 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
         hdfId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
         string strPaxId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingPaxId")).Text;
         string strProvinceId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingProvinceId")).Text;
+        string strDistrictId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingDistrictId")).Text;
         string strDescription = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
         bool Active = bool.Parse(((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
 
         // Bind len control
         ddlPax.SelectedValue = strPaxId;
         ddlProvince.SelectedValue = strProvinceId;
+        GetDistrictCBO(int.Parse(strProvinceId));
+        ddlDistrict.SelectedValue = strDistrictId;
         txtDescription.Text = strDescription;
         chkActive.Checked = Active;
 
@@ -144,17 +183,19 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
             return;
         }
         // Thuc hien Insert Update
-        SYS_AMW_PAX_PROVINCE obj = new SYS_AMW_PAX_PROVINCE();
+        SYS_AMW_PAX_DISTRICT obj = new SYS_AMW_PAX_DISTRICT();
         obj.ID = int.Parse(hdfId.Value);
         obj.PAXID = int.Parse(ddlPax.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlProvince.SelectedValue);
+        obj.DISTRICTID = int.Parse(ddlDistrict.SelectedValue);
         obj.DESCRIPTION = txtDescription.Text.Trim();
         obj.ACTIVE = chkActive.Checked;
-
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         CategoryBO objBO = new CategoryBO();
         if (int.Parse(hdfId.Value) <= 0)
         {
-            hdfId.Value = objBO.Pax_ProvinceInsert(obj).ToString();
+            hdfId.Value = objBO.Pax_DistrictInsert(obj).ToString();
             if (int.Parse(hdfId.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
@@ -166,7 +207,7 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
             }
         }
         else
-            if (objBO.Pax_ProvinceUpdate(obj))
+            if (objBO.Pax_DistrictUpdate(obj))
             {
                 //btnSave.Text = "Cập nhật";
                 lblAlerting.Text = "Cập nhật pax-tỉnh thành thành công!";
@@ -180,7 +221,7 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
     }
     private void LoadGrid()
     {
-        SYS_AMW_PAX_PROVINCE obj = new SYS_AMW_PAX_PROVINCE();
+        SYS_AMW_PAX_DISTRICT obj = new SYS_AMW_PAX_DISTRICT();
         obj.PAXID = int.Parse(ddlPax.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlProvince.SelectedValue);
         obj.DESCRIPTION = txtDescription.Text.Trim();
@@ -188,7 +229,10 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
         DisplayPaxInGrid(obj);
 
     }
-
+    protected void ddlProvince_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetDistrictCBO(int.Parse(ddlProvince.SelectedValue));
+    }
 
     protected void grdList_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {

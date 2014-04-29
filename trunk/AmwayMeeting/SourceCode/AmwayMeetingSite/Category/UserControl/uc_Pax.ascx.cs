@@ -89,6 +89,9 @@ public partial class Category_UserControl_uc_Pax : System.Web.UI.UserControl
         obj.DESCRIPTION = txtDescription.Text.Trim();
         obj.ACTIVE = chkActive.Checked;
 
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+
         CategoryBO objBO = new CategoryBO();
         if (int.Parse(hdfPaxId.Value) <= 0)
         {

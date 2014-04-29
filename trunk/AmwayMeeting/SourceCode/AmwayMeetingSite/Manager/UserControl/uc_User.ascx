@@ -120,17 +120,17 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Tỉnh thành đang ở<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Tỉnh thành làm việc<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlHomeProvince" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlWorkProvince" CssClass="txtBox" runat="server" Width="102.5%" AutoPostBack="True" OnSelectedIndexChanged="ddlWorkProvince_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
-                                <td align="left" class="tdsearch5">Tỉnh thành làm việc<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch5">Quận huyện làm việc<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:DropDownList ID="ddlWorkProvince" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlWorkDistrict" CssClass="txtBox" runat="server" Width="102.5%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>
@@ -219,6 +219,11 @@
                                 <asp:Label ID="lblListingWorkProvinceName" runat="server" Text='<%# Eval("WORKPROVINCENAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Quận huyện làm việc">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingWorkDistrictName" runat="server" Text='<%# Eval("WORKDISTRICTNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Danh hiệu">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
@@ -301,7 +306,7 @@
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Mã số Tỉnh thành đang ở" Visible="false">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingHomeProvinceId" runat="server" Text='<%# Eval("HOMEPROVINCEID") %>'></asp:Label>
+                                <asp:Label ID="lblListingWorkDistrictId" runat="server" Text='<%# Eval("WORKDISTRICTID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Mã số Tỉnh Thành Làm Việc" Visible="false">

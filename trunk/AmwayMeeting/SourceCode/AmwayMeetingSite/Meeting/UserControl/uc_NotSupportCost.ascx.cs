@@ -261,13 +261,13 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         }
     }
 
-    private void GetPlaceCBO(int provinceId)
+    private void GetPlaceCBO(int districtId)
     {
         try
         {
             CategoryBO objBO = new CategoryBO();
-            List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult> lst = new List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_PROVINCEIDResult>();
-            lst = objBO.PlaceGet_ByProvinceId(provinceId).ToList();
+            List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult> lst = new List<DAL.PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult>();
+            lst = objBO.PlaceGet_ByDistrictId(districtId).ToList();
             if (lst != null)
             {
                 ddlPLACE.DataSource = lst;

@@ -87,15 +87,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblBANNERNAME.Text = result.BANNERNAME == null ? string.Empty : result.BANNERNAME;
             lblSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
             lblSTATTUS_MEETING_REGISTERNAME.Text = result.STATUS_MEETING_REGISTERNAME == null ? string.Empty : result.STATUS_MEETING_REGISTERNAME;
-            if(result.FOREIGNER??false==true)
-            {
-                lblFOREIGNER.Text = "NGƯỜI NƯỚC NGOÀI";
-
-            }
-            else
-            {
-                lblFOREIGNER.Text = string.Empty;
-            }
+            
 
             if (result.WATER ?? false == true)
             {

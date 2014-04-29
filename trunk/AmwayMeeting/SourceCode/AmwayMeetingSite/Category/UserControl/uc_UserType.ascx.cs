@@ -89,6 +89,8 @@ public partial class Manager_UserControl_uc_UserType : System.Web.UI.UserControl
         objDep.DESCRIPTION = txtDescription.Text.Trim();
         objDep.ACTIVE = chkActive.Checked;
 
+        objDep.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        objDep.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         CategoryBO objBO = new CategoryBO();
         if (int.Parse(hdfUserTypeId.Value) <= 0)
         {

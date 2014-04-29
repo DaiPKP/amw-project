@@ -13,7 +13,7 @@
                         <table width="100%">
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Chọn pax <span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Chọn pax<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
                                    <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="102.5%">
@@ -21,10 +21,30 @@
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">
-                                    Chọn tỉnh thành <span style="color: Red">(*)</span>:
+                                   
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:DropDownList ID="ddlProvince" CssClass="txtBox" runat="server" Width="102.5%">
+                                    
+                                </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                             <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2"> Chọn tỉnh thành<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch3">
+                                   <asp:DropDownList ID="ddlProvince" CssClass="txtBox" runat="server" Width="102.5%" AutoPostBack="True" OnSelectedIndexChanged="ddlProvince_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">
+                                    Chọn quận huyện<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch6">
+                                   <asp:DropDownList ID="ddlDistrict" CssClass="txtBox" runat="server" Width="102.5%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>
@@ -83,6 +103,11 @@
                                 <asp:Label ID="lblListingProvinceName" runat="server" Text='<%# Eval("PROVINCENAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Quận huyện">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingDistrictName" runat="server" Text='<%# Eval("DISTRICTNAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:TemplateField HeaderText="Ghi chú">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingDescription" runat="server" Text='<%# Eval("DESCRIPTION") %>'></asp:Label>
@@ -106,6 +131,11 @@
                         <asp:TemplateField HeaderText="Tỉnh thành" Visible="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingProvinceId" runat="server" Text='<%# Eval("PROVINCEID") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Quận Huyện" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingDistrictId" runat="server" Text='<%# Eval("DISTRICTID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField ItemStyle-HorizontalAlign="Center">

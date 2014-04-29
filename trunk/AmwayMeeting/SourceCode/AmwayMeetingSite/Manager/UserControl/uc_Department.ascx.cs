@@ -88,6 +88,8 @@ public partial class Manager_UserControl_uc_Department : System.Web.UI.UserContr
         objDep.DEPARTMENTNAME = txtDepartmentName.Text.Trim();
         objDep.DESCRIPTION = txtDescription.Text.Trim();
         objDep.ACTIVE = chkActive.Checked;
+        objDep.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        objDep.UPDATEUSER = int.Parse(Session["UserID"].ToString());
 
         DepartmentBO bphan = new DepartmentBO();
         if (int.Parse(hdfDepartmentId.Value) <= 0)

@@ -82,8 +82,8 @@ public partial class Category_UserControl_uc_Policy : System.Web.UI.UserControl
         GetPaxCBO();
         GetUserTypeCBO();
         hdfId.Value = "-1";
-        ddlPax.Text = "0";
-        ddlUserType.Text = "0";
+        ddlPax.SelectedValue = "0";
+        ddlUserType.SelectedValue = "0";
         txtQuota.Text ="0";
         txtConditionCombined.Text = "0";
         btnSave.Text = "Thêm mới";
@@ -161,6 +161,8 @@ public partial class Category_UserControl_uc_Policy : System.Web.UI.UserControl
         obj.QUOTA = int.Parse(txtQuota.Text.Trim().Replace(",", ""));
         obj.CONDITIONCOMBINED = int.Parse(txtConditionCombined.Text.Trim().Replace(",", ""));
 
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         CategoryBO objBO = new CategoryBO();
         if (int.Parse(hdfId.Value) <= 0)
         {

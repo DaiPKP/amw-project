@@ -32,7 +32,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         objUser.EMAIL = string.Empty;
         objUser.USERTYPEID = 0;
         objUser.DEPARTMENTID = 0;
-        objUser.HOMEPROVINCEID = 0;
+        objUser.WORKDISTRICTID = 0;
         objUser.WORKPROVINCEID = 0;
         objUser.DESCRIPTION = string.Empty;
         objUser.ACTIVE = true;
@@ -57,7 +57,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         lbAddress.Text = dist.ADDRESS;
         lbUserType.Text = dist.USERTYPENAME;
         lbDepartment.Text = dist.DEPARTMENTNAME;
-        lbHomeProvince.Text = dist.HOMEPROVINCENAME;
+        lbHomeProvince.Text = dist.WORKDISTRICTNAME;
         lbWorkProvince.Text = dist.WORKPROVINCENAME;
         chkStatus.Checked = dist.ACTIVE;
         lbDescription.Text = dist.DESCRIPTION;
