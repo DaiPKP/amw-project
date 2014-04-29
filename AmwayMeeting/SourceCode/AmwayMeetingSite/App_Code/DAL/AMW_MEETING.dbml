@@ -1411,4 +1411,9 @@
     <Parameter Name="SPEAKER_NATION_2" Parameter="sPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MAX_PAYMENT_GETMAX" Method="PRC_SYS_AMW_MAX_PAYMENT_GETMAX">
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

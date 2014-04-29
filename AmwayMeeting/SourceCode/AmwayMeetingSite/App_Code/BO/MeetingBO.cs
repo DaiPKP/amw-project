@@ -118,6 +118,18 @@ public class MeetingBO : AMW_MEETINGDataContext
         }
     }
 
+    public int MeetingGet_MaxPayment(int paxId, int usertypeId)
+    {
+        try
+        {
+            return  PRC_SYS_AMW_MAX_PAYMENT_GETMAX(paxId, usertypeId);
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+    }
+
     public PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult MeetingGet_ListByID(int Id)
     {
         try
