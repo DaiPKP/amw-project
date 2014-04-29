@@ -964,16 +964,6 @@
     <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_APPROVAL" Method="PRC_USR_AMW_MEETING_REGISTER_APPROVAL">
-    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <Parameter Name="STATUS_MEETING_REGISTERID" Parameter="sTATUS_MEETING_REGISTERID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_DEL" Method="PRC_USR_AMW_MEETING_REGISTER_DEL">
-    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.PRC_SYS_AMW_MEETING_TYPE_CBO" Method="PRC_SYS_AMW_MEETING_TYPE_CBO">
     <ElementType Name="PRC_SYS_AMW_MEETING_TYPE_CBOResult">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -985,6 +975,27 @@
       <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MAX_PAYMENT_GETMAX" Method="PRC_SYS_AMW_MAX_PAYMENT_GETMAX">
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_APPROVAL" Method="PRC_USR_AMW_MEETING_REGISTER_APPROVAL">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STATUS_MEETING_REGISTERID" Parameter="sTATUS_MEETING_REGISTERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT" Method="PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STATUS_MEETING_PAYMENTID" Parameter="sTATUS_MEETING_PAYMENTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_DEL" Method="PRC_USR_AMW_MEETING_REGISTER_DEL">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYID" Method="PRC_USR_AMW_MEETING_REGISTER_GETLISTBYID">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
@@ -1059,7 +1070,7 @@
       <Column Name="CO_ORGANIZER_NAME_3" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="CREATEUSER_ADAID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CREATEUSER_USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CREATEUSER__NAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="CREATEUSER_NAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="MEETINGTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="STR_MEETING_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="STR_DEPARTURE_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
@@ -1075,44 +1086,8 @@
       <Column Name="STATUS_MEETING_PAYMENTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="STATUS_MEETING_REGISTERNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="STATUS_BANNER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BANNERNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA" Method="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA">
-    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
-      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="HOMEPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID" Method="PRC_USR_AMW_MEETING_REGISTER_GETLISTBYUSERID">
@@ -1188,7 +1163,7 @@
       <Column Name="CO_ORGANIZER_NAME_3" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="CREATEUSER_ADAID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CREATEUSER_USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CREATEUSER__NAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="CREATEUSER_NAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="MEETINGTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="STR_MEETING_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="STR_DEPARTURE_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
@@ -1204,7 +1179,7 @@
       <Column Name="STATUS_MEETING_PAYMENTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="STATUS_MEETING_REGISTERNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="STATUS_BANNER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BANNERNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
@@ -1339,7 +1314,7 @@
       <Column Name="CO_ORGANIZER_NAME_3" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="CREATEUSER_ADAID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="CREATEUSER_USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CREATEUSER__NAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="CREATEUSER_NAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
       <Column Name="MEETINGTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="STR_MEETING_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="STR_DEPARTURE_DATE" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
@@ -1355,7 +1330,7 @@
       <Column Name="STATUS_MEETING_PAYMENTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="STATUS_MEETING_REGISTERNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="STATUS_BANNER" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BANNERNAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
@@ -1411,15 +1386,120 @@
     <Parameter Name="SPEAKER_NATION_2" Parameter="sPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.PRC_SYS_AMW_MAX_PAYMENT_GETMAX" Method="PRC_SYS_AMW_MAX_PAYMENT_GETMAX">
-    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REPORT_INSERT" Method="PRC_USR_AMW_MEETING_REPORT_INSERT">
+    <Parameter Name="MEETING_ID" Parameter="mEETING_ID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INVITE_QUANTITY" Parameter="iNVITE_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WATER_QUANTITY" Parameter="wATER_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FOOD_QUANTITY" Parameter="fOOD_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_WATER" Parameter="sUMMARY_WATER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_FOOD" Parameter="sUMMARY_FOOD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PERCENT" Parameter="pERCENT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRINTING_INVITATION" Parameter="pRINTING_INVITATION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_1" Parameter="oTHER_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_2" Parameter="oTHER_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_3" Parameter="oTHER_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_4" Parameter="oTHER_4" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_5" Parameter="oTHER_5" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_OVERVIEW" Parameter="rATING_OVERVIEW" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_ROOM" Parameter="rATING_ROOM" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_USE" Parameter="rATING_SUPPORT_USE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_CHANGE" Parameter="rATING_SUPPORT_CHANGE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUMMARY" Parameter="rATING_SUMMARY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_COMMENT_ROOM" Parameter="oTHER_COMMENT_ROOM" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="OTHER_COMMENT_STAFT" Parameter="oTHER_COMMENT_STAFT" Type="System.String" DbType="NVarChar(150)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT" Method="PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT">
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REPORT_UPDATE" Method="PRC_USR_AMW_MEETING_REPORT_UPDATE">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <Parameter Name="STATUS_MEETING_PAYMENTID" Parameter="sTATUS_MEETING_PAYMENTID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INVITE_QUANTITY" Parameter="iNVITE_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="WATER_QUANTITY" Parameter="wATER_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FOOD_QUANTITY" Parameter="fOOD_QUANTITY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_WATER" Parameter="sUMMARY_WATER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SUMMARY_FOOD" Parameter="sUMMARY_FOOD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PERCENT" Parameter="pERCENT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRINTING_INVITATION" Parameter="pRINTING_INVITATION" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_1" Parameter="oTHER_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_2" Parameter="oTHER_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_3" Parameter="oTHER_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_4" Parameter="oTHER_4" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_5" Parameter="oTHER_5" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_OVERVIEW" Parameter="rATING_OVERVIEW" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_ROOM" Parameter="rATING_ROOM" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_USE" Parameter="rATING_SUPPORT_USE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUPPORT_CHANGE" Parameter="rATING_SUPPORT_CHANGE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RATING_SUMMARY" Parameter="rATING_SUMMARY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OTHER_COMMENT_ROOM" Parameter="oTHER_COMMENT_ROOM" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="OTHER_COMMENT_STAFT" Parameter="oTHER_COMMENT_STAFT" Type="System.String" DbType="NVarChar(150)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA" Method="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA">
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HOMEPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE" Method="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE">
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="HOMEPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="HOMEPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
