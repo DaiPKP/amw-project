@@ -1416,4 +1416,10 @@
     <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT" Method="PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STATUS_MEETING_PAYMENTID" Parameter="sTATUS_MEETING_PAYMENTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
