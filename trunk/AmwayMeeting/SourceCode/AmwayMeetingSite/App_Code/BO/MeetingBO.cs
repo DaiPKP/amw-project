@@ -62,7 +62,22 @@ public class MeetingBO : AMW_MEETINGDataContext
             return false;
         }
     }
+    public bool MeetingUpdateStatusPayment(USR_AMW_MEETING_REGISTER obj)
+    {
+        try
+        {
 
+            int result = PRC_USR_AMW_MEETING_REGISTER_APPROVAL_PAYMENT(obj.ID, obj.STATUS_MEETING_PAYMENTID, obj.UPDATEUSER);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
     public PRC_SYS_AMW_USER_GETBY_ADAResult Meeting_GetDistributor_ByADA(string ADA)
     {
         try
