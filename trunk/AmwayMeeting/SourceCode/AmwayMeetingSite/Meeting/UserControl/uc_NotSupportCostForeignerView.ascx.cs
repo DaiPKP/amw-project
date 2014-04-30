@@ -90,6 +90,15 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerView : System
             txtCOMMENTS.Text = result.COMMENTS == null ? string.Empty : result.COMMENTS;
             lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
             chkAgree.Checked = result.AGREE == null ? false : result.AGREE??false;
+            lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+            if (lblWarning.Text.Length > 0)
+            {
+                trWarning.Visible = true;
+            }
+            else
+            {
+                trWarning.Visible = false;
+            }
             if (lblWarning.Text.Length > 0)
             {
                 trWarning.Visible = true;

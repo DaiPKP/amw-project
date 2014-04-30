@@ -98,6 +98,15 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 hdfCO_ORGANIZER_USERTYPEID_2.Value = result.CO_ORGANIZER_USERTYPEID_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_2.ToString();
                 hdfCO_ORGANIZER_USERTYPEID_3.Value = result.CO_ORGANIZER_USERTYPEID_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_3.ToString();
                 chkAgree.Checked = result.AGREE == null ? false : result.AGREE ?? false;
+                lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+                if (lblWarning.Text.Length > 0)
+                {
+                    trWarning.Visible = true;
+                }
+                else
+                {
+                    trWarning.Visible = false;
+                }
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
                     btnSave.Visible = false;
@@ -484,10 +493,13 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 return;
             }
         }
-        if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
+        if (bool.Parse(ddlWATER.SelectedValue))
         {
-            lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
-            return;
+            if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
+            {
+                lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
+                return;
+            }
         }
        
         if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
