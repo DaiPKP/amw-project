@@ -67,7 +67,15 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
                 txtCOUNTRYNAME.Text = result.COUNTRYNAME == null ? string.Empty : result.COUNTRYNAME;
 
                 hdfReported.Value = result.REPORTED == null ? "false" : result.REPORTED.ToString();
-
+                lblWarning.Text=result.WARNING == null ? string.Empty : result.WARNING;
+                if (lblWarning.Text.Length > 0)
+                {
+                    trWarning.Visible = true;
+                }
+                else
+                {
+                    trWarning.Visible = false;
+                }
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
                     btnSave.Visible = false;
@@ -100,7 +108,8 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         hdfID.Value = "-1";
         btnSave.Text = "Đăng ký";
         btnSave.Visible = true;
-
+        trWarning.Visible = false;
+        lblWarning.Text = string.Empty;
         txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
@@ -199,6 +208,16 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
             lblAlerting.Text = "Bạn chưa nhập tên quốc gia!";
             return;
         }
+        if (!CheckDateRegister(txtDEPARTURE_DATE.Text.Trim()))
+        {
+           trWarning.Visible=true;
+           obj.WARNING =lblWarning.Text= "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày";
+        }
+        else
+        {
+            trWarning.Visible=false;
+            obj.WARNING =lblWarning.Text= string.Empty;
+        }
 
         // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
         MeetingBO objBO = new MeetingBO();
@@ -242,7 +261,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
         obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
         obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
-        obj.PAXID = 5;
+        obj.PAXID = 1;
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         if (int.Parse(hdfID.Value) <= 0)
@@ -317,7 +336,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         {
             MeetingBO objMeeting = new MeetingBO();
             PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult result1 = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult();
-            result1 = objMeeting.Meeting_CheckQuota_OutSide(int.Parse(hdfORGANIZER_USERID.Value));
+            result1 = objMeeting.Meeting_CheckQuota_OutSide(int.Parse(hdfORGANIZER_USERID.Value), 1);
             if (result1 != null)
             {
                 divORGANIZER_QUOTA.Visible = true;
@@ -353,6 +372,23 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         {
             DateTime dt = DateTime.ParseExact(strDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private bool CheckDateRegister(string strRegisterDate)
+    {
+        try
+        {
+            DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            double day = (dt2 - dt1).TotalDays;
+            if (day >= 10)
+                return true;
+            else return false;
         }
         catch
         {

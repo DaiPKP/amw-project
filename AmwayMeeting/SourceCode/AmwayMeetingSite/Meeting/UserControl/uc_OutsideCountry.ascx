@@ -173,7 +173,7 @@
                                     <td align="left" class="tdmeeting6"></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
                                 <tr>
@@ -285,11 +285,18 @@
                                 <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
+                                <tr id="trWarning" runat="server" visible="false">
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="7">
                                         <hr />
                                         <div style="text-align: center;">
-                                            <br />
                                             <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
                                         </div>
                                     </td>
@@ -297,6 +304,7 @@
                                 <tr>
                                     <td colspan="7">
                                         <div style="text-align: center;">
+
                                             <br />
                                             <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
                                         </div>
