@@ -486,11 +486,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
             return;
         }
-        if (!chkAgree.Checked)
-        {
-            lblAlerting.Text = "Bạn chưa chịu trách nhiệm với dữ liệu nhập ở trên!";
-            return;
-        }
+       
         if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
         {
             trWarning.Visible = true;
@@ -501,7 +497,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             trWarning.Visible = false;
             obj.WARNING = lblWarning.Text = string.Empty;
         }
-
+        if (!chkAgree.Checked)
+        {
+            lblAlerting.Text = "Bạn chưa cam kết với dữ liệu nhập ở trên!";
+            return;
+        }
 
         // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
         MeetingBO objBO = new MeetingBO();
