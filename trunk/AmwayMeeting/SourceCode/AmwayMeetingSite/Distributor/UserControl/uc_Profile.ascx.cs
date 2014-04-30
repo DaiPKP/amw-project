@@ -57,8 +57,8 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         lbAddress.Text = dist.ADDRESS;
         lbUserType.Text = dist.USERTYPENAME;
         lbDepartment.Text = dist.DEPARTMENTNAME;
-        lbHomeProvince.Text = dist.WORKDISTRICTNAME;
         lbWorkProvince.Text = dist.WORKPROVINCENAME;
+        lbWorkDistrict.Text = dist.WORKDISTRICTNAME;
         chkStatus.Checked = dist.ACTIVE;
         lbDescription.Text = dist.DESCRIPTION;
     }
@@ -97,8 +97,49 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
     {
         grdMeetingList.EditIndex = e.NewEditIndex;
         hdfMeetingID.Value = grdMeetingList.DataKeys[e.NewEditIndex].Value.ToString();
-        string strURL = "../meeting/notsupportcostR" + hdfMeetingID.Value;
-        Response.Redirect(strURL);
+         MeetingBO objBO = new MeetingBO();
+        PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult result = new PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult();
+        result = objBO.MeetingGet_ListByID(int.Parse(hdfMeetingID.Value));
+        if (result != null)
+        {
+            string strUrl = string.Empty;
+
+            int MeetingType = result.MEETINGTYPEID ?? 0;
+            bool Foreigner = result.FOREIGNER ?? false;
+            if (MeetingType == 1)
+            {
+                if (Foreigner)
+                {
+                    strUrl = "../meeting/notsuportcostforeignerviewR" + hdfMeetingID.Value;
+                }
+                else
+                {
+
+                    strUrl = "../meeting/notsuportcostviewR" + hdfMeetingID.Value;
+                }
+
+            }
+            if (MeetingType == 2)
+            {
+                if (Foreigner)
+                {
+                    strUrl = "../meeting/suportcostforeignerviewR" + hdfMeetingID.Value;
+                }
+                else
+                {
+
+                    strUrl = "../meeting/suportcostviewR" + hdfMeetingID.Value;
+                }
+
+            }
+            if (MeetingType == 3)
+            {
+                
+                    strUrl = "../meeting/outsidecountryviewR" + hdfMeetingID.Value;
+                
+
+            }
+            Response.Redirect(strUrl);
     }
     private bool CheckEmail(string strEmail)
     {

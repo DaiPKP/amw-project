@@ -69,13 +69,13 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="td_title">Tỉnh thành đang ở</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbHomeProvince" runat="server" Text=""></asp:Label>
-                                </td>
                                 <td class="td_title">Tỉnh thành làm việc</td>
                                 <td class="td_value">
-                                    <asp:Label ID="lbWorkProvince" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lbWorkProvince" runat="server"></asp:Label>
+                                </td>
+                                <td class="td_title">Quận huyện làm việc</td>
+                                <td class="td_value">
+                                    <asp:Label ID="lbWorkDistrict" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
