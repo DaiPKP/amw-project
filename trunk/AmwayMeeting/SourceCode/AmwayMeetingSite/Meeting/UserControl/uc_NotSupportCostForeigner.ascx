@@ -1,7 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCostForeigner.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCostForeigner" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ - CÓ NGƯỜI NƯỚC NGOÀI
+        ĐƠN ĐĂNG KÝ HỘI HỌP
+        <br />
+        (KHÔNG HỖ TRỢ CHI PHÍ & DIỄN GIẢ NGƯỜI NƯỚC NGOÀI)
+
+    </div>
+    <div class="TitlePageSub">
+        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 30
+        <br />
+        NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
+
     </div>
     <script type="text/javascript">
         function BindEvents() {
@@ -26,6 +35,24 @@
                    buttonImageOnly: true
                });
             });
+        }
+    </script>
+    <script type="text/javascript">
+        function CheckWater(obj) {
+            var value = parseFloat(replaceAll(obj.value, ',', ''));
+            if (value > 25000) {
+                value = 25000;
+            }
+            obj.value = addCommasString(value);
+            return;
+        }
+        function CheckFood(obj) {
+            var value = parseFloat(replaceAll(obj.value, ',', ''));
+            if (value > 30000) {
+                value = 30000;
+            }
+            obj.value = addCommasString(value);
+            return;
         }
     </script>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -88,7 +115,15 @@
                                         <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
                                     </td>
                                     <td class="tdmeeting6">
-                                        
+                                        <div id="divORGANIZER_QUOTA" runat="server" visible="false">
+                                            Đủ điều kiện đăng ký:
+                                      <asp:ImageButton ID="ImgBtnORGANIZER_OK" runat="server" Height="14px"
+                                          ImageUrl="~/images/check.png" Width="14px" Visible="false" />
+                                            <asp:ImageButton ID="ImgBtnORGANIZER_ERROR" runat="server" Height="14px"
+                                                ImageUrl="~/images/error.png" Width="14px" Visible="false"
+                                                AlternateText="Quota Expire, Click Here to borrow quota !" />
+                                            <asp:HiddenField ID="hdfORGANIZER_QUOTA_CHECK" runat="server"></asp:HiddenField>
+                                        </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -136,33 +171,39 @@
                                     <td align="left" class="tdmeeting2">
                                         <div class="marginLeft10">
                                             Chọn pax<span style="color: Red">(*)</span>:
-                                    <asp:DropDownList ID="ddlPAXID" runat="server" Width="100px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPAXID_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlPAXID" runat="server" Width="100px" Height="22px" CssClass="txtBox">
                                         <asp:ListItem Value="default" Text="100 pax" />
                                     </asp:DropDownList>
                                         </div>
                                     </td>
                                     <td align="left" class="tdmeeting3" colspan="2">Chọn tỉnh thành<span style="color: Red">(*)</span>:
                                      <asp:DropDownList ID="ddlPROVINCEID" runat="server" Width="150px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPROVINCEID_SelectedIndexChanged">
+                                     </asp:DropDownList></td>
+                                    <td align="left" class="tdmeeting5" colspan="2">Chọn Quận huyện<span style="color: Red">(*)</span>:
+                                     <asp:DropDownList ID="ddlDISTRICTID" runat="server" Width="150px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlDISTRICTID_SelectedIndexChanged">
                                      </asp:DropDownList>
-                                    </td>
-                                    <td align="left" class="tdmeeting5">
-                                        <div id="divORGANIZER_QUOTA_BTN" runat="server" visible="false">
+                                        <div id="divORGANIZER_QUOTA_BTN" runat="server" visible="false" style="width: 40px; float: right; margin-right: 140px">
                                             <asp:ImageButton ID="ImgBtnORGANIZER_CHECK" runat="server" Height="23px"
                                                 ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnORGANIZER_CHECK_Click" />
 
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        <div id="divORGANIZER_QUOTA" runat="server" visible="false">
-                                            Tình trạng Quota:
-                                      <asp:ImageButton ID="ImgBtnORGANIZER_OK" runat="server" Height="14px"
-                                          ImageUrl="~/images/check.png" Width="14px" Visible="false" />
-                                            <asp:ImageButton ID="ImgBtnORGANIZER_ERROR" runat="server" Height="14px"
-                                                ImageUrl="~/images/error.png" Width="14px" Visible="false"
-                                                AlternateText="Quota Expire, Click Here to borrow quota !" />
-                                            <asp:HiddenField ID="hdfORGANIZER_QUOTA_CHECK" runat="server"></asp:HiddenField>
+
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">
+                                        <div class="marginLeft10">
                                         </div>
                                     </td>
+                                    <td align="left" class="tdmeeting3" colspan="2"></td>
+                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
+                                    <td align="left" class="tdmeeting6"></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -193,7 +234,7 @@
                                         <div class="marginLeft10">
                                             1. Mã số ADA:
                                     <asp:TextBox ID="txtCO_ORGANIZER_ADAID_1" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
-                                             <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_1" runat="server"></asp:HiddenField>
+                                            <asp:HiddenField ID="hdfCO_ORGANIZER_USERID_1" runat="server"></asp:HiddenField>
                                             <div class="divImgCheckIcon10">
                                                 <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ADA1_CHECK" runat="server" Height="23px"
                                                     ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnCO_ORGANIZER_ADA1_CHECK_Click" />
@@ -211,7 +252,7 @@
                                     </td>
                                     <td align="left" class="tdmeeting6">
                                         <div id="divCO_ORGANIZER_QUOTA_1" runat="server" visible="false">
-                                            Tình trạng Quota:
+                                            Đủ điều kiện đăng ký:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_1" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                             <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_1" runat="server" Height="14px"
@@ -249,7 +290,7 @@
                                     </td>
                                     <td align="left" class="tdmeeting6">
                                         <div id="divCO_ORGANIZER_QUOTA_2" runat="server" visible="false">
-                                            Tình trạng Quota:
+                                            Đủ điều kiện đăng ký:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_2" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                             <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_2" runat="server" Height="14px"
@@ -288,7 +329,7 @@
                                     </td>
                                     <td align="left" class="tdmeeting6">
                                         <div id="divCO_ORGANIZER_QUOTA_3" runat="server" visible="false">
-                                            Tình trạng Quota:
+                                            Đủ điều kiện đăng ký:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_3" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                             <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_3" runat="server" Height="14px"
@@ -348,17 +389,12 @@
                                     <td align="left" class="tdmeeting2">Chọn địa điểm họp<span style="color: Red">(*)</span>:
                                     
                                     </td>
-                                    <td align="left" class="tdmeeting3">Tỉnh thành:
-                                        <asp:DropDownList ID="ddlPROVINCE_PLACE" CssClass="txtBox" runat="server" Width="140px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlPROVINCE_PLACE_SelectedIndexChanged">
+                                    <td align="left" class="tdmeeting3" colspan="4">
+                                        <asp:DropDownList ID="ddlPLACE" runat="server" Width="99.8%" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPLACE_SelectedIndexChanged">
                                         </asp:DropDownList>
+
                                     </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5" colspan="2">Địa điểm:
-                                        
-                                        <asp:DropDownList ID="ddlPLACE" runat="server" Width="408.8px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPLACE_SelectedIndexChanged">
-                                        </asp:DropDownList>
-                                        
-                                    </td>
+
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -469,7 +505,7 @@
                                     <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             Giá phiếu nước uống:
                                         <div style="float: right">
-                                            <asp:TextBox ID="txtWATER_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="addCommas(event,this);"></asp:TextBox>
+                                            <asp:TextBox ID="txtWATER_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckWater(this);"></asp:TextBox>
                                             đồng/phiếu.
                                         </div>
                                     </td>
@@ -494,7 +530,7 @@
                                     <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             Giá phiếu thức ăn:
                                         <div style="float: right">
-                                            <asp:TextBox ID="txtFOOD_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="addCommas(event,this);"></asp:TextBox>
+                                            <asp:TextBox ID="txtFOOD_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckFood(this);"></asp:TextBox>
                                             đồng/phiếu.
                                         </div>
                                     </td>
@@ -509,7 +545,8 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ NGƯỜI NƯỚC NGOÀI</b>
+                                        <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ NGƯỜI NƯỚC NGOÀI
+                                        </b>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -545,7 +582,7 @@
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Quốc tịch:
-                                     <asp:TextBox ID="txtSPEAKER_NATION_1" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
+                                             <asp:TextBox ID="txtSPEAKER_NATION_1" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
                                         </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
@@ -580,18 +617,37 @@
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
                                     </td>
                                     <td align="left" class="tdmeeting6">
-                                         <div style="float: right; margin-right: 4px">
-                                             Quốc tịch:
+                                        <div style="float: right; margin-right: 4px">
+                                            Quốc tịch:
                                              <asp:TextBox ID="txtSPEAKER_NATION_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
-                                         </div>
+                                        </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr id="trWarning" runat="server" visible="false">
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:CheckBox runat="server" ID="chkAgree" CssClass="Agree" Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định trên và hiểu rằng đơn xin hội họp ngoài ngoài lãnh thổ Việt Nam của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ các Quy Tắc Ứng Xử của Amway. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này." />
+
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="7">
                                         <hr />
                                         <div style="text-align: center;">
-                                            <br />
                                             <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
                                         </div>
                                     </td>
@@ -607,10 +663,104 @@
                             </table>
                         </div>
                     </asp:Panel>
+                    <asp:Panel runat="server" ID="Panel3">
+                        <div style="text-align: left; width: 100%">
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="6">
+                                         <hr />
+                                        <b>* Các thông tin hội họp đính kèm nộp cho Amway</b>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Hộ chiếu của diễn giả người nước ngoài
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Nội dung chương trình (Lưu trình)
+                                        </div>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Nội dung phát biếu của diễn giả người nước ngoài.
+                                        </div>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Thư hoặc Email xác nhận của diễn giả người nước ngoài qua Việt Nam tham dư và chia sẽ hội họp.
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Danh sách 10 người có cấp bậc cao nhất trong buổi họp (Họ tên, danh hiệu)
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Danh sách số lượng người tham dự hội họp (Họ tên, số chứng minh thư)
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </asp:Panel>
                 </fieldset>
             </asp:Panel>
             <asp:HiddenField runat="server" ID="hdfID" />
-            <asp:HiddenField ID="hdfReported" runat="server" />
+            <asp:HiddenField runat="server" ID="hdfReported" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>

@@ -490,7 +490,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
         {
             trWarning.Visible = true;
-            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày";
+            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 05 ngày";
         }
         else
         {
@@ -885,7 +885,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
             double day = (dt2 - dt1).TotalDays;
-            if (day >= 10)
+            if (day > 5)
                 return true;
             else return false;
         }
