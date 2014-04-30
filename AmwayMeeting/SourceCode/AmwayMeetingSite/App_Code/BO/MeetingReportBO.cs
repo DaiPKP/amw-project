@@ -53,7 +53,7 @@ public class MeetingReportBO: AMW_MEETINGDataContext
         try
         {
             PRC_USR_AMW_MEETING_REPORT_GETLISTBYIDResult result = new PRC_USR_AMW_MEETING_REPORT_GETLISTBYIDResult();
-            result = PRC_USR_AMW_MEETING_REPORT_GETLISTBYID(ID).Single();
+            result = PRC_USR_AMW_MEETING_REPORT_GETLISTBYID(ID).SingleOrDefault();
             return result;
         }
         catch(Exception ex)
