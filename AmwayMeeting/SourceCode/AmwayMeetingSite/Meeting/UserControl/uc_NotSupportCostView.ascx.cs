@@ -89,6 +89,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblDISTRICTNAME.Text = result.DISTRICTNAME == null ? string.Empty : result.DISTRICTNAME;
             txtCOMMENTS.Text = result.COMMENTS == null ? string.Empty : result.COMMENTS;
             lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+            chkAgree.Checked = result.AGREE == null ? false : result.AGREE??false;
             if (lblWarning.Text.Length > 0)
             {
                 trWarning.Visible = true;

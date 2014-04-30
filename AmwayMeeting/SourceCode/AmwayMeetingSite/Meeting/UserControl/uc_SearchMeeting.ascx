@@ -17,10 +17,11 @@
                         </td>
                         <td class="tdsearch4"></td>
                         <td align="left" class="tdsearch5">
-
+                            Pax:
                         </td>
                         <td align="left" class="tdsearch6">
-                           
+                           <asp:DropDownList ID="ddlPAXID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                            </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
                     </tr>
@@ -50,17 +51,17 @@
                     </tr>
                     <tr>
                         <td class="tdsearch1"></td>
-                        <td align="left" class="tdsearch2">Pax:
+                        <td align="left" class="tdsearch2">Tỉnh thành:
                         </td>
                         <td align="left" class="tdsearch3">
-                            <asp:DropDownList ID="ddlPAXID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                             <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch4"></td>
-                        <td align="left" class="tdsearch5">Tỉnh thành:
+                        <td align="left" class="tdsearch5">
                         </td>
-                        <td align="left" class="tdsearch6">
-                            <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                        <td align="left" class="tdsearch6">Quận huyện
+                            <asp:DropDownList ID="ddlDISTRICTID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
@@ -135,6 +136,11 @@
                 <asp:TemplateField HeaderText="Tỉnh thành">
                     <ItemTemplate>
                         <asp:Label ID="lblListingPROVINCENAME" runat="server" Text='<%# Eval("PROVINCENAME") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                  <asp:TemplateField HeaderText="Quận huyện">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingDISTRICTNAME" runat="server" Text='<%# Eval("DISTRICTNAME") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Tình trạng">

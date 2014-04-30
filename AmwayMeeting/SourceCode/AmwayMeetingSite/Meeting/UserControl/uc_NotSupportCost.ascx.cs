@@ -96,6 +96,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 hdfCO_ORGANIZER_USERTYPEID_1.Value = result.CO_ORGANIZER_USERTYPEID_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_1.ToString();
                 hdfCO_ORGANIZER_USERTYPEID_2.Value = result.CO_ORGANIZER_USERTYPEID_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_2.ToString();
                 hdfCO_ORGANIZER_USERTYPEID_3.Value = result.CO_ORGANIZER_USERTYPEID_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_3.ToString();
+                chkAgree.Checked = result.AGREE == null ? false : result.AGREE ?? false;
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
                     btnSave.Visible = false;
@@ -485,6 +486,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
             return;
         }
+        if (!chkAgree.Checked)
+        {
+            lblAlerting.Text = "Bạn chưa chịu trách nhiệm với dữ liệu nhập ở trên!";
+            return;
+        }
         if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
         {
             trWarning.Visible = true;
@@ -587,7 +593,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
         obj.FOREIGNER = false;
-        obj.REPORTED = bool.Parse(hdfReported.Value);
+        obj.AGREE = chkAgree.Checked;
+        obj.REPORTED = true;
         obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
         obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
         obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();

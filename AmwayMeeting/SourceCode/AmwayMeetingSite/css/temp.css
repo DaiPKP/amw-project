@@ -786,12 +786,28 @@ a.a_link:hover
     padding-bottom: 5px;
     padding-top: 5px;
 }
+
+.TitlePageSub
+{
+    text-align: center;
+    font-size: 14px;
+    color: #008080;
+    font-weight: bold;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
 .Alerting
 {
     color: Red;
     font-size: 1.2em;
     height: 20px;
     line-height: 20px;
+    display: block;
+}
+.Agree
+{
+    color: Red;
+    font-size: 1.2em;
     display: block;
 }
 .grid

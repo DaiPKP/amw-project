@@ -1,7 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCost.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCost" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ
+        ĐƠN ĐĂNG KÝ HỘI HỌP
+        <br />
+(KHÔNG HỖ TRỢ CHI PHÍ & DIỄN GIẢ NGƯỜI VIỆT NAM)
+
+    </div>
+    <div class="TitlePageSub">
+        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 05
+        <br />
+NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
+
     </div>
     <script type="text/javascript">
         function BindEvents() {
@@ -167,13 +176,13 @@
                                     </asp:DropDownList>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3" colspan="2"> Chọn tỉnh thành<span style="color: Red">(*)</span>:
+                                    <td align="left" class="tdmeeting3" colspan="2">Chọn tỉnh thành<span style="color: Red">(*)</span>:
                                      <asp:DropDownList ID="ddlPROVINCEID" runat="server" Width="150px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPROVINCEID_SelectedIndexChanged">
                                      </asp:DropDownList></td>
                                     <td align="left" class="tdmeeting5" colspan="2">Chọn Quận huyện<span style="color: Red">(*)</span>:
                                      <asp:DropDownList ID="ddlDISTRICTID" runat="server" Width="150px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlDISTRICTID_SelectedIndexChanged">
                                      </asp:DropDownList>
-                                        <div id="divORGANIZER_QUOTA_BTN" runat="server" visible="false" style="width:40px;float:right;margin-right:140px">
+                                        <div id="divORGANIZER_QUOTA_BTN" runat="server" visible="false" style="width: 40px; float: right; margin-right: 140px">
                                             <asp:ImageButton ID="ImgBtnORGANIZER_CHECK" runat="server" Height="23px"
                                                 ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnORGANIZER_CHECK_Click" />
 
@@ -189,18 +198,12 @@
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">
                                         <div class="marginLeft10">
-                                           
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3" colspan="2">
+                                    <td align="left" class="tdmeeting3" colspan="2"></td>
                                     </td>
-                                    </td>
-                                    <td align="left" class="tdmeeting5">
-                                        
-                                    </td>
-                                    <td align="left" class="tdmeeting6">
-                                        
-                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
+                                    <td align="left" class="tdmeeting6"></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -573,13 +576,12 @@
                                      <asp:TextBox ID="txtSPEAKER_NAME_1" CssClass="txtBox" runat="server" Width="180px"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">
-                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_1" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
-                                         </div>
+                                        </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -609,13 +611,12 @@
                                      <asp:TextBox ID="txtSPEAKER_NAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">
-                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
-                                         </div>
+                                        </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -627,6 +628,15 @@
                                         <hr />
                                         <div style="text-align: left;">
                                             <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:CheckBox runat="server" ID="chkAgree" CssClass="Agree"  Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định trên và hiểu rằng đơn xin hội họp ngoài ngoài lãnh thổ Việt Nam của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ các Quy Tắc Ứng Xử của Amway. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này." />
+
                                         </div>
                                     </td>
                                 </tr>
