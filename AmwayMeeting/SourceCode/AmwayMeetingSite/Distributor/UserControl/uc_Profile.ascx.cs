@@ -97,7 +97,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
     {
         grdMeetingList.EditIndex = e.NewEditIndex;
         hdfMeetingID.Value = grdMeetingList.DataKeys[e.NewEditIndex].Value.ToString();
-         MeetingBO objBO = new MeetingBO();
+        MeetingBO objBO = new MeetingBO();
         PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult result = new PRC_USR_AMW_MEETING_REGISTER_GETLISTBYIDResult();
         result = objBO.MeetingGet_ListByID(int.Parse(hdfMeetingID.Value));
         if (result != null)
@@ -110,12 +110,12 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             {
                 if (Foreigner)
                 {
-                    strUrl = "../meeting/notsuportcostforeignerviewR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/notsuportcostforeignerR" + hdfMeetingID.Value;
                 }
                 else
                 {
 
-                    strUrl = "../meeting/notsuportcostviewR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/notsuportcostR" + hdfMeetingID.Value;
                 }
 
             }
@@ -123,23 +123,24 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             {
                 if (Foreigner)
                 {
-                    strUrl = "../meeting/suportcostforeignerviewR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/suportcostforeignerR" + hdfMeetingID.Value;
                 }
                 else
                 {
 
-                    strUrl = "../meeting/suportcostviewR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/suportcostR" + hdfMeetingID.Value;
                 }
 
             }
             if (MeetingType == 3)
             {
-                
-                    strUrl = "../meeting/outsidecountryviewR" + hdfMeetingID.Value;
-                
+
+                strUrl = "../meeting/outsidecountryR" + hdfMeetingID.Value;
+
 
             }
             Response.Redirect(strUrl);
+        }
     }
     private bool CheckEmail(string strEmail)
     {
