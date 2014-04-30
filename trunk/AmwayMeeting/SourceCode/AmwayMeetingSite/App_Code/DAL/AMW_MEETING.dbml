@@ -1847,4 +1847,30 @@
       <Column Name="DISTRICTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REPORT_GETLISTBYID" Method="PRC_USR_AMW_MEETING_REPORT_GETLISTBYID">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_USR_AMW_MEETING_REPORT_GETLISTBYIDResult">
+      <Column Name="MEETING_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="INVITE_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WATER_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FOOD_QUANTITY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUMMARY_WATER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUMMARY_FOOD" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[20_PERCENT]" Member="_20_PERCENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRINTING_INVITATION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_OVERVIEW" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_ROOM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_SUPPORT_USE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_SUPPORT_CHANGE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RATING_SUMMARY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OTHER_COMMENT_ROOM" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="OTHER_COMMENT_STAFT" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
