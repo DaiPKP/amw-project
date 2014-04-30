@@ -47,4 +47,19 @@ public class MeetingReportBO: AMW_MEETINGDataContext
             return false;
         }
     }
+
+    public PRC_USR_AMW_MEETING_REPORT_GETLISTBYIDResult GetMeetingReportByID(int ID)
+    {
+        try
+        {
+            PRC_USR_AMW_MEETING_REPORT_GETLISTBYIDResult result = new PRC_USR_AMW_MEETING_REPORT_GETLISTBYIDResult();
+            result = PRC_USR_AMW_MEETING_REPORT_GETLISTBYID(ID).Single();
+            return result;
+        }
+        catch(Exception ex)
+        {
+            return null;
+        }
+        
+    }
 }
