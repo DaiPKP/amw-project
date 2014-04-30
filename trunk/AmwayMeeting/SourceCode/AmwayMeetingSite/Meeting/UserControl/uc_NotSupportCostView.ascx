@@ -90,11 +90,10 @@
                                     <td align="left" class="tdmeeting3" colspan="2">Tỉnh thành:
                                     <asp:Label ID="lblPROVINCENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting5">
-                                        
-                                    </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting5" colspan="2">
+                                        Quận huyện:
+                                    <asp:Label ID="lblDISTRICTNAME" runat="server" CssClass="lblMeeting"></asp:Label>
+                                    </td>                                   
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -412,10 +411,7 @@
                                      <asp:Label ID="lblSPEAKER_USERTYPENAME_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                     </td>
                                     <td align="left" class="tdmeeting6">
-                                        <div style="float: right; margin-right: 4px">
-                                            Quốc tịch:
-                                     <asp:Label ID="lblSPEAKER_NATION_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                        </div>
+                                        
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -449,17 +445,13 @@
                                      <asp:Label ID="lblSPEAKER_USERTYPENAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                     </td>
                                     <td align="left" class="tdmeeting6">
-                                        <div style="float: right; margin-right: 4px">
-                                            Quốc tịch:
-                                             <asp:Label ID="lblSPEAKER_NATION_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                        </div>
+                                       
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
-
                                 <tr>
                                     <td colspan="7">
                                         <hr />
@@ -480,15 +472,25 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Tình trạng đăng ký: </td>
-                                    <td align="left" class="tdmeeting6"><asp:Label ID="lblSTATTUS_MEETING_REGISTERNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
+                                    <td align="left" class="tdmeeting5">Ghi chú: </td>
+                                    <td align="left" class="tdmeeting6"><asp:TextBox ID="txtCOMMENTS" CssClass="txtBox" runat="server" Width="100%" TextMode="MultiLine"></asp:TextBox></td>
                                     <td class="tdmeeting7"></td>
+                                </tr>
+                            <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr id="trWarning" runat="server" visible="false">
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="7">
                                         <hr />
                                         <div style="text-align: center;">
-                                            <br />
                                             <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
                                         </div>
                                     </td>
