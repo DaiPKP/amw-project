@@ -125,7 +125,7 @@ public class MeetingRouterHandler : IRouteHandler
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutSideCountryView.aspx", typeof(Page)) as Page;
                     }
                     
-                case "notsuportcostview":
+                case "notsupportcostview":
                     {
                         string strid = "-1";
                         try
@@ -141,7 +141,7 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostView.aspx", typeof(Page)) as Page;
                     }
-                case "notsuportcostforeignerview":
+                case "notsupportcostforeignerview":
                     {
                         string strid = "-1";
                         try
@@ -157,7 +157,7 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostForeignerView.aspx", typeof(Page)) as Page;
                     }
-                case "suportcostview":
+                case "supportcostview":
                     {
                         string strid = "-1";
                         try
@@ -173,7 +173,7 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCostView.aspx", typeof(Page)) as Page;
                     }
-                case "suportcostforeignerview":
+                case "supportcostforeignerview":
                     {
                         string strid = "-1";
                         try
