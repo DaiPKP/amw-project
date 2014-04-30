@@ -8,7 +8,7 @@ using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_NotSupportCostForeignerView : System.Web.UI.UserControl
 {
     public int _ID;
     protected void Page_Load(object sender, EventArgs e)
@@ -86,8 +86,18 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblINVITATIONNAME.Text = result.INVITATIONNAME == null ? string.Empty : result.INVITATIONNAME;
             lblBANNERNAME.Text = result.BANNERNAME == null ? string.Empty : result.BANNERNAME;
             lblSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
-            lblSTATTUS_MEETING_REGISTERNAME.Text = result.STATUS_MEETING_REGISTERNAME == null ? string.Empty : result.STATUS_MEETING_REGISTERNAME;
-            
+            lblDISTRICTNAME.Text = result.DISTRICTNAME == null ? string.Empty : result.DISTRICTNAME;
+            txtCOMMENTS.Text = result.COMMENTS == null ? string.Empty : result.COMMENTS;
+            lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+            chkAgree.Checked = result.AGREE == null ? false : result.AGREE??false;
+            if (lblWarning.Text.Length > 0)
+            {
+                trWarning.Visible = true;
+            }
+            else
+            {
+                trWarning.Visible = false;
+            }
 
             if (result.WATER ?? false == true)
             {
@@ -112,13 +122,13 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
             lblSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
             lblSPEAKER_USERTYPENAME_1.Text = result.SPEAKER_USERTYPENAME_1 == null ? string.Empty : result.SPEAKER_USERTYPENAME_1;
-            lblSPEAKER_NATION_1.Text = result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
             lblSPEAKER_TITLE_2.Text = result.SPEAKER_TITLE_2 == null ? string.Empty : result.SPEAKER_TITLE_2;
             lblSPEAKER_ADAID_2.Text = result.SPEAKER_ADAID_2 == null ? string.Empty : result.SPEAKER_ADAID_2;
             lblSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
             lblSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
-            lblSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
             ddlSTATUS_MEETING_REGISTERID.SelectedValue = result.STATUS_MEETING_REGISTERID.ToString();
+            lblSPEAKER_NATION_1.Text = result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
+            lblSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
         }
 
 
@@ -133,7 +143,9 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblAlerting.Text = "Bạn chưa chọn duyệt cho đăng ký hội họp này!";
             return;
         }
-        obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
+        obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue); 
+        obj.COMMENTS = txtCOMMENTS.Text.Trim();
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         obj.ID = int.Parse(hdfID.Value);
 
         //Duyet 
