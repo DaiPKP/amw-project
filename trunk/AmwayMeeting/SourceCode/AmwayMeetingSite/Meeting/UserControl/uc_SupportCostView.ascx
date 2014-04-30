@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostView.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCostView" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostView.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCostView" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
         ĐƠN ĐĂNG KÝ HỘI HỌP

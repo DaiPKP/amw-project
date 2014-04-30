@@ -551,7 +551,7 @@
                             </tr>
                             <tr>
                                 <td colspan="6">
-                                    <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ
+                                    <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ</b>
                                             
                                 </td>
                                 <td class="tdmeeting7"></td>
@@ -623,6 +623,7 @@
                                     <div style="float: right; margin-right: 4px">
                                         Danh hiệu:
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
+                                        </div>
                                 </td>
                                 <td class="tdmeeting7"></td>
                             </tr>

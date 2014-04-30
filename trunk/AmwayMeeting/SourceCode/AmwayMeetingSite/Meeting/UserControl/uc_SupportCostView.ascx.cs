@@ -8,7 +8,7 @@ using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.UserControl
 {
     public int _ID;
     protected void Page_Load(object sender, EventArgs e)
