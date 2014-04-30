@@ -256,7 +256,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
         obj.FOREIGNER = false;
-        obj.REPORTED = bool.Parse(hdfReported.Value);
+        obj.REPORTED = true;
 
         obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
         obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();

@@ -475,6 +475,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
             lblAlerting.Text = "Bạn chưa nhập tổng chi phí!";
             return;
         }
+       
 
         // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
         MeetingBO objBO = new MeetingBO();
