@@ -1,8 +1,17 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostForeignerView.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCostForeignerView" %>
 <div style="min-height: 800px; height: auto">
-    <div class="TitlePage">
-        DUYỆT ĐĂNG KÝ HỘI HỌP HỖ TRỢ CHI PHÍ - CÓ NGƯỜI NƯỚC NGOÀI
-    </div>
+<div class="TitlePage">
+    ĐƠN ĐĂNG KÝ HỘI HỌP
+        <br />
+    (HỖ TRỢ CHI PHÍ & DIỄN GIẢ NGƯỜI NƯỚC NGOÀI)
+
+</div>
+<div class="TitlePageSub">
+    ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 30
+        <br />
+    NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
+
+</div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <asp:Panel runat="server" ID="hehe">
@@ -90,11 +99,10 @@
                                     <td align="left" class="tdmeeting3" colspan="2">Tỉnh thành:
                                     <asp:Label ID="lblPROVINCENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting5">
-                                        
+                                    <td align="left" class="tdmeeting5" colspan="2">Quận huyện:
+                                    <asp:Label ID="lblDISTRICTNAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -139,8 +147,7 @@
                                      <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_1" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_1" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting6">&nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -166,8 +173,7 @@
                                     <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_2" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_2" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting6">&nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -194,8 +200,7 @@
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_3" runat="server"></asp:HiddenField>
 
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting6">&nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -272,9 +277,9 @@
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Ngày họp:
                                      
-                                    </td>                                    
+                                    </td>
 
-                                     <td align="left" class="tdmeeting3" colspan="2">
+                                    <td align="left" class="tdmeeting3" colspan="2">
                                         <asp:Label ID="lblMEETING_DATE" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                     <td align="left" class="tdmeeting5" colspan="2">Giờ họp(tối đa là 4 giờ):
                                         <div style="float: right; margin-right: 4px;">
@@ -405,14 +410,15 @@
                                      <asp:Label ID="lblSPEAKER_NAME_1" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    <td align="left" class="tdmeeting5"> Danh hiệu:
                                      <asp:Label ID="lblSPEAKER_USERTYPENAME_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                    </td>
+                                        </td>
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
-                                            Quốc tịch:
-                                     <asp:Label ID="lblSPEAKER_NATION_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                        </div>
+                                             Quốc tịch:
+                                             <asp:Label ID="lblSPEAKER_NATION_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
+                                        
+                                           </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -442,21 +448,22 @@
                                      <asp:Label ID="lblSPEAKER_NAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    <td align="left" class="tdmeeting5"> Danh hiệu:
                                      <asp:Label ID="lblSPEAKER_USERTYPENAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                    </td>
+                                        </td>
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
-                                            Quốc tịch:
+                                             Quốc tịch:
                                              <asp:Label ID="lblSPEAKER_NATION_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                        </div>
+                                       
+                                           </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
-                               
+
                                 <tr>
                                     <td colspan="7">
                                         <hr />
@@ -480,10 +487,8 @@
                                         <asp:Label ID="lblTOTAL_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)                                       
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">                                    
-                                    </td>
-                                    <td align="left" class="tdmeeting6">
-                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
+                                    <td align="left" class="tdmeeting6"></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -495,14 +500,14 @@
                                     
                                     </td>
                                     <td align="right" class="tdmeeting3">
-                                        <asp:Label id="lblAMWAY_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)
+                                        <asp:Label ID="lblAMWAY_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Số tiền nhà phân phối trả:
                                     
                                     </td>
                                     <td align="right" class="tdmeeting6">
-                                        <asp:Label id="lblDISTRIBUTOR_PAY" CssClass="lblMeeting" runat="server" Width="180px" ></asp:Label>&nbsp;(VNĐ)
+                                        <asp:Label ID="lblDISTRIBUTOR_PAY" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>&nbsp;(VNĐ)
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -526,14 +531,16 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Tình trạng đăng ký: </td>
-                                    <td align="left" class="tdmeeting6"><asp:Label ID="lblSTATTUS_MEETING_REGISTERNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
+                                    <td align="left" class="tdmeeting5">
+                                    <td align="left" class="tdmeeting5">Ghi chú: </td>
+                                    <td align="left" class="tdmeeting6">
+                                        <asp:TextBox ID="txtCOMMENTS" CssClass="txtBox" runat="server" Width="100%" TextMode="MultiLine"></asp:TextBox></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
-                          <tr>
+                                <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
-                        <tr>
+                                <tr>
                                     <td colspan="7">
                                         <hr />
                                     </td>
@@ -554,8 +561,29 @@
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Tình trạng chi phí: </td>
-                                    <td align="left" class="tdmeeting6"><asp:Label ID="lblSTATTUS_MEETING_PAYMENTNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
+                                    <td align="left" class="tdmeeting6">
+                                        <asp:Label ID="lblSTATTUS_MEETING_PAYMENTNAME" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label></td>
                                     <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr id="trWarning" runat="server" visible="false">
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="7">
+                                        <hr />
+                                        <div style="text-align: left;">
+                                            <asp:CheckBox runat="server" ID="chkAgree" Enabled="false" CssClass="Agree" Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định trên và hiểu rằng đơn xin hội họp của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ các Quy Tắc Ứng Xử của Amway cũng như Luật Pháp Việt Nam. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này." />
+
+                                        </div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td colspan="7">
@@ -574,6 +602,100 @@
                                         </div>
                                     </td>
                                 </tr>
+                            </table>
+                        </div>
+                    </asp:Panel>
+                    <asp:Panel runat="server" ID="Panel3">
+                        <div style="text-align: left; width: 100%">
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="6">
+                                         <hr />
+                                        <b>* Các thông tin hội họp đính kèm nộp cho Amway</b>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Hộ chiếu của diễn giả người nước ngoài
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Nội dung chương trình (Lưu trình)
+                                        </div>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Nội dung phát biếu của diễn giả người nước ngoài.
+                                        </div>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Thư hoặc Email xác nhận của diễn giả người nước ngoài qua Việt Nam tham dư và chia sẽ hội họp.
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Danh sách 10 người có cấp bậc cao nhất trong buổi họp (Họ tên, danh hiệu)
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2" colspan="4">
+                                        <div class="marginLeft10">
+                                            -	Danh sách số lượng người tham dự hội họp (Họ tên, số chứng minh thư)
+                                        </div>
+
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+
                             </table>
                         </div>
                     </asp:Panel>
