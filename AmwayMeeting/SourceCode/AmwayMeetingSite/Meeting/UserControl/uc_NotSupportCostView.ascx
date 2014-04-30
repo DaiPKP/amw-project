@@ -407,11 +407,12 @@
                                      <asp:Label ID="lblSPEAKER_NAME_1" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
-                                     <asp:Label ID="lblSPEAKER_USERTYPENAME_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
                                     <td align="left" class="tdmeeting6">
-                                        
+                                         <div style="float: right; margin-right: 4px">
+                                            Danh hiệu:
+                                             <asp:Label ID="lblSPEAKER_USERTYPENAME_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
+                                        </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
@@ -441,11 +442,12 @@
                                      <asp:Label ID="lblSPEAKER_NAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
-                                     <asp:Label ID="lblSPEAKER_USERTYPENAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                    </td>
+                                    <td align="left" class="tdmeeting5"></td>
                                     <td align="left" class="tdmeeting6">
-                                       
+                                       <div style="float: right; margin-right: 4px">
+                                            Danh hiệu:
+                                             <asp:Label ID="lblSPEAKER_USERTYPENAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
+                                        </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>

@@ -90,14 +90,6 @@ public partial class Meeting_UserControl_uc_OutSideCountryView : System.Web.UI.U
             {
                 trWarning.Visible = false;
             }
-            if (hdfORGANIZER_USERID.Value.Length > 0)
-            {
-                divORGANIZER_QUOTA.Visible = true;
-                ImgBtnORGANIZER_OK.Visible = true;
-                hdfORGANIZER_QUOTA_CHECK.Value = "true";
-                ImgBtnORGANIZER_ERROR.Visible = false;
-            }
-
         }
         else
         {
@@ -136,9 +128,6 @@ public partial class Meeting_UserControl_uc_OutSideCountryView : System.Web.UI.U
         lblMEETING_ENDDATE.Text = string.Empty;
         lblMEETING_STARTDATE.Text = string.Empty;
         lblCOUNTRYNAME.Text = string.Empty;
-        ImgBtnORGANIZER_OK.Visible = false;
-        ImgBtnORGANIZER_ERROR.Visible = false;
-        hdfORGANIZER_QUOTA_CHECK.Value = "false";
     }
 
     protected void btnSave_Click(object sender, EventArgs e)

@@ -464,6 +464,27 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             lblAlerting.Text = "Bạn nhập ngày phát giấy mời không đúng!";
             return;
         }
+        if (bool.Parse(ddlWATER.SelectedValue))
+        {
+            if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
+            {
+                lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
+                return;
+            }
+        }
+        if (bool.Parse(ddlFOOD.SelectedValue))
+        {
+            if ((txtFOOD_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtFOOD_PRICE.Text, 30000)))
+            {
+                lblAlerting.Text = "Bạn số tiền thức ăn không đúng!";
+                return;
+            }
+        }
+        if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
+        {
+            lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
+            return;
+        }
         if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
         {
             trWarning.Visible = true;
@@ -544,15 +565,21 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
         obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
         obj.WATER = bool.Parse(ddlWATER.SelectedValue);
-        if (CheckNumber(txtWATER_PRICE.Text.Trim()))
+        if (bool.Parse(ddlWATER.SelectedValue))
         {
-            obj.WATER_PRICE = int.Parse(txtWATER_PRICE.Text.Trim().Replace(",", ""));
+            if (CheckNumber(txtWATER_PRICE.Text.Trim()))
+            {
+                obj.WATER_PRICE = int.Parse(txtWATER_PRICE.Text.Trim().Replace(",", ""));
+            }
         }
-
         obj.FOOD = bool.Parse(ddlFOOD.SelectedValue);
-        if (CheckNumber(txtFOOD_PRICE.Text.Trim()))
+        if (bool.Parse(ddlFOOD.SelectedValue))
         {
-            obj.FOOD_PRICE = int.Parse(txtFOOD_PRICE.Text.Trim().Replace(",", ""));
+            if (CheckNumber(txtFOOD_PRICE.Text.Trim()))
+            {
+                obj.FOOD_PRICE = int.Parse(txtFOOD_PRICE.Text.Trim().Replace(",", ""));
+            }
+
         }
 
         obj.MEETINGTYPEID = 1;
@@ -755,16 +782,16 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     }
     protected void ddlPROVINCEID_SelectedIndexChanged(object sender, EventArgs e)
     {
-        
+
         lblAlerting.Text = string.Empty;
-        if(int.Parse(ddlPROVINCEID.SelectedValue)>0)
+        if (int.Parse(ddlPROVINCEID.SelectedValue) > 0)
         {
             GetDistrictCBO(int.Parse(ddlPROVINCEID.SelectedValue));
         }
-       
+
 
     }
-   
+
     protected void ImgBtnORGANIZER_CHECK_Click(object sender, ImageClickEventArgs e)
     {
 
@@ -791,7 +818,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             }
         }
     }
-   
+
     protected void ddlPLACE_SelectedIndexChanged(object sender, EventArgs e)
     {
         lblAlerting.Text = string.Empty;
@@ -812,6 +839,20 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         {
             int.Parse(strValue.Replace(",", ""));
             return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+    private bool CheckNumberMax(string strValue, int MaxValue)
+    {
+        try
+        {
+            if (MaxValue < int.Parse(strValue.Replace(",", "")))
+                return false;
+            else
+                return true;
         }
         catch
         {
