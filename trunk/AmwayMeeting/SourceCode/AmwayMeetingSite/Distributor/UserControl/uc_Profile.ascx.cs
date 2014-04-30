@@ -110,12 +110,12 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             {
                 if (Foreigner)
                 {
-                    strUrl = "../meeting/notsuportcostforeignerR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/notsupportcostforeignerR" + hdfMeetingID.Value;
                 }
                 else
                 {
 
-                    strUrl = "../meeting/notsuportcostR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/notsupportcostR" + hdfMeetingID.Value;
                 }
 
             }
@@ -123,12 +123,12 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             {
                 if (Foreigner)
                 {
-                    strUrl = "../meeting/suportcostforeignerR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/supportcostforeignerR" + hdfMeetingID.Value;
                 }
                 else
                 {
 
-                    strUrl = "../meeting/suportcostR" + hdfMeetingID.Value;
+                    strUrl = "../meeting/supportcostR" + hdfMeetingID.Value;
                 }
 
             }
