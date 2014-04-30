@@ -149,6 +149,19 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBOResult> Pax_NotSupportCostGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBOResult> result = new List<PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBOResult>();
+            result = PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_PAX_SEARCHResult> PaxGet_Search(SYS_AMW_PAX objPax)
     {
         try
