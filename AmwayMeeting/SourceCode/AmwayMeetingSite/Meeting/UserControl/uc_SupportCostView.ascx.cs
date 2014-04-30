@@ -109,8 +109,27 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblINVITATIONNAME.Text = result.INVITATIONNAME == null ? string.Empty : result.INVITATIONNAME;
             lblBANNERNAME.Text = result.BANNERNAME == null ? string.Empty : result.BANNERNAME;
             lblSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
-            lblSTATTUS_MEETING_REGISTERNAME.Text = result.STATUS_MEETING_REGISTERNAME == null ? string.Empty : result.STATUS_MEETING_REGISTERNAME;
-            
+            lblDISTRICTNAME.Text = result.DISTRICTNAME == null ? string.Empty : result.DISTRICTNAME;
+            txtCOMMENTS.Text = result.COMMENTS == null ? string.Empty : result.COMMENTS;
+            lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+            chkAgree.Checked = result.AGREE == null ? false : result.AGREE ?? false;
+            lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+            if (lblWarning.Text.Length > 0)
+            {
+                trWarning.Visible = true;
+            }
+            else
+            {
+                trWarning.Visible = false;
+            }
+            if (lblWarning.Text.Length > 0)
+            {
+                trWarning.Visible = true;
+            }
+            else
+            {
+                trWarning.Visible = false;
+            }
             if (result.WATER ?? false == true)
             {
                 lblWATER.Text = "Có";
@@ -134,12 +153,10 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
             lblSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
             lblSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
             lblSPEAKER_USERTYPENAME_1.Text = result.SPEAKER_USERTYPENAME_1 == null ? string.Empty : result.SPEAKER_USERTYPENAME_1;
-            lblSPEAKER_NATION_1.Text = result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
             lblSPEAKER_TITLE_2.Text = result.SPEAKER_TITLE_2 == null ? string.Empty : result.SPEAKER_TITLE_2;
             lblSPEAKER_ADAID_2.Text = result.SPEAKER_ADAID_2 == null ? string.Empty : result.SPEAKER_ADAID_2;
             lblSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
             lblSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
-            lblSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
             lblTOTAL_PAY.Text = result.TOTAL_PAY == null ? string.Empty : string.Format("{0:N0}", result.TOTAL_PAY);
             lblAMWAY_PAY.Text = result.AMWAY_PAY == null ? string.Empty : string.Format("{0:N0}", result.AMWAY_PAY);
             lblDISTRIBUTOR_PAY.Text = result.DISTRIBUTOR_PAY == null ? string.Empty : string.Format("{0:N0}", result.DISTRIBUTOR_PAY);
@@ -161,6 +178,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
         }
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.STATUS_MEETING_PAYMENTID = int.Parse(ddlSTATUS_MEETING_PAYMENTID.SelectedValue);
+        obj.COMMENTS = txtCOMMENTS.Text.Trim();
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         obj.ID = int.Parse(hdfID.Value);
 
         //Duyet 

@@ -61,6 +61,19 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXIDResult> ProvinceGet_PaxIdCBO(int paxId)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXIDResult> result = new List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXIDResult>();
+            result = PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID(paxId).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 
     public List<PRC_SYS_AMW_PROVINCE_GETLISTBYIDResult> ProvinceGetListByID(int ID)
     {
@@ -231,6 +244,19 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             List<PRC_SYS_AMW_DISTRICT_CBOResult> result = new List<PRC_SYS_AMW_DISTRICT_CBOResult>();
             result = PRC_SYS_AMW_DISTRICT_CBO(provinceId).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult> DistrictGet_PaxProvinceCBO(int paxId,int provinceId)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult> result = new List<PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult>();
+            result = PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEID(paxId,provinceId).ToList();
             return result;
         }
         catch (Exception ex)
