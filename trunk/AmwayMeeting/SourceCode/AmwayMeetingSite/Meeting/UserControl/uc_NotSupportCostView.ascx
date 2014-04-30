@@ -1,7 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_NotSupportCostView.ascx.cs" Inherits="Meeting_UserControl_uc_NotSupportCostView" %>
 <div style="min-height: 800px; height: auto">
     <div class="TitlePage">
-        DUYỆT ĐĂNG KÝ HỘI HỌP KHÔNG HỖ TRỢ CHI PHÍ
+        ĐƠN ĐĂNG KÝ HỘI HỌP
+        <br />
+        (KHÔNG HỖ TRỢ CHI PHÍ & DIỄN GIẢ NGƯỜI VIỆT NAM)
+
+    </div>
+    <div class="TitlePageSub">
+        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 05
+        <br />
+        NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
+
     </div>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -90,10 +99,9 @@
                                     <td align="left" class="tdmeeting3" colspan="2">Tỉnh thành:
                                     <asp:Label ID="lblPROVINCENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting5" colspan="2">
-                                        Quận huyện:
+                                    <td align="left" class="tdmeeting5" colspan="2">Quận huyện:
                                     <asp:Label ID="lblDISTRICTNAME" runat="server" CssClass="lblMeeting"></asp:Label>
-                                    </td>                                   
+                                    </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -138,8 +146,7 @@
                                      <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_1" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_1" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting6">&nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -165,8 +172,7 @@
                                     <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_2" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_2" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting6">&nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -193,8 +199,7 @@
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_3" runat="server"></asp:HiddenField>
 
                                     </td>
-                                    <td align="left" class="tdmeeting6">
-                                        &nbsp;</td>
+                                    <td align="left" class="tdmeeting6">&nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -280,7 +285,7 @@
                                         Giờ họp(không quá 22 giờ):
                                         <div style="float: right; margin-right: 4px;">
                                             <asp:Label ID="lblMEETING_TIME" runat="server" Width="250px" CssClass="lblMeeting"></asp:Label>
-                                            
+
                                         </div>
                                     </td>
                                     <td class="tdmeeting7"></td>
@@ -409,7 +414,7 @@
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5"></td>
                                     <td align="left" class="tdmeeting6">
-                                         <div style="float: right; margin-right: 4px">
+                                        <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
                                              <asp:Label ID="lblSPEAKER_USERTYPENAME_1" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                         </div>
@@ -444,7 +449,7 @@
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5"></td>
                                     <td align="left" class="tdmeeting6">
-                                       <div style="float: right; margin-right: 4px">
+                                        <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
                                              <asp:Label ID="lblSPEAKER_USERTYPENAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
                                         </div>
@@ -461,10 +466,13 @@
                                 </tr>
                                 <tr>
                                     <td colspan="6">
-                                        <b>IV.	DUYỆT ĐĂNG KÝ</div></b>
+                                        <b>
+                                    IV.	DUYỆT ĐĂNG KÝ
+                        </div>
+                        </b>
                                     </td>
                                     <td class="tdmeeting7"></td>
-                                </tr>
+                        </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Phê duyệt<span style="color: Red">(*)</span>:                                        
@@ -475,37 +483,47 @@
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Ghi chú: </td>
-                                    <td align="left" class="tdmeeting6"><asp:TextBox ID="txtCOMMENTS" CssClass="txtBox" runat="server" Width="100%" TextMode="MultiLine"></asp:TextBox></td>
+                                    <td align="left" class="tdmeeting6">
+                                        <asp:TextBox ID="txtCOMMENTS" CssClass="txtBox" runat="server" Width="100%" TextMode="MultiLine"></asp:TextBox></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
-                            <tr>
-                                    <td align="left" class="divClearBothInAdmin"></td>
-                                </tr>
-                                <tr id="trWarning" runat="server" visible="false">
-                                    <td colspan="7">
-                                        <hr />
-                                        <div style="text-align: left;">
-                                            <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="7">
-                                        <hr />
-                                        <div style="text-align: center;">
-                                            <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="7">
-                                        <div style="text-align: center;">
-                                            <br />
-                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Duyệt đăng ký" OnClick="btnSave_Click" />
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                        <tr>
+                            <td align="left" class="divClearBothInAdmin"></td>
+                        </tr>
+                        <tr id="trWarning" runat="server" visible="false">
+                            <td colspan="7">
+                                <hr />
+                                <div style="text-align: left;">
+                                    <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <hr />
+                                <div style="text-align: left;">
+                                    <asp:CheckBox runat="server" ID="chkAgree" Enabled="false" CssClass="Agree" Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định trên và hiểu rằng đơn xin hội họp ngoài ngoài lãnh thổ Việt Nam của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ các Quy Tắc Ứng Xử của Amway. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này." />
+
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <hr />
+                                <div style="text-align: center;">
+                                    <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="7">
+                                <div style="text-align: center;">
+                                    <br />
+                                    <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Duyệt đăng ký" OnClick="btnSave_Click" />
+                                </div>
+                            </td>
+                        </tr>
+                        </table>
                         </div>
                     </asp:Panel>
                 </fieldset>

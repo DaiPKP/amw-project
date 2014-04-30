@@ -21,6 +21,7 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
         obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.REPORTED = chkIsReport.Checked;
@@ -34,6 +35,7 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         GetMeetingTypeCBO();
         GetStatusMeetingRegisterCBO();
         GetProvinceCBO();
+        GetDistrictCBO(0);
         hdfId.Value = "-1";
         txtADA.Text = string.Empty;
         ddlPAXID.SelectedValue = "0";
@@ -43,7 +45,40 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         chkHaveForeign.Checked = false;
         chkIsReport.Checked = false;
     }
+    private void GetDistrictCBO(int provinceId)
+    {
+        try
+        {
+            if (provinceId > 0)
+            {
+                CategoryBO catebo = new CategoryBO();
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                lst = catebo.DistrictGet_CBO(provinceId).ToList();
+                if (lst != null)
+                {
 
+                    ListItem lstParent = new ListItem("--Tất cả--", "0");
+                    ddlDISTRICTID.DataSource = lst;
+                    ddlDISTRICTID.DataTextField = "DISTRICTNAME";
+                    ddlDISTRICTID.DataValueField = "ID";
+                    ddlDISTRICTID.DataBind();
+
+                    ddlDISTRICTID.Items.Insert(0, lstParent);
+                    ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
+                }
+            }
+            else
+            {
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                ListItem lstParent = new ListItem("--Tất cả--", "0");
+                ddlDISTRICTID.Items.Add(lstParent);
+                ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
     private void GetMeetingTypeCBO()
     {
         try
@@ -177,12 +212,12 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
             {
                 if (Foreigner)
                 {
-                    strUrl = "../meeting/notsuportcostforeignerviewR" + hdfId.Value;
+                    strUrl = "../meeting/notsupportcostforeignerviewR" + hdfId.Value;
                 }
                 else
                 {
 
-                    strUrl = "../meeting/notsuportcostviewR" + hdfId.Value;
+                    strUrl = "../meeting/notsupportcostviewR" + hdfId.Value;
                 }
 
             }
@@ -190,12 +225,12 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
             {
                 if (Foreigner)
                 {
-                    strUrl = "../meeting/suportcostforeignerviewR" + hdfId.Value;
+                    strUrl = "../meeting/supportcostforeignerviewR" + hdfId.Value;
                 }
                 else
                 {
 
-                    strUrl = "../meeting/suportcostviewR" + hdfId.Value;
+                    strUrl = "../meeting/supportcostviewR" + hdfId.Value;
                 }
 
             }
@@ -220,6 +255,7 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
 
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
         obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         obj.REPORTED = chkIsReport.Checked;
