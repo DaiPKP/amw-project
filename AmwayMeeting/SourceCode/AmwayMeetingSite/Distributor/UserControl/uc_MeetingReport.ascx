@@ -90,7 +90,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtINVITE_QUANTITY" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtINVITE_QUANTITY" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                     <td class="td_title_2">
@@ -98,7 +98,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txt20_PERCENT" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txt20_PERCENT" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -108,7 +108,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtWATER_QUANTITY" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtWATER_QUANTITY" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                     <td class="td_title_2">
@@ -116,7 +116,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtPRINTING_INVITATION" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtPRINTING_INVITATION" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -126,7 +126,7 @@
                     </td>
                     <td class="td_value_2">
                         
-                        <asp:TextBox ID="txtFOOD_QUANTITY" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtFOOD_QUANTITY" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
                         
                     </td>
                     <td class="td_title_2">
@@ -134,7 +134,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtOTHER1" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtOTHER1" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -144,7 +144,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtSUMMARY_WATER" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtSUMMARY_WATER" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                     <td class="td_title_2">
@@ -152,7 +152,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtOTHER2" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtOTHER2" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -162,7 +162,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtSUMMARY_FOOD" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtSUMMARY_FOOD" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                     <td class="td_title_2">
@@ -170,7 +170,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtOTHER3" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtOTHER3" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -186,7 +186,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtOTHER4" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtOTHER4" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -202,7 +202,7 @@
                     </td>
                     <td class="td_value_2">
 
-                        <asp:TextBox ID="txtOTHER5" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);"></asp:TextBox> VNĐ
+                        <asp:TextBox ID="txtOTHER5" runat="server" CssClass="txtNumberBox" Width="70%" onKeyUp="addCommas(event,this);">0</asp:TextBox> VNĐ
 
                     </td>
                 </tr>
@@ -266,33 +266,33 @@
                 <span style="font-weight:bold;">I. Đánh gía về cơ sở vật chất tại địa điểm các anh chị tổ chức hội thảo.</span> <br /><br />
                 <span style="margin-left:10px;">1. Về tổng quan, cơ sở vật chất là đầy đủ và hiện đại:</span><br />
                 
-			    <div class="OVERVIEW" style="margin-left:30px;" data-average="5" data-id="2"></div> 
+			    <div class="OVERVIEW" style="margin-left:30px;" data-average=<%=hdfRATING_OVERVIEW.Value.ToString()%> data-id="2"></div> 
 		        
                 <span style="margin-left:10px;">2. Cảm nhận của anh/chị về không gian phòng họp:</span><br />
 
-                <div class="ROOM" style="margin-left:30px;" data-average="5" data-id="2"></div> 
+                <div class="ROOM" style="margin-left:30px;" data-average=<%=hdfRATING_ROOM.Value.ToString()%> data-id="2"></div> 
 
                 <span style="margin-left:10px;">Ý kiến khác(ghi rõ)</span><br />
                 <asp:TextBox ID="txtOTHER_COMMENT_ROOM" runat="server" Width="50%" TextMode="MultiLine" Rows="3"></asp:TextBox><br /><br />
                 <span style="font-weight:bold;">II. Đánh giá về thái độ phục vụ tại địa điểm tổ chức.</span> <br /><br />
                 <span style="margin-left:10px;">1. Nhân viên tại địa điểm đã hỗ trợ tốt anh/chị trong quá trình sử dụng phòng hội thảo.</span><br />
 
-                <div class="USE" style="margin-left:30px;" data-average="5" data-id="2"></div> 
+                <div class="USE" style="margin-left:30px;" data-average=<%=hdfRATING_SUPPORT_USE.Value.ToString()%> data-id="2"></div> 
 
                 <span style="margin-left:10px;">2. Nhân viên tại địa điểm đã hỗ trợ tốt anh/chị khi đặt phòng, đổi phòng.</span><br />
 
-                <div class="CHANGE" style="margin-left:30px;" data-average="5" data-id="2"></div> 
+                <div class="CHANGE" style="margin-left:30px;" data-average=<%=hdfRATING_SUPPORT_CHANGE.Value.ToString()%> data-id="2"></div> 
 
                 <span style="margin-left:10px;">Ý kiến khác(ghi rõ)</span><br />
                 <asp:TextBox ID="txtOTHER_COMMENT_STAFT" runat="server" Width="50%" TextMode="MultiLine" Rows="3"></asp:TextBox><br /><br />
                 <span style="font-weight:bold;">III. Nhìn chung anh/ chị đánh giá mức độ hài lòng về Địa điểm tổ chức theo mức thang điểm.</span> <br />
 
-                <div class="SUMMARY" style="margin-left:30px;" data-average="5" data-id="2"></div> 
+                <div class="SUMMARY" style="margin-left:30px;" data-average=<%=hdfRATING_SUMMARY.Value.ToString()%> data-id="2"></div> 
 
                 <table>
                     <tr>
                         <td>
-                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                            <asp:CheckBox ID="chkConfirm" runat="server" />
                         </td>
                         <td>                            
                             <span style="font-weight:bold; color:red;">
@@ -301,7 +301,7 @@
                         </td>
                     </tr>
                 </table>
-                <span style="font-weight:bold; color:blue;"><asp:Label ID ="lbMess" Text="" runat ="server"/></span>
+                <span style="font-weight:bold; color:blue;"><asp:Label ID ="lbMess" Text="" runat ="server"/></span><br />
                 <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Báo Cáo" OnClick="btnSave_Click"/>
             </div>
         </fieldset>
@@ -311,4 +311,6 @@
     <asp:HiddenField id="hdfRATING_SUPPORT_USE" runat="server" Value="0"/>
     <asp:HiddenField id="hdfRATING_SUPPORT_CHANGE" runat="server" Value="0"/>
     <asp:HiddenField id="hdfRATING_SUMMARY" runat="server" Value="0"/>
+    <asp:HiddenField id="hdfMEETING_ID" runat="server" Value="0"/>
+    <asp:HiddenField id="hdfID" runat="server" Value="0"/>
 </div>
