@@ -51,7 +51,7 @@ public class MeetingBO : AMW_MEETINGDataContext
         try
         {
 
-            int result = PRC_USR_AMW_MEETING_REGISTER_APPROVAL(obj.ID, obj.STATUS_MEETING_REGISTERID,obj.UPDATEUSER);
+            int result = PRC_USR_AMW_MEETING_REGISTER_APPROVAL(obj.ID, obj.STATUS_MEETING_REGISTERID,obj.COMMENTS,obj.UPDATEUSER);
             if (result == 1)
                 return true;
             else
@@ -120,12 +120,12 @@ public class MeetingBO : AMW_MEETINGDataContext
     }
 
    
-    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult Meeting_CheckQuota_OutSide(int userId)
+    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult Meeting_CheckQuota_OutSide(int userId, int paxId)
     {
         try
         {
             PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult();
-            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE(userId).SingleOrDefault();
+            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE(userId, paxId).SingleOrDefault();
             return result;
         }
         catch (Exception ex)
