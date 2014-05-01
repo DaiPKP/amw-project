@@ -3,13 +3,13 @@
     <div class="TitlePage">
         ĐƠN ĐĂNG KÝ HỘI HỌP
         <br />
-(KHÔNG HỖ TRỢ CHI PHÍ & DIỄN GIẢ NGƯỜI VIỆT NAM)
+        (KHÔNG HỖ TRỢ CHI PHÍ & DIỄN GIẢ NGƯỜI VIỆT NAM)
 
     </div>
     <div class="TitlePageSub">
         ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 05
         <br />
-NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
+        NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
 
     </div>
     <script type="text/javascript">
@@ -635,7 +635,7 @@ NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
                                     <td colspan="7">
                                         <hr />
                                         <div style="text-align: left;">
-                                            <asp:CheckBox runat="server" ID="chkAgree" CssClass="Agree"  Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định trên và hiểu rằng đơn xin hội họp của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ các Quy Tắc Ứng Xử của Amway cũng như Luật Pháp Việt Nam. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này." />
+                                            <asp:CheckBox runat="server" ID="chkAgree" CssClass="Agree" Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định trên và hiểu rằng đơn xin hội họp của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ các Quy Tắc Ứng Xử của Amway cũng như Luật Pháp Việt Nam. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này." />
 
                                         </div>
                                     </td>
@@ -653,6 +653,7 @@ NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
                                         <div style="text-align: center;">
                                             <br />
                                             <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+
                                         </div>
                                     </td>
                                 </tr>

@@ -72,31 +72,31 @@
         return;
     }
 </script>
-<asp:UpdatePanel ID="UpdatePanel1" runat="server">
-    <ContentTemplate>
-        <script>
-            var prm = Sys.WebForms.PageRequestManager.getInstance();
-            prm.add_endRequest(function () {
-                BindEvents();
-            });
+<asp:Panel runat="server" ID="hehe">
+    <fieldset>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <script>
+                    var prm = Sys.WebForms.PageRequestManager.getInstance();
+                    prm.add_endRequest(function () {
+                        BindEvents();
+                    });
 
-            $(function () {
-                var objTuNgay = document.getElementById("<%=txtMEETING_DATE.ClientID %>");
-                var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
-                $(objTuNgay).datepicker({
-                    showOn: "button",
-                    buttonImage: "../images/calendar.gif",
-                    buttonImageOnly: true
-                }),
-               $(objSend).datepicker({
-                   showOn: "button",
-                   buttonImage: "../images/calendar.gif",
-                   buttonImageOnly: true
-               });
-            });
-        </script>
-        <asp:Panel runat="server" ID="hehe">
-            <fieldset>
+                    $(function () {
+                        var objTuNgay = document.getElementById("<%=txtMEETING_DATE.ClientID %>");
+                        var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
+                        $(objTuNgay).datepicker({
+                            showOn: "button",
+                            buttonImage: "../images/calendar.gif",
+                            buttonImageOnly: true
+                        }),
+                       $(objSend).datepicker({
+                           showOn: "button",
+                           buttonImage: "../images/calendar.gif",
+                           buttonImageOnly: true
+                       });
+                    });
+                </script>
                 <asp:Panel runat="server" ID="pnlSearch">
                     <div style="text-align: left; width: 100%">
                         <table width="100%">
@@ -552,7 +552,7 @@
                             <tr>
                                 <td colspan="6">
                                     <b>III.	NỘI DUNG PHÁT BIỂU CỦA DIỄN GIẢ</b>
-                                            
+
                                 </td>
                                 <td class="tdmeeting7"></td>
                             </tr>
@@ -623,7 +623,7 @@
                                     <div style="float: right; margin-right: 4px">
                                         Danh hiệu:
                                      <asp:TextBox ID="txtSPEAKER_USERTYPENAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
-                                        </div>
+                                    </div>
                                 </td>
                                 <td class="tdmeeting7"></td>
                             </tr>
@@ -679,25 +679,25 @@
                                 <td class="tdmeeting7"></td>
                             </tr>
                             <tr>
-                                    <td align="left" class="divClearBothInAdmin"></td>
-                                </tr>
-                                <tr id="trWarning" runat="server" visible="false">
-                                    <td colspan="7">
-                                        <hr />
-                                        <div style="text-align: left;">
-                                            <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="7">
-                                        <hr />
-                                        <div style="text-align: left;">
-                                            <asp:CheckBox runat="server" ID="chkAgree" CssClass="Agree"  Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định nêu trên và hiểu rằng đơn xin hội họp của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ Các Quy Tắc Ứng Xử của Amway cũng như Luật Pháp Việt Nam. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này. " />
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                            <tr id="trWarning" runat="server" visible="false">
+                                <td colspan="7">
+                                    <hr />
+                                    <div style="text-align: left;">
+                                        <asp:Label ID="lblWarning" runat="server" CssClass="Alerting" Text=""></asp:Label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="7">
+                                    <hr />
+                                    <div style="text-align: left;">
+                                        <asp:CheckBox runat="server" ID="chkAgree" CssClass="Agree" Text="Tôi chịu trách nhiệm tuân thủ tất cả các quy định nêu trên và hiểu rằng đơn xin hội họp của tôi chỉ có hiệu lực khi được Amway chấp thuận và đơn này có thể sẽ bị hủy bỏ nếu tôi không tuân thủ Các Quy Tắc Ứng Xử của Amway cũng như Luật Pháp Việt Nam. Tôi cam kết rằng tất cả các thông tin cung cấp là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này. " />
 
-                                        </div>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="7">
                                     <hr />
@@ -707,21 +707,30 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr>
-                                <td colspan="7">
-                                    <div style="text-align: center;">
-                                        <br />
-                                        <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
-                                    </div>
-                                </td>
-                            </tr>
+
                         </table>
                     </div>
                 </asp:Panel>
-            </fieldset>
+                <asp:HiddenField runat="server" ID="hdfID" />
+                <asp:HiddenField ID="hdfReported" runat="server" />
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <asp:Panel runat="server" ID="Panel3">
+            <div style="text-align: left; width: 100%">
+                <table width="100%">
+                    <tr>
+                        <td colspan="7">
+                            <div style="text-align: center;">
+                                <br />
+                                <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
         </asp:Panel>
-        <asp:HiddenField runat="server" ID="hdfID" />
-        <asp:HiddenField ID="hdfReported" runat="server" />
-    </ContentTemplate>
-</asp:UpdatePanel>
-</div>
+
+    </fieldset>
+</asp:Panel>

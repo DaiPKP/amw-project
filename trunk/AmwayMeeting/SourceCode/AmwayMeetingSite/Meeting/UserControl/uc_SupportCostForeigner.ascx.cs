@@ -151,7 +151,14 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 ImgBtnORGANIZER_ERROR.Visible = false;
                 divORGANIZER_QUOTA.Visible = true;
 
-
+                if(result.STATUS_MEETING_REGISTERID>1)
+                {
+                    SetEnable(false);
+                }
+                else
+                {
+                    SetEnable(true);
+                }
             }
         }
         else
@@ -249,8 +256,50 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
         txtSPEAKER_NATION_1.Text = string.Empty;
         txtSPEAKER_NATION_2.Text = string.Empty;
+        SetEnable(true);
 
+    }
+    private void SetEnable(bool bolValue)
+    {
 
+        btnSave.Visible = bolValue;
+        btnReport.Visible = !bolValue;
+        txtORGANIZER_ADAID.Enabled = bolValue;
+
+        ddlPAXID.Enabled = bolValue;
+        ddlPROVINCEID.Enabled = bolValue;
+
+        txtCO_ORGANIZER_ADAID_1.Enabled = bolValue;
+        txtCO_ORGANIZER_ADAID_2.Enabled = bolValue;
+
+        txtCO_ORGANIZER_ADAID_3.Enabled = bolValue;
+        txtMEETINGNAME.Enabled = bolValue;
+        txtNUMBER_OF_PARTICIPANT.Enabled = bolValue;
+        ddlFORMS_OF_PAYMENTID.Enabled = bolValue;
+        ddlPLACE.Enabled = bolValue;
+        txtMEETING_PLACE_NAME.Enabled = bolValue;
+        txtMEETING_ADDRESS.Enabled = bolValue;
+        txtMEETING_DATE.Enabled = bolValue;
+        txtMEETING_TIME.Enabled = bolValue;
+
+        ddlINVITATIONID.Enabled = bolValue;
+        ddlBANNERID.Enabled = bolValue;
+        txtSEND_INVITATION_DATE.Enabled = bolValue;
+
+        txtWATER_PRICE.Enabled = bolValue;
+        txtFOOD_PRICE.Enabled = bolValue;
+
+        txtSPEAKER_TITLE_1.Enabled = bolValue;
+        txtSPEAKER_ADAID_1.Enabled = bolValue;
+        txtSPEAKER_USERTYPENAME_1.Enabled = bolValue;
+
+        txtSPEAKER_TITLE_2.Enabled = bolValue;
+        txtSPEAKER_ADAID_2.Enabled = bolValue;
+        txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
+        ImgBtnORGANIZER_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA1_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA2_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
     }
     private void GetInvitationCBO()
     {
@@ -995,5 +1044,9 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         {
             GetProvinceCBO(int.Parse(ddlPAXID.SelectedValue));
         }
+    }
+    protected void btnReport_Click(object sender, EventArgs e)
+    {
+        string strUrl = "../distributor/reportR" + hdfID.Value;
     }
 }
