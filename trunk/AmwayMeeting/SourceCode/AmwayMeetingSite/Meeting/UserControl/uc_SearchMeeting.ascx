@@ -75,13 +75,21 @@
                                   
                         </td>
                         <td align="left" class="tdsearch3">
-                            <asp:CheckBox ID="chkHaveForeign" runat="server" Checked="false" />
+                            <asp:DropDownList ID="ddlForeigner" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                                <asp:ListItem Value="-1">--Tất cả--</asp:ListItem>
+                                <asp:ListItem Value="0">Có</asp:ListItem>
+                                <asp:ListItem Value="1">Không</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                         <td class="tdsearch4"></td>
                         <td align="left" class="tdsearch5">Báo cáo:
                         </td>
                         <td align="left" class="tdsearch6">
-                            <asp:CheckBox ID="chkIsReport" runat="server" Checked="false" />
+                           <asp:DropDownList ID="ddlReport" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                                <asp:ListItem Value="-1">--Tất cả--</asp:ListItem>
+                                <asp:ListItem Value="0">Có</asp:ListItem>
+                                <asp:ListItem Value="1">Không</asp:ListItem>
+                            </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
                     </tr>

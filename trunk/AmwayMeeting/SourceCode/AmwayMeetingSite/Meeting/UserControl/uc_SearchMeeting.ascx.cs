@@ -24,9 +24,9 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
         obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
-        obj.REPORTED = chkIsReport.Checked;
-        obj.FOREIGNER = chkHaveForeign.Checked;
-        DisplayInGrid(string.Empty, obj);
+        int report = int.Parse(ddlReport.SelectedValue);
+        int foreigner = int.Parse(ddlForeigner.SelectedValue);
+        DisplayInGrid(string.Empty, obj,foreigner,report);
     }
 
     private void ClearTextBox()
@@ -42,8 +42,8 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         ddlPROVINCEID.SelectedValue = "0";
         ddlMEETINGTYPEID.SelectedValue = "0";
         ddlSTATUS_MEETING_REGISTERID.SelectedValue = "0";
-        chkHaveForeign.Checked = false;
-        chkIsReport.Checked = false;
+        ddlReport.SelectedValue ="-1";
+        ddlForeigner.SelectedValue = "-1";
     }
     private void GetDistrictCBO(int provinceId)
     {
@@ -174,11 +174,11 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         {
         }
     }
-    protected void DisplayInGrid(string strADA, USR_AMW_MEETING_REGISTER obj)
+    protected void DisplayInGrid(string strADA, USR_AMW_MEETING_REGISTER obj,int foreigner, int report)
     {
         MeetingBO objBO = new MeetingBO();
         List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> lst = new List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>();
-        lst = objBO.Meeting_Search(strADA, obj).ToList();
+        lst = objBO.Meeting_Search(strADA, obj,foreigner,report).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
@@ -258,9 +258,9 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
         obj.MEETINGTYPEID = int.Parse(ddlMEETINGTYPEID.SelectedValue);
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
-        obj.REPORTED = chkIsReport.Checked;
-        obj.FOREIGNER = chkHaveForeign.Checked;
-        DisplayInGrid(txtADA.Text.Trim(), obj);
+        int report = int.Parse(ddlReport.SelectedValue);
+        int foreigner = int.Parse(ddlForeigner.SelectedValue);
+        DisplayInGrid(string.Empty, obj, foreigner, report);
     }
 
 
