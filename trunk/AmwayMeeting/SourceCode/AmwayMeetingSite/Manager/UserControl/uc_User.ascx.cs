@@ -278,7 +278,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         }
         if (int.Parse(ddlUserType.SelectedValue) <= 0)
         {
-            lblAlerting.Text = "Bạn chưa chọn loại người dùng!";
+            lblAlerting.Text = "Bạn chưa chọn danh hiệu của người dùng!";
             return;
         }
         if (int.Parse(ddlDepartment.SelectedValue) <= 0)
@@ -294,7 +294,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         }
         if (int.Parse(ddlWorkDistrict.SelectedValue) <= 0)
         {
-            lblAlerting.Text = "Bạn chưa chọn quận huyện đang ở!";
+            lblAlerting.Text = "Bạn chưa chọn quận huyện đang làm việc!";
             return;
         }
 

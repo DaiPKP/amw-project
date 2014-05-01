@@ -23,6 +23,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
     {
         ClearTextBox();
         hdfID.Value = _ID.ToString();
+        SetEnable(true);
         if (_ID > 0)
         {
             btnSave.Text = "Cập nhật";
@@ -34,7 +35,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
 
         }
 
-        SetEnable(true);
+        
 
     }
 
@@ -532,6 +533,11 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             lblAlerting.Text = "Bạn chưa chọn tỉnh thành tổ chức hội họp!";
             return;
         }
+        if (int.Parse(ddlDISTRICTID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn quận huyện tổ chức hội họp!";
+            return;
+        }
 
         if (txtMEETINGNAME.Text.Trim().Length <= 0)
         {
@@ -612,7 +618,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         if (!CheckDateRegister(txtMEETING_DATE.Text.Trim()))
         {
             trWarning.Visible = true;
-            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày";
+            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 30 ngày";
         }
         else
         {
@@ -1150,7 +1156,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
             double day = (dt2 - dt1).TotalDays;
-            if (day > 10)
+            if (day > 30)
                 return true;
             else return false;
         }

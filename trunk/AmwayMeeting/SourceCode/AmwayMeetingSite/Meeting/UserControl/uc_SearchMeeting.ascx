@@ -86,7 +86,7 @@
                         <td align="left" class="tdsearch5">Báo cáo:
                         </td>
                         <td align="left" class="tdsearch6">
-                           <asp:DropDownList ID="ddlReport" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                           <asp:DropDownList ID="ddlReport" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                                 <asp:ListItem Value="-1">--Tất cả--</asp:ListItem>
                                 <asp:ListItem Value="0">Có</asp:ListItem>
                                 <asp:ListItem Value="1">Không</asp:ListItem>
