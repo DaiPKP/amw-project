@@ -668,6 +668,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
         obj.MEETINGNAME = txtMEETINGNAME.Text.Trim();
         obj.NUMBER_OF_PARTICIPANT = int.Parse(txtNUMBER_OF_PARTICIPANT.Text.Trim().Replace(",", ""));
         obj.MEETING_PLACE_NAME = txtMEETING_PLACE_NAME.Text.Trim();
