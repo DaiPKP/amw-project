@@ -105,12 +105,25 @@ public class MeetingBO : AMW_MEETINGDataContext
             return null;
         }
     }
-    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult Meeting_CheckQuota(string strADA, int paxId, int provinceId)
+    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult Meeting_CheckQuota(string strADA, int paxId, int districtId)
     {
         try
         {
             PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
-            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA(strADA, paxId, provinceId).SingleOrDefault();
+            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA(strADA, paxId, districtId).SingleOrDefault();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCEResult Meeting_CheckQuota_Province(string strADA, int paxId, int provinceId)
+    {
+        try
+        {
+            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCEResult();
+            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCE(strADA, paxId, provinceId).SingleOrDefault();
             return result;
         }
         catch (Exception ex)
@@ -153,6 +166,17 @@ public class MeetingBO : AMW_MEETINGDataContext
             PRC_SYS_AMW_POLICY_GETCONDITIONCOMBINEDResult result = new PRC_SYS_AMW_POLICY_GETCONDITIONCOMBINEDResult();
             result = PRC_SYS_AMW_POLICY_GETCONDITIONCOMBINED(paxId, provinceId).SingleOrDefault();
             return result.CONDITIONCOMBINED;
+        }
+        catch (Exception ex)
+        {
+            return 0;
+        }
+    }
+    public int MeetingCheckRule(int userId, int meetingTypeId)
+    {
+        try
+        {
+            return PRC_USR_AMW_RULE_CHECK(userId, meetingTypeId);
         }
         catch (Exception ex)
         {

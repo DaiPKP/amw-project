@@ -40,4 +40,40 @@ public partial class Meeting_NotSupportCostForeigner : System.Web.UI.Page
         }
 
     }
+    private bool CheckRegister(int meetingTypeId)
+    {
+
+        if (Session["UserID"] != null)
+        {
+            MeetingBO obj = new MeetingBO();
+            int result = obj.MeetingCheckRule(int.Parse(Session["UserID"].ToString()), meetingTypeId);
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    private bool CheckRegister(int meetingTypeId)
+    {
+
+        if (Session["UserID"] != null)
+        {
+            MeetingBO obj = new MeetingBO();
+            int result = obj.MeetingCheckRule(int.Parse(Session["UserID"].ToString()), meetingTypeId);
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
 }
