@@ -133,7 +133,7 @@
                             <asp:CheckBox ID="chkConfirm" runat="server" />
                         </td>
                         <td>
-                            <span style="font-weight: bold; color: red;">Tôi đã đọc, hiểu và cam kết thực hiện theo đứng những qui định trên.
+                            <span style="font-weight: bold; color: red;">Tôi đã đọc, hiểu và cam kết thực hiện theo đúng những qui định trên.
                             </span>
                         </td>
                     </tr>
