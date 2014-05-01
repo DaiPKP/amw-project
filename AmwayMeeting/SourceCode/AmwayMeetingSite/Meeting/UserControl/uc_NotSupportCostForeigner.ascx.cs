@@ -23,6 +23,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
     {
         ClearTextBox();
         hdfID.Value = _ID.ToString();
+        SetEnable(true);
         if (_ID > 0)
         {
             btnSave.Text = "Cập nhật";
@@ -146,7 +147,15 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 ImgBtnORGANIZER_OK.Visible = true;
                 ImgBtnORGANIZER_ERROR.Visible = false;
                 divORGANIZER_QUOTA.Visible = true;
+                if (result.STATUS_MEETING_REGISTERID > 1)
+                {
+                    SetEnable(false);
 
+                }
+                else
+                {
+                    SetEnable(true);
+                }
 
             }
         }
@@ -939,5 +948,49 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             divORGANIZER_QUOTA_BTN.Visible = false;
         }
         GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
+    }
+    private void SetEnable(bool bolValue)
+    {
+
+        btnSave.Visible = bolValue;
+        txtORGANIZER_ADAID.Enabled = bolValue;
+
+        ddlPAXID.Enabled = bolValue;
+        ddlPROVINCEID.Enabled = bolValue;
+        ddlDISTRICTID.Enabled = bolValue;
+        txtCO_ORGANIZER_ADAID_1.Enabled = bolValue;
+        txtCO_ORGANIZER_ADAID_2.Enabled = bolValue;
+
+        txtCO_ORGANIZER_ADAID_3.Enabled = bolValue;
+        txtMEETINGNAME.Enabled = bolValue;
+        txtNUMBER_OF_PARTICIPANT.Enabled = bolValue;
+        ddlPLACE.Enabled = bolValue;
+        txtMEETING_PLACE_NAME.Enabled = bolValue;
+        txtMEETING_ADDRESS.Enabled = bolValue;
+        txtMEETING_TIME.Enabled = bolValue;
+
+        ddlINVITATIONID.Enabled = bolValue;
+        ddlBANNERID.Enabled = bolValue;
+        txtSEND_INVITATION_DATE.Enabled = bolValue;
+
+        txtWATER_PRICE.Enabled = bolValue;
+        txtFOOD_PRICE.Enabled = bolValue;
+
+        txtSPEAKER_TITLE_1.Enabled = bolValue;
+        txtSPEAKER_ADAID_1.Enabled = bolValue;
+        txtSPEAKER_USERTYPENAME_1.Enabled = bolValue;
+        txtSPEAKER_NAME_1.Enabled = bolValue;
+        txtSPEAKER_NAME_2.Enabled = bolValue;
+        txtSPEAKER_TITLE_2.Enabled = bolValue;
+        txtSPEAKER_ADAID_2.Enabled = bolValue;
+        txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
+        txtSPEAKER_NATION_1.Enabled = bolValue;
+        txtSPEAKER_NATION_2.Enabled = bolValue;
+        ImgBtnORGANIZER_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA1_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA2_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
+        txtMEETING_STARTDATE.Enabled = bolValue;
+        txtMEETING_ENDDATE.Enabled = bolValue;
     }
 }

@@ -191,6 +191,11 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
             lblAlerting.Text = "Bạn chưa nhập địa điểm họp!";
             return;
         }
+        if (txtCOUNTRYNAME.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập tên quốc gia!";
+            return;
+        }
         if ((txtDEPARTURE_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtDEPARTURE_DATE.Text)) || (txtARRIVAL_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtARRIVAL_DATE.Text)))
         {
             lblAlerting.Text = "Bạn nhập ngày đi hoặc về không đúng!";
@@ -203,11 +208,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
             return;
         }
         
-        if (txtCOUNTRYNAME.Text.Trim().Length <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa nhập tên quốc gia!";
-            return;
-        }
+       
         if (!CheckDateRegister(txtDEPARTURE_DATE.Text.Trim()))
         {
            trWarning.Visible=true;

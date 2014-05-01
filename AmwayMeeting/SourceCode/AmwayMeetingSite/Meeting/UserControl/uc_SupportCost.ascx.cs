@@ -23,6 +23,8 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
     {
         ClearTextBox();
         hdfID.Value = _ID.ToString();
+
+        SetEnable(true);
         if (_ID > 0)
         {
             btnSave.Text = "Cập nhật";
@@ -34,7 +36,6 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
 
         }
 
-        SetEnable(true);
 
     }
 
@@ -524,6 +525,11 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         if (int.Parse(ddlPROVINCEID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn tỉnh thành tổ chức hội họp!";
+            return;
+        }
+        if (int.Parse(ddlDISTRICTID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn quận huyện tổ chức hội họp!";
             return;
         }
 
