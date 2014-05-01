@@ -9,7 +9,7 @@ public partial class Meeting_OutSideCountry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("22")))
+        if ((Session["UserID"] == null) || (!CheckPermission("22")) || (!CheckRegister(3)))
         {
             Response.Redirect("~/home");
         }
@@ -33,6 +33,24 @@ public partial class Meeting_OutSideCountry : System.Web.UI.Page
                 }
             }
             return false;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    private bool CheckRegister(int meetingTypeId)
+    {
+
+        if (Session["UserID"] != null)
+        {
+            MeetingBO obj = new MeetingBO();
+            int result = obj.MeetingCheckRule(int.Parse(Session["UserID"].ToString()), meetingTypeId);
+            if (result > 0)
+                return true;
+            else
+                return false;
         }
         else
         {
