@@ -53,6 +53,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
                 ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
                 ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
+                GetDistrictCBO(int.Parse(ddlPROVINCEID.SelectedValue));
                 ddlDISTRICTID.SelectedValue = result.DISTRICTID == null ? string.Empty : result.DISTRICTID.ToString();
                 txtCO_ORGANIZER_ADAID_1.Text = result.CO_ORGANIZER_ADAID_1 == null ? string.Empty : result.CO_ORGANIZER_ADAID_1;
                 lblCO_ORGANIZER_NAME_1.Text = result.CO_ORGANIZER_NAME_1 == null ? string.Empty : result.CO_ORGANIZER_NAME_1;
