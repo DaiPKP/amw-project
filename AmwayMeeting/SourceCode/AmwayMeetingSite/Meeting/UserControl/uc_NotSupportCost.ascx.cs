@@ -502,7 +502,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
                 return;
             }
-
+        }
             if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
             {
                 trWarning.Visible = true;
@@ -666,7 +666,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             }
         }
 
-    }
+    
     public void GetInfoUserLogin(int UserID)
     {
 
@@ -934,4 +934,5 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         }
         GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
     }
+  
 }
