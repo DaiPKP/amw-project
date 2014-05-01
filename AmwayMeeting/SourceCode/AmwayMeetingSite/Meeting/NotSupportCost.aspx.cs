@@ -10,7 +10,7 @@ public partial class Meeting_NotSupportCost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("14")) || !CheckRegister(1))
+        if ((Session["UserID"] == null) || (!CheckPermission("14")))
         {
             Response.Redirect("~/home");
         }
