@@ -342,7 +342,7 @@
                                         <asp:Label ID="lblWATER" CssClass="lblMeeting" runat="server" Width="70px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <td align="left" class="tdmeeting5" colspan="2">
                                             Giá phiếu nước uống:
                                         <div style="float: right">
                                             <asp:Label ID="lblWATER_PRICE" CssClass="lblMeeting" runat="server" Width="140px"></asp:Label>
@@ -362,7 +362,7 @@
                                         <asp:Label ID="lblFOOD" CssClass="lblMeeting" runat="server" Width="70px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <td align="left" class="tdmeeting5" colspan="2">
                                             Giá phiếu thức ăn:
                                         <div style="float: right">
                                             <asp:Label ID="lblFOOD_PRICE" CssClass="lblMeeting" runat="server" Width="140px"></asp:Label>
@@ -531,7 +531,6 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">
                                     <td align="left" class="tdmeeting5">Ghi chú: </td>
                                     <td align="left" class="tdmeeting6">
                                         <asp:TextBox ID="txtCOMMENTS" CssClass="txtBox" runat="server" Width="100%" TextMode="MultiLine"></asp:TextBox></td>

@@ -508,7 +508,7 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdmeeting4"></td>
-                                <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <td align="left" class="tdmeeting5" colspan="2">
                                             Giá phiếu nước uống:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtWATER_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckWater(this);"></asp:TextBox>
@@ -533,7 +533,7 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdmeeting4"></td>
-                                <td align="left" class="tdmeeting5" colspan="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <td align="left" class="tdmeeting5" colspan="2">
                                             Giá phiếu thức ăn:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtFOOD_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckFood(this);"></asp:TextBox>

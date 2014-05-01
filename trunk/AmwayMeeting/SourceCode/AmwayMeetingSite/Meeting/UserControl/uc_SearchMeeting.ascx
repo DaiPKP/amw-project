@@ -20,7 +20,7 @@
                             Pax:
                         </td>
                         <td align="left" class="tdsearch6">
-                           <asp:DropDownList ID="ddlPAXID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                           <asp:DropDownList ID="ddlPAXID" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
@@ -33,7 +33,7 @@
                         <td align="left" class="tdsearch2">Loại đăng ký hội họp:
                         </td>
                         <td align="left" class="tdsearch3">
-                            <asp:DropDownList ID="ddlMEETINGTYPEID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                            <asp:DropDownList ID="ddlMEETINGTYPEID" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch4"></td>
@@ -41,7 +41,7 @@
 
                         </td>
                         <td align="left" class="tdsearch6">
-                            <asp:DropDownList ID="ddlSTATUS_MEETING_REGISTERID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                            <asp:DropDownList ID="ddlSTATUS_MEETING_REGISTERID" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
@@ -54,14 +54,15 @@
                         <td align="left" class="tdsearch2">Tỉnh thành:
                         </td>
                         <td align="left" class="tdsearch3">
-                             <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                             <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch4"></td>
                         <td align="left" class="tdsearch5">
+                            Quận huyện
                         </td>
-                        <td align="left" class="tdsearch6">Quận huyện
-                            <asp:DropDownList ID="ddlDISTRICTID" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                        <td align="left" class="tdsearch6">
+                            <asp:DropDownList ID="ddlDISTRICTID" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
@@ -75,7 +76,7 @@
                                   
                         </td>
                         <td align="left" class="tdsearch3">
-                            <asp:DropDownList ID="ddlForeigner" CssClass="txtBox" runat="server" Width="140px" Height="22px">
+                            <asp:DropDownList ID="ddlForeigner" CssClass="txtBox" runat="server" Width="102.5%" Height="22px">
                                 <asp:ListItem Value="-1">--Tất cả--</asp:ListItem>
                                 <asp:ListItem Value="0">Có</asp:ListItem>
                                 <asp:ListItem Value="1">Không</asp:ListItem>

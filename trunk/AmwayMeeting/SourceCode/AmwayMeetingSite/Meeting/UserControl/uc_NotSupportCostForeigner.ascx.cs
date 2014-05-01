@@ -459,7 +459,11 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn nhập ngày họp không đúng!";
             return;
         }
-
+        if (txtMEETING_TIME.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập thời gian hội họp!";
+            return;
+        }
         if (int.Parse(ddlINVITATIONID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại giấy mời!";
@@ -558,6 +562,11 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         }
         else
         {
+            if (quantity < 1)
+            {
+                lblAlerting.Text = "Bạn không có quota để đăng ký hội họp!";
+                return;
+            }
             if (quantity > 1)
             {
                 lblAlerting.Text = "Cuộc họp này không cần người đồng tổ chức!";
