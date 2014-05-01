@@ -22,11 +22,27 @@ public class DistributorRouterHandler : IRouteHandler
     {
         try
         {
-            string data = requestContext.RouteData.Values["data"] as string;
-            switch (data)
-            {
+             string strdata = requestContext.RouteData.Values["data"] as string;
+            string []arrData= strdata.Split('R');
+            switch (arrData[0])
+            {            
                 case "profile": return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/Profile.aspx", typeof(Page)) as Page;
+                case "report":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
 
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/MeetingReport.aspx", typeof(Page)) as Page;
+                    }
                 default:
                     {
                         return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/Profile.aspx", typeof(Page)) as Page;
