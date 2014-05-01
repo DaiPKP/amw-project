@@ -9,7 +9,7 @@ public partial class Meeting_SupportCost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("18")))
+        if ((Session["UserID"] == null) || (!CheckPermission("18")) || (!CheckRegister(2)))
         {
             Response.Redirect("~/home");
         }

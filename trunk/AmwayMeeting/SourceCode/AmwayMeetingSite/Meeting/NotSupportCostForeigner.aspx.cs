@@ -9,7 +9,7 @@ public partial class Meeting_NotSupportCostForeigner : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("28")))
+        if ((Session["UserID"] == null) || (!CheckPermission("28")) || (!CheckRegister(1)))
         {
             Response.Redirect("~/home");
         }
