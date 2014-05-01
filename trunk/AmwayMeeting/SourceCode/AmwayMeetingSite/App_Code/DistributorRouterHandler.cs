@@ -27,6 +27,9 @@ public class DistributorRouterHandler : IRouteHandler
             switch (arrData[0])
             {            
                 case "profile": return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/Profile.aspx", typeof(Page)) as Page;
+                case "rulesupport": return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/RuleSupport.aspx", typeof(Page)) as Page;
+                case "rulenonesupport": return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/RuleNoneSupport.aspx", typeof(Page)) as Page;
+                case "ruleoversea": return BuildManager.CreateInstanceFromVirtualPath("~/Distributor/RuleOverSea.aspx", typeof(Page)) as Page;
                 case "report":
                     {
                         string strid = "-1";
