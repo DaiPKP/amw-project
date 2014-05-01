@@ -10,8 +10,15 @@ public partial class Distributor_RuleSupport : System.Web.UI.Page
     public int iUserID, iRuleID;
     protected void Page_Load(object sender, EventArgs e)
     {
-        iUserID = int.Parse(Session["UserID"].ToString());
-        iRuleID = 2;
+        if (Session["UserID"] != null)
+        {
+            iUserID = int.Parse(Session["UserID"].ToString());
+            iRuleID = 2;
+        }
+        else
+        {
+            Response.Redirect("~/home");
+        }
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
