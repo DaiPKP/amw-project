@@ -5,11 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 public partial class Meeting_NotSupportCost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("14")))
+        if ((Session["UserID"] == null) || (!CheckPermission("14")) || !CheckRegister(1))
         {
             Response.Redirect("~/home");
         }
@@ -23,7 +24,7 @@ public partial class Meeting_NotSupportCost : System.Web.UI.Page
     }
     private bool CheckPermission(string func)
     {
-        if (Session["Permission"] != null)
+        if (Session["UserID"] != null)
         {
             foreach (string item in Session["Permission"].ToString().Split(','))
             {
@@ -33,6 +34,24 @@ public partial class Meeting_NotSupportCost : System.Web.UI.Page
                 }
             }
             return false;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+    private bool CheckRegister(int meetingTypeId)
+    {
+
+        if (Session["UserID"] != null)
+        {
+            MeetingBO obj = new MeetingBO();
+            int result = obj.MeetingCheckRule(int.Parse(Session["UserID"].ToString()), meetingTypeId);
+            if (result > 0)
+                return true;
+            else
+                return false;
         }
         else
         {

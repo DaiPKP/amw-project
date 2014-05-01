@@ -33,6 +33,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             GetInfoUserLogin(int.Parse(Session["UserID"].ToString()));
 
         }
+        SetEnable(true);
     }
 
     private void LoadData(int Id)
@@ -52,7 +53,12 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
                 lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
                 ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
+                GetProvinceCBO(int.Parse(ddlPAXID.SelectedValue));
                 ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
+                GetBannerCBO();
+                GetInvitationCBO();
+                GetDistrictCBO(int.Parse(ddlPAXID.SelectedValue), int.Parse(ddlPROVINCEID.SelectedValue));
+                GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
                 txtCO_ORGANIZER_ADAID_1.Text = result.CO_ORGANIZER_ADAID_1 == null ? string.Empty : result.CO_ORGANIZER_ADAID_1;
                 lblCO_ORGANIZER_NAME_1.Text = result.CO_ORGANIZER_NAME_1 == null ? string.Empty : result.CO_ORGANIZER_NAME_1;
                 lblCO_ORGANIZER_USERTYPENAME_1.Text = result.CO_ORGANIZER_USERTYPENAME_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_1;
@@ -103,7 +109,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 chkAgree.Checked = result.AGREE == null ? false : result.AGREE ?? false;
                 lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
                 hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
-                
+
                 if (lblWarning.Text.Length > 0)
                 {
                     trWarning.Visible = true;
@@ -151,7 +157,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 ImgBtnORGANIZER_ERROR.Visible = false;
                 divORGANIZER_QUOTA.Visible = true;
 
-                if(result.STATUS_MEETING_REGISTERID>1)
+                if (result.STATUS_MEETING_REGISTERID > 1)
                 {
                     SetEnable(false);
                 }
@@ -256,8 +262,6 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
         txtSPEAKER_NATION_1.Text = string.Empty;
         txtSPEAKER_NATION_2.Text = string.Empty;
-        SetEnable(true);
-
     }
     private void SetEnable(bool bolValue)
     {
@@ -268,6 +272,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
 
         ddlPAXID.Enabled = bolValue;
         ddlPROVINCEID.Enabled = bolValue;
+        ddlDISTRICTID.Enabled = bolValue;
 
         txtCO_ORGANIZER_ADAID_1.Enabled = bolValue;
         txtCO_ORGANIZER_ADAID_2.Enabled = bolValue;
@@ -281,7 +286,6 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         txtMEETING_ADDRESS.Enabled = bolValue;
         txtMEETING_DATE.Enabled = bolValue;
         txtMEETING_TIME.Enabled = bolValue;
-
         ddlINVITATIONID.Enabled = bolValue;
         ddlBANNERID.Enabled = bolValue;
         txtSEND_INVITATION_DATE.Enabled = bolValue;
@@ -293,6 +297,11 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         txtSPEAKER_ADAID_1.Enabled = bolValue;
         txtSPEAKER_USERTYPENAME_1.Enabled = bolValue;
 
+        txtSPEAKER_NAME_1.Enabled = bolValue;
+        txtSPEAKER_NAME_2.Enabled = bolValue;
+
+        txtSPEAKER_NATION_1.Enabled = bolValue;
+        txtSPEAKER_NATION_2.Enabled = bolValue;
         txtSPEAKER_TITLE_2.Enabled = bolValue;
         txtSPEAKER_ADAID_2.Enabled = bolValue;
         txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
@@ -419,26 +428,49 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         {
         }
     }
-    private void GetDistrictCBO(int paxId,int provinceId)
+    private void GetDistrictCBO(int paxId, int provinceId)
     {
         try
         {
-            if (paxId>0 && provinceId > 0)
+            if (paxId > 0 && provinceId > 0)
             {
-                CategoryBO catebo = new CategoryBO();
-                List<DAL.PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult> lst = new List<DAL.PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult>();
-                lst = catebo.DistrictGet_PaxProvinceCBO(paxId,provinceId).ToList();
-                if (lst != null)
+                if (paxId > 4)
                 {
 
-                    ListItem lstParent = new ListItem("--Chọn--", "0");
-                    ddlDISTRICTID.DataSource = lst;
-                    ddlDISTRICTID.DataTextField = "DISTRICTNAME";
-                    ddlDISTRICTID.DataValueField = "DISTRICTID";
-                    ddlDISTRICTID.DataBind();
+                    CategoryBO catebo = new CategoryBO();
+                    List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                    lst = catebo.DistrictGet_CBO(provinceId).ToList();
+                    if (lst != null)
+                    {
 
-                    ddlDISTRICTID.Items.Insert(0, lstParent);
-                    ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
+                        ListItem lstParent = new ListItem("--Chọn--", "0");
+                        ddlDISTRICTID.DataSource = lst;
+                        ddlDISTRICTID.DataTextField = "DISTRICTNAME";
+                        ddlDISTRICTID.DataValueField = "ID";
+                        ddlDISTRICTID.DataBind();
+
+                        ddlDISTRICTID.Items.Insert(0, lstParent);
+                        ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
+                    }
+                }
+                else
+                {
+
+                    CategoryBO catebo = new CategoryBO();
+                    List<DAL.PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult> lst = new List<DAL.PRC_SYS_AMW_PAX_DISTRICT_GETLISTBY_PAXID_PROVINCEIDResult>();
+                    lst = catebo.DistrictGet_PaxProvinceCBO(paxId, provinceId).ToList();
+                    if (lst != null)
+                    {
+
+                        ListItem lstParent = new ListItem("--Chọn--", "0");
+                        ddlDISTRICTID.DataSource = lst;
+                        ddlDISTRICTID.DataTextField = "DISTRICTNAME";
+                        ddlDISTRICTID.DataValueField = "DISTRICTID";
+                        ddlDISTRICTID.DataBind();
+
+                        ddlDISTRICTID.Items.Insert(0, lstParent);
+                        ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
+                    }
                 }
             }
             else
@@ -913,7 +945,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         lblAlerting.Text = string.Empty;
         if (int.Parse(ddlPAXID.SelectedValue) > 0 && int.Parse(ddlPROVINCEID.SelectedValue) > 0)
         {
-            GetDistrictCBO(int.Parse(ddlPAXID.SelectedValue),int.Parse(ddlPROVINCEID.SelectedValue));
+            GetDistrictCBO(int.Parse(ddlPAXID.SelectedValue), int.Parse(ddlPROVINCEID.SelectedValue));
         }
 
     }
