@@ -153,12 +153,17 @@
                     <Columns>
                         <asp:TemplateField HeaderText="Loại hội họp">
                             <ItemTemplate>
+                                <asp:Label ID="lblListingTYPENAME" runat="server" Text='<%# Eval("MEETINGTYPENAME") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Số người tham dự">
+                            <ItemTemplate>
                                 <asp:Label ID="lblListingPAXNAME" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Ngày hội họp">
+                        <asp:TemplateField HeaderText="Ngày đăng ký">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingMEETING_STARTDATE" runat="server" Text='<%# Eval("STR_MEETING_STARTDATE") %>'></asp:Label>
+                                <asp:Label ID="lblListingMEETING_STARTDATE" runat="server" Text='<%# Eval("CREATEDATE")%>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Giờ họp">
