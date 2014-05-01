@@ -92,12 +92,12 @@ public class MeetingBO : AMW_MEETINGDataContext
         }
     }
 
-    public List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> Meeting_Search(string strORGANIZER_ADAID, USR_AMW_MEETING_REGISTER obj)
+    public List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> Meeting_Search(string strORGANIZER_ADAID, USR_AMW_MEETING_REGISTER obj, int foreigner, int report)
     {
         try
         {
             List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult> result = new List<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>();
-            result = PRC_USR_AMW_MEETING_REGISTER_SEARCH(strORGANIZER_ADAID, obj.PAXID, obj.DISTRICTID, obj.PROVINCEID, obj.MEETINGTYPEID, obj.STATUS_MEETING_REGISTERID, obj.FOREIGNER, obj.REPORTED).ToList();
+            result = PRC_USR_AMW_MEETING_REGISTER_SEARCH(strORGANIZER_ADAID, obj.PAXID, obj.DISTRICTID, obj.PROVINCEID, obj.MEETINGTYPEID, obj.STATUS_MEETING_REGISTERID, foreigner, report).ToList();
             return result;
         }
         catch (Exception ex)
