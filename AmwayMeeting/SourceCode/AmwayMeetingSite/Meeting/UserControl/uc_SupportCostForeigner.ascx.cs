@@ -719,7 +719,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         obj.STATUS_MEETING_REGISTERID = 1;
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-        obj.FOREIGNER = false;
+        obj.FOREIGNER = true;
         obj.AGREE = chkAgree.Checked;
         obj.REPORTED = bool.Parse(hdfReported.Value);
         obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
