@@ -9,15 +9,23 @@ public partial class Meeting_SupportCost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("18")) || (!CheckRegister(2)))
+        if ((Session["UserID"] == null) || (!CheckPermission("18")))
         {
             Response.Redirect("~/home");
         }
         else
         {
-            int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
+            if (!(CheckRegister(2)))
+            {
+                Response.Redirect("../distributor/rulesupport");
+            }
+            else
+            {
+                int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
 
-            uc_SupportCost1._ID = id;
+                uc_SupportCost1._ID = id;
+            }
+           
         }
 
     }
