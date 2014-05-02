@@ -10,15 +10,23 @@ public partial class Meeting_NotSupportCost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("14")) || (!CheckRegister(1)))
+        if ((Session["UserID"] == null) || (!CheckPermission("14")))
         {
             Response.Redirect("~/home");
         }
         else
         {
-            int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
+            if(!(CheckRegister(1)))
+            {
+                Response.Redirect("../distributor/rulenonesupport");
+            }
+            else
+            {
+                int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
 
-            uc_NotSupportCost1._ID = id;
+                uc_NotSupportCost1._ID = id;
+            }
+           
         }
 
     }

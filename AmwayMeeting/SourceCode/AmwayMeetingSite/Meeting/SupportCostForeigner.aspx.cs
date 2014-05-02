@@ -15,9 +15,17 @@ public partial class Meeting_SupportCostForeigner : System.Web.UI.Page
         }
         else
         {
-            int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
+            if (!(CheckRegister(2)))
+            {
+                Response.Redirect("../distributor/rulesupport");
+            }
+            else
+            {
 
-            uc_SupportCostForeigner1._ID = id;
+                int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
+
+                uc_SupportCostForeigner1._ID = id;
+            }
         }
 
     }

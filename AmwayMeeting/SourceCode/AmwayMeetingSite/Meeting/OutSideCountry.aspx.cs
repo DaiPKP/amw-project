@@ -9,15 +9,22 @@ public partial class Meeting_OutSideCountry : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("22")) || (!CheckRegister(3)))
+        if ((Session["UserID"] == null) || (!CheckPermission("22")))
         {
             Response.Redirect("~/home");
         }
         else
         {
-            int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
+            if (!(CheckRegister(3)))
+            {
+                Response.Redirect("../distributor/ruleoversea");
+            }
+            else
+            {
+                int id = Convert.ToInt32(HttpContext.Current.Items["id"]);
 
-            uc_OutSideCountry1._ID = id;
+                uc_OutSideCountry1._ID = id;
+            }
         }
 
     }
