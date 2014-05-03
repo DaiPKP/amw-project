@@ -3,7 +3,7 @@
 <asp:Repeater runat="server" ID="repMenuParent">
     <ItemTemplate>
        
-            <li><a href="" title="">
+            <li><a href="<%# DataBinder.Eval(Container.DataItem, "URL") %>" title="">
                 <asp:HiddenField ID="hdfMenuParent" Value='<%# DataBinder.Eval(Container.DataItem, "ID") %>' runat="server" />
                 <asp:HiddenField ID="hdfGroupMenu" Value='<%# DataBinder.Eval(Container.DataItem, "GROUPMENU") %>' runat="server" />
                 <%# DataBinder.Eval(Container.DataItem, "MENUNAME") %></a>

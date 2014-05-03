@@ -129,21 +129,20 @@ form[name=formsearch] input[type=submit]:hover
 div#slide_main
 {
     width: 1000px;
-    background: #F3F3F3;
+    background-color:#E8E7EC;
     height: auto;
     overflow: hidden;
     margin: 2px 0px 2px 0px;
     padding: 0px 0px 0px 0px;
 }
-div#slide_main > div.left
+div#slide_main > div.right
 {
-    width: 340px;
+    width: 350px;
     float: left;
     height: 400px;
     overflow: hidden;
-    padding: 1px 0px;
 }
-div#slide_main > div.right
+div#slide_main > div.left
 {
     width: 650px;
     float: left;
@@ -221,12 +220,8 @@ div#main > div.right
 }
 #tinnoibat
 {
-    height: 354px;
+    height: 400px;
     border: 1px solid #cfcfcf;
-    -webkit-border-radius: 7px;
-    -moz-border-radius: 7px;
-    -ms-border-radius: 7px;
-    border-radius: 7px;
     margin: 0px 0px 15px 0px;
 }
 div.tinnoibat_title
@@ -237,11 +232,7 @@ div.tinnoibat_title
     font-size: 15px;
     text-transform: uppercase;
     padding: 0px 0px 0px 12px;
-    background: #e13920;
-    -webkit-border-radius: 6px 6px 0px 0px;
-    -moz-border-radius: 6px 6px 0px 0px;
-    -ms-border-radius: 6px 6px 0px 0px;
-    border-radius: 6px 6px 0px 0px;
+    background: #003D69;
     margin: 0px 0px 7px 0px;
 }
 #tinnoibat > div.left
@@ -304,7 +295,8 @@ ul.list_tin > li > a
 {
     font-family: Tahoma, Geneva, sans-serif;
     line-height: 22px;
-    color: #6f6f6f;
+    color: #007B3C;
+    font-weight:bold;
 }
 ul.list_tin > li > a:hover
 {
@@ -1514,6 +1506,7 @@ ul.topnav {
     background: #003D69;
     font-size: 1.2em;
 
+
 }
 
 ul.topnav li {
@@ -1522,7 +1515,7 @@ ul.topnav li {
     margin: 0;
     padding: 0 15px 0 0;
     position: relative; /*--Declare X and Y axis base for sub navigation--*/
-
+    z-index: 9999;
 }
 
 ul.topnav li a{
