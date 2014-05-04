@@ -7,7 +7,7 @@
 
     </div>
     <div class="TitlePageSub">
-        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 05
+        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU 05
         <br />
         NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
 

@@ -546,9 +546,9 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
             return;
         }
-        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())))
+        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())) || !(CheckQuantityJoin(int.Parse(ddlPAXID.SelectedValue), txtNUMBER_OF_PARTICIPANT.Text.Trim())))
         {
-            lblAlerting.Text = "Bạn chưa nhập số lượng người tham gia cuộc họp!";
+            lblAlerting.Text = "Bạn nhập số lượng người tham gia cuộc họp không đúng!";
             return;
         }
         if (txtMEETING_PLACE_NAME.Text.Trim().Length <= 0)
@@ -766,7 +766,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             if (int.Parse(hdfID.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Đăng ký hội họp mới thành công!";
+                lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
                 return;
             }
             else
@@ -783,7 +783,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 //Neu duyet roi thì được sửa
                 if (objBO.MeetingUpdate(obj))
                 {
-                    lblAlerting.Text = "Cập nhật đăng ký hội họp thành công!";
+                    lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
                     return;
                 }
                 else
@@ -1193,5 +1193,35 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
     {
         string strUrl = "../distributor/reportR" + hdfID.Value;
         Response.Redirect(strUrl);
+    }
+    private int GetValuePaxId(int paxId)
+    {
+        try
+        {
+            if (paxId == 2) return 50;
+            else if (paxId == 3) return 100;
+            else if (paxId == 4) return 500;
+            else if (paxId == 5) return 1000;
+            else if (paxId == 6) return 2000;
+            else return 0;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+    private bool CheckQuantityJoin(int paxId, string strValue)
+    {
+        try
+        {
+            int value = int.Parse(strValue.Replace(",", ""));
+            if (value <= GetValuePaxId(paxId))
+                return true;
+            else return false;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

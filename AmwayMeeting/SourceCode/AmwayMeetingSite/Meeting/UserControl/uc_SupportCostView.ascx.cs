@@ -189,7 +189,7 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             {
                 objBO.MeetingUpdateStatusPayment(obj);
             }
-            lblAlerting.Text = "Duyệt đăng ký hội họp thành công!";
+            lblAlerting.Text = "Anh/Chị đã duyệt đăng ký thành công!";
             
             return;
         }

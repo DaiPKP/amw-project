@@ -271,7 +271,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
             if (int.Parse(hdfID.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Đăng ký hội họp mới thành công!";
+                lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
                 return;
             }
             else
@@ -288,7 +288,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
                 //Neu duyet roi thì được sửa
                 if (objBO.MeetingUpdate(obj))
                 {
-                    lblAlerting.Text = "Cập nhật đăng ký hội họp thành công!";
+                    lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
                     return;
                 }
                 else

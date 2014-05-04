@@ -62,7 +62,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerView : System
             lblORGANIZER_ADAID.Text = result.ORGANIZER_ADAID == null ? string.Empty : result.ORGANIZER_ADAID;
             lblORGANIZER_NAME.Text = result.ORGANIZER_NAME == null ? string.Empty : result.ORGANIZER_NAME;
             lblORGANIZER_EMAIL.Text = result.ORGANIZER_EMAIL == null ? string.Empty : result.ORGANIZER_EMAIL;
-            lblORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS == null ? string.Empty : result.ORGANIZER_ADDRESS;
+            lblORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS_AUTHORIZED == null ? string.Empty : result.ORGANIZER_ADDRESS_AUTHORIZED;
             lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
             lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
             lblPAXNAME.Text = result.PAXNAME == null ? string.Empty : result.PAXNAME;
@@ -160,7 +160,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerView : System
         //Duyet 
         if (objBO.MeetingUpdateApproval(obj))
         {
-            lblAlerting.Text = "Duyệt đăng ký hội họp thành công!";
+            lblAlerting.Text = "Anh/Chị đã duyệt đăng ký thành công!";
             return;
         }
         else
