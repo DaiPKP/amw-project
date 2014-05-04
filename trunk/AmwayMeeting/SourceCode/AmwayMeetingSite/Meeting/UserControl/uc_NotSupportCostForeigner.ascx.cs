@@ -924,7 +924,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         {
             DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            double day = (dt2 - dt1).TotalDays;
+            double day = (dt1 - dt2).TotalDays;
             if (day > 30)
                 return true;
             else return false;
