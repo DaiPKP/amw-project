@@ -14,18 +14,25 @@ public partial class Distributor_RuleSupport : System.Web.UI.Page
         {
             iUserID = int.Parse(Session["UserID"].ToString());
             iRuleID = 2;
-            if (!(CheckRegister(2)))
+            if (!IsPostBack)
             {
-                btnSave.Visible = true;
-                btn_registry_foregner.Visible = false;
-                btn_registy_vn.Visible = false;
-            }
-            else
-            {
-                btnSave.Visible = false;
-                btn_registry_foregner.Visible = true;
-                btn_registy_vn.Visible = true;
-                chkConfirm.Checked = true;
+
+                if (!(CheckRegister(2)))
+                {
+                    btnSave.Visible = true;
+                    btn_registry_foregner.Visible = false;
+                    btn_registy_vn.Visible = false;
+                    chkConfirm.Checked = false;
+                    chkConfirm.Enabled = true;
+                }
+                else
+                {
+                    btnSave.Visible = false;
+                    btn_registry_foregner.Visible = true;
+                    btn_registy_vn.Visible = true;
+                    chkConfirm.Checked = true;
+                    chkConfirm.Enabled = false;
+                }
             }
         }
         else
@@ -82,12 +89,22 @@ public partial class Distributor_RuleSupport : System.Web.UI.Page
             lbMess.Text = "Bạn đăng ký qui định thất bại";
         }
     }
+    private void RedirectTo(string url)
+    {
+
+        string redirectURL = Page.ResolveClientUrl(url);
+
+        string script = "window.location = '" + redirectURL + "';";
+
+        ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
+
+    }   
     protected void btn_registry_foregner_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/meeting/SupportCostForeigner.aspx");
+        RedirectTo("../meeting/supportcostforeigner");
     }
     protected void btn_registy_vn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/meeting/SupportCost.aspx");
+        RedirectTo("../meeting/supportcost");
     }
 }

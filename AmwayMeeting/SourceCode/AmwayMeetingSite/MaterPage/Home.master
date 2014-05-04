@@ -90,9 +90,9 @@
     });
 </script>
 </head>
-<body onkeypress="onLoad(event);">
+<body onkeypress="onLoad(event);">  
     <form id="form1" runat="server">
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
+    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnablePartialRendering="true">
     </asp:ToolkitScriptManager>
     <div id="maincontainer">
         <div class="nav_login">
