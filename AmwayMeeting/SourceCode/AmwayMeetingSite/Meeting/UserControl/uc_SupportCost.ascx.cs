@@ -566,7 +566,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
             return;
         }
 
-        if (txtMEETING_TIME.Text.Trim().Length <= 0)
+        11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111if (txtMEETING_TIME.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập thời gian hội họp!";
             return;
@@ -1148,7 +1148,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         {
             DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            double day = (dt2 - dt1).TotalDays;
+            double day = (dt1 - dt2).TotalDays;
             if (day > 10)
                 return true;
             else return false;
