@@ -12,13 +12,47 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
     {
         if (Session["UserID"] != null)
         {
-            iUserID = int.Parse(Session["UserID"].ToString());
-            iRuleID = 1;
+            if (!IsPostBack)
+            {
+                iUserID = int.Parse(Session["UserID"].ToString());
+                iRuleID = 1;
+                if (!(CheckRegister(1)))
+                {
+                    btnSave.Visible = true;
+                    btn_registry_foregner.Visible = false;
+                    btn_registy_vn.Visible = false;
+                }
+                else
+                {
+                    btnSave.Visible = false;
+                    btn_registry_foregner.Visible = true;
+                    btn_registy_vn.Visible = true;
+                    chkConfirm.Checked = true;
+                }
+            }
         }
         else
         {
             Response.Redirect("~/home");
         }
+    }
+    private bool CheckRegister(int meetingTypeId)
+    {
+
+        if (Session["UserID"] != null)
+        {
+            MeetingBO obj = new MeetingBO();
+            int result = obj.MeetingCheckRule(int.Parse(Session["UserID"].ToString()), meetingTypeId);
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            return false;
+        }
+
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -35,6 +69,9 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
                 if (result == 1)
                 {
                     lbMess.Text = "Bạn đã đăng ký qui định thành công";
+                    btnSave.Visible = true;
+                    btn_registry_foregner.Visible = true;
+                    btn_registy_vn.Visible = true;
                 }
                 else
                 {
@@ -46,5 +83,13 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
         {
             lbMess.Text = "Bạn đăng ký qui định thất bại";
         }
+    }
+    protected void btn_registry_foregner_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/meeting/NotSupportCostForeigner.aspx");
+    }
+    protected void btn_registy_vn_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/meeting/NotSupportCost.aspx");
     }
 }

@@ -14,11 +14,39 @@ public partial class Distributor_RuleOverSea : System.Web.UI.Page
         {
             iUserID = int.Parse(Session["UserID"].ToString());
             iRuleID = 3;
+            if (!(CheckRegister(3)))
+            {
+                btnSave.Visible = true;
+                btn_registy_oversea.Visible = false;
+            }
+            else
+            {
+                btnSave.Visible = false;
+                btn_registy_oversea.Visible = true;
+            }
         }
         else
         {
             Response.Redirect("~/home");
         }
+    }
+    private bool CheckRegister(int meetingTypeId)
+    {
+
+        if (Session["UserID"] != null)
+        {
+            MeetingBO obj = new MeetingBO();
+            int result = obj.MeetingCheckRule(int.Parse(Session["UserID"].ToString()), meetingTypeId);
+            if (result > 0)
+                return true;
+            else
+                return false;
+        }
+        else
+        {
+            return false;
+        }
+
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
@@ -34,7 +62,7 @@ public partial class Distributor_RuleOverSea : System.Web.UI.Page
                 int result = registry.InsertRegisterRule(iUserID, iRuleID);
                 if (result == 1)
                 {
-                    lbMess.Text = "Bạn đã đăng ký qui định thành công";
+                    Response.Redirect("~/meeting/OutSideCountry.aspx");
                 }
                 else
                 {
@@ -46,5 +74,9 @@ public partial class Distributor_RuleOverSea : System.Web.UI.Page
         {
             lbMess.Text = "Bạn đăng ký qui định thất bại";
         }
+    }
+    protected void btn_registy_oversea_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/meeting/OutSideCountry.aspx");
     }
 }
