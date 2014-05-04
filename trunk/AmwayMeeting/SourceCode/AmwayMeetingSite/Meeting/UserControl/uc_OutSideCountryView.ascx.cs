@@ -148,7 +148,7 @@ public partial class Meeting_UserControl_uc_OutSideCountryView : System.Web.UI.U
         //Duyet 
         if (objBO.MeetingUpdateApproval(obj))
         {
-            lblAlerting.Text = "Duyệt đăng ký hội họp thành công!";
+            lblAlerting.Text = "Anh/Chị đã duyệt đăng ký thành công!";
             return;
         }
         else

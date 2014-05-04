@@ -7,7 +7,7 @@
 
     </div>
     <div class="TitlePageSub">
-        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 30
+        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU 30
         <br />
         NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
 
@@ -145,8 +145,10 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2" colspan="5">Địa chỉ nhân thư ủy quyền:
-                                   <asp:Label ID="lblORGANIZER_ADDRESS" runat="server" CssClass="lblMeeting"></asp:Label>
+                                   <td align="left" class="tdmeeting2">Địa chỉ nhân thư ủy quyền:<span style="color: Red">(*)</span>
+                                    </td>
+                                    <td align="left" class="tdmeeting3" colspan="4">
+                                        <asp:TextBox ID="txtORGANIZER_ADDRESS" CssClass="txtBox" runat="server" Width="99.2%"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting7"></td>
 

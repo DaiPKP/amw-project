@@ -49,7 +49,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 txtORGANIZER_ADAID.Text = result.ORGANIZER_ADAID == null ? string.Empty : result.ORGANIZER_ADAID;
                 lblORGANIZER_NAME.Text = result.ORGANIZER_NAME == null ? string.Empty : result.ORGANIZER_NAME;
                 lblORGANIZER_EMAIL.Text = result.ORGANIZER_EMAIL == null ? string.Empty : result.ORGANIZER_EMAIL;
-                lblORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS == null ? string.Empty : result.ORGANIZER_ADDRESS;
+                txtORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS_AUTHORIZED == null ? string.Empty : result.ORGANIZER_ADDRESS_AUTHORIZED;
                 lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
                 lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
                 ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
@@ -183,7 +183,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         hdfORGANIZER_USERID.Value = string.Empty;
         lblORGANIZER_NAME.Text = string.Empty;
         lblORGANIZER_EMAIL.Text = string.Empty;
-        lblORGANIZER_ADDRESS.Text = string.Empty;
+        txtORGANIZER_ADDRESS.Text = string.Empty;
         lblORGANIZER_TELEPHONE.Text = string.Empty;
         lblORGANIZER_USERTYPENAME.Text = string.Empty;
         hdfORGANIZER_USERTYPEID.Value = string.Empty;
@@ -425,7 +425,11 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn chưa lấy thông tin của người tổ chức!";
             return;
         }
-
+        if (txtORGANIZER_ADDRESS.Text.Trim().Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập địa chỉ nhập thư ủy quyền!";
+            return;
+        }
         if (int.Parse(ddlPAXID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại phòng hội họp!";
@@ -449,9 +453,9 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
             return;
         }
-        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())))
+        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())) || !(CheckQuantityJoin(int.Parse(ddlPAXID.SelectedValue), txtNUMBER_OF_PARTICIPANT.Text.Trim())))
         {
-            lblAlerting.Text = "Bạn chưa nhập số lượng người tham gia cuộc họp!";
+            lblAlerting.Text = "Bạn nhập số lượng người tham gia cuộc họp không đúng!";
             return;
         }
         if (txtMEETING_PLACE_NAME.Text.Trim().Length <= 0)
@@ -590,6 +594,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         obj.ID = int.Parse(hdfID.Value);
         obj.ORGANIZER_USERID = int.Parse(hdfORGANIZER_USERID.Value);
         obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
+        obj.ORGANIZER_ADDRESS_AUTHORIZED = txtORGANIZER_ADDRESS.Text.Trim();
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
         obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
@@ -644,11 +649,11 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
         if (int.Parse(hdfID.Value) <= 0)
         {
-            hdfID.Value = objBO.MeetingInsert(obj).ToString();
+            hdfID.Value = objBO.MeetingInsert_NotSupportCost(obj).ToString();
             if (int.Parse(hdfID.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Đăng ký hội họp mới thành công!";
+                lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
                 return;
             }
             else
@@ -665,7 +670,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 //Neu duyet roi thì được sửa
                 if (objBO.MeetingUpdate(obj))
                 {
-                    lblAlerting.Text = "Cập nhật đăng ký hội họp thành công!";
+                    lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
                     return;
                 }
                 else
@@ -691,7 +696,6 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         lblORGANIZER_USERTYPENAME.Text = string.Empty;
         lblORGANIZER_EMAIL.Text = string.Empty;
         lblORGANIZER_TELEPHONE.Text = string.Empty;
-        lblORGANIZER_ADDRESS.Text = string.Empty;
         hdfORGANIZER_USERTYPEID.Value = string.Empty;
         UserBO objBO = new UserBO();
         PRC_SYS_AMW_USER_GETLISTBYUSERIDResult result = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
@@ -704,7 +708,6 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblORGANIZER_USERTYPENAME.Text = result.USERTYPENAME;
             lblORGANIZER_EMAIL.Text = result.EMAIL;
             lblORGANIZER_TELEPHONE.Text = result.TELEPHONE;
-            lblORGANIZER_ADDRESS.Text = result.ADDRESS;
             hdfORGANIZER_USERTYPEID.Value = result.USERTYPEID.ToString();
         }
     }
@@ -954,7 +957,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
 
         btnSave.Visible = bolValue;
         txtORGANIZER_ADAID.Enabled = bolValue;
-
+        txtORGANIZER_ADDRESS.Enabled = bolValue;
         ddlPAXID.Enabled = bolValue;
         ddlPROVINCEID.Enabled = bolValue;
         ddlDISTRICTID.Enabled = bolValue;
@@ -992,5 +995,35 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
         txtMEETING_STARTDATE.Enabled = bolValue;
         txtMEETING_ENDDATE.Enabled = bolValue;
+    }
+    private int GetValuePaxId(int paxId)
+    {
+        try
+        {
+            if (paxId == 2) return 50;
+            else if (paxId == 3) return 100;
+            else if (paxId == 4) return 500;
+            else if (paxId == 5) return 1000;
+            else if (paxId == 6) return 2000;
+            else return 0;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+    private bool CheckQuantityJoin(int paxId, string strValue)
+    {
+        try
+        {
+            int value = int.Parse(strValue.Replace(",", ""));
+            if (value <= GetValuePaxId(paxId))
+                return true;
+            else return false;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

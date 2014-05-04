@@ -7,7 +7,7 @@
 
     </div>
     <div class="TitlePageSub">
-        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU TRƯỚC 05
+        ĐƠN ĐĂNG KÝ HỘI HỌP PHẢI NỘP CHO AMWAY PHÊ DUYỆT TỐI THIỂU 05
         <br />
         NGÀY LÀM VIỆC TRƯỚC NGÀY TỔ CHỨC HỘI HỌP
 
@@ -145,8 +145,10 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2" colspan="5">Địa chỉ nhân thư ủy quyền:
-                                   <asp:Label ID="lblORGANIZER_ADDRESS" runat="server" CssClass="lblMeeting"></asp:Label>
+                                    <td align="left" class="tdmeeting2">Địa chỉ nhân thư ủy quyền:<span style="color: Red">(*)</span>
+                                    </td>
+                                    <td align="left" class="tdmeeting3" colspan="4">
+                                        <asp:TextBox ID="txtORGANIZER_ADDRESS" CssClass="txtBox" runat="server" Width="99.2%"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting7"></td>
 
@@ -502,8 +504,7 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5" colspan="2">
-                                            Giá phiếu nước uống:
+                                    <td align="left" class="tdmeeting5" colspan="2">Giá phiếu nước uống:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtWATER_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckWater(this);"></asp:TextBox>
                                             đồng/phiếu.
@@ -527,8 +528,7 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5" colspan="2">
-                                            Giá phiếu thức ăn:
+                                    <td align="left" class="tdmeeting5" colspan="2">Giá phiếu thức ăn:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtFOOD_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckFood(this);"></asp:TextBox>
                                             đồng/phiếu.
