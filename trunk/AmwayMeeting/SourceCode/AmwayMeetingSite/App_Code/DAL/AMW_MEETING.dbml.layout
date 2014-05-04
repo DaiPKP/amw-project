@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 29.75, 26.75" name="AMW_MEETING">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 22.75, 28.5" name="AMW_MEETING">
   <DataContextMoniker Name="/AMW_MEETINGDataContext" />
   <nestedChildShapes>
     <classShape Id="15d51706-b5c6-4fdc-ac2e-b515e60bf74a" absoluteBounds="0.75, 0.75, 2, 2.3478011067708335">
@@ -98,12 +98,6 @@
         <elementListCompartment Id="84063bf3-5b22-488d-a569-ffa29e3cfadf" absoluteBounds="12.765, 11.21, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a16df70e-9584-4546-8595-81c9b5f52399" absoluteBounds="27.5, 14.5, 2, 11.962872721354167">
-      <DataClassMoniker Name="/AMW_MEETINGDataContext/USR_AMW_MEETING_REGISTER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="81a38a8f-1897-4d7e-82b8-9dc3b92c6c55" absoluteBounds="27.515, 14.96, 1.9700000000000002, 11.402872721354166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="60bb4734-f6de-4dcb-a62e-31d7fa945f88" absoluteBounds="10.125, 13, 2, 2.5401025390625005">
       <DataClassMoniker Name="/AMW_MEETINGDataContext/SYS_AMW_POLICY_NOTSUPPORTCOST" />
       <nestedChildShapes>
@@ -114,6 +108,12 @@
       <DataClassMoniker Name="/AMW_MEETINGDataContext/USR_AMW_REGISTER_RULE" />
       <nestedChildShapes>
         <elementListCompartment Id="de1f5074-365e-4eea-ae52-a80c95d08b02" absoluteBounds="0.89000000000000012, 4.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8087b3d7-4a65-4fb6-a80c-b502ac7b7985" absoluteBounds="20.5, 16.125, 2, 12.155174153645833">
+      <DataClassMoniker Name="/AMW_MEETINGDataContext/USR_AMW_MEETING_REGISTER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d9875009-ce66-443d-af1d-b5b59cded998" absoluteBounds="20.515, 16.585, 1.9700000000000002, 11.595174153645832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
