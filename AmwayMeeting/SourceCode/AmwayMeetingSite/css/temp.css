@@ -1568,7 +1568,7 @@ ul.topnav li ul.subnav {
     margin: 0; padding: 0;
     display: none;
     float: left;
-    width: 230px;
+    width: 270px;
     border: 1px solid #003D69;
 
 }
@@ -1579,13 +1579,13 @@ ul.topnav li ul.subnav li{
     border-top: 1px solid #252525; /*--Create bevel effect--*/
     border-bottom: 1px solid #444; /*--Create bevel effect--*/
     clear: both;
-    width: 230px;
+    width: 270px;
 }
 
 html ul.topnav li ul.subnav li a {
 
     float: left;
-    width: 205px;
+    width: 245px;
     background: #003D69 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
     padding-left: 20px;
 
