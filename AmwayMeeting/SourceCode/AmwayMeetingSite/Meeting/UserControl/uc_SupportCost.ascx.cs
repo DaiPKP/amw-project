@@ -227,7 +227,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         ddlFORMS_OF_PAYMENTID.SelectedIndex = 0;
         ddlPLACE.SelectedIndex = 0;
         txtMEETING_PLACE_NAME.Text = string.Empty;
-        txtMEETING_ADDRESS.Text = string.Empty;
+        txtMEETING_ADDRESS.Text = "Số..., Đường..., Phường/Xã..., Quận/Huyện..., Tỉnh/TP...";
         txtMEETING_DATE.Text = string.Empty;
         txtMEETING_TIME.Text = string.Empty;
 
@@ -566,7 +566,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
             return;
         }
 
-        11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111if (txtMEETING_TIME.Text.Trim().Length <= 0)
+       if (txtMEETING_TIME.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập thời gian hội họp!";
             return;

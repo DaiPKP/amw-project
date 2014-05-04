@@ -212,7 +212,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         txtNUMBER_OF_PARTICIPANT.Text = string.Empty;
         ddlPLACE.SelectedIndex = 0;
         txtMEETING_PLACE_NAME.Text = string.Empty;
-        txtMEETING_ADDRESS.Text = string.Empty;
+        txtMEETING_ADDRESS.Text = "Số..., Đường..., Phường/Xã..., Quận/Huyện..., Tỉnh/TP...";
         txtMEETING_ENDDATE.Text = string.Empty;
         txtMEETING_STARTDATE.Text = string.Empty;
         txtMEETING_TIME.Text = string.Empty;
