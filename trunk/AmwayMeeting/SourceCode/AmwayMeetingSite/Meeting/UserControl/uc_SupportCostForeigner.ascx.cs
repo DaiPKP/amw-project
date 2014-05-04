@@ -229,7 +229,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         ddlFORMS_OF_PAYMENTID.SelectedIndex = 0;
         ddlPLACE.SelectedIndex = 0;
         txtMEETING_PLACE_NAME.Text = string.Empty;
-        txtMEETING_ADDRESS.Text = string.Empty;
+        txtMEETING_ADDRESS.Text = "Số..., Đường..., Phường/Xã..., Quận/Huyện..., Tỉnh/TP...";
         txtMEETING_DATE.Text = string.Empty;
         txtMEETING_TIME.Text = string.Empty;
 
