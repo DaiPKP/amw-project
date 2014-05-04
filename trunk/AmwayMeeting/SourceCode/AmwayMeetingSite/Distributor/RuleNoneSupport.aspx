@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MaterPage/Home.master" AutoEventWireup="true" CodeFile="RuleNoneSupport.aspx.cs" Inherits="Distributor_RuleNoneSupport" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphMainContent" runat="Server">
-    <asp:UpdatePanel ID="update" runat="server">
+    <asp:UpdatePanel ID="update" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
             <div style="text-align: center;">
                 <table width="100%;" border="1px" style="font-size: 14px;">
@@ -140,17 +140,14 @@
                 </table>
                 <span class="Alerting">
                     <asp:Label ID="lbMess" Text="" runat="server" />
-                </span><br />
-                
-                <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng Ký" OnClick="btnSave_Click" />
-            </div>
+                </span>
+                <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đồng ý" OnClick="btnSave_Click" />
+                <asp:Button CssClass="btn_registry" ID="btn_registry_foregner" runat="server" Text="Đăng Ký Hội Họp Diển Giả Người Nước Ngoài" OnClick="btn_registry_foregner_Click" />
+                <asp:Button CssClass="btn_registry" ID="btn_registy_vn" runat="server" Text="Đăng Ký Hội Họp Diển Giả Người Việt Nam" OnClick="btn_registy_vn_Click" />
+  </div>
+
         </ContentTemplate>
     </asp:UpdatePanel>
-    <div style="width:100%; text-align:center;">
-        <asp:Button CssClass="btn_registry" ID="btn_registry_foregner" runat="server" Text="Đăng Ký Hội Họp Diển Giã Người Nước Ngoài" OnClick="btn_registry_foregner_Click"/>
-        <asp:Button CssClass="btn_registry" ID="btn_registy_vn" runat="server" Text="Đăng Ký Hội Họp Diển Giã Người Việt Nam" OnClick="btn_registy_vn_Click"/>
-    </div>
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBoxLeft" runat="Server">
 </asp:Content>

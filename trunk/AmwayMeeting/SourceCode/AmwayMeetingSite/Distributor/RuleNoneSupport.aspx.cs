@@ -12,15 +12,18 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
     {
         if (Session["UserID"] != null)
         {
+            iUserID = int.Parse(Session["UserID"].ToString());
+            iRuleID = 1;
             if (!IsPostBack)
             {
-                iUserID = int.Parse(Session["UserID"].ToString());
-                iRuleID = 1;
+               
                 if (!(CheckRegister(1)))
                 {
                     btnSave.Visible = true;
                     btn_registry_foregner.Visible = false;
                     btn_registy_vn.Visible = false;
+                    chkConfirm.Checked = false;
+                    chkConfirm.Enabled = true;
                 }
                 else
                 {
@@ -28,6 +31,7 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
                     btn_registry_foregner.Visible = true;
                     btn_registy_vn.Visible = true;
                     chkConfirm.Checked = true;
+                    chkConfirm.Enabled = false;
                 }
             }
         }
@@ -69,7 +73,7 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
                 if (result == 1)
                 {
                     lbMess.Text = "Bạn đã đăng ký qui định thành công";
-                    btnSave.Visible = true;
+                    btnSave.Visible = false;
                     btn_registry_foregner.Visible = true;
                     btn_registy_vn.Visible = true;
                 }
@@ -84,12 +88,23 @@ public partial class Distributor_RuleNoneSupport : System.Web.UI.Page
             lbMess.Text = "Bạn đăng ký qui định thất bại";
         }
     }
+    private void RedirectTo(string url)
+
+    {
+
+        string redirectURL = Page.ResolveClientUrl(url);
+
+      string script = "window.location = '" + redirectURL + "';";
+
+    ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
+
+    } 
     protected void btn_registry_foregner_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/meeting/NotSupportCostForeigner.aspx");
+        RedirectTo("../meeting/notsupportcostforeigner");
     }
     protected void btn_registy_vn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/meeting/NotSupportCost.aspx");
+        RedirectTo("../meeting/notsupportcost");
     }
 }
