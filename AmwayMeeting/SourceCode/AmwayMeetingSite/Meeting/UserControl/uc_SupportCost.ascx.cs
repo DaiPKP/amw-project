@@ -270,7 +270,9 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
     private void SetEnable(bool bolValue)
     {
 
+        trSave.Visible = bolValue;
         btnSave.Visible = bolValue;
+        trReport.Visible = !bolValue;
         btnReport.Visible = !bolValue;
         txtORGANIZER_ADAID.Enabled = bolValue;
 

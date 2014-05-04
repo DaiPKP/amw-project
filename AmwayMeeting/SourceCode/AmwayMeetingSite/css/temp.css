@@ -798,8 +798,8 @@ a.a_link:hover
 }
 .Agree
 {
-    color: Red;
-    font-size: 1.2em;
+    color: black;
+    font-weight:bold;
     display: block;
 }
 .grid

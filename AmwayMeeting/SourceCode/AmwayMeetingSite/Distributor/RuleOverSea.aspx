@@ -82,12 +82,12 @@
                             <asp:CheckBox ID="chkConfirm" runat="server" />
                         </td>
                         <td>
-                            <span style="font-weight: bold; color: red;">Tôi đã đọc, hiểu và cam kết thực hiện theo đúng những qui định trên.
+                            <span class="Agree">Tôi đã đọc, hiểu và cam kết thực hiện theo đúng những qui định trên.
                             </span>
                         </td>
                     </tr>
                 </table>
-                <span style="font-weight: bold; color: blue;">
+                <span class="Alerting">
                     <asp:Label ID="lbMess" Text="" runat="server" /></span><br />
                 <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng Ký" OnClick="btnSave_Click" />
             </div>

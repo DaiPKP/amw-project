@@ -295,13 +295,13 @@
                             <asp:CheckBox ID="chkConfirm" runat="server" />
                         </td>
                         <td>                            
-                            <span style="font-weight:bold; color:red;">
+                            <span class="Agree">
                                 Tôi cam kết rằng tất cả các thông tin cung cấp trên là trung thực và chính xác. Tôi sẽ hoàn toàn chịu trách nhiệm trước Amway cũng như cơ quan pháp luật đối với tất cả các hoạt động có liên quan đến buổi họp này.
                             </span>
                         </td>
                     </tr>
                 </table>
-                <span style="font-weight:bold; color:blue;"><asp:Label ID ="lbMess" Text="" runat ="server"/></span><br />
+                <span class="Alerting"><asp:Label ID ="lbMess" Text="" runat ="server"/></span><br />
                 <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Báo Cáo" OnClick="btnSave_Click"/>
             </div>
         </fieldset>

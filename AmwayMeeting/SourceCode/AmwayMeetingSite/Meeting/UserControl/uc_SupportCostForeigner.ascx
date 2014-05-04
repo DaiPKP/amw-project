@@ -509,8 +509,7 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdmeeting4"></td>
-                                <td align="left" class="tdmeeting5" colspan="2">
-                                            Giá phiếu nước uống:
+                                <td align="left" class="tdmeeting5" colspan="2">Giá phiếu nước uống:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtWATER_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckWater(this);"></asp:TextBox>
                                             đồng/phiếu.
@@ -534,8 +533,7 @@
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdmeeting4"></td>
-                                <td align="left" class="tdmeeting5" colspan="2">
-                                            Giá phiếu thức ăn:
+                                <td align="left" class="tdmeeting5" colspan="2">Giá phiếu thức ăn:
                                         <div style="float: right">
                                             <asp:TextBox ID="txtFOOD_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckFood(this);"></asp:TextBox>
                                             đồng/phiếu.
@@ -713,6 +711,14 @@
                                     </div>
                                 </td>
                             </tr>
+                            <tr id="trSave" runat="server" visible="false">
+                                <td colspan="7">
+                                    <div style="text-align: center;">
+                                        <br />
+                                        <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+                                    </div>
+                                </td>
+                            </tr>
                         </table>
                     </div>
                 </asp:Panel>
@@ -724,13 +730,11 @@
         <asp:Panel runat="server" ID="Panel4">
             <div style="text-align: left; width: 100%">
                 <table width="100%">
-                    <tr>
+                    <tr id="trReport" runat="server" visible="false">
                         <td>
                             <div style="text-align: center;">
                                 <br />
-                                <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />
+                                <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />
                             </div>
                         </td>
                     </tr>
