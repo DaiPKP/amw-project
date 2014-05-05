@@ -16,24 +16,12 @@
     </div>
     <div class="right">
         <div id="tinnoibat">
-        <div class="tinnoibat_title"> QUI ĐỊNH CHUNG & THÔNG TIN HUẤN LUYỆN</div>
+        
              <div class="right">
             <ul class="list_tin">
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 1 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 2 </a><img src="../images/new.gif" width="30px" height="16px" /></li>
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 3 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 4 </a><img src="../images/new.gif" width="30px" height="16px" /></li>
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 5 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 6 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 7 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 8 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 9 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 10 </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 11 </a></li>
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 12 </a></li>
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 13 </a></li> 
-                 <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 14 </a></li>
-                <li><a href="" title="">Qui định chung và Thông tin Huấn Luyện 15 </a></li> 
+                 <li><a href="../news/1" title="">E-Learning - Khóa học mới, thành công mới </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
+                 <li><a href="../news/2" title="">Khóa Học mới trên Smart Learning </a><img src="../images/new.gif" width="30px" height="16px" /></li>
+                
             </ul>
                  </div>
         </div>

@@ -190,8 +190,8 @@
                 <span class="Alerting">
                     <asp:Label ID="lbMess" Text="" runat="server" /></span>
                 <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đồng ý" OnClick="btnSave_Click" />
-                <asp:Button CssClass="btn_registry" ID="btn_registry_foregner" runat="server" Text="Đăng Ký Hội Họp Diển Giả Người Nước Ngoài" OnClick="btn_registry_foregner_Click" />
-                <asp:Button CssClass="btn_registry" ID="btn_registy_vn" runat="server" Text="Đăng Ký Hội Họp Diển Giả Người Việt Nam" OnClick="btn_registy_vn_Click" />
+                <asp:Button CssClass="btn_registry" ID="btn_registry_foregner" runat="server" Text="Đăng Ký Hội Họp Diễn Giả Người Nước Ngoài" OnClick="btn_registry_foregner_Click" />
+                <asp:Button CssClass="btn_registry" ID="btn_registy_vn" runat="server" Text="Đăng Ký Hội Họp Diễn Giả Người Việt Nam" OnClick="btn_registy_vn_Click" />
 
             </div>
         </ContentTemplate>
