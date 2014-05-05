@@ -133,6 +133,7 @@ public class UserBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
     public List<PRC_SYS_AMW_USER_SEARCHResult> UserGet_Search(SYS_AMW_USER objUser)
     {
         try
@@ -149,5 +150,20 @@ public class UserBO : AMW_MEETINGDataContext
         }
     }
 
-   
+    public bool UserConvertPass(int userId, string strPass)
+    {
+        try
+        {
+           
+            int result = SYS_CONVERT_PASS(userId, strPass);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 }

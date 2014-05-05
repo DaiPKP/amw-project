@@ -31,7 +31,7 @@
                                 <td align="left" class="tdsearch2">Họ và tên đệm<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox runat="server" ID="txtLastName" MaxLength="50" CssClass="txtBox" Width="150px"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtLastName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Tên<span style="color: Red">(*)</span>:
@@ -49,7 +49,7 @@
                                 <td align="left" class="tdsearch2">Họ và tên đệm(Vợ/Chồng):
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox runat="server" ID="txtRelativeLastName" MaxLength="50" CssClass="txtBox" Width="150px"></asp:TextBox>
+                                    <asp:TextBox runat="server" ID="txtRelativeLastName" MaxLength="50" CssClass="txtBox" Width="100%"></asp:TextBox>
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Tên(Vợ/Chồng):
@@ -123,14 +123,14 @@
                                 <td align="left" class="tdsearch2">Tỉnh thành làm việc<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlWorkProvince" CssClass="txtBox" runat="server" Width="102.5%" AutoPostBack="True" OnSelectedIndexChanged="ddlWorkProvince_SelectedIndexChanged">
+                                    <asp:DropDownList ID="ddlWorkProvince" CssClass="txtBox" runat="server" Width="101%" AutoPostBack="True" OnSelectedIndexChanged="ddlWorkProvince_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Quận huyện làm việc<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:DropDownList ID="ddlWorkDistrict" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlWorkDistrict" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>
@@ -143,14 +143,14 @@
                                 <td align="left" class="tdsearch2">Danh hiệu<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">Nhóm người dùng <span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                    <asp:DropDownList ID="ddlDepartment" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlDepartment" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>

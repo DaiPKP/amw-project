@@ -86,12 +86,6 @@
         <elementListCompartment Id="8df9f4ea-1c37-4e33-a01a-76dedd088446" absoluteBounds="12.765, 1.21, 1.9700000000000002, 1.7878011067708333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9a0453b1-e2b7-4991-b7e7-5c58bf6cc1c1" absoluteBounds="12.75, 4.75, 2, 5.2323225911458326">
-      <DataClassMoniker Name="/AMW_MEETINGDataContext/SYS_AMW_USER" />
-      <nestedChildShapes>
-        <elementListCompartment Id="c93ebbcf-1314-4baa-a436-1587d2f1c391" absoluteBounds="12.765, 5.21, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="3a94c0ae-aaee-4121-bcde-aac2630103a9" absoluteBounds="12.75, 10.75, 2, 2.3478011067708344">
       <DataClassMoniker Name="/AMW_MEETINGDataContext/SYS_AMW_USERTYPE" />
       <nestedChildShapes>
@@ -114,6 +108,12 @@
       <DataClassMoniker Name="/AMW_MEETINGDataContext/USR_AMW_MEETING_REGISTER" />
       <nestedChildShapes>
         <elementListCompartment Id="d9875009-ce66-443d-af1d-b5b59cded998" absoluteBounds="20.515, 16.585, 1.9700000000000002, 11.595174153645832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b0643437-c51b-4737-a485-f4c6d5c569b9" absoluteBounds="12.125, 5, 2, 5.4246240234375">
+      <DataClassMoniker Name="/AMW_MEETINGDataContext/SYS_AMW_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="78fe2698-b13a-4941-88de-d8e3f2232e80" absoluteBounds="12.14, 5.46, 1.9700000000000002, 4.8646240234375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

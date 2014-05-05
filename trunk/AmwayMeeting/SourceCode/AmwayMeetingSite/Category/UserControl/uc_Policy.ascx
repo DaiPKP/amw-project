@@ -16,7 +16,7 @@
                                 <td align="left" class="tdsearch2">Chọn pax<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
@@ -24,7 +24,7 @@
                                 </td>
                                 <td align="left" class="tdsearch6">
 
-                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="102.5%">
+                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
 
                                 </td>

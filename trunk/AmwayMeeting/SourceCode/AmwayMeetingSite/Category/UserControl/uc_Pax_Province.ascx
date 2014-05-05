@@ -16,7 +16,7 @@
                                 <td align="left" class="tdsearch2">Chọn pax<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                   <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="102.5%">
+                                   <asp:DropDownList ID="ddlPax" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
@@ -36,7 +36,7 @@
                                 <td align="left" class="tdsearch2"> Chọn tỉnh thành<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                   <asp:DropDownList ID="ddlProvince" CssClass="txtBox" runat="server" Width="102.5%" AutoPostBack="True" OnSelectedIndexChanged="ddlProvince_SelectedIndexChanged">
+                                   <asp:DropDownList ID="ddlProvince" CssClass="txtBox" runat="server" Width="101%" AutoPostBack="True" OnSelectedIndexChanged="ddlProvince_SelectedIndexChanged">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
@@ -44,7 +44,7 @@
                                     Chọn quận huyện<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch6">
-                                   <asp:DropDownList ID="ddlDistrict" CssClass="txtBox" runat="server" Width="102.5%">
+                                   <asp:DropDownList ID="ddlDistrict" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch7"></td>
