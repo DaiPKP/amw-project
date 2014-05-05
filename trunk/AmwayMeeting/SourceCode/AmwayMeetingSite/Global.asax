@@ -12,6 +12,7 @@
         routes.Add("CATEGORY", new System.Web.Routing.Route("category/{data}", new CategoryRouterHandler()));
         routes.Add("Distributor", new System.Web.Routing.Route("distributor/{data}", new DistributorRouterHandler()));
         routes.Add("MEETING", new System.Web.Routing.Route("meeting/{data}", new MeetingRouterHandler()));
+        routes.Add("NEWS", new System.Web.Routing.Route("news/{data}", new NewsRouterHandler()));
     }
     void Application_End(object sender, EventArgs e)
     {
