@@ -25,16 +25,16 @@ public class NewsRouterHandler : IRouteHandler
             string data = requestContext.RouteData.Values["data"] as string;
             switch (data)
             {
+                case "0":
+                    return BuildManager.CreateInstanceFromVirtualPath("~/News/News0.aspx", typeof(Page)) as Page;
                 case "1":
-                   
-                        return BuildManager.CreateInstanceFromVirtualPath("~/News/News1.aspx", typeof(Page)) as Page;
-                   case "2":
-                        return BuildManager.CreateInstanceFromVirtualPath("~/News/News2.aspx", typeof(Page)) as Page;
-                   
-               
+
+                    return BuildManager.CreateInstanceFromVirtualPath("~/News/News1.aspx", typeof(Page)) as Page;
+                case "2":
+                    return BuildManager.CreateInstanceFromVirtualPath("~/News/News2.aspx", typeof(Page)) as Page;
                 default:
                     {
-                        return BuildManager.CreateInstanceFromVirtualPath("~/News/News1.aspx", typeof(Page)) as Page;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/News/News0.aspx", typeof(Page)) as Page;
 
                     }
 
