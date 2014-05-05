@@ -289,13 +289,13 @@ ul.list_tin > li
 {
     line-height: 22px;
     background: url(../images/icon_tri.png) no-repeat left 7px;
-    padding: 0px 0px 0px 12px;
+    padding: 5px 0px 0px 20px;
 }
 ul.list_tin > li > a
 {
     font-family: Tahoma, Geneva, sans-serif;
     line-height: 22px;
-    color: #007B3C;
+    color: #FFFFFF;
     font-weight:bold;
 }
 ul.list_tin > li > a:hover

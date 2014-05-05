@@ -14,13 +14,15 @@
             </a>
         </div>
     </div>
-    <div class="right">
+    <div class="right"style="background-color:#4F81BC">
         <div id="tinnoibat">
         
              <div class="right">
             <ul class="list_tin">
-                 <li><a href="../news/1" title="">E-Learning - Khóa học mới, thành công mới </a><img src="../images/new.gif" width="30px" height="16px" /></li> 
-                 <li><a href="../news/2" title="">Khóa Học mới trên Smart Learning </a><img src="../images/new.gif" width="30px" height="16px" /></li>
+                 <li><a href="../news/0" title="">Hướng dẫn đăng ký hội họp trực tuyến</a> <img src="../images/new.gif" width="30px" height="16px" /></li> 
+                 <li><a href="../images/Files/HL_05_2014.rar" title="">Lịch huấn luyện tháng 05/2014 tại học viện và các tỉnh</a> <img src="../images/new.gif" width="30px" height="16px" /></li>
+                 <li><a href="../news/1" title="">E-Learning - Khóa học mới, thành công mới</a> <img src="../images/new.gif" width="30px" height="16px" /></li> 
+                 <li><a href="../news/2" title="">Smart Learning - Khóa Học mới trong tháng 04/2014</a> <img src="../images/new.gif" width="30px" height="16px" /></li>
                 
             </ul>
                  </div>
