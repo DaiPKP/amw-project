@@ -246,7 +246,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
     {
         if (txtADA.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập mã số amway!";
+            lblAlerting.Text = "Bạn chưa nhập mã số ADA!";
             return;
         }
         if (txtLastName.Text.Trim().Length <= 0)

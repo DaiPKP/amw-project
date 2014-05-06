@@ -11,7 +11,7 @@
                         <table width="100%">
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Mã số Amway<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Mã số ADA<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
                                     <asp:TextBox runat="server" ID="txtADA" MaxLength="50" CssClass="txtBox" Width="150px"></asp:TextBox>
@@ -199,7 +199,7 @@
                     Width="100%" CssClass="grid" AllowPaging="True"
                     PageSize="20" OnRowEditing="grdUserList_RowEditing" OnPageIndexChanging="grdUserList_PageIndexChanging">
                     <Columns>
-                        <asp:TemplateField HeaderText="Mã số Amway">
+                        <asp:TemplateField HeaderText="Mã số ADA">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingADA" runat="server" Text='<%# Eval("ADA") %>'></asp:Label>
                             </ItemTemplate>
