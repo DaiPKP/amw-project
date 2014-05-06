@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
 {
@@ -383,13 +384,22 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
     }
     private bool CheckEmail(string strEmail)
     {
-        string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
-        Match match = Regex.Match(strEmail.Trim(), pattern, RegexOptions.IgnoreCase);
+        //string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
+        //Match match = Regex.Match(strEmail.Trim(), pattern, RegexOptions.IgnoreCase);
 
-        if (match.Success)
+        //if (match.Success)
+        //    return true;
+        //else
+        //    return false;
+        try
+        {
+            MailAddress m = new MailAddress(strEmail);
             return true;
-        else
+        }
+        catch (FormatException)
+        {
             return false;
+        }
     }
 
     protected void ddlWorkProvince_SelectedIndexChanged(object sender, EventArgs e)
