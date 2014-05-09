@@ -259,29 +259,29 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lblAlerting.Text = "Bạn chưa nhập tên!";
             return;
         }
-        if (txtAddress.Text.Trim().Length <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa nhập địa chỉ!";
-            return;
-        }
-        if (txtEmail.Text.Trim().Length <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa nhập email của nhân viên!";
-            return;
-        }
-        else
-        {
-            if (!CheckEmail(txtEmail.Text.Trim()))
-            {
-                lblAlerting.Text = "Email của nhân viên bạn nhập không đúng!";
-                return;
-            }
-        }
-        if (int.Parse(ddlUserType.SelectedValue) <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa chọn danh hiệu của người dùng!";
-            return;
-        }
+        //if (txtAddress.Text.Trim().Length <= 0)
+        //{
+        //    lblAlerting.Text = "Bạn chưa nhập địa chỉ!";
+        //    return;
+        //}
+        //if (txtEmail.Text.Trim().Length <= 0)
+        //{
+        //    lblAlerting.Text = "Bạn chưa nhập email của nhân viên!";
+        //    return;
+        //}
+        //else
+        //{
+        //    if (!CheckEmail(txtEmail.Text.Trim()))
+        //    {
+        //        lblAlerting.Text = "Email của nhân viên bạn nhập không đúng!";
+        //        return;
+        //    }
+        //}
+        //if (int.Parse(ddlUserType.SelectedValue) <= 0)
+        //{
+        //    lblAlerting.Text = "Bạn chưa chọn danh hiệu của người dùng!";
+        //    return;
+        //}
         if (int.Parse(ddlDepartment.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn nhóm người dùng!";
