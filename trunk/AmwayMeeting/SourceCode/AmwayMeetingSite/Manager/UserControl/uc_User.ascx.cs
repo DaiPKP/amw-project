@@ -249,11 +249,11 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lblAlerting.Text = "Bạn chưa nhập mã số ADA!";
             return;
         }
-        if (txtLastName.Text.Trim().Length <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa nhập họ và tên đệm!";
-            return;
-        }
+        //if (txtLastName.Text.Trim().Length <= 0)
+        //{
+        //    lblAlerting.Text = "Bạn chưa nhập họ và tên đệm!";
+        //    return;
+        //}
         if (txtFirstName.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập tên!";
