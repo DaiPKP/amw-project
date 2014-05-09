@@ -57,17 +57,7 @@
                                 <td class="td_value">
                                     <asp:Label ID="lbFax" runat="server" Text=""></asp:Label>
                                 </td>
-                            </tr>
-                            <tr>
-                                <td class="td_title">Email</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbEmail" runat="server" Text=""></asp:Label>
-                                </td>
-                                <td class="td_title">Địa chỉ</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbAddress" runat="server" Text=""></asp:Label>
-                                </td>
-                            </tr>
+                            </tr>                            
                             <tr>
                                 <td class="td_title">Tỉnh thành làm việc</td>
                                 <td class="td_value">
@@ -96,6 +86,25 @@
                                 <td class="td_title">Ghi chú</td>
                                 <td class="td_value">
                                     <asp:Label ID="lbDescription" runat="server" Text=""></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td_title">Email</td>
+                                <td class="td_value">
+                                    <asp:TextBox ID="txtEmail" runat="server" Text=""></asp:TextBox>
+                                </td>
+                                <td class="td_title">Địa chỉ</td>
+                                <td class="td_value">
+                                    <asp:TextBox ID="txtAddress" runat="server" Text="" Rows="3" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4" style="text-align:center;">
+                                    <span class="Alerting">
+                                        <asp:Label ID="lbMess" runat="server" Text=""></asp:Label>
+                                    </span>
+                                    <br />
+                                    <asp:Button id="btnEdit" runat ="server" Text="Cập Nhật" OnClick="btnEdit_Click"/>
                                 </td>
                             </tr>
                         </table>

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserControl
 {
@@ -14,6 +15,8 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         if (!IsPostBack)
         {
             InitData();
+            txtEmail.Enabled = false;
+            txtAddress.Enabled = false;
         }
     }
     private void InitData()
@@ -54,13 +57,18 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         lbAccBank.Text = dist.ACCBANK;
         lbTelephone.Text = dist.TELEPHONE;
         lbFax.Text = dist.FAX;
-        lbAddress.Text = dist.ADDRESS;
+        txtEmail.Text = dist.EMAIL;
+        txtAddress.Text = dist.ADDRESS;
         lbUserType.Text = dist.USERTYPENAME;
         lbDepartment.Text = dist.DEPARTMENTNAME;
         lbWorkProvince.Text = dist.WORKPROVINCENAME;
         lbWorkDistrict.Text = dist.WORKDISTRICTNAME;
         chkStatus.Checked = dist.ACTIVE;
         lbDescription.Text = dist.DESCRIPTION;
+        if (txtEmail.Text.Equals(""))
+        {
+            lbMess.Text = "Vui lòng cập nhật địa chỉ email...";
+        }
     }
     private void DisplayQuotaInGrid(int DistID)
     {
@@ -144,15 +152,65 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
     }
     private bool CheckEmail(string strEmail)
     {
-        string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
-        Match match = Regex.Match(strEmail.Trim(), pattern, RegexOptions.IgnoreCase);
+        //string pattern = @"^[a-z][a-z|0-9|]*([_][a-z|0-9]+)*([.][a-z|0-9]+([_][a-z|0-9]+)*)?@[a-z][a-z|0-9|]*\.([a-z][a-z|0-9]*(\.[a-z][a-z|0-9]*)?)$";
+        //Match match = Regex.Match(strEmail.Trim(), pattern, RegexOptions.IgnoreCase);
 
-        if (match.Success)
+        //if (match.Success)
+          //  return true;
+        //else
+          //  return false;
+
+        try
+        {
+            MailAddress m = new MailAddress(strEmail);
             return true;
-        else
+        }
+        catch (FormatException)
+        {
             return false;
+        }
     }
 
 
-    
+
+    protected void btnEdit_Click(object sender, EventArgs e)
+    {
+        if (btnEdit.Text.Equals("Cập Nhật"))
+        {
+            txtAddress.Enabled = true;
+            txtEmail.Enabled = true;
+            lbMess.Text = "";
+            btnEdit.Text = "Lưu";
+        }
+        else
+        {
+            if (txtEmail.Text.Trim().Length > 0)
+            {
+                if (!CheckEmail(txtEmail.Text.Trim()))
+                {
+                    lbMess.Text = "Địa chỉ email không hợp lệ";
+                    return;
+                }
+            }
+            UserBO bo = new UserBO();
+            if (bo.UserUpdateEmailAddress(int.Parse(Session["UserID"].ToString()), txtEmail.Text.Trim(), txtAddress.Text.Trim()))
+            {
+                txtAddress.Enabled = false;
+                txtEmail.Enabled = false;
+                btnEdit.Text = "Cập Nhật";
+                if (txtEmail.Text.Trim().Equals(""))
+                {
+                    lbMess.Text = "Cập nhật thông tin thành công <br/> Vui lòng cập nhật địa chỉ email...";
+                }
+                else
+                {
+                    lbMess.Text = "Cập nhật thông tin thành công";
+                }
+            }
+            else
+            {
+                lbMess.Text = "Cập nhật thông tin thất bại";
+            }
+        }
+    }
 }
