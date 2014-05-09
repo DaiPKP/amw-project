@@ -62,6 +62,23 @@ public class UserBO : AMW_MEETINGDataContext
         }
     }
 
+    public bool UserUpdateEmailAddress(int UserID, string Email, string Address)
+    {
+        try
+        {
+            SYS_AMW_USER Acc = new SYS_AMW_USER();
+            int result = PRC_SYS_AMW_USER_UPDATE_Email_Address(UserID, Address, Email);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
     public bool UserUpdate(SYS_AMW_USER objUser)
     {
         try
