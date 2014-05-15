@@ -25,6 +25,7 @@
     <script type="text/javascript" src="../scripts/x.js"></script>
     <script type="text/javascript" src="../scripts/xtableheaderfixed.js"></script>
     <script type="text/javascript" src="../scripts/coin-slider.min.js"></script>
+    <script type="text/javascript" src="../scripts/osx.js"></script>
 
 
     <link href="../css/Style.css" rel="stylesheet" type="text/css" />
@@ -49,45 +50,45 @@
         $(document).ready(function () {
             $('#coin-slider').coinslider({ width: 650, height: 400, navigation: true, delay: 5000 });
             if ('<%= Session["UserID"]%>' == '') {
-            UserClick('signin');
-        }
-        $("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
+                UserClick('signin');
+            }
+            $("ul.subnav").parent().append("<span></span>"); //Only shows drop down trigger when js is enabled - Adds empty span tag after ul.subnav
 
-        $("ul.topnav li a").hover(function () { //When trigger is clicked...
+            $("ul.topnav li a").hover(function () { //When trigger is clicked...
 
-            //Following events are applied to the subnav itself (moving subnav up and down)
-            $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+                //Following events are applied to the subnav itself (moving subnav up and down)
+                $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
 
-            $(this).parent().hover(function () {
-            }, function () {
-                $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+                $(this).parent().hover(function () {
+                }, function () {
+                    $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+                });
+
+                //Following events are applied to the trigger (Hover events for the trigger)
+            }).hover(function () {
+                $(this).addClass("subhover"); //On hover over, add class "subhover"
+            }, function () {	//On Hover Out
+                $(this).removeClass("subhover"); //On hover out, remove class "subhover"
             });
 
-            //Following events are applied to the trigger (Hover events for the trigger)
-        }).hover(function () {
-            $(this).addClass("subhover"); //On hover over, add class "subhover"
-        }, function () {	//On Hover Out
-            $(this).removeClass("subhover"); //On hover out, remove class "subhover"
-        });
+            $("ul.topnav li span").click(function () { //When trigger is clicked...
 
-        $("ul.topnav li span").click(function () { //When trigger is clicked...
+                //Following events are applied to the subnav itself (moving subnav up and down)
+                $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
 
-            //Following events are applied to the subnav itself (moving subnav up and down)
-            $(this).parent().find("ul.subnav").slideDown('fast').show(); //Drop down the subnav on click
+                $(this).parent().hover(function () {
+                }, function () {
+                    $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+                });
 
-            $(this).parent().hover(function () {
-            }, function () {
-                $(this).parent().find("ul.subnav").slideUp('slow'); //When the mouse hovers out of the subnav, move it back up
+                //Following events are applied to the trigger (Hover events for the trigger)
+            }).hover(function () {
+                $(this).addClass("subhover"); //On hover over, add class "subhover"
+            }, function () {	//On Hover Out
+                $(this).removeClass("subhover"); //On hover out, remove class "subhover"
             });
 
-            //Following events are applied to the trigger (Hover events for the trigger)
-        }).hover(function () {
-            $(this).addClass("subhover"); //On hover over, add class "subhover"
-        }, function () {	//On Hover Out
-            $(this).removeClass("subhover"); //On hover out, remove class "subhover"
         });
-
-    });
     </script>
 </head>
 <body onkeypress="onLoad(event);">
@@ -299,8 +300,14 @@
                                 <img alt="" src="../images/User/x.png" />
                             </div>
                         </div>
+
                     </div>
                 </div>
+                <div id="osx-modal-content">
+                </div>
+                <div id='confirm'>
+                </div>
+               
                 <div id='divLogined' style="display: block;" runat="server">
                     <div id='Div2'>
                         <div id='Div3'>
@@ -350,8 +357,8 @@
                     <p>
                         THÔNG TIN LIÊN HỆ
                     </p>
-                   Trần Văn Quốc Bình; SĐT: (84-8) 39 529 217, Email: binh.tranvq@amway.com<br />
-                   Trần Thu Hương; SĐT: (84-8) 39 529 290, Email: huong.tran.thu@amway.com
+                    Trần Văn Quốc Bình; SĐT: (84-8) 39 529 217, Email: binh.tranvq@amway.com<br />
+                    Trần Thu Hương; SĐT: (84-8) 39 529 290, Email: huong.tran.thu@amway.com
                 <br />
                 </div>
                 <div class="bg_online">

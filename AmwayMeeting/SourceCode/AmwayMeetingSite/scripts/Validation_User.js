@@ -11,12 +11,12 @@ function UserClick(str) {
         $('#divNotRememberPassNotice').css("display", "none");
     }
     else if (str == 'changepass') {
-            $('#divChangePass').css("display", "block");
-            $('#divSignIn').css("display", "none");
-            $('#divProcessing').css("display", "none");
-            $('#divNotRememberPass').css("display", "none");
-            $('#divNotRememberPassNotice').css("display", "none");
-        }
+        $('#divChangePass').css("display", "block");
+        $('#divSignIn').css("display", "none");
+        $('#divProcessing').css("display", "none");
+        $('#divNotRememberPass').css("display", "none");
+        $('#divNotRememberPassNotice').css("display", "none");
+    }
 
     $('#basic-modal-content').modal();
 
@@ -28,14 +28,14 @@ function UserClick(str) {
 ///////////////////////////////////////////////////////////
 
 function UserInSideClick(str) {
-   if (str == 'signin') {
+    if (str == 'signin') {
         $('#divNotRememberPass').css("display", "none");
         $('#divNotRememberPassNotice').css("display", "none");
         $('#divSignIn').css("display", "block");
         $('#divProcessing').css("display", "none");
         $('#divChangePass').css("display", "none");
     }
-   else if (str == 'notrememberpass') {
+    else if (str == 'notrememberpass') {
         $('#divSignIn').css("display", "none");
         $('#divNotRememberPass').css("display", "block");
         $('#divNotRememberPassNotice').css("display", "none");
@@ -80,7 +80,7 @@ function validateOldPass() {
         OldPassword_ChangePassInfo.addClass("error");
         return false;
     }
-    //it's valid
+        //it's valid
     else {
         OldPassword_ChangePass.removeClass("textboxerror");
         OldPassword_ChangePassInfo.text("");
@@ -98,7 +98,7 @@ function validateNewPass() {
         NewPassword_ChangePassInfo.addClass("error");
         return false;
     }
-    //it's valid
+        //it's valid
     else {
         NewPassword_ChangePass.removeClass("textboxerror");
         NewPassword_ChangePassInfo.text("");
@@ -116,7 +116,7 @@ function validateReNewPass() {
         ReNewPassword_ChangePassInfo.addClass("error");
         return false;
     }
-    //it's valid
+        //it's valid
     else {
         if (NewPassword_ChangePass.val() != ReNewPassword_ChangePass.val()) {
             ReNewPassword_ChangePass.addClass("textboxerror");
@@ -124,7 +124,7 @@ function validateReNewPass() {
             ReNewPassword_ChangePassInfo.addClass("error");
             return false;
         }
-        //are valid
+            //are valid
         else {
             ReNewPassword_ChangePass.removeClass("textboxerror");
             ReNewPassword_ChangePassInfo.text("");
@@ -163,7 +163,7 @@ function CallAjaxChangePass() {
             success: function (data, textStatus) {
                 if (data != null && data.d != null && data.d == true) {
                     UserInSideClick('changepass');
-                    $("#lbError_ChangePass").text("Thay đổi mật khẩu thành công!");                    
+                    $("#lbError_ChangePass").text("Thay đổi mật khẩu thành công!");
                 }
                 else {
                     UserInSideClick('changepass');
@@ -200,7 +200,7 @@ function validateEmailNotRememberPass() {
         Email_NotRememberPassInfo.removeClass("error");
         return true;
     }
-    //if it's NOT valid
+        //if it's NOT valid
     else {
         Email_NotRememberPass.addClass("textboxerror");
         Email_NotRememberPassInfo.text("Email không đúng định dạng!");
@@ -209,7 +209,7 @@ function validateEmailNotRememberPass() {
     }
 }
 function NotRememberPassClick() {
-    if ($("#Email_NotRememberPassInfo").text().length <= 0) { 
+    if ($("#Email_NotRememberPassInfo").text().length <= 0) {
         validateEmailNotRememberPass();
     }
     if ($("#Email_NotRememberPassInfo").text().length <= 0)
@@ -317,7 +317,7 @@ function validateUserNameSignIn() {
         UserName_SignInInfo.addClass("error");
         return false;
     }
-    //if it's NOT valid
+        //if it's NOT valid
     else {
         UserName_SignIn.removeClass("textboxerror");
         UserName_SignInInfo.text("");
@@ -335,7 +335,7 @@ function validatePassSignIn() {
         Password_SignInInfo.addClass("error");
         return false;
     }
-    //it's valid
+        //it's valid
     else {
         Password_SignIn.removeClass("textboxerror");
         Password_SignInInfo.text("");
@@ -414,6 +414,154 @@ function CallAjaxSignOut() {
 
         },
         error: function () {
+        }
+    });
+}
+
+
+function AlertMsg(strTilte, strMess) {
+    // <a href='#' onclick="AlertMsg('Nhắc nhở','<p>* Email bạn chưa nhập</p>')">Meg</a>
+    $("#osx-modal-content").empty();
+    $("#osx-modal-content").append("<div id='osx-modal-title'>" + strTilte + "</div>");
+    $("#osx-modal-content").append("<div class='close'><a href='#' class='simplemodal-close'>x</a></div>");
+    $("#osx-modal-content").append("<div id='osx-modal-data'></div>");
+    //$("#osx-modal-data").append("<h2>CHỨC NĂNG</h2>");
+    $("#osx-modal-data").append(strMess);
+    $("#osx-modal-data").append("<p><button class='simplemodal-close'>Đóng</button> <span>(hoặc nhấn vào phím ESC)</span></p>");
+    $("#osx-modal-content").modal({
+        overlayId: 'osx-overlay',
+        containerId: 'osx-container',
+        closeHTML: null,
+        minHeight: 80,
+        opacity: 65,
+        position: ['0', ],
+        overlayClose: true,
+        onOpen: function (d) {
+            var self = this;
+            self.container = d.container[0];
+            d.overlay.fadeIn('slow', function () {
+                $("#osx-modal-content", self.container).show();
+                var title = $("#osx-modal-title", self.container);
+                title.show();
+                d.container.slideDown('slow', function () {
+                    setTimeout(function () {
+                        var h = $("#osx-modal-data", self.container).height()
+                            + title.height()
+                            + 20; // padding
+                        d.container.animate(
+                            { height: h },
+                            200,
+                            function () {
+                                $("div.close", self.container).show();
+                                $("#osx-modal-data", self.container).show();
+                            }
+                        );
+                    }, 300);
+                });
+            })
+        },
+        onClose: function (d) {
+            var self = this; // this = SimpleModal object
+            d.container.animate(
+                { top: "-" + (d.container.height() + 20) },
+                500,
+                function () {
+                    self.close(); // or $.modal.close();
+                }
+            );
+        }
+    });
+}
+
+
+function AlertMsgLink(strTilte, strMess,strLinkA) {
+    // <a href='#' onclick="AlertMsg('Nhắc nhở','<p>* Email bạn chưa nhập</p>')">Meg</a>
+    $("#osx-modal-content").empty();
+    $("#osx-modal-content").append("<div id='osx-modal-title'>" + strTilte + "</div>");
+    $("#osx-modal-content").append("<div class='close'><a href='#' class='simplemodal-close'>x</a></div>");
+    $("#osx-modal-content").append("<div id='osx-modal-data'></div>");
+    //$("#osx-modal-data").append("<h2>CHỨC NĂNG</h2>");
+    $("#osx-modal-data").append(strMess + " <a class='a_link' href='" + strLinkA + "'>tại đây</a>.</p>");
+    $("#osx-modal-data").append("<p><button class='simplemodal-close'>Đóng</button> <span>(hoặc nhấn vào phím ESC)</span></p>");
+    $("#osx-modal-content").modal({
+        overlayId: 'osx-overlay',
+        containerId: 'osx-container',
+        closeHTML: null,
+        minHeight: 80,
+        opacity: 65,
+        position: ['0', ],
+        overlayClose: true,
+        onOpen: function (d) {
+            var self = this;
+            self.container = d.container[0];
+            d.overlay.fadeIn('slow', function () {
+                $("#osx-modal-content", self.container).show();
+                var title = $("#osx-modal-title", self.container);
+                title.show();
+                d.container.slideDown('slow', function () {
+                    setTimeout(function () {
+                        var h = $("#osx-modal-data", self.container).height()
+                            + title.height()
+                            + 20; // padding
+                        d.container.animate(
+                            { height: h },
+                            200,
+                            function () {
+                                $("div.close", self.container).show();
+                                $("#osx-modal-data", self.container).show();
+                            }
+                        );
+                    }, 300);
+                });
+            })
+        },
+        onClose: function (d) {
+            var self = this; // this = SimpleModal object
+            d.container.animate(
+                { top: "-" + (d.container.height() + 20) },
+                500,
+                function () {
+                    self.close(); // or $.modal.close();
+                }
+            );
+        }
+    });
+}
+
+
+function AlertConfirm(strTilte, strMess, strLink) {
+    // <a href='#' onclick="AlertConfirm('Xác nhận','Bạn có chắc chắn với thông tin đó không?','http://simplemodal.com')">Confirm</a>
+
+    $("#confirm").empty();
+    $("#confirm").append("<div class='header'><span>" + strTilte + "</span></div>");
+    $("#confirm").append("<div class='message'></div>");
+    $("#confirm").append("<div class='buttons'></div>");
+    $(".buttons").append(" <div class='no simplemodal-close'>Không</div><div class='yes'>Có</div>");
+    confirm(strMess, function () {
+        window.location.href = strLink;
+    });
+}
+
+function confirm(message, callback) {
+    $('#confirm').modal({
+        closeHTML: "<a href='#' title='Close' class='modal-close'>x</a>",
+        position: ["20%", ],
+        overlayId: 'confirm-overlay',
+        containerId: 'confirm-container',
+        onShow: function (dialog) {
+            var modal = this;
+
+            $('.message', dialog.data[0]).append(message);
+
+            // if the user clicks "yes"
+            $('.yes', dialog.data[0]).click(function () {
+                // call the callback
+                if ($.isFunction(callback)) {
+                    callback.apply();
+                }
+                // close the dialog
+                modal.close(); // or $.modal.close();
+            });
         }
     });
 }
