@@ -31,5 +31,11 @@ public partial class MaterPage_Home : System.Web.UI.MasterPage
         PRC_SYS_AMW_USER_GETLISTBYUSERIDResult result = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
         result = objUser.UserGetListByUserID(UserID);
         lbNickName.Text = result.FULLNAME;
+        if ((result.DEPARTMENTID==3) && (result.EMAIL == null || result.EMAIL.Length <= 0))
+        {
+            string script = "AlertMsgLink('Nhắc nhở','<p>* Email của bạn chưa được nhập trước đó, bạn cập nhật email','../distributor/profile');";
+
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
+        }
     }
 }
