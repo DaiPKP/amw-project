@@ -19,33 +19,12 @@
                                 <td class="td_value" style="width:25%;"></td>
                             </tr>
                             <tr>
-                                <td class="td_title">Họ và tên đệm</td>
+                                <td class="td_title">Họ và tên</td>
                                 <td class="td_value">
-                                    <asp:Label ID="lbLastName" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lbName" runat="server" Text=""></asp:Label>
                                 </td>
-                                <td class="td_title">Tên</td>
+                                <td class="td_title"></td>
                                 <td class="td_value">
-                                    <asp:Label ID="lbFirtName" runat="server" Text=""></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_title">Họ và tên đệm(Vợ/Chông)</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbRelativeLastName" runat="server" Text=""></asp:Label>
-                                </td>
-                                <td class="td_title">Tên(Vợ/Chồng)</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbRelativeFirstName" runat="server" Text=""></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_title">Mã số đơn/kép</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbCode" runat="server" Text=""></asp:Label>
-                                </td>
-                                <td class="td_title">Số tài khoản</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbAccBank" runat="server" Text=""></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -53,9 +32,8 @@
                                 <td class="td_value">
                                     <asp:Label ID="lbTelephone" runat="server" Text=""></asp:Label>
                                 </td>
-                                <td class="td_title">Fax</td>
+                                <td class="td_title"></td>
                                 <td class="td_value">
-                                    <asp:Label ID="lbFax" runat="server" Text=""></asp:Label>
                                 </td>
                             </tr>                            
                             <tr>
@@ -63,39 +41,36 @@
                                 <td class="td_value">
                                     <asp:Label ID="lbWorkProvince" runat="server"></asp:Label>
                                 </td>
+                                <td class="td_title"></td>
+                                <td class="td_value"></td>
+                            </tr>
+                            <tr>
                                 <td class="td_title">Quận huyện làm việc</td>
                                 <td class="td_value">
                                     <asp:Label ID="lbWorkDistrict" runat="server"></asp:Label>
                                 </td>
+                                <td class="td_title"></td>
+                                <td class="td_value"></td>
                             </tr>
                             <tr>
                                 <td class="td_title">Danh hiệu</td>
                                 <td class="td_value">
                                     <asp:Label ID="lbUserType" runat="server" Text=""></asp:Label>
                                 </td>
-                                <td class="td_title">Nhóm người dùng</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbDepartment" runat="server" Text=""></asp:Label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="td_title">Trạng thái hoạt động</td>
-                                <td class="td_value">
-                                    <asp:CheckBox ID="chkStatus" runat="server" Checked ="false" Enabled="false"></asp:CheckBox>
-                                </td>
-                                <td class="td_title">Ghi chú</td>
-                                <td class="td_value">
-                                    <asp:Label ID="lbDescription" runat="server" Text=""></asp:Label>
-                                </td>
+                                <td class="td_title"></td>
+                                <td class="td_value"></td>
                             </tr>
                             <tr>
                                 <td class="td_title">Email</td>
-                                <td class="td_value">
-                                    <asp:TextBox ID="txtEmail" runat="server" Text=""></asp:TextBox>
+                                <td class="td_value" colspan="3">
+                                    <asp:TextBox ID="txtEmail" runat="server" Text="" Width="99%"></asp:TextBox>
                                 </td>
+                                
+                            </tr>
+                            <tr>
                                 <td class="td_title">Địa chỉ</td>
-                                <td class="td_value">
-                                    <asp:TextBox ID="txtAddress" runat="server" Text="" Rows="3" TextMode="MultiLine" Width="100%"></asp:TextBox>
+                                <td class="td_value" colspan="3">
+                                    <asp:TextBox ID="txtAddress" runat="server" Text="" Rows="3" TextMode="MultiLine" Width="99%"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -114,7 +89,7 @@
             <div style="clear: both; height: 10px">
             </div>
             <div class="menuTitle">
-                Thông Tin Sử Dụng Quota
+                Thông Tin Sử Dụng Quota (dành cho Hội họp được hỗ trợ chi phí)
             </div>
             <div id="divQuotaList" style="text-align:center;">
                 <asp:GridView ID="grdQuotaList" runat="server" AutoGenerateColumns="false" DataKeyNames="UserID"

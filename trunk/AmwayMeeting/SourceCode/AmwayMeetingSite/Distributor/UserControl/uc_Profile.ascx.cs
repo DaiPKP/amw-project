@@ -49,22 +49,13 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         PRC_SYS_AMW_USER_GETLISTBYUSERIDResult dist = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
         dist = bo.PRC_SYS_AMW_USER_GETLISTBYUSERID(DistID).SingleOrDefault();
         lbADA.Text = dist.ADA;
-        lbLastName.Text = dist.LASTNAME;
-        lbFirtName.Text = dist.FIRSTNAME;
-        lbRelativeLastName.Text = dist.RELATIVE_LASTNAME;
-        lbRelativeFirstName.Text = dist.RELATIVE_FIRSTNAME;
-        lbCode.Text = dist.CODE;
-        lbAccBank.Text = dist.ACCBANK;
+        lbName.Text = dist.FULLNAME;
         lbTelephone.Text = dist.TELEPHONE;
-        lbFax.Text = dist.FAX;
         txtEmail.Text = dist.EMAIL;
         txtAddress.Text = dist.ADDRESS;
         lbUserType.Text = dist.USERTYPENAME;
-        lbDepartment.Text = dist.DEPARTMENTNAME;
         lbWorkProvince.Text = dist.WORKPROVINCENAME;
         lbWorkDistrict.Text = dist.WORKDISTRICTNAME;
-        chkStatus.Checked = dist.ACTIVE;
-        lbDescription.Text = dist.DESCRIPTION;
         if (txtEmail.Text.Equals(""))
         {
             lbMess.Text = "Vui lòng cập nhật địa chỉ email...";
