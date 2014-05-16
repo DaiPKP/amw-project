@@ -379,7 +379,7 @@
                                     
                                     </td>
                                     <td align="left" class="tdmeeting3" colspan="4">
-                                        <asp:TextBox ID="txtNUMBER_OF_PARTICIPANT" CssClass="txtNumberBox" runat="server" Width="99.2%" onKeyUp="addCommas(event,this);"></asp:TextBox>
+                                        <asp:TextBox ID="txtNUMBER_OF_PARTICIPANT" CssClass="txtNumberBoxLeft" runat="server" Width="99.2%" onKeyUp="addCommas(event,this);"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>

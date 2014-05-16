@@ -33,7 +33,7 @@ public partial class MaterPage_Home : System.Web.UI.MasterPage
         lbNickName.Text = result.FULLNAME;
         if ((result.DEPARTMENTID==3) && (result.EMAIL == null || result.EMAIL.Length <= 0))
         {
-            string script = "AlertMsgLink('Nhắc nhở','<p>* Email của bạn chưa được nhập trước đó, bạn cập nhật email','../distributor/profile');";
+            string script = "AlertMsgLink('Nhắc nhở','<p>* Email của bạn chưa được nhập trước đó, bạn vui lòng cập nhật email','../distributor/profile');";
 
             ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
         }
