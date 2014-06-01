@@ -168,7 +168,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
     {
         if (btnEdit.Text.Equals("Cập Nhật"))
         {
-            txtAddress.Enabled = true;
+            txtAddress.Enabled = false;
             txtEmail.Enabled = true;
             lbMess.Text = "";
             btnEdit.Text = "Lưu";
