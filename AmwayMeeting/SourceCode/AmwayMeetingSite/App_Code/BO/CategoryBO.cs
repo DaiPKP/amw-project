@@ -277,6 +277,19 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_PERIOD_CBOResult> PeriodGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PERIOD_CBOResult> result = new List<PRC_SYS_AMW_PERIOD_CBOResult>();
+            result = PRC_SYS_AMW_PERIOD_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_USERTYPE_SEARCHResult> UserTypeGet_Search(SYS_AMW_USERTYPE objUserType)
     {
         try
