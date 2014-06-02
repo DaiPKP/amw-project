@@ -618,4 +618,35 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+    public string Distributor_Quota_Insert(int PeriodID, int UserID, string ADA, int PaxID, int Quota)
+    {
+        try
+        {
+            string strResult = "";
+            PRC_SYS_AMW_DISTRIBUTOR_QUOTA_INSERT(PeriodID, UserID, ADA, PaxID, Quota, ref strResult);
+            return strResult;
+        }
+        catch (Exception ex)
+        {
+            return null;        
+        }        
+    }
+
+    public string Distributor_Quota_Update(int ID, int UserID, int Quota)
+    {
+        try
+        {
+            int iResult = PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE(ID, UserID, Quota);
+            if (iResult > 0)
+                return "Cập nhật thành công";
+            else
+                return "Cập nhật thất bại";
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+        
+    }
 }
