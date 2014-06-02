@@ -162,6 +162,19 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_PAX_CBO_ALLResult> PaxGet_CBO_ALL()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_PAX_CBO_ALLResult> result = new List<PRC_SYS_AMW_PAX_CBO_ALLResult>();
+            result = PRC_SYS_AMW_PAX_CBO_ALL().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBOResult> Pax_NotSupportCostGet_CBO()
     {
         try
