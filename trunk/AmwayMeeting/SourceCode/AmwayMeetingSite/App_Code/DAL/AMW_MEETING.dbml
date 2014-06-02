@@ -2074,4 +2074,19 @@
       <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_INSERT" Method="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_INSERT">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CREATEUSER" Parameter="cREATEUSER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUOTA" Parameter="qUOTA" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.String" DbType="NVarChar(50)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE" Method="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="QUOTA" Parameter="qUOTA" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
