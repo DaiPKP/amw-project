@@ -1179,6 +1179,13 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<PRC_SYS_AMW_PERIOD_CBOResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH")]
+		public ISingleResult<PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult> PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADAID", DbType="VarChar(50)")] string aDAID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PERIODID", DbType="Int")] System.Nullable<int> pERIODID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDAID, pAXID, pERIODID);
+			return ((ISingleResult<PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SYS_AMW_DEPARTMENT")]
@@ -24131,6 +24138,320 @@ namespace DAL
 				if ((this._UPDATEDATE != value))
 				{
 					this._UPDATEDATE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult
+	{
+		
+		private int _ID;
+		
+		private int _USERID;
+		
+		private string _PAXID;
+		
+		private string _PERIODID;
+		
+		private int _QUOTA;
+		
+		private System.Nullable<int> _USEDQUOTA;
+		
+		private System.Nullable<int> _BORROWEDQUOTA;
+		
+		private System.Nullable<bool> _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		private string _ADA;
+		
+		private string _FULLNAME;
+		
+		private string _PAXNAME;
+		
+		private string _PERIODNAME;
+		
+		private string _USERTYPENAME;
+		
+		public PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERID", DbType="Int NOT NULL")]
+		public int USERID
+		{
+			get
+			{
+				return this._USERID;
+			}
+			set
+			{
+				if ((this._USERID != value))
+				{
+					this._USERID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERIODID", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string PERIODID
+		{
+			get
+			{
+				return this._PERIODID;
+			}
+			set
+			{
+				if ((this._PERIODID != value))
+				{
+					this._PERIODID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOTA", DbType="Int NOT NULL")]
+		public int QUOTA
+		{
+			get
+			{
+				return this._QUOTA;
+			}
+			set
+			{
+				if ((this._QUOTA != value))
+				{
+					this._QUOTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USEDQUOTA", DbType="Int")]
+		public System.Nullable<int> USEDQUOTA
+		{
+			get
+			{
+				return this._USEDQUOTA;
+			}
+			set
+			{
+				if ((this._USEDQUOTA != value))
+				{
+					this._USEDQUOTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BORROWEDQUOTA", DbType="Int")]
+		public System.Nullable<int> BORROWEDQUOTA
+		{
+			get
+			{
+				return this._BORROWEDQUOTA;
+			}
+			set
+			{
+				if ((this._BORROWEDQUOTA != value))
+				{
+					this._BORROWEDQUOTA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit")]
+		public System.Nullable<bool> ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADA", DbType="VarChar(50)")]
+		public string ADA
+		{
+			get
+			{
+				return this._ADA;
+			}
+			set
+			{
+				if ((this._ADA != value))
+				{
+					this._ADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FULLNAME", DbType="NVarChar(101)")]
+		public string FULLNAME
+		{
+			get
+			{
+				return this._FULLNAME;
+			}
+			set
+			{
+				if ((this._FULLNAME != value))
+				{
+					this._FULLNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50)")]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERIODNAME", DbType="NVarChar(50)")]
+		public string PERIODNAME
+		{
+			get
+			{
+				return this._PERIODNAME;
+			}
+			set
+			{
+				if ((this._PERIODNAME != value))
+				{
+					this._PERIODNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPENAME", DbType="NVarChar(50)")]
+		public string USERTYPENAME
+		{
+			get
+			{
+				return this._USERTYPENAME;
+			}
+			set
+			{
+				if ((this._USERTYPENAME != value))
+				{
+					this._USERTYPENAME = value;
 				}
 			}
 		}
