@@ -1193,6 +1193,21 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<PRC_SYS_AMW_PAX_CBO_ALLResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_INSERT")]
+		public int PRC_SYS_AMW_DISTRIBUTOR_QUOTA_INSERT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PERIODID", DbType="Int")] System.Nullable<int> pERIODID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CREATEUSER", DbType="Int")] System.Nullable<int> cREATEUSER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTA", DbType="Int")] System.Nullable<int> qUOTA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS", DbType="NVarChar(50)")] ref string sTATUS)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pERIODID, cREATEUSER, aDA, pAXID, qUOTA, sTATUS);
+			sTATUS = ((string)(result.GetParameterValue(5)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE")]
+		public int PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="UPDATEUSER", DbType="Int")] System.Nullable<int> uPDATEUSER, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="QUOTA", DbType="Int")] System.Nullable<int> qUOTA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, uPDATEUSER, qUOTA);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SYS_AMW_DEPARTMENT")]
