@@ -592,4 +592,17 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult> Distributor_Quota_Search(string ADA, int paxid, int periodid)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult> result = new List<PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult>();
+            result = PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH(ADA, paxid, periodid).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }
