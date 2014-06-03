@@ -173,7 +173,7 @@ public partial class Category_UserControl_uc_SearchQuota : System.Web.UI.UserCon
                     return;
                 }
                 lblAlerting.Text = catebo.Distributor_Quota_Update(int.Parse(hdfId.Value.ToString()), int.Parse(Session["UserID"].ToString()), int.Parse(txtQuota.Text.Trim()));
-
+                LoadGrid();
             }
 
         }
