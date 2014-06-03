@@ -645,7 +645,7 @@ public class CategoryBO : AMW_MEETINGDataContext
         }
         catch (Exception ex)
         {
-            return null;
+            return "Cập nhật thất bại";
         }
         
     }
