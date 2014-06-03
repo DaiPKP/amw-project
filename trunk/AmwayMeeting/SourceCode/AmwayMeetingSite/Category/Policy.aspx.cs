@@ -9,7 +9,7 @@ public partial class Category_Pax_Province : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) ||(!CheckPermission("11")))
+        if ((Session["UserID"] == null) ||(!CheckPermission("32")))
         {
             Response.Redirect("~/home");
         }
