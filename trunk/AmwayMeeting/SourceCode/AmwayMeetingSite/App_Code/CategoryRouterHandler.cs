@@ -31,6 +31,7 @@ public class CategoryRouterHandler : IRouteHandler
                 case "usertype": return BuildManager.CreateInstanceFromVirtualPath("~/Category/UserType.aspx", typeof(Page)) as Page;
                 case "policy": return BuildManager.CreateInstanceFromVirtualPath("~/Category/Policy.aspx", typeof(Page)) as Page;
                 case "period": return BuildManager.CreateInstanceFromVirtualPath("~/Category/Period.aspx", typeof(Page)) as Page;
+                case "quota": return BuildManager.CreateInstanceFromVirtualPath("~/Category/Quota.aspx", typeof(Page)) as Page;
                
                 default:
                     {
