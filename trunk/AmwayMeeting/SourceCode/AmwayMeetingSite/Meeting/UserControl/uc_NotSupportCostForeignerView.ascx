@@ -446,7 +446,7 @@
                                     <asp:Label ID="lblSPEAKER_ADAID_2" CssClass="lblMeeting" runat="server" Width="70px"></asp:Label>
                                     </td>
                                     <td align="left" class="tdmeeting3">Họ tên:
-                                     <asp:Label ID="lblSPEAKER_NAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
+                                     <asp:Label ID="lblSPEAKER_NAME_2" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Danh hiệu:

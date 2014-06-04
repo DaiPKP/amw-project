@@ -649,7 +649,7 @@
                                     
                                     </td>
                                     <td align="right" class="tdmeeting3">
-                                        <asp:TextBox ID="txtTOTAL_PAY" CssClass="txtNumberBox" runat="server" Width="198px" onKeyUp="addCommas(event,this);maxPayment(this);"></asp:TextBox>&nbsp;(VNĐ)
+                                        <asp:TextBox ID="txtTOTAL_PAY" CssClass="txtNumberBox" runat="server" Width="197px" onKeyUp="addCommas(event,this);maxPayment(this);"></asp:TextBox>&nbsp;(VNĐ)
                                         <asp:HiddenField ID="hdfMAXPAYMENT" runat="server" />
                                     </td>
                                     <td class="tdmeeting4"></td>
