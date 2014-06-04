@@ -612,7 +612,7 @@
                                     <asp:TextBox ID="txtSPEAKER_ADAID_2" CssClass="txtBox" runat="server" Width="70px"></asp:TextBox>
                                     </td>
                                     <td align="left" class="tdmeeting3">Họ tên:
-                                     <asp:TextBox ID="txtSPEAKER_NAME_2" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
+                                     <asp:TextBox ID="txtSPEAKER_NAME_2" CssClass="txtBox" runat="server" Width="180px"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Danh hiệu:
