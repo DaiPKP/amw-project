@@ -215,7 +215,7 @@
                                 <td class="tdmeeting1"></td>
                                 <td class="tdmeeting2" colspan="5">
                                     <div style="margin-left: 5px;">
-                                        <b>2.	Người đồng tổ chức (Người đồng chịu trách nhiệm mọi vấn đề liên quan đến hội họp) hoặc sử dụng chỉ tiêu đăng ký hội họp của:</b>
+                                        <b>2.	Sử dụng chỉ tiêu đăng ký hội họp của:</b>
                                     </div>
                                 </td>
                                 <td class="tdmeeting7"></td>
