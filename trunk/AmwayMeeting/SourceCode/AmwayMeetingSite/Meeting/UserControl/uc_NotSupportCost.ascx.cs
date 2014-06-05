@@ -91,8 +91,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
 
                 hdfCO_ORGANIZER_USERID_1.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
-                hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
-                hdfCO_ORGANIZER_USERID_3.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
+                hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_2 == null ? string.Empty : result.CO_ORGANIZER_USERID_2.ToString();
+                hdfCO_ORGANIZER_USERID_3.Value = result.CO_ORGANIZER_USERID_3 == null ? string.Empty : result.CO_ORGANIZER_USERID_3.ToString();
                 hdfORGANIZER_USERID.Value = result.ORGANIZER_USERID == null ? string.Empty : result.ORGANIZER_USERID.ToString();
                 hdfORGANIZER_USERTYPEID.Value = result.ORGANIZER_USERTYPEID == null ? string.Empty : result.ORGANIZER_USERTYPEID.ToString();
                 hdfCO_ORGANIZER_USERTYPEID_1.Value = result.CO_ORGANIZER_USERTYPEID_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_1.ToString();
@@ -140,12 +140,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 }
 
 
-                hdfORGANIZER_QUOTA_CHECK.Value = "true";
-                divORGANIZER_QUOTA_BTN.Visible = true;
-                ImgBtnORGANIZER_CHECK.Visible = true;
-                ImgBtnORGANIZER_OK.Visible = true;
-                ImgBtnORGANIZER_ERROR.Visible = false;
-                divORGANIZER_QUOTA.Visible = true;
+               
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
                     SetEnable(false);
@@ -446,7 +441,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             lblAlerting.Text = "Bạn chưa chọn quận huyện tổ chức hội họp!";
             return;
         }
-
+        if (hdfCO_ORGANIZER_USERID_1.Value.Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập mã số ADA của người đăng ký hội họp!";
+            return;
+        }
         if (txtMEETINGNAME.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
@@ -537,9 +536,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
             MeetingBO objBO = new MeetingBO();
 
-            int ConditionCombine = objBO.MeetingGet_ConditionCombine_NotSupportCost(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfORGANIZER_USERTYPEID.Value));
-            int quantity = 0;
-            if (bool.Parse(hdfORGANIZER_QUOTA_CHECK.Value)) quantity++;
+            int ConditionCombine = objBO.MeetingGet_ConditionCombine_NotSupportCost(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value));
+            int quantity = 0;           
             if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) quantity++;
             if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) quantity++;
             if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)) quantity++;
@@ -554,9 +552,9 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                     return;
                 }
                 //Kiem tra xem nhung thang dong to chuc co cung usertype hay ko?
-                if ((hdfORGANIZER_USERTYPEID.Value != hdfCO_ORGANIZER_USERTYPEID_1.Value) || (hdfORGANIZER_USERTYPEID.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
+                if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
                 {
-                    lblAlerting.Text = "Bạn nhập người đồng tổ chức cùng danh hiệu!";
+                    lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
                     return;
                 }
                 //Kiem tra xem no con quota ko?
@@ -567,7 +565,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 }
                 obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
                 obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
-                obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
+                obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
                 obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
                 obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
                 obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
@@ -825,7 +823,33 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     }
     protected void ddlPROVINCEID_SelectedIndexChanged(object sender, EventArgs e)
     {
+        hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_1.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_1.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_1.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_1.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_1.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
 
+        hdfCO_ORGANIZER_USERID_2.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_2.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_2.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_2.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_2.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_2.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+
+
+        hdfCO_ORGANIZER_USERID_3.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_3.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_3.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_3.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_3.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_3.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
         lblAlerting.Text = string.Empty;
         if (int.Parse(ddlPROVINCEID.SelectedValue) > 0)
         {
@@ -846,18 +870,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             result = objBO.Meeting_CheckQuota_NotSupportCost(txtORGANIZER_ADAID.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
             if (result != null)
             {
-                divORGANIZER_QUOTA.Visible = true;
-                hdfORGANIZER_QUOTA_CHECK.Value = result.ISQUOTA.ToString();
-                if (result.ISQUOTA ?? false)
-                {
-                    ImgBtnORGANIZER_OK.Visible = true;
-                    ImgBtnORGANIZER_ERROR.Visible = false;
-                }
-                else
-                {
-                    ImgBtnORGANIZER_OK.Visible = false;
-                    ImgBtnORGANIZER_ERROR.Visible = true;
-                }
+               
             }
         }
     }
@@ -965,18 +978,33 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     protected void ddlDISTRICTID_SelectedIndexChanged(object sender, EventArgs e)
     {
         lblAlerting.Text = string.Empty;
-        divORGANIZER_QUOTA.Visible = false;
-        ImgBtnORGANIZER_OK.Visible = false;
-        ImgBtnORGANIZER_ERROR.Visible = false;
-        hdfORGANIZER_QUOTA_CHECK.Value = "false";
-        if ((int.Parse(ddlDISTRICTID.SelectedValue) > 0) && (int.Parse(ddlPAXID.SelectedValue) > 0))
-        {
-            divORGANIZER_QUOTA_BTN.Visible = true;
-        }
-        else
-        {
-            divORGANIZER_QUOTA_BTN.Visible = false;
-        }
+        hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_1.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_1.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_1.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_1.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_1.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
+
+        hdfCO_ORGANIZER_USERID_2.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_2.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_2.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_2.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_2.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_2.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+
+
+        hdfCO_ORGANIZER_USERID_3.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_3.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_3.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_3.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_3.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_3.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
         GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
     }
 
@@ -1015,7 +1043,6 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         txtSPEAKER_TITLE_2.Enabled = bolValue;
         txtSPEAKER_ADAID_2.Enabled = bolValue;
         txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
-        ImgBtnORGANIZER_CHECK.Enabled = bolValue;
         ImgBtnCO_ORGANIZER_ADA1_CHECK.Enabled = bolValue;
         ImgBtnCO_ORGANIZER_ADA2_CHECK.Enabled = bolValue;
         ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
