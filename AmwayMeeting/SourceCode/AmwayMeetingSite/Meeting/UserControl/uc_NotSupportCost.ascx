@@ -115,16 +115,7 @@
                                         <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
                                     </td>
                                     <td class="tdmeeting6">
-                                        <div id="divORGANIZER_QUOTA" runat="server" visible="false">
-                                            Đủ điều kiện đăng ký:
-                                      <asp:ImageButton ID="ImgBtnORGANIZER_OK" runat="server" Height="14px"
-                                          ImageUrl="~/images/check.png" Width="14px" Visible="false" />
-                                            <asp:ImageButton ID="ImgBtnORGANIZER_ERROR" runat="server" Height="14px"
-                                                ImageUrl="~/images/error.png" Width="14px" Visible="false"
-                                                AlternateText="Quota Expire, Click Here to borrow quota !" />
-                                            <asp:HiddenField ID="hdfORGANIZER_QUOTA_CHECK" runat="server"></asp:HiddenField>
-                                        </div>
-                                    </td>
+                                        &nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -184,11 +175,6 @@
                                     <td align="left" class="tdmeeting5" colspan="2">Chọn Quận huyện<span style="color: Red">(*)</span>:
                                      <asp:DropDownList ID="ddlDISTRICTID" runat="server" Width="150px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlDISTRICTID_SelectedIndexChanged">
                                      </asp:DropDownList>
-                                        <div id="divORGANIZER_QUOTA_BTN" runat="server" visible="false" style="width: 40px; float: right; margin-right: 140px">
-                                            <asp:ImageButton ID="ImgBtnORGANIZER_CHECK" runat="server" Height="23px"
-                                                ImageUrl="~/images/search.png" Width="26px" OnClick="ImgBtnORGANIZER_CHECK_Click" />
-
-                                        </div>
                                     </td>
 
                                     <td class="tdmeeting7"></td>
