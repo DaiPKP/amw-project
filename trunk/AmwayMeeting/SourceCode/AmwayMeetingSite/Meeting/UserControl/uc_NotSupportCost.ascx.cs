@@ -533,6 +533,16 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 return;
             }
 
+            if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)))
+            {
+                lblAlerting.Text = "Người tổ chức không còn đủ quota!";
+                return;
+            }
+            else
+            {
+                obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
+                obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
+            }
             // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
             MeetingBO objBO = new MeetingBO();
 
@@ -563,8 +573,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                     lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
                     return;
                 }
-                obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
-                obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
+                
                 obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
                 obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
                 obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);

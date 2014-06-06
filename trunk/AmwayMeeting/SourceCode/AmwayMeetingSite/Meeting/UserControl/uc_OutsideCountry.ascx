@@ -164,11 +164,11 @@
                                         </div>
                                     </td>
                                     <td align="left" class="tdmeeting3">Họ tên<span style="color: Red">(*)</span>:
-                                     <asp:TextBox ID="txtSPEAKER_NAME_1" CssClass="txtBox" runat="server" Width="180px"></asp:TextBox>
+                                     <asp:TextBox ID="txtSPEAKER_NAME_1" CssClass="txtBox" runat="server" Width="170px"></asp:TextBox>
                                     </td>
                                     <td class="tdmeeting4"></td>
                                     <td align="left" class="tdmeeting5">Danh hiệu<span style="color: Red">(*)</span>:
-                                     <asp:TextBox ID="txtSPEAKER_USERTYPENAME_1" CssClass="txtBox" runat="server" Width="150px"></asp:TextBox>
+                                     <asp:TextBox ID="txtSPEAKER_USERTYPENAME_1" CssClass="txtBox" runat="server" Width="140px"></asp:TextBox>
                                     </td>
                                     <td align="left" class="tdmeeting6"></td>
                                     <td class="tdmeeting7"></td>
