@@ -70,7 +70,7 @@ public partial class Distributor_RuleOverSea : System.Web.UI.Page
                 int result = registry.InsertRegisterRule(iUserID, iRuleID);
                 if (result == 1)
                 {
-                    Response.Redirect("~/meeting/OutSideCountry.aspx");
+                    RedirectTo("../meeting/outsidecountry");
                 }
                 else
                 {
