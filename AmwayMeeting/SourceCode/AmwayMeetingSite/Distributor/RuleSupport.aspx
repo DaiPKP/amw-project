@@ -63,7 +63,7 @@
                                 -	Số buổi họp quy định: Diamond: 02 buổi/06 tháng<br />
                                 -	Phí hỗ trợ tối đa: 70.000.000 đồng/buổi họp bao gồm:
                         <div class="TitleLevel4">
-                            + Chi phí thuê hội trường: 60.000.000 đồng bao gồm hội trường, âm thanh-ánh sáng hội họp, màn chiếu-máy chiếu.<br />
+                            + Chi phí cho việc đặt hội trường bên ngoài: 60.000.000 đồng bao gồm hội trường, âm thanh-ánh sáng hội họp, màn chiếu-máy chiếu.<br />
                             + Phí hỗ trợ tiếp đón (chi phí ăn uống & đi lại) cho Khách Mời với tối đa 10.000.000 đồng (Nhà Phân Phối phải cung cấp đầy đủ hoá đơn VAT trong vòng 7 ngày sau khi kết thúc hội họp).
                         </div>
                             </div>
@@ -75,19 +75,16 @@
                                 4.	Quy định về 20% chi phí còn lại : 20% chi phí còn lại sẽ do các Nhà Phân Phối tự nguyện chia sẻ khi tham gia hội họp, nhưng không vượt quá 30.000 đồng/người cho thức ăn nhẹ và 25.000 đồng/người cho nước uống phục vụ tại buổi họp.<br />
                                 5.	Nhà Phân Phối không được phép thu của ứng viên tiềm năng bất kỳ khoản phí nào dưới hình thức hội họp, khóa học, khóa đào tạo, hội thảo, hoạt động xã hội hay các hoạt động tương tự khác.<br />
                                 6.	Nhà Phân Phối không được phép bán giấy mời. Bất cứ phương thức nào liên quan đến giấy mời phải được Amway xét duyệt trước.<br />
-                                7.	Nhà Phân Phối phải đặt phòng, nộp hồ sơ và thanh toán phí thuê phòng 30 ngày làm việc trước khi tiến hành hội họp.<br />
-                                8.	Nhà Phân Phối không được phép hủy cuộc họp với bất cứ lý do gì. Trường hợp hủy hợp đồng, Nhà Phân Phối sẽ phải
+                                7.	Khi đặt hội trường bên ngoài, Nhà Phân Phối phải đặt phòng, nộp hồ sơ và thanh toán phí thuê phòng 30 ngày làm việc trước khi tiến hành hội họp.<br />
+                                8.	Nhà Phân Phối không được phép hủy cuộc họp với bất cứ lý do gì. Trường hợp hủy hợp đồng, Nhà Phân Phối sẽ phải thanh toán toàn bộ chi phí đặt cọc theo như quy định hợp đồng đối với địa điểm đăng ký.
                                 <br />
-
-                                9.	thanh toán toàn bộ chi phí đặt cọc theo như quy định hợp đồng đối với địa điểm đăng ký.
+                                9.	Tất cả các cuộc họp phải tuân thủ các Quy Tắc Ứng Xử của Amway và Luật Pháp Việt Nam. Những cuộc họp này không được gây mất trật tự hoặc gây phiền toái cho những người khác và phải kết thúc sớm hơn hoặc trễ nhất là 10 giờ tối.<br />
+                                10.	Người tổ chức phải có trách nhiệm đảm bảo rằng chỉ sử dụng các tài liệu hỗ trợ kinh doanh và sản phẩm do Amway Việt Nam phát hành và sản xuất để giới thiệu trong các cuộc họp này.
                                 <br />
-                                10.	Tất cả các cuộc họp phải tuân thủ các Quy Tắc Ứng Xử của Amway và Luật Pháp Việt Nam. Những cuộc họp này không được gây mất trật tự hoặc gây phiền toái cho những người khác và phải kết thúc sớm hơn hoặc trễ nhất là 10 giờ tối.<br />
-                                11.	Người tổ chức phải có trách nhiệm đảm bảo rằng chỉ sử dụng các tài liệu hỗ trợ kinh doanh và sản phẩm do Amway Việt Nam phát hành và sản xuất để giới thiệu trong các cuộc họp này.
-                                <br />
-                                12.	Những người phát biểu trong nước hoặc nước ngoài tại các cuộc họp phải đạt cấp Platinum trở lên, phải đăng ký với Amway và phải tuân thủ theo những điều khoản trong Quy Tắc Thuyết Trình của Amway và Luật Pháp nước Việt Nam.<br />
-                                13.	Amway sẽ cấp các giấy phép cho người tổ chức như giấy phép kinh doanh và thư giới thiệu. Người tổ chức phải có trách nhiệm thông báo với chính quyền địa phương.<br />
-                                14.	Người tổ chức phải chịu trách nhiệm lưu giữ thông tin về danh sách những người tham gia, chương trình họp, những người phát biểu và phải gửi báo cáo cho Amway trong vòng một tuần sau khi kết thúc buổi họp.<br />
-                                15.	Amway có quyền quyết định không hỗ trợ chi phí hội họp cho bất cứ Nhà Phân Phối nào không tuân thủ Các Quy Tắc Ứng Xử và chính sách hội họp của Amway.<br />
+                                11.	Những người phát biểu trong nước hoặc nước ngoài tại các cuộc họp phải đạt cấp Platinum trở lên, phải đăng ký với Amway và phải tuân thủ theo những điều khoản trong Quy Tắc Thuyết Trình của Amway và Luật Pháp nước Việt Nam.<br />
+                                12.	Amway sẽ cấp các giấy phép cho người tổ chức như giấy phép kinh doanh và thư giới thiệu. Người tổ chức phải có trách nhiệm thông báo với chính quyền địa phương.<br />
+                                13.	Người tổ chức phải chịu trách nhiệm lưu giữ thông tin về danh sách những người tham gia, chương trình họp, những người phát biểu và phải gửi báo cáo cho Amway trong vòng một tuần sau khi kết thúc buổi họp.<br />
+                                14.	Amway có quyền quyết định không hỗ trợ chi phí hội họp cho bất cứ Nhà Phân Phối nào không tuân thủ Các Quy Tắc Ứng Xử và chính sách hội họp của Amway.<br />
                                 <br />
                             </div>
                         </td>
@@ -103,8 +100,8 @@
                                 1.	Đơn đăng ký hội họp phải nộp cho Amway:
                                 <br />
                                 <div class="TitleLevel1">
-                                    - Trước 30 ngày làm việc trước ngày hội họp diễn ra đối với hội họp diển giả người nước ngoài.<br />
-                                    - Trước 10 ngày làm viếc trước ngày hội họp diễn ra đối với hội họp diển giả người Việt Nam.
+                                    - Trước 30 ngày làm việc trước ngày hội họp diễn ra đối với hội họp diễn giả người nước ngoài.<br />
+                                    - Trước 10 ngày làm viếc trước ngày hội họp diễn ra đối với hội họp diễn giả người Việt Nam.
                                     <br />
                                 </div>
                                 2.	Đơn đăng ký xin giấy phép cho hội họp có hỗ trợ.<br />
