@@ -7,7 +7,7 @@
         </h1>
        
         <div class="content">
-            <p>Nhằm hỗ trợ các Anh/Chị tiết kiêm thời gian hơn và thuận tiện hơn trong việc tổ chức hội họp ở đội nhóm, Phòng huấn luyện trân trong ra mắt trang web hỗ trợ đăng ký hội họp bên ngoài, với những chứng năng sau:</p>
+            <p>Nhằm hỗ trợ các Anh/Chị tiết kiêm thời gian hơn và thuận tiện hơn trong việc tổ chức hội họp ở đội nhóm, Phòng huấn luyện trân trọng ra mắt trang web hỗ trợ đăng ký hội họp bên ngoài, với những chức năng sau:</p>
             <ul>
                 <li>
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <strong>Đăng ký hội họp: giúp Anh/Chị chủ động khai báo thông tin để công ty Amway hỗ trợ thủ tục pháp lý cho hội họp đội nhóm</strong></p>
