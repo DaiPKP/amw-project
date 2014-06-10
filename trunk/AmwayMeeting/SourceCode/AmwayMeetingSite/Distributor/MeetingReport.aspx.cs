@@ -9,7 +9,7 @@ public partial class Distributor_MeetingReport : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("24")))
+        if ((Session["UserID"] == null))
         {
             Response.Redirect("~/home");
         }
