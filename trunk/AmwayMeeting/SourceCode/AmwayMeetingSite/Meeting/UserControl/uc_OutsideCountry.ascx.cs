@@ -212,7 +212,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         if (!CheckDateRegister(txtDEPARTURE_DATE.Text.Trim()))
         {
            trWarning.Visible=true;
-           obj.WARNING =lblWarning.Text= "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày";
+           obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày làm việc";
         }
         else
         {
@@ -387,7 +387,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
             DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
             double day = (dt1- dt2).TotalDays;
-            if (day >= 10)
+            if (day > 10)
                 return true;
             else return false;
         }
