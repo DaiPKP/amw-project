@@ -607,7 +607,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         if (!CheckDateRegister(txtMEETING_DATE.Text.Trim()))
         {
             trWarning.Visible = true;
-            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày";
+            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày làm việc";
         }
         else
         {
@@ -699,7 +699,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         obj.MEETING_DATE = DateTime.ParseExact(txtMEETING_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
         obj.MEETING_TIME = txtMEETING_TIME.Text.Trim();
         obj.FORMS_OF_PAYMENTID = int.Parse(ddlFORMS_OF_PAYMENTID.SelectedValue);
-        obj.INVITATIONID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.INVITATIONID = int.Parse(ddlINVITATIONID.SelectedValue);
         obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
         obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
         obj.WATER = bool.Parse(ddlWATER.SelectedValue);
