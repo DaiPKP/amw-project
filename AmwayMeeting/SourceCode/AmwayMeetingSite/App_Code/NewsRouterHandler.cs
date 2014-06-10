@@ -32,6 +32,8 @@ public class NewsRouterHandler : IRouteHandler
                     return BuildManager.CreateInstanceFromVirtualPath("~/News/News1.aspx", typeof(Page)) as Page;
                 case "2":
                     return BuildManager.CreateInstanceFromVirtualPath("~/News/News2.aspx", typeof(Page)) as Page;
+                case "3":
+                    return BuildManager.CreateInstanceFromVirtualPath("~/News/News3.aspx", typeof(Page)) as Page;
                 default:
                     {
                         return BuildManager.CreateInstanceFromVirtualPath("~/News/News0.aspx", typeof(Page)) as Page;

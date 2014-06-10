@@ -48,6 +48,7 @@
                     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - <strong>Đăng nhập bằng số ADA và số Chứng Minh Nhân Dân của Anh/Chị.</strong></p>
                 </li>
             </ul>
+            <p>Slide hướng dẫn download <strong><a class="aclk" href="../images/Files/MeetingSubsidyTrainingGuide.pptx" title="">(tại đây)</a></strong></p>
              <p>Mọi thắc mắc, Anh/Chị vui lòng liên hệ với các bạn chuyên trách:</p>
             <div style="float:left;width:300px" >           
             <h4>Trần Văn Quốc Bình</h4>

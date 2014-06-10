@@ -22,7 +22,7 @@ namespace DAL
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AMW")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="AMW_MEETING_ONLINE")]
 	public partial class AMW_MEETINGDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -1207,6 +1207,20 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, uPDATEUSER, qUOTA);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USER_UPDATEBYADA")]
+		public int PRC_SYS_AMW_USER_UPDATEBYADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(500)")] string pASSWORD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDA, pASSWORD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_TEMP_GETALL")]
+		public ISingleResult<PRC_TEMP_GETALLResult> PRC_TEMP_GETALL()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<PRC_TEMP_GETALLResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -24626,6 +24640,50 @@ namespace DAL
 				if ((this._UPDATEDATE != value))
 				{
 					this._UPDATEDATE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_TEMP_GETALLResult
+	{
+		
+		private string _ADA;
+		
+		private string _CMT;
+		
+		public PRC_TEMP_GETALLResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADA", DbType="VarChar(50)")]
+		public string ADA
+		{
+			get
+			{
+				return this._ADA;
+			}
+			set
+			{
+				if ((this._ADA != value))
+				{
+					this._ADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMT", DbType="VarChar(50)")]
+		public string CMT
+		{
+			get
+			{
+				return this._CMT;
+			}
+			set
+			{
+				if ((this._CMT != value))
+				{
+					this._CMT = value;
 				}
 			}
 		}

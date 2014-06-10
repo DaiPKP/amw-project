@@ -111,6 +111,21 @@ public class UserBO : AMW_MEETINGDataContext
             return false;
         }
     }
+    public bool UserUpdatePasswordByADA(string ADA, string pass)
+    {
+        try
+        {
+            int result = PRC_SYS_AMW_USER_UPDATEBYADA(ADA, pass);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
     public PRC_SYS_AMW_USER_GETLISTBYUSERIDResult UserGetListByUserID(int UserID)
     {
         try
@@ -150,6 +165,20 @@ public class UserBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_TEMP_GETALLResult> UserGetAll_Temp()
+    {
+        try
+        {
+            List<PRC_TEMP_GETALLResult> result = new List<PRC_TEMP_GETALLResult>();
+            result = PRC_TEMP_GETALL().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
 
     public List<PRC_SYS_AMW_USER_SEARCHResult> UserGet_Search(SYS_AMW_USER objUser)
     {
