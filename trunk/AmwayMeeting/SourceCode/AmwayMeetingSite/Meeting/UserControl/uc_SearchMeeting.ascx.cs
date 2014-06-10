@@ -260,7 +260,7 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         obj.STATUS_MEETING_REGISTERID = int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue);
         int report = int.Parse(ddlReport.SelectedValue);
         int foreigner = int.Parse(ddlForeigner.SelectedValue);
-        DisplayInGrid(string.Empty, obj, foreigner, report);
+        DisplayInGrid(txtADA.Text.Trim(), obj, foreigner, report);
     }
 
 
