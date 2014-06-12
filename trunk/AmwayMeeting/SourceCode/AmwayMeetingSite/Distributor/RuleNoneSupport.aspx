@@ -53,8 +53,8 @@
                                 <div class="TitleLevel1">
                                     •	Người tổ chức phải nộp hồ sơ đăng ký hội họp trễ nhất là:<br />
                                     <div class="TitleLevel1">
-                                        - Trước 30 ngày làm việc trước ngày tổ chức hội họp đối với hội họp diển giả người nước ngoài.<br />
-                                        - Trước 05 ngày làm việc trước ngày tổ chức hội họp đối với hội họp diển giả người Việt Nam.<br />
+                                        - Trước 30 ngày làm việc trước ngày tổ chức hội họp đối với hội họp diễn giả người nước ngoài.<br />
+                                        - Trước 10 ngày làm việc trước ngày tổ chức hội họp đối với hội họp diễn giả người Việt Nam.<br />
                                     </div>
 
                                     •	Thư mời hoặc biểu ngữ nếu tự thiết kế.<br />
