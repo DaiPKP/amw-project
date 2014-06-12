@@ -150,12 +150,51 @@ public class MeetingBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult Meeting_CheckQuota_ByUserId(int UserId, int paxId, int districtId)
+    {
+        try
+        {
+            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult();
+            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID(UserId, paxId, districtId).SingleOrDefault();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult Meeting_CheckQuota_V2(string strADA, int paxId)
+    {
+        try
+        {
+            V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
+            result = V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA(strADA, paxId).SingleOrDefault();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCEResult Meeting_CheckQuota_Province(string strADA, int paxId, int provinceId)
     {
         try
         {
             PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCEResult();
             result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCE(strADA, paxId, provinceId).SingleOrDefault();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult Meeting_CheckQuota_ByUserId_Province(int UserId, int paxId, int provinceId)
+    {
+        try
+        {
+            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult();
+            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCE(UserId, paxId, provinceId).SingleOrDefault();
             return result;
         }
         catch (Exception ex)
