@@ -16,62 +16,62 @@
         function BindEvents() {
             $(document).ready(function () {
                 var objTuNgay = document.getElementById("<%=txtMEETING_DATE.ClientID %>");
-            var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
-            $(objTuNgay).datepicker({
-                showOn: "button",
-                buttonImage: "../images/calendar.gif",
-                buttonImageOnly: true
-            }),
-           $(objSend).datepicker({
-               showOn: "button",
-               buttonImage: "../images/calendar.gif",
-               buttonImageOnly: true
-           });
-        });
-    }
+                var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
+                $(objTuNgay).datepicker({
+                    showOn: "button",
+                    buttonImage: "../images/calendar.gif",
+                    buttonImageOnly: true
+                }),
+               $(objSend).datepicker({
+                   showOn: "button",
+                   buttonImage: "../images/calendar.gif",
+                   buttonImageOnly: true
+               });
+            });
+        }
     </script>
     <script type="text/javascript">
         function maxPayment(objTotal) {
             var objMaxPayment = document.getElementById("<%=hdfMAXPAYMENT.ClientID %>");
-        var objAmwPay = document.getElementById("<%=lblAMWAY_PAY.ClientID %>");
-        var objDistributor = document.getElementById("<%=lblDISTRIBUTOR_PAY.ClientID %>");
-        var MaxPayment = 0;
-        var AmwayPay = 0;
-        var Total = 0;
-        var DistributorPay = 0;
-        if (parseFloat(replaceAll(objMaxPayment.value, ',', '')) > 0) {
-            MaxPayment = parseFloat(replaceAll(objMaxPayment.value, ',', ''));
-            Total = parseFloat(replaceAll(objTotal.value, ',', ''));
-            // tinh tien theo 80%
-            AmwayPay = Math.round(Total * 0.8);
-            if (AmwayPay > MaxPayment) {
-                AmwayPay = MaxPayment;
+            var objAmwPay = document.getElementById("<%=lblAMWAY_PAY.ClientID %>");
+            var objDistributor = document.getElementById("<%=lblDISTRIBUTOR_PAY.ClientID %>");
+            var MaxPayment = 0;
+            var AmwayPay = 0;
+            var Total = 0;
+            var DistributorPay = 0;
+            if (parseFloat(replaceAll(objMaxPayment.value, ',', '')) > 0) {
+                MaxPayment = parseFloat(replaceAll(objMaxPayment.value, ',', ''));
+                Total = parseFloat(replaceAll(objTotal.value, ',', ''));
+                // tinh tien theo 80%
+                AmwayPay = Math.round(Total * 0.8);
+                if (AmwayPay > MaxPayment) {
+                    AmwayPay = MaxPayment;
+                }
+                DistributorPay = Total - AmwayPay;
+                objAmwPay.innerHTML = addCommasString(AmwayPay);
+                objDistributor.innerHTML = addCommasString(DistributorPay);
             }
-            DistributorPay = Total - AmwayPay;
-            objAmwPay.innerHTML = addCommasString(AmwayPay);
-            objDistributor.innerHTML = addCommasString(DistributorPay);
+            else {
+                return;
+            }
+
         }
-        else {
+        function CheckWater(obj) {
+            var value = parseFloat(replaceAll(obj.value, ',', ''));
+            if (value > 25000) {
+                value = 25000;
+            }
+            obj.value = addCommasString(value);
             return;
         }
-
-    }
-    function CheckWater(obj) {
-        var value = parseFloat(replaceAll(obj.value, ',', ''));
-        if (value > 25000) {
-            value = 25000;
+        function CheckFood(obj) {
+            var value = parseFloat(replaceAll(obj.value, ',', ''));
+            if (value > 30000) {
+                value = 30000;
+            }
+            obj.value = addCommasString(value);
+            return;
         }
-        obj.value = addCommasString(value);
-        return;
-    }
-    function CheckFood(obj) {
-        var value = parseFloat(replaceAll(obj.value, ',', ''));
-        if (value > 30000) {
-            value = 30000;
-        }
-        obj.value = addCommasString(value);
-        return;
-    }
     </script>
     <asp:Panel runat="server" ID="hehe">
         <fieldset>
@@ -85,18 +85,18 @@
 
                         $(function () {
                             var objTuNgay = document.getElementById("<%=txtMEETING_DATE.ClientID %>");
-                        var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
-                        $(objTuNgay).datepicker({
-                            showOn: "button",
-                            buttonImage: "../images/calendar.gif",
-                            buttonImageOnly: true
-                        }),
-                       $(objSend).datepicker({
-                           showOn: "button",
-                           buttonImage: "../images/calendar.gif",
-                           buttonImageOnly: true
-                       });
-                    });
+                            var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
+                            $(objTuNgay).datepicker({
+                                showOn: "button",
+                                buttonImage: "../images/calendar.gif",
+                                buttonImageOnly: true
+                            }),
+                           $(objSend).datepicker({
+                               showOn: "button",
+                               buttonImage: "../images/calendar.gif",
+                               buttonImageOnly: true
+                           });
+                        });
                     </script>
                     <asp:Panel runat="server" ID="pnlSearch">
                         <div style="text-align: left; width: 100%">
@@ -108,8 +108,18 @@
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
-                                    <td align="left" class="divClearBothInAdmin"></td>
+                                    <td class="tdmeeting1"></td>
+                                    <td class="tdmeeting2"></td>
+                                    <td class="tdmeeting3"></td>
+                                    <td class="tdmeeting4"></td>
+                                    <td class="tdmeeting5"></td>
+                                    <td class="tdmeeting6"></td>
+                                    <td class="tdmeeting7"></td>
                                 </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>                                   
+                                </tr>
+                                 
                                 <tr>
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Mã số ADA<span style="color: Red">(*)</span>:
@@ -117,16 +127,13 @@
                                         <asp:HiddenField ID="hdfORGANIZER_USERID" runat="server"></asp:HiddenField>
                                         &nbsp;
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:Label ID="lblORGANIZER_NAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    <td align="left" class="tdmeeting6">Danh hiệu:
                                      <asp:Label ID="lblORGANIZER_USERTYPENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td class="tdmeeting6">
-                                        &nbsp;</td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -428,7 +435,6 @@
                                     <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Hình thức thanh toán<span style="color: Red">(*)</span>:
                                     
-                                        
                                     </td>
                                     <td align="left" class="tdmeeting3" colspan="4">
                                         <asp:DropDownList ID="ddlFORMS_OF_PAYMENTID" runat="server" Width="99.8%" Height="22px" CssClass="txtBox">
@@ -712,7 +718,7 @@
                 <div style="text-align: left; width: 100%">
                     <table width="100%">
                         <tr id="trReport" runat="server" visible="false">
-                            <td colspan="7">
+                            <td>
                                 <div style="text-align: center;">
                                     <br />
                                     <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />
