@@ -435,7 +435,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
                     ListItem lstParent = new ListItem("--Chọn--", "0");
                     ddlDISTRICTID.DataSource = lst;
                     ddlDISTRICTID.DataTextField = "DISTRICTNAME";
-                    ddlDISTRICTID.DataValueField = "DISTRICTID";
+                    ddlDISTRICTID.DataValueField = "ID";
                     ddlDISTRICTID.DataBind();
 
                     ddlDISTRICTID.Items.Insert(0, lstParent);
@@ -465,7 +465,7 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
             {
                 ddlPROVINCEID.DataSource = lst;
                 ddlPROVINCEID.DataTextField = "PROVINCENAME";
-                ddlPROVINCEID.DataValueField = "PROVINCEID";
+                ddlPROVINCEID.DataValueField = "ID";
                 ddlPROVINCEID.DataBind();
 
                 ListItem lstParent = new ListItem("--Chọn--", "0");
