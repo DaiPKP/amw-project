@@ -63,10 +63,10 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2" colspan="3">Mọi thông tin liên lạc qua mail:
+                                    <td align="left" class="tdmeeting2" colspan="4">Mọi thông tin liên lạc qua mail:
                                    <asp:Label ID="lblORGANIZER_EMAIL" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting5" colspan="2">Số điện thoại:
+                                    <td align="left" class="tdmeeting6">Số điện thoại:
                                    <asp:Label ID="lblORGANIZER_TELEPHONE" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
                                     <td class="tdmeeting7"></td>
