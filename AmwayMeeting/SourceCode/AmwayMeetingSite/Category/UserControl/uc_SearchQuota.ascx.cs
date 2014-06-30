@@ -30,7 +30,7 @@ public partial class Category_UserControl_uc_SearchQuota : System.Web.UI.UserCon
         ddlPERIODID.SelectedValue = "0";
         lbUserName.Text = string.Empty;
         lbUserType.Text = string.Empty;
-        lbUsedQuota.Text = string.Empty;
+        txtUsedQuota.Text = string.Empty;
         txtQuota.Text = string.Empty;
         btnSave.Text = "Thêm Mới";
         lblAlerting.Text = string.Empty;
@@ -116,7 +116,7 @@ public partial class Category_UserControl_uc_SearchQuota : System.Web.UI.UserCon
         lbUserName.Text = strDistName;
         lbUserType.Text = strLevel;
         txtQuota.Text = strQuota;
-        lbUsedQuota.Text = strUsedQuota;
+        txtUsedQuota.Text = strUsedQuota;
         btnSave.Text = "Cập Nhật";
     }
     protected void btnXoaTrang_Click(object sender, EventArgs e)
@@ -138,9 +138,9 @@ public partial class Category_UserControl_uc_SearchQuota : System.Web.UI.UserCon
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (txtQuota.Text.Trim().Equals(""))
+        if (txtQuota.Text.Trim().Equals("") || txtUsedQuota.Text.Trim().Equals(""))
         {
-            lblAlerting.Text = "Bạn chưa nhập quota";
+            lblAlerting.Text = "Bạn chưa nhập quota/quota đã sử dụng";
             return;
         }
         else
@@ -172,7 +172,7 @@ public partial class Category_UserControl_uc_SearchQuota : System.Web.UI.UserCon
                     lblAlerting.Text = "Bạn chưa chọn quota để cập nhật";
                     return;
                 }
-                lblAlerting.Text = catebo.Distributor_Quota_Update(int.Parse(hdfId.Value.ToString()), int.Parse(Session["UserID"].ToString()), int.Parse(txtQuota.Text.Trim()));
+                lblAlerting.Text = catebo.Distributor_Quota_Update(int.Parse(hdfId.Value.ToString()), int.Parse(Session["UserID"].ToString()), int.Parse(txtQuota.Text.Trim()), int.Parse(txtUsedQuota.Text.Trim()));
                 LoadGrid();
             }
 

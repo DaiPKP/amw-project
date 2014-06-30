@@ -63,8 +63,8 @@
                         <td style ="text-align:right;">
                             Quota đã sử dụng:
                         </td>
-                        <td style="font-weight:bold;">
-                            <asp:Label ID="lbUsedQuota" runat="server" Text=""></asp:Label>
+                        <td style ="width:25%;">
+                            <asp:TextBox ID="txtUsedQuota" runat="server" MaxLength="50" CssClass="txtBox" Width="50%" onKeyUp="addCommas(event,this);"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
