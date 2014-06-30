@@ -633,11 +633,11 @@ public class CategoryBO : AMW_MEETINGDataContext
         }        
     }
 
-    public string Distributor_Quota_Update(int ID, int UserID, int Quota)
+    public string Distributor_Quota_Update(int ID, int UserID, int Quota, int UsedQuota)
     {
         try
         {
-            int iResult = PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE(ID, UserID, Quota);
+            int iResult = PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE(ID, UserID, Quota, UsedQuota);
             if (iResult > 0)
                 return "Cập nhật thành công";
             else
