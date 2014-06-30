@@ -25,6 +25,15 @@
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
+                                 <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td class="tdmeeting2"></td>
+                                    <td class="tdmeeting3"></td>
+                                    <td class="tdmeeting4"></td>
+                                    <td class="tdmeeting5"></td>
+                                    <td class="tdmeeting6"></td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
                                 <tr>
                                     <td align="left" class="divClearBothInAdmin"></td>
                                 </tr>
@@ -38,15 +47,12 @@
                                         <div class="divImgCheckIcon">
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:Label ID="lblORGANIZER_NAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    <td align="left"  class="tdmeeting6">Danh hiệu:
                                      <asp:Label ID="lblORGANIZER_USERTYPENAME" runat="server" CssClass="lblMeeting"></asp:Label>
-                                        <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
-                                    </td>
-                                    <td class="tdmeeting6"></td>
+                                        <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -138,16 +144,13 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:Label ID="lblCO_ORGANIZER_NAME_1" runat="server" CssClass="lblMeeting"></asp:Label>
 
-                                    </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    </td>                                    
+                                    <td align="left" class="tdmeeting6">Danh hiệu:
                                      <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_1" runat="server" CssClass="lblMeeting"></asp:Label>
-                                        <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_1" runat="server"></asp:HiddenField>
-                                    </td>
-                                    <td align="left" class="tdmeeting6">&nbsp;</td>
+                                        <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_1" runat="server"></asp:HiddenField></td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -293,6 +296,20 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Hình thức thanh toán:
+                                    
+                                        
+                                    </td>
+                                    <td align="left" class="tdmeeting3" colspan="4">
+                                        <asp:Label ID="lblFORMS_OF_PAYMENT" runat="server" Width="350px" CssClass="lblMeeting"></asp:Label>
+                                    </td>
+                                    <td class="tdmeeting7"></td>
+                                </tr>
+                                <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
                                     <td align="left" class="tdmeeting2">Giấy mời:
                                     
                                         
@@ -406,11 +423,9 @@
                                     <td align="left" class="tdmeeting2">Mã số ADA:
                                     <asp:Label ID="lblSPEAKER_ADAID_1" CssClass="lblMeeting" runat="server" Width="70px"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
-                                     <asp:Label ID="lblSPEAKER_NAME_1" CssClass="lblMeeting" runat="server" Width="180px"></asp:Label>
-                                    </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5"></td>
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
+                                     <asp:Label ID="lblSPEAKER_NAME_1" CssClass="lblMeeting" runat="server" Width="380px"></asp:Label>
+                                    </td>                                    
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
@@ -441,11 +456,9 @@
                                     <td align="left" class="tdmeeting2">Mã số ADA:
                                     <asp:Label ID="lblSPEAKER_ADAID_2" CssClass="lblMeeting" runat="server" Width="70px"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
-                                     <asp:Label ID="lblSPEAKER_NAME_2" CssClass="lblMeeting" runat="server" Width="150px"></asp:Label>
-                                    </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5"></td>
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
+                                     <asp:Label ID="lblSPEAKER_NAME_2" CssClass="lblMeeting" runat="server" Width="380px"></asp:Label>
+                                    </td>                                    
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Danh hiệu:

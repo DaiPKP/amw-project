@@ -106,6 +106,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.We
             lblMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
             lblMEETING_DATE.Text = result.MEETING_DATE == null ? string.Empty : result.STR_MEETING_DATE;
             lblMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
+            lblFORMS_OF_PAYMENT.Text = result.FORMS_OF_PAYMENT == null ? string.Empty : result.FORMS_OF_PAYMENT;
             lblINVITATIONNAME.Text = result.INVITATIONNAME == null ? string.Empty : result.INVITATIONNAME;
             lblBANNERNAME.Text = result.BANNERNAME == null ? string.Empty : result.BANNERNAME;
             lblSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;

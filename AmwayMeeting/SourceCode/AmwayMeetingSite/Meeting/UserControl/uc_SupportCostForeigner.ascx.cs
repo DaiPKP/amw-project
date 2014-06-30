@@ -226,7 +226,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         txtMEETING_PLACE_NAME.Text = string.Empty;
         txtMEETING_ADDRESS.Text = "Số..., Đường..., Phường/Xã..., Quận/Huyện..., Tỉnh/TP...";
         txtMEETING_DATE.Text = string.Empty;
-        txtMEETING_TIME.Text = string.Empty;
+        txtMEETING_TIME.Text = "00h00 – 00h00";
 
         ddlINVITATIONID.SelectedIndex = 0;
         ddlBANNERID.SelectedIndex = 0;
@@ -607,7 +607,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         if (!CheckProvinceOrDistrict(ddlPAXID.SelectedValue, ddlPROVINCEID.SelectedValue, ddlDISTRICTID.SelectedValue))
         {
             trWarning.Visible = true;
-            obj.WARNING = lblWarning.Text = "(*) Bạn chọn tỉnh thành(quận/huyện) tổ chức không đúng policy";
+            obj.WARNING = lblWarning.Text = "(*) Bạn chọn tỉnh thành(quận/huyện) tổ chức không đúng qui định";
 
 
         }
@@ -674,10 +674,22 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 return;
             }
             //Kiem tra xem nhung thang dong to chuc co cung usertype hay ko?
-            if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (!bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
             {
-                lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
-                return;
+                if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value))
+                {
+                    lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
+                    return;
+                }
+            }
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+            {
+
+                if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
+                {
+                    lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
+                    return;
+                }
             }
             //Kiem tra xem no con quota ko?
             if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))

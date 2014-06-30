@@ -103,9 +103,10 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             lblMEETINGNAME.Text = result.MEETINGNAME == null ? string.Empty : result.MEETINGNAME;
             lblNUMBER_OF_PARTICIPANT.Text = result.NUMBER_OF_PARTICIPANT == null ? string.Empty : string.Format("{0:N0}", result.NUMBER_OF_PARTICIPANT);
             lblMEETING_PLACE_NAME.Text = result.MEETING_PLACE_NAME == null ? string.Empty : result.MEETING_PLACE_NAME;
-            lblMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
+            lblMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;            
             lblMEETING_DATE.Text = result.MEETING_DATE == null ? string.Empty : result.STR_MEETING_DATE;
             lblMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
+            lblFORMS_OF_PAYMENT.Text = result.FORMS_OF_PAYMENT == null ? string.Empty : result.FORMS_OF_PAYMENT;
             lblINVITATIONNAME.Text = result.INVITATIONNAME == null ? string.Empty : result.INVITATIONNAME;
             lblBANNERNAME.Text = result.BANNERNAME == null ? string.Empty : result.BANNERNAME;
             lblSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
