@@ -60,10 +60,10 @@
                                 </tr>
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td align="left" class="tdmeeting2" colspan="3">Mọi thông tin liên lạc qua mail:
+                                    <td align="left" class="tdmeeting2" colspan="4">Mọi thông tin liên lạc qua mail:
                                    <asp:Label ID="lblORGANIZER_EMAIL" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    <td align="left" class="tdmeeting5" colspan="2">Số điện thoại:
+                                    <td align="left" class="tdmeeting6">Số điện thoại:
                                    <asp:Label ID="lblORGANIZER_TELEPHONE" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
                                     <td class="tdmeeting7"></td>
@@ -167,16 +167,15 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                     <asp:Label ID="lblCO_ORGANIZER_NAME_2" runat="server" CssClass="lblMeeting"></asp:Label>
 
-                                    </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    </td>                                    
+                                    <td align="left" class="tdmeeting6">Danh hiệu:
                                     <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_2" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_2" runat="server"></asp:HiddenField>
                                     </td>
-                                    <td align="left" class="tdmeeting6">&nbsp;</td>
+                                    
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -193,17 +192,17 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3">Họ tên:
+                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:Label ID="lblCO_ORGANIZER_NAME_3" runat="server" CssClass="lblMeeting"></asp:Label>
 
                                     </td>
-                                    <td class="tdmeeting4"></td>
-                                    <td align="left" class="tdmeeting5">Danh hiệu:
+                                    
+                                    <td align="left" class="tdmeeting6">Danh hiệu:
                                      <asp:Label ID="lblCO_ORGANIZER_USERTYPENAME_3" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_USERTYPEID_3" runat="server"></asp:HiddenField>
 
                                     </td>
-                                    <td align="left" class="tdmeeting6">&nbsp;</td>
+                                    
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>

@@ -126,16 +126,15 @@
                                     <asp:HiddenField ID="hdfORGANIZER_USERID" runat="server"></asp:HiddenField>
                                     &nbsp;
                                 </td>
-                                <td align="left" class="tdmeeting3">Họ tên:
+                                <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:Label ID="lblORGANIZER_NAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                 </td>
-                                <td class="tdmeeting4"></td>
-                                <td align="left" class="tdmeeting5">Danh hiệu:
+                               
+                                <td align="left" class="tdmeeting6">Danh hiệu:
                                      <asp:Label ID="lblORGANIZER_USERTYPENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
                                 </td>
-                                <td class="tdmeeting6">
-                                    &nbsp;</td>
+                               
                                 <td class="tdmeeting7"></td>
                             </tr>
                             <tr>
@@ -143,12 +142,12 @@
                             </tr>
                             <tr>
                                 <td class="tdmeeting1"></td>
-                                <td align="left" class="tdmeeting2" colspan="3">Mọi thông tin liên lạc qua mail:
+                                <td align="left" class="tdmeeting2" colspan="4">Mọi thông tin liên lạc qua mail:
                                    <asp:Label ID="lblORGANIZER_EMAIL" runat="server" CssClass="lblMeeting"></asp:Label>
-                                </td>
-                                <td align="left" class="tdmeeting5" colspan="2">Số điện thoại:
+                                    </td>
+                                    <td align="left" class="tdmeeting6">Số điện thoại:
                                    <asp:Label ID="lblORGANIZER_TELEPHONE" runat="server" CssClass="lblMeeting"></asp:Label>
-                                </td>
+                                    </td>
                                 <td class="tdmeeting7"></td>
                             </tr>
                             <tr>
