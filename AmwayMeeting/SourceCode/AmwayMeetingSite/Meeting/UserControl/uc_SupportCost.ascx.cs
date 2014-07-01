@@ -702,12 +702,18 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
                     return;
                 }
             }
-            
+            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value))
+            {
+                obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
+                obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
+            }
+            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value))
+            {
+                obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
+                obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
+            }
 
-            obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
-            obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
-            obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
-            obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
+
         }
         else
         {
