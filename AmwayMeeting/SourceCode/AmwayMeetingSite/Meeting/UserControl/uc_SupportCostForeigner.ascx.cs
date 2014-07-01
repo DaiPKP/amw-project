@@ -692,10 +692,22 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 }
             }
             //Kiem tra xem no con quota ko?
-            if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (!bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
             {
-                lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
-                return;
+                if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)))
+                {
+                    lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
+                    return;
+                }
+            }
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+            {
+
+                if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+                {
+                    lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
+                    return;
+                }
             }
             
             obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
