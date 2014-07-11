@@ -147,9 +147,19 @@
                         <asp:Label ID="lblListingPROVINCENAME" runat="server" Text='<%# Eval("PROVINCENAME") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
-                  <asp:TemplateField HeaderText="Quận huyện">
+                <asp:TemplateField HeaderText="Giờ họp">
                     <ItemTemplate>
-                        <asp:Label ID="lblListingDISTRICTNAME" runat="server" Text='<%# Eval("DISTRICTNAME") %>'></asp:Label>
+                        <asp:Label ID="lblListingGIOHOP" runat="server" Text='<%# Eval("MEETING_TIME") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                  <asp:TemplateField HeaderText="Ngày họp">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingNGAYHOP" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy}",Eval("MEETING_DATE")) %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Địa điểm họp">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingDIADIEMHOP" runat="server" Text='<%# Eval("MEETING_ADDRESS") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Tình trạng">
