@@ -451,7 +451,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
             return;
         }
-        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())) || !(CheckQuantityJoin(int.Parse(ddlPAXID.SelectedValue),txtNUMBER_OF_PARTICIPANT.Text.Trim())))
+        if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())))
         {
             lblAlerting.Text = "Bạn nhập số lượng người tham gia cuộc họp không đúng!";
             return;
