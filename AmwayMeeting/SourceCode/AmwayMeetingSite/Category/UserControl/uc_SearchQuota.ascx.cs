@@ -113,6 +113,12 @@ public partial class Category_UserControl_uc_SearchQuota : System.Web.UI.UserCon
         string strLevel = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingUserTypeName")).Text;
         string strQuota = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingQuota")).Text;
         string strUsedQuota = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingUsedQuota")).Text;
+        string strPeriodId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingPeriodId")).Text;
+        string strPaxId = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingPaxId")).Text;
+
+        // Bind len control
+        ddlPAXID.SelectedValue = strPaxId;
+        ddlPERIODID.SelectedValue = strPeriodId;
         lbUserName.Text = strDistName;
         lbUserType.Text = strLevel;
         txtQuota.Text = strQuota;
