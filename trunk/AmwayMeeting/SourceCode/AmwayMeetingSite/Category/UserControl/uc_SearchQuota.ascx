@@ -120,7 +120,17 @@
                     <ItemTemplate>
                         <asp:Label ID="lblListingUsedQuota" runat="server" Text='<%# Eval("USEDQUOTA") %>'></asp:Label>
                     </ItemTemplate>
-                </asp:TemplateField>                
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Qui Tai Chinh" Visible="false">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingPeriodId" runat="server" Text='<%# Eval("PERIODID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>      
+                 <asp:TemplateField HeaderText="Pax" Visible="false">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingPaxId" runat="server" Text='<%# Eval("PAXID") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>                  
                 <asp:TemplateField ItemStyle-HorizontalAlign="Center">
                     <ItemTemplate>
                         <asp:LinkButton ID="btnListingEdit" runat="server" Text="Chỉnh sửa" CommandName="Edit"
