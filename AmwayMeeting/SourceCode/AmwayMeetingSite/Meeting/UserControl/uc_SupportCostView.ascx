@@ -216,7 +216,7 @@
                             <table width="100%">
                                 <tr>
                                     <td colspan="6">
-                                        <b>II.	THÔNG TIN CUỘC HỌP</b><span style="color: Red"> (Là thông tin được gửi cho Sở Công thương để xin phép hội họp. Vui lòng kê khai chính xác, bằng tiếng Việt và có dấu)</span>
+                                        <b>II.	THÔNG TIN CUỘC HỌP</b><span style="color: Red"> (Là thông tin được gửi cho Sở Công Thương để xin phép hội họp. Vui lòng kê khai chính xác, bằng tiếng Việt và có dấu)</span>
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
