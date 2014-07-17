@@ -1676,3 +1676,9 @@ color: #333333;
     color:blue;
     text-decoration:none;
 }
+.lblOk
+{
+    color: #003D69;
+    font-size: 13px;
+    font-weight: bold;
+}
