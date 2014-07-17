@@ -241,7 +241,9 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
         hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
-
+        lblCO_ORGANIZER_OK_1.Text = string.Empty;
+        lblCO_ORGANIZER_OK_2.Text = string.Empty;
+        lblCO_ORGANIZER_OK_3.Text = string.Empty;
 
     }
     private void GetInvitationCBO()
@@ -746,6 +748,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     }
     protected void ImgBtnCO_ORGANIZER_ADA1_CHECK_Click(object sender, ImageClickEventArgs e)
     {
+        lblCO_ORGANIZER_OK_1.Text = string.Empty;
         lblAlerting.Text = string.Empty;
         hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
         lblCO_ORGANIZER_NAME_1.Text = string.Empty;
@@ -774,17 +777,20 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 {
                     ImgBtnCO_ORGANIZER_OK_1.Visible = true;
                     ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
+                    lblCO_ORGANIZER_OK_1.Text = "Đủ điều kiện";
                 }
                 else
                 {
                     ImgBtnCO_ORGANIZER_OK_1.Visible = false;
                     ImgBtnCO_ORGANIZER_ERROR_1.Visible = true;
+                    lblCO_ORGANIZER_OK_1.Text = "Không đủ điều kiện";
                 }
             }
         }
     }
     protected void ImgBtnCO_ORGANIZER_ADA2_CHECK_Click(object sender, ImageClickEventArgs e)
     {
+        lblCO_ORGANIZER_OK_2.Text = string.Empty;
         lblAlerting.Text = string.Empty;
         hdfCO_ORGANIZER_USERID_2.Value = string.Empty;
         lblCO_ORGANIZER_NAME_2.Text = string.Empty;
@@ -813,17 +819,20 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 {
                     ImgBtnCO_ORGANIZER_OK_2.Visible = true;
                     ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+                    lblCO_ORGANIZER_OK_2.Text = "Đủ điều kiện";
                 }
                 else
                 {
                     ImgBtnCO_ORGANIZER_OK_2.Visible = false;
                     ImgBtnCO_ORGANIZER_ERROR_2.Visible = true;
+                    lblCO_ORGANIZER_OK_2.Text = "Không đủ điều kiện";
                 }
             }
         }
     }
     protected void ImgBtnCO_ORGANIZER_ADA3_CHECK_Click(object sender, ImageClickEventArgs e)
     {
+        lblCO_ORGANIZER_OK_3.Text = string.Empty;
         lblAlerting.Text = string.Empty;
         hdfCO_ORGANIZER_USERID_3.Value = string.Empty;
         lblCO_ORGANIZER_NAME_3.Text = string.Empty;
@@ -851,11 +860,13 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 {
                     ImgBtnCO_ORGANIZER_OK_3.Visible = true;
                     ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
+                    lblCO_ORGANIZER_OK_3.Text = "Đủ điều kiện";
                 }
                 else
                 {
                     ImgBtnCO_ORGANIZER_OK_3.Visible = false;
                     ImgBtnCO_ORGANIZER_ERROR_3.Visible = true;
+                    lblCO_ORGANIZER_OK_3.Text = "Không đủ điều kiện";
                 }
             }
         }

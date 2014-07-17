@@ -242,12 +242,13 @@
                                 </td>
                                 <td align="left" class="tdmeeting6">
                                     <div id="divCO_ORGANIZER_QUOTA_1" runat="server" visible="false">
-                                        Tình trạng Quota:
+                                        Tình trạng:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_1" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                         <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_1" runat="server" Height="14px"
                                             ImageUrl="~/images/error.png" Width="14px" Visible="false"
                                             AlternateText="Quota Expire, Click Here to borrow quota !" />
+                                        <asp:Label ID="lblCO_ORGANIZER_OK_1" runat="server" CssClass="lblOk"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_QUOTA_CHECK_1" runat="server"></asp:HiddenField>
                                     </div>
                                 </td>
@@ -280,12 +281,13 @@
                                 </td>
                                 <td align="left" class="tdmeeting6">
                                     <div id="divCO_ORGANIZER_QUOTA_2" runat="server" visible="false">
-                                        Tình trạng Quota:
+                                        Tình trạng:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_2" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                         <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_2" runat="server" Height="14px"
                                             ImageUrl="~/images/error.png" Width="14px" Visible="false"
                                             AlternateText="Quota Expire, Click Here to borrow quota !" />
+                                        <asp:Label ID="lblCO_ORGANIZER_OK_2" runat="server" CssClass="lblOk"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_QUOTA_CHECK_2" runat="server"></asp:HiddenField>
                                     </div>
                                 </td>
@@ -319,12 +321,13 @@
                                 </td>
                                 <td align="left" class="tdmeeting6">
                                     <div id="divCO_ORGANIZER_QUOTA_3" runat="server" visible="false">
-                                        Tình trạng Quota:
+                                        Tình trạng:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_3" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                         <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_3" runat="server" Height="14px"
                                             ImageUrl="~/images/error.png" Width="14px" Visible="false"
                                             AlternateText="Quota Expire, Click Here to borrow quota !" />
+                                        <asp:Label ID="lblCO_ORGANIZER_OK_3" runat="server" CssClass="lblOk"></asp:Label>
                                         <asp:HiddenField ID="hdfCO_ORGANIZER_QUOTA_CHECK_3" runat="server"></asp:HiddenField>
                                     </div>
                                 </td>

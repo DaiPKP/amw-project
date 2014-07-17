@@ -101,12 +101,13 @@
                                     </td>
                                     <td align="left" class="tdmeeting6">
                                         <div id="divORGANIZER_QUOTA" runat="server" visible="false">
-                                            Tình trạng Quota:
+                                            Tình trạng:
                                       <asp:ImageButton ID="ImgBtnORGANIZER_OK" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                             <asp:ImageButton ID="ImgBtnORGANIZER_ERROR" runat="server" Height="14px"
                                                 ImageUrl="~/images/error.png" Width="14px" Visible="false"
                                                 AlternateText="Quota Expire, Click Here to borrow quota !" />
+                                            <asp:Label ID="lblORGANIZER_OK" runat="server" CssClass="lblOk"></asp:Label>
                                             <asp:HiddenField ID="hdfORGANIZER_QUOTA_CHECK" runat="server"></asp:HiddenField>
                                         </div>
                                     </td>

@@ -137,6 +137,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         ImgBtnORGANIZER_OK.Visible = false;
         ImgBtnORGANIZER_ERROR.Visible = false;
         hdfORGANIZER_QUOTA_CHECK.Value = "false";
+        lblORGANIZER_OK.Text = string.Empty;
     }
     
     protected void btnSave_Click(object sender, EventArgs e)
@@ -307,7 +308,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
     }
     public void GetInfoUserLogin(int UserID)
     {
-
+        lblORGANIZER_OK.Text = string.Empty;
         lblAlerting.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
         lblORGANIZER_NAME.Text = string.Empty;
@@ -346,11 +347,13 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
                 {
                     ImgBtnORGANIZER_OK.Visible = true;
                     ImgBtnORGANIZER_ERROR.Visible = false;
+                    lblORGANIZER_OK.Text="Đủ điều kiện";
                 }
                 else
                 {
                     ImgBtnORGANIZER_OK.Visible = false;
                     ImgBtnORGANIZER_ERROR.Visible = true;
+                    lblORGANIZER_OK.Text = "Không đủ điều kiện";
                 }
             }
         }
