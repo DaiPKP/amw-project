@@ -277,11 +277,11 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         //        return;
         //    }
         //}
-        //if (int.Parse(ddlUserType.SelectedValue) <= 0)
-        //{
-        //    lblAlerting.Text = "Bạn chưa chọn danh hiệu của người dùng!";
-        //    return;
-        //}
+        if (int.Parse(ddlUserType.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn danh hiệu của người dùng!";
+            return;
+        }
         if (int.Parse(ddlDepartment.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn nhóm người dùng!";
