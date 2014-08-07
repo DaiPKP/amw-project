@@ -183,6 +183,7 @@
                                     <asp:DropDownList ID="ddlPAXID" runat="server" Width="100px" Height="22px" CssClass="txtBox" AutoPostBack="True" OnSelectedIndexChanged="ddlPAXID_SelectedIndexChanged">
                                         <asp:ListItem Value="default" Text="100 pax" />
                                     </asp:DropDownList>
+                                            <asp:HiddenField ID="hdfPAXID_OLD" runat="server"></asp:HiddenField>
                                         </div>
                                     </td>
                                     <td align="left" class="tdmeeting3" colspan="2">Chọn tỉnh thành<span style="color: Red">(*)</span>:

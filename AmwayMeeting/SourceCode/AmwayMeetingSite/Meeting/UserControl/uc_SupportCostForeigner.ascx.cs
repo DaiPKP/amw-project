@@ -56,7 +56,8 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
                 lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
                 ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
-
+                hdfPAXID_OLD.Value = result.PAXID == null ? string.Empty : result.PAXID.ToString();
+                
                 GetProvinceCBO();
                 ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
                 GetBannerCBO();
@@ -187,6 +188,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         lblAlerting.Text = string.Empty;
         hdfReported.Value = "false";
         hdfID.Value = "-1";
+        hdfPAXID_OLD.Value = "-1";
         btnSave.Text = "Đăng ký";
         btnSave.Visible = true;
         txtORGANIZER_ADAID.ReadOnly = true;
@@ -833,9 +835,10 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
             {
                 //Neu duyet roi thì được sửa
-                if (objBO.MeetingUpdate(obj))
+                if (objBO.MeetingUpdate(obj, int.Parse(hdfPAXID_OLD.Value)))
                 {
                     lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
+                    hdfPAXID_OLD.Value = obj.PAXID.ToString();
                     return;
                 }
                 else
@@ -896,7 +899,8 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
 
             MeetingBO objBO = new MeetingBO();
             V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
-            result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_1.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
+            if (hdfPAXID_OLD.Value == null || hdfPAXID_OLD.Value.Length <= 0) hdfPAXID_OLD.Value = "-1";
+            result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_1.Text.Trim(), int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfPAXID_OLD.Value));
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_1.Value = result.USERID.ToString();
@@ -947,7 +951,8 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         {
             MeetingBO objBO = new MeetingBO();
             V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
-            result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_2.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
+            if (hdfPAXID_OLD.Value == null || hdfPAXID_OLD.Value.Length <= 0) hdfPAXID_OLD.Value = "-1";
+            result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_2.Text.Trim(), int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfPAXID_OLD.Value));
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_2.Value = result.USERID.ToString();
@@ -988,7 +993,8 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         {
             MeetingBO objBO = new MeetingBO();
             V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
-            result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_3.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
+            if (hdfPAXID_OLD.Value == null || hdfPAXID_OLD.Value.Length <= 0) hdfPAXID_OLD.Value = "-1";
+            result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_3.Text.Trim(), int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfPAXID_OLD.Value));
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_3.Value = result.USERID.ToString();

@@ -1777,64 +1777,6 @@
       <Column Name="DISTRICTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE" Method="PRC_USR_AMW_MEETING_REGISTER_UPDATE">
-    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ORGANIZER_USERID" Parameter="oRGANIZER_USERID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ORGANIZER_USERTYPEID" Parameter="oRGANIZER_USERTYPEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="ORGANIZER_ADDRESS_AUTHORIZED" Parameter="oRGANIZER_ADDRESS_AUTHORIZED" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="DISTRICTID" Parameter="dISTRICTID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MEETINGNAME" Parameter="mEETINGNAME" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="NUMBER_OF_PARTICIPANT" Parameter="nUMBER_OF_PARTICIPANT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MEETING_PLACE_NAME" Parameter="mEETING_PLACE_NAME" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="MEETING_ADDRESS" Parameter="mEETING_ADDRESS" Type="System.String" DbType="NVarChar(100)" />
-    <Parameter Name="COUNTRYNAME" Parameter="cOUNTRYNAME" Type="System.String" DbType="NVarChar(30)" />
-    <Parameter Name="MEETING_DATE" Parameter="mEETING_DATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="DEPARTURE_DATE" Parameter="dEPARTURE_DATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="ARRIVAL_DATE" Parameter="aRRIVAL_DATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="MEETING_STARTDATE" Parameter="mEETING_STARTDATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="MEETING_ENDDATE" Parameter="mEETING_ENDDATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="MEETING_TIME" Parameter="mEETING_TIME" Type="System.String" DbType="NVarChar(20)" />
-    <Parameter Name="FORMS_OF_PAYMENTID" Parameter="fORMS_OF_PAYMENTID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="INVITATIONID" Parameter="iNVITATIONID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="BANNERID" Parameter="bANNERID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SEND_INVITATION_DATE" Parameter="sEND_INVITATION_DATE" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="WATER" Parameter="wATER" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="WATER_PRICE" Parameter="wATER_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="FOOD" Parameter="fOOD" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="FOOD_PRICE" Parameter="fOOD_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="TOTAL_PAY" Parameter="tOTAL_PAY" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="AMWAY_PAY" Parameter="aMWAY_PAY" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="DISTRIBUTOR_PAY" Parameter="dISTRIBUTOR_PAY" Type="System.Decimal" DbType="Decimal(18,0)" />
-    <Parameter Name="MEETINGTYPEID" Parameter="mEETINGTYPEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="STATUS_MEETING_PAYMENTID" Parameter="sTATUS_MEETING_PAYMENTID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="STATUS_MEETING_REGISTERID" Parameter="sTATUS_MEETING_REGISTERID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FOREIGNER" Parameter="fOREIGNER" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="REPORTED" Parameter="rEPORTED" Type="System.Boolean" DbType="Bit" />
-    <Parameter Name="CO_ORGANIZER_USERID_1" Parameter="cO_ORGANIZER_USERID_1" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CO_ORGANIZER_USERTYPEID_1" Parameter="cO_ORGANIZER_USERTYPEID_1" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CO_ORGANIZER_USERID_2" Parameter="cO_ORGANIZER_USERID_2" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CO_ORGANIZER_USERTYPEID_2" Parameter="cO_ORGANIZER_USERTYPEID_2" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CO_ORGANIZER_USERID_3" Parameter="cO_ORGANIZER_USERID_3" Type="System.Int32" DbType="Int" />
-    <Parameter Name="CO_ORGANIZER_USERTYPEID_3" Parameter="cO_ORGANIZER_USERTYPEID_3" Type="System.Int32" DbType="Int" />
-    <Parameter Name="SPEAKER_ADAID_1" Parameter="sPEAKER_ADAID_1" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SPEAKER_USERTYPENAME_1" Parameter="sPEAKER_USERTYPENAME_1" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SPEAKER_NAME_1" Parameter="sPEAKER_NAME_1" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SPEAKER_TITLE_1" Parameter="sPEAKER_TITLE_1" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="SPEAKER_NATION_1" Parameter="sPEAKER_NATION_1" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SPEAKER_ADAID_2" Parameter="sPEAKER_ADAID_2" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="SPEAKER_USERTYPENAME_2" Parameter="sPEAKER_USERTYPENAME_2" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SPEAKER_NAME_2" Parameter="sPEAKER_NAME_2" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="SPEAKER_TITLE_2" Parameter="sPEAKER_TITLE_2" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="SPEAKER_NATION_2" Parameter="sPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="COMMENTS" Parameter="cOMMENTS" Type="System.String" DbType="NText" />
-    <Parameter Name="WARNING" Parameter="wARNING" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="PLACEID" Parameter="pLACEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="AGREE" Parameter="aGREE" Type="System.Boolean" DbType="Bit" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE_NOTSUPPORTCOST" Method="PRC_USR_AMW_MEETING_REGISTER_UPDATE_NOTSUPPORTCOST">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Parameter Name="ORGANIZER_USERID" Parameter="oRGANIZER_USERID" Type="System.Int32" DbType="Int" />
@@ -2198,6 +2140,7 @@
   <Function Name="dbo.V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA" Method="V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA">
     <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PAXID_OLD" Parameter="pAXID_OLD" Type="System.Int32" DbType="Int" />
     <ElementType Name="V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult">
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
@@ -2230,5 +2173,64 @@
       <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE" Method="PRC_USR_AMW_MEETING_REGISTER_UPDATE">
+    <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ORGANIZER_USERID" Parameter="oRGANIZER_USERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ORGANIZER_USERTYPEID" Parameter="oRGANIZER_USERTYPEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ORGANIZER_ADDRESS_AUTHORIZED" Parameter="oRGANIZER_ADDRESS_AUTHORIZED" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DISTRICTID" Parameter="dISTRICTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PROVINCEID" Parameter="pROVINCEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MEETINGNAME" Parameter="mEETINGNAME" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="NUMBER_OF_PARTICIPANT" Parameter="nUMBER_OF_PARTICIPANT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MEETING_PLACE_NAME" Parameter="mEETING_PLACE_NAME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="MEETING_ADDRESS" Parameter="mEETING_ADDRESS" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="COUNTRYNAME" Parameter="cOUNTRYNAME" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="MEETING_DATE" Parameter="mEETING_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="DEPARTURE_DATE" Parameter="dEPARTURE_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ARRIVAL_DATE" Parameter="aRRIVAL_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MEETING_STARTDATE" Parameter="mEETING_STARTDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MEETING_ENDDATE" Parameter="mEETING_ENDDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MEETING_TIME" Parameter="mEETING_TIME" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="FORMS_OF_PAYMENTID" Parameter="fORMS_OF_PAYMENTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="INVITATIONID" Parameter="iNVITATIONID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BANNERID" Parameter="bANNERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SEND_INVITATION_DATE" Parameter="sEND_INVITATION_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="WATER" Parameter="wATER" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="WATER_PRICE" Parameter="wATER_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="FOOD" Parameter="fOOD" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="FOOD_PRICE" Parameter="fOOD_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="TOTAL_PAY" Parameter="tOTAL_PAY" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="AMWAY_PAY" Parameter="aMWAY_PAY" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="DISTRIBUTOR_PAY" Parameter="dISTRIBUTOR_PAY" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="MEETINGTYPEID" Parameter="mEETINGTYPEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STATUS_MEETING_PAYMENTID" Parameter="sTATUS_MEETING_PAYMENTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="STATUS_MEETING_REGISTERID" Parameter="sTATUS_MEETING_REGISTERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="UPDATEUSER" Parameter="uPDATEUSER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FOREIGNER" Parameter="fOREIGNER" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="REPORTED" Parameter="rEPORTED" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="CO_ORGANIZER_USERID_1" Parameter="cO_ORGANIZER_USERID_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CO_ORGANIZER_USERTYPEID_1" Parameter="cO_ORGANIZER_USERTYPEID_1" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CO_ORGANIZER_USERID_2" Parameter="cO_ORGANIZER_USERID_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CO_ORGANIZER_USERTYPEID_2" Parameter="cO_ORGANIZER_USERTYPEID_2" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CO_ORGANIZER_USERID_3" Parameter="cO_ORGANIZER_USERID_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="CO_ORGANIZER_USERTYPEID_3" Parameter="cO_ORGANIZER_USERTYPEID_3" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SPEAKER_ADAID_1" Parameter="sPEAKER_ADAID_1" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SPEAKER_USERTYPENAME_1" Parameter="sPEAKER_USERTYPENAME_1" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SPEAKER_NAME_1" Parameter="sPEAKER_NAME_1" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SPEAKER_TITLE_1" Parameter="sPEAKER_TITLE_1" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="SPEAKER_NATION_1" Parameter="sPEAKER_NATION_1" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SPEAKER_ADAID_2" Parameter="sPEAKER_ADAID_2" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SPEAKER_USERTYPENAME_2" Parameter="sPEAKER_USERTYPENAME_2" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SPEAKER_NAME_2" Parameter="sPEAKER_NAME_2" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="SPEAKER_TITLE_2" Parameter="sPEAKER_TITLE_2" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="SPEAKER_NATION_2" Parameter="sPEAKER_NATION_2" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="COMMENTS" Parameter="cOMMENTS" Type="System.String" DbType="NText" />
+    <Parameter Name="WARNING" Parameter="wARNING" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="PLACEID" Parameter="pLACEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="AGREE" Parameter="aGREE" Type="System.Boolean" DbType="Bit" />
+    <Parameter Name="PAXID_OLD" Parameter="pAXID_OLD" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
   </Function>
 </Database>

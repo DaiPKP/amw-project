@@ -707,7 +707,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
             {
                 //Neu duyet roi thì được sửa
-                if (objBO.MeetingUpdate(obj))
+                if (objBO.MeetingUpdate_NotSupportCost(obj))
                 {
                     lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
                     return;

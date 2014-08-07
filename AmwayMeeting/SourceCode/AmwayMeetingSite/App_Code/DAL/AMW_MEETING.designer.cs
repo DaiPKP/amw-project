@@ -1012,68 +1012,6 @@ namespace DAL
 			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_SEARCHResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE")]
-		public int PRC_USR_AMW_MEETING_REGISTER_UPDATE(
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_USERID", DbType="Int")] System.Nullable<int> oRGANIZER_USERID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_USERTYPEID", DbType="Int")] System.Nullable<int> oRGANIZER_USERTYPEID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_ADDRESS_AUTHORIZED", DbType="NVarChar(500)")] string oRGANIZER_ADDRESS_AUTHORIZED, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DISTRICTID", DbType="Int")] System.Nullable<int> dISTRICTID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PROVINCEID", DbType="Int")] System.Nullable<int> pROVINCEID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGNAME", DbType="NVarChar(500)")] string mEETINGNAME, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NUMBER_OF_PARTICIPANT", DbType="Int")] System.Nullable<int> nUMBER_OF_PARTICIPANT, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_PLACE_NAME", DbType="NVarChar(100)")] string mEETING_PLACE_NAME, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_ADDRESS", DbType="NVarChar(100)")] string mEETING_ADDRESS, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="COUNTRYNAME", DbType="NVarChar(30)")] string cOUNTRYNAME, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_DATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETING_DATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DEPARTURE_DATE", DbType="DateTime")] System.Nullable<System.DateTime> dEPARTURE_DATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ARRIVAL_DATE", DbType="DateTime")] System.Nullable<System.DateTime> aRRIVAL_DATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_STARTDATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETING_STARTDATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_ENDDATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETING_ENDDATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_TIME", DbType="NVarChar(20)")] string mEETING_TIME, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FORMS_OF_PAYMENTID", DbType="Int")] System.Nullable<int> fORMS_OF_PAYMENTID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="INVITATIONID", DbType="Int")] System.Nullable<int> iNVITATIONID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BANNERID", DbType="Int")] System.Nullable<int> bANNERID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEND_INVITATION_DATE", DbType="DateTime")] System.Nullable<System.DateTime> sEND_INVITATION_DATE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WATER", DbType="Bit")] System.Nullable<bool> wATER, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WATER_PRICE", DbType="Decimal(18,0)")] System.Nullable<decimal> wATER_PRICE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOOD", DbType="Bit")] System.Nullable<bool> fOOD, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOOD_PRICE", DbType="Decimal(18,0)")] System.Nullable<decimal> fOOD_PRICE, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TOTAL_PAY", DbType="Decimal(18,0)")] System.Nullable<decimal> tOTAL_PAY, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AMWAY_PAY", DbType="Decimal(18,0)")] System.Nullable<decimal> aMWAY_PAY, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DISTRIBUTOR_PAY", DbType="Decimal(18,0)")] System.Nullable<decimal> dISTRIBUTOR_PAY, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_PAYMENTID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_PAYMENTID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UPDATEUSER", DbType="Int")] System.Nullable<int> uPDATEUSER, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOREIGNER", DbType="Bit")] System.Nullable<bool> fOREIGNER, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPORTED", DbType="Bit")] System.Nullable<bool> rEPORTED, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERID_1", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERID_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERTYPEID_1", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERTYPEID_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERID_2", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERID_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERTYPEID_2", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERTYPEID_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERID_3", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERID_3, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERTYPEID_3", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERTYPEID_3, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_ADAID_1", DbType="VarChar(50)")] string sPEAKER_ADAID_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_USERTYPENAME_1", DbType="NVarChar(50)")] string sPEAKER_USERTYPENAME_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NAME_1", DbType="NVarChar(50)")] string sPEAKER_NAME_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_TITLE_1", DbType="NVarChar(500)")] string sPEAKER_TITLE_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NATION_1", DbType="NVarChar(50)")] string sPEAKER_NATION_1, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_ADAID_2", DbType="VarChar(50)")] string sPEAKER_ADAID_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_USERTYPENAME_2", DbType="NVarChar(50)")] string sPEAKER_USERTYPENAME_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NAME_2", DbType="NVarChar(50)")] string sPEAKER_NAME_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_TITLE_2", DbType="NVarChar(500)")] string sPEAKER_TITLE_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NATION_2", DbType="NVarChar(50)")] string sPEAKER_NATION_2, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="COMMENTS", DbType="NText")] string cOMMENTS, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WARNING", DbType="NVarChar(500)")] string wARNING, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PLACEID", DbType="Int")] System.Nullable<int> pLACEID, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AGREE", DbType="Bit")] System.Nullable<bool> aGREE)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, oRGANIZER_USERID, oRGANIZER_USERTYPEID, oRGANIZER_ADDRESS_AUTHORIZED, pAXID, dISTRICTID, pROVINCEID, mEETINGNAME, nUMBER_OF_PARTICIPANT, mEETING_PLACE_NAME, mEETING_ADDRESS, cOUNTRYNAME, mEETING_DATE, dEPARTURE_DATE, aRRIVAL_DATE, mEETING_STARTDATE, mEETING_ENDDATE, mEETING_TIME, fORMS_OF_PAYMENTID, iNVITATIONID, bANNERID, sEND_INVITATION_DATE, wATER, wATER_PRICE, fOOD, fOOD_PRICE, tOTAL_PAY, aMWAY_PAY, dISTRIBUTOR_PAY, mEETINGTYPEID, sTATUS_MEETING_PAYMENTID, sTATUS_MEETING_REGISTERID, uPDATEUSER, fOREIGNER, rEPORTED, cO_ORGANIZER_USERID_1, cO_ORGANIZER_USERTYPEID_1, cO_ORGANIZER_USERID_2, cO_ORGANIZER_USERTYPEID_2, cO_ORGANIZER_USERID_3, cO_ORGANIZER_USERTYPEID_3, sPEAKER_ADAID_1, sPEAKER_USERTYPENAME_1, sPEAKER_NAME_1, sPEAKER_TITLE_1, sPEAKER_NATION_1, sPEAKER_ADAID_2, sPEAKER_USERTYPENAME_2, sPEAKER_NAME_2, sPEAKER_TITLE_2, sPEAKER_NATION_2, cOMMENTS, wARNING, pLACEID, aGREE);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE_NOTSUPPORTCOST")]
 		public int PRC_USR_AMW_MEETING_REGISTER_UPDATE_NOTSUPPORTCOST(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, 
@@ -1254,10 +1192,73 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA")]
-		public ISingleResult<V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult> V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID)
+		public ISingleResult<V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult> V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID_OLD", DbType="Int")] System.Nullable<int> pAXID_OLD)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDA, pAXID);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDA, pAXID, pAXID_OLD);
 			return ((ISingleResult<V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE")]
+		public int PRC_USR_AMW_MEETING_REGISTER_UPDATE(
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_USERID", DbType="Int")] System.Nullable<int> oRGANIZER_USERID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_USERTYPEID", DbType="Int")] System.Nullable<int> oRGANIZER_USERTYPEID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ORGANIZER_ADDRESS_AUTHORIZED", DbType="NVarChar(500)")] string oRGANIZER_ADDRESS_AUTHORIZED, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID", DbType="Int")] System.Nullable<int> pAXID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DISTRICTID", DbType="Int")] System.Nullable<int> dISTRICTID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PROVINCEID", DbType="Int")] System.Nullable<int> pROVINCEID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGNAME", DbType="NVarChar(500)")] string mEETINGNAME, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="NUMBER_OF_PARTICIPANT", DbType="Int")] System.Nullable<int> nUMBER_OF_PARTICIPANT, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_PLACE_NAME", DbType="NVarChar(100)")] string mEETING_PLACE_NAME, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_ADDRESS", DbType="NVarChar(100)")] string mEETING_ADDRESS, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="COUNTRYNAME", DbType="NVarChar(30)")] string cOUNTRYNAME, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_DATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETING_DATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DEPARTURE_DATE", DbType="DateTime")] System.Nullable<System.DateTime> dEPARTURE_DATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ARRIVAL_DATE", DbType="DateTime")] System.Nullable<System.DateTime> aRRIVAL_DATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_STARTDATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETING_STARTDATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_ENDDATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETING_ENDDATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETING_TIME", DbType="NVarChar(20)")] string mEETING_TIME, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FORMS_OF_PAYMENTID", DbType="Int")] System.Nullable<int> fORMS_OF_PAYMENTID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="INVITATIONID", DbType="Int")] System.Nullable<int> iNVITATIONID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="BANNERID", DbType="Int")] System.Nullable<int> bANNERID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SEND_INVITATION_DATE", DbType="DateTime")] System.Nullable<System.DateTime> sEND_INVITATION_DATE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WATER", DbType="Bit")] System.Nullable<bool> wATER, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WATER_PRICE", DbType="Decimal(18,0)")] System.Nullable<decimal> wATER_PRICE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOOD", DbType="Bit")] System.Nullable<bool> fOOD, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOOD_PRICE", DbType="Decimal(18,0)")] System.Nullable<decimal> fOOD_PRICE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="TOTAL_PAY", DbType="Decimal(18,0)")] System.Nullable<decimal> tOTAL_PAY, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AMWAY_PAY", DbType="Decimal(18,0)")] System.Nullable<decimal> aMWAY_PAY, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="DISTRIBUTOR_PAY", DbType="Decimal(18,0)")] System.Nullable<decimal> dISTRIBUTOR_PAY, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_PAYMENTID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_PAYMENTID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="UPDATEUSER", DbType="Int")] System.Nullable<int> uPDATEUSER, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="FOREIGNER", DbType="Bit")] System.Nullable<bool> fOREIGNER, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="REPORTED", DbType="Bit")] System.Nullable<bool> rEPORTED, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERID_1", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERID_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERTYPEID_1", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERTYPEID_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERID_2", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERID_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERTYPEID_2", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERTYPEID_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERID_3", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERID_3, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CO_ORGANIZER_USERTYPEID_3", DbType="Int")] System.Nullable<int> cO_ORGANIZER_USERTYPEID_3, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_ADAID_1", DbType="VarChar(50)")] string sPEAKER_ADAID_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_USERTYPENAME_1", DbType="NVarChar(50)")] string sPEAKER_USERTYPENAME_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NAME_1", DbType="NVarChar(50)")] string sPEAKER_NAME_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_TITLE_1", DbType="NVarChar(500)")] string sPEAKER_TITLE_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NATION_1", DbType="NVarChar(50)")] string sPEAKER_NATION_1, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_ADAID_2", DbType="VarChar(50)")] string sPEAKER_ADAID_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_USERTYPENAME_2", DbType="NVarChar(50)")] string sPEAKER_USERTYPENAME_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NAME_2", DbType="NVarChar(50)")] string sPEAKER_NAME_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_TITLE_2", DbType="NVarChar(500)")] string sPEAKER_TITLE_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="SPEAKER_NATION_2", DbType="NVarChar(50)")] string sPEAKER_NATION_2, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="COMMENTS", DbType="NText")] string cOMMENTS, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="WARNING", DbType="NVarChar(500)")] string wARNING, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PLACEID", DbType="Int")] System.Nullable<int> pLACEID, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="AGREE", DbType="Bit")] System.Nullable<bool> aGREE, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAXID_OLD", DbType="Int")] System.Nullable<int> pAXID_OLD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, oRGANIZER_USERID, oRGANIZER_USERTYPEID, oRGANIZER_ADDRESS_AUTHORIZED, pAXID, dISTRICTID, pROVINCEID, mEETINGNAME, nUMBER_OF_PARTICIPANT, mEETING_PLACE_NAME, mEETING_ADDRESS, cOUNTRYNAME, mEETING_DATE, dEPARTURE_DATE, aRRIVAL_DATE, mEETING_STARTDATE, mEETING_ENDDATE, mEETING_TIME, fORMS_OF_PAYMENTID, iNVITATIONID, bANNERID, sEND_INVITATION_DATE, wATER, wATER_PRICE, fOOD, fOOD_PRICE, tOTAL_PAY, aMWAY_PAY, dISTRIBUTOR_PAY, mEETINGTYPEID, sTATUS_MEETING_PAYMENTID, sTATUS_MEETING_REGISTERID, uPDATEUSER, fOREIGNER, rEPORTED, cO_ORGANIZER_USERID_1, cO_ORGANIZER_USERTYPEID_1, cO_ORGANIZER_USERID_2, cO_ORGANIZER_USERTYPEID_2, cO_ORGANIZER_USERID_3, cO_ORGANIZER_USERTYPEID_3, sPEAKER_ADAID_1, sPEAKER_USERTYPENAME_1, sPEAKER_NAME_1, sPEAKER_TITLE_1, sPEAKER_NATION_1, sPEAKER_ADAID_2, sPEAKER_USERTYPENAME_2, sPEAKER_NAME_2, sPEAKER_TITLE_2, sPEAKER_NATION_2, cOMMENTS, wARNING, pLACEID, aGREE, pAXID_OLD);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
