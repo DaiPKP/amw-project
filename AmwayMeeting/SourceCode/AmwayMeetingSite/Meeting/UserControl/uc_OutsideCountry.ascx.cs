@@ -208,9 +208,15 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
             lblAlerting.Text = "Bạn nhập ngày họp không đúng!";
             return;
         }
-        
-       
-        if (!CheckDateRegister(txtDEPARTURE_DATE.Text.Trim()))
+
+        if ((txtMEETING_STARTDATE.Text.Trim().Length <= 0) || (!CheckQuota(txtMEETING_STARTDATE.Text)))
+        {
+            lblAlerting.Text = "Với ngày họp này, người đăng ký không còn đủ quota. Bạn có thể xem lại ở trên!";
+            return;
+        }
+
+
+        if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
         {
            trWarning.Visible=true;
            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 30 ngày làm việc";
@@ -333,30 +339,6 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         hdfORGANIZER_QUOTA_CHECK.Value = "false";
         ImgBtnORGANIZER_OK.Visible = false;
         ImgBtnORGANIZER_ERROR.Visible = false;
-
-        if (hdfORGANIZER_USERID.Value.Trim().Length > 0)
-        {
-            MeetingBO objMeeting = new MeetingBO();
-            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult result1 = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult();
-            result1 = objMeeting.Meeting_CheckQuota_OutSide(int.Parse(hdfORGANIZER_USERID.Value), 1);
-            if (result1 != null)
-            {
-                divORGANIZER_QUOTA.Visible = true;
-                hdfORGANIZER_QUOTA_CHECK.Value = result1.ISQUOTA.ToString();
-                if (result1.ISQUOTA ?? false)
-                {
-                    ImgBtnORGANIZER_OK.Visible = true;
-                    ImgBtnORGANIZER_ERROR.Visible = false;
-                    lblORGANIZER_OK.Text="Đủ điều kiện";
-                }
-                else
-                {
-                    ImgBtnORGANIZER_OK.Visible = false;
-                    ImgBtnORGANIZER_ERROR.Visible = true;
-                    lblORGANIZER_OK.Text = "Không đủ điều kiện";
-                }
-            }
-        }
     }
     private bool CheckNumber(string strValue)
     {
@@ -398,6 +380,44 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
         {
             return false;
         }
+    }
+
+    public bool CheckQuota(string strNgayHoiHop)
+    {
+        divORGANIZER_QUOTA.Visible = false;
+        hdfORGANIZER_QUOTA_CHECK.Value = "false";
+        ImgBtnORGANIZER_OK.Visible = false;
+        ImgBtnORGANIZER_ERROR.Visible = false;
+        bool valueReturn = false;
+        DateTime NgayHoiHop = DateTime.ParseExact(strNgayHoiHop, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            
+        if (hdfORGANIZER_USERID.Value.Trim().Length > 0)
+        {
+            
+            MeetingBO objMeeting = new MeetingBO();
+            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult result1 = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult();
+            result1 = objMeeting.Meeting_CheckQuota_OutSide(int.Parse(hdfORGANIZER_USERID.Value), 1, NgayHoiHop);
+            if (result1 != null)
+            {
+                divORGANIZER_QUOTA.Visible = true;
+                hdfORGANIZER_QUOTA_CHECK.Value = result1.ISQUOTA.ToString();
+                if (result1.ISQUOTA ?? false)
+                {
+                    valueReturn = true;
+                    ImgBtnORGANIZER_OK.Visible = true;
+                    ImgBtnORGANIZER_ERROR.Visible = false;
+                    lblORGANIZER_OK.Text = "Đủ điều kiện";
+                }
+                else
+                {
+                    valueReturn = false;
+                    ImgBtnORGANIZER_OK.Visible = false;
+                    ImgBtnORGANIZER_ERROR.Visible = true;
+                    lblORGANIZER_OK.Text = "Không đủ điều kiện";
+                }
+            }
+        }
+        return valueReturn;
     }
 
 }

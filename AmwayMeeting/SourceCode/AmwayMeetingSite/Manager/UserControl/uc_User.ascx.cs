@@ -222,7 +222,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         txtFirstName.Text = strFirstName;
         txtLastName.Text = strLastName;
         txtRelativeFirstName.Text = strRelativeFirstName;
-        txtRelativeLastName.Text = strRelativeLastName;
+        txtRelativeLastName.Text = strRelativeLastName; 
         txtCode.Text = strCode;
         txtAccBank.Text = strAccBank;
         txtTelephone.Text = strTelephone;
