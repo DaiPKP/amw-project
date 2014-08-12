@@ -163,12 +163,12 @@ public class MeetingBO : AMW_MEETINGDataContext
             return null;
         }
     }
-    public V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult Meeting_CheckQuota_V2(string strADA, int paxId,int paxId_old)
+    public V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult Meeting_CheckQuota_V2(string strADA, int paxId,int paxId_old,DateTime dtMeetingDate)
     {
         try
         {
             V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
-            result = V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA(strADA, paxId, paxId_old).SingleOrDefault();
+            result = V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA(strADA, paxId, paxId_old, dtMeetingDate).SingleOrDefault();
             return result;
         }
         catch (Exception ex)
@@ -217,12 +217,12 @@ public class MeetingBO : AMW_MEETINGDataContext
     }
 
    
-    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult Meeting_CheckQuota_OutSide(int userId, int paxId)
+    public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult Meeting_CheckQuota_OutSide(int userId, int paxId,DateTime dtNgayHoiHop)
     {
         try
         {
             PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult();
-            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE(userId, paxId).SingleOrDefault();
+            result = PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE(userId, paxId, dtNgayHoiHop).SingleOrDefault();
             return result;
         }
         catch (Exception ex)

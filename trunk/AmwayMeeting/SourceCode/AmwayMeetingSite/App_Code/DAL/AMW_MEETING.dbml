@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AMW_MEETING_ONLINE" Class="AMW_MEETINGDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=14.0.24.245;Initial Catalog=AMW_MEETING_ONLINE;User ID=amw123" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AMW_MEETINGConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AMW_MEETING_PHARE2" Class="AMW_MEETINGDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=14.0.24.245;Initial Catalog=AMW_MEETING_PHARE2;User ID=amw123" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AMW_MEETINGConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.SYS_AMW_DEPARTMENT" Member="SYS_AMW_DEPARTMENTs">
     <Type Name="SYS_AMW_DEPARTMENT">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1990,42 +1990,6 @@
       <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE" Method="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE">
-    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WORKDISTRICTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
-      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WORKDISTRICTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCE" Method="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_PROVINCE">
     <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
@@ -2137,43 +2101,6 @@
       <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA" Method="V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA">
-    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PAXID_OLD" Parameter="pAXID_OLD" Type="System.Int32" DbType="Int" />
-    <ElementType Name="V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult">
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WORKDISTRICTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
-      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WORKDISTRICTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_UPDATE" Method="PRC_USR_AMW_MEETING_REGISTER_UPDATE">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
     <Parameter Name="ORGANIZER_USERID" Parameter="oRGANIZER_USERID" Type="System.Int32" DbType="Int" />
@@ -2232,5 +2159,80 @@
     <Parameter Name="AGREE" Parameter="aGREE" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="PAXID_OLD" Parameter="pAXID_OLD" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA" Method="V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA">
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PAXID_OLD" Parameter="pAXID_OLD" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MEETING_DATE" Parameter="mEETING_DATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WORKDISTRICTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKDISTRICTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE" Method="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDE">
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MEETING_DATE" Parameter="mEETING_DATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_OUTSIDEResult">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WORKDISTRICTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKDISTRICTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WORKPROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ISQUOTA" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>
