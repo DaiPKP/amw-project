@@ -211,7 +211,7 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
 
         if ((txtMEETING_STARTDATE.Text.Trim().Length <= 0) || (!CheckQuota(txtMEETING_STARTDATE.Text)))
         {
-            lblAlerting.Text = "Với ngày họp này, người đăng ký không còn đủ quota. Bạn có thể xem lại ở trên!";
+            lblAlerting.Text = "Với ngày họp này, người đăng ký không còn đủ quota";
             return;
         }
 
