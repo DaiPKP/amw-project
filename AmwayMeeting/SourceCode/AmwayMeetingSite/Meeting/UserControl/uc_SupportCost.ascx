@@ -242,7 +242,7 @@
                                     </td>
                                     <td align="left" class="tdmeeting6">
                                         <div id="divCO_ORGANIZER_QUOTA_1" runat="server" visible="false">
-                                            Tình trạng Quota:
+                                            Tình trạng:
                                       <asp:ImageButton ID="ImgBtnCO_ORGANIZER_OK_1" runat="server" Height="14px"
                                           ImageUrl="~/images/check.png" Width="14px" Visible="false" />
                                             <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_1" runat="server" Height="14px"
