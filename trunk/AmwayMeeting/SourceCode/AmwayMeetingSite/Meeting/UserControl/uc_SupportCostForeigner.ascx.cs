@@ -905,14 +905,13 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
 
             MeetingBO objBO = new MeetingBO();
             PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
-            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_3.Text.Trim());
+            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_1.Text.Trim());
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_1.Value = result.USERID.ToString();
                 lblCO_ORGANIZER_NAME_1.Text = result.FULLNAME;
                 lblCO_ORGANIZER_USERTYPENAME_1.Text = result.USERTYPENAME;
                 hdfCO_ORGANIZER_USERTYPEID_1.Value = result.USERTYPEID.ToString();
-                divCO_ORGANIZER_QUOTA_1.Visible = true;
 
                 if ((int.Parse(ddlDISTRICTID.SelectedValue) > 0) && (int.Parse(ddlPAXID.SelectedValue) > 0))
                 {
@@ -944,14 +943,13 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         {
             MeetingBO objBO = new MeetingBO();
             PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
-            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_3.Text.Trim());
+            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_2.Text.Trim());
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_2.Value = result.USERID.ToString();
                 lblCO_ORGANIZER_NAME_2.Text = result.FULLNAME;
                 lblCO_ORGANIZER_USERTYPENAME_2.Text = result.USERTYPENAME;
                 hdfCO_ORGANIZER_USERTYPEID_2.Value = result.USERTYPEID.ToString();
-                divCO_ORGANIZER_QUOTA_2.Visible = true;
             }
         }
     }
@@ -979,7 +977,6 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 lblCO_ORGANIZER_NAME_3.Text = result.FULLNAME;
                 lblCO_ORGANIZER_USERTYPENAME_3.Text = result.USERTYPENAME;
                 hdfCO_ORGANIZER_USERTYPEID_3.Value = result.USERTYPEID.ToString();
-                divCO_ORGANIZER_QUOTA_3.Visible = true;
 
             }
         }
