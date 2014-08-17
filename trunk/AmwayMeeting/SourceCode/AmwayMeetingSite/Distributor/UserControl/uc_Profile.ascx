@@ -94,6 +94,11 @@
             Width="100%" CssClass="grid" AllowPaging="True"
             PageSize="20">
             <Columns>
+                <asp:TemplateField HeaderText="Quí Tài Chính">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingPeriodName" runat="server" Text='<%# Eval("PERIODName") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="Loại hội họp">
                     <ItemTemplate>
                         <asp:Label ID="lblListingADA" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>

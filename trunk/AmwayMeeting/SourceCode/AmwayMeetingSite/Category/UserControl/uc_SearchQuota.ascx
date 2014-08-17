@@ -106,6 +106,11 @@
                         <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Quí Tài Chính">
+                    <ItemTemplate>
+                        <asp:Label ID="lblListingPeriodName" runat="server" Text='<%# Eval("PERIODName") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField> 
                 <asp:TemplateField HeaderText="Số người tham dự">
                     <ItemTemplate>
                         <asp:Label ID="lblListingPaxName" runat="server" Text='<%# Eval("PAXNAME") %>'></asp:Label>
@@ -125,7 +130,8 @@
                     <ItemTemplate>
                         <asp:Label ID="lblListingPeriodId" runat="server" Text='<%# Eval("PERIODID") %>'></asp:Label>
                     </ItemTemplate>
-                </asp:TemplateField>      
+                </asp:TemplateField>
+                     
                  <asp:TemplateField HeaderText="Pax" Visible="false">
                     <ItemTemplate>
                         <asp:Label ID="lblListingPaxId" runat="server" Text='<%# Eval("PAXID") %>'></asp:Label>
