@@ -122,7 +122,7 @@
                             <table width="100%">
                                 <tr>
                                     <td class="tdmeeting1"></td>
-                                    <td class="tdmeeting2" colspan="5">
+                                    <td class="tdmeeting2" colspan="3">
                                         <div style="margin-left: 5px;">
                                             <b>2.	Sử dụng chỉ tiêu đăng ký hội họp của:</b>
                                         </div>
@@ -144,7 +144,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
+                                    <td align="left" class="tdmeeting3">Họ tên:
                                      <asp:Label ID="lblCO_ORGANIZER_NAME_1" runat="server" CssClass="lblMeeting"></asp:Label>
 
                                     </td>                                    
@@ -167,7 +167,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
+                                    <td align="left" class="tdmeeting3">Họ tên:
                                     <asp:Label ID="lblCO_ORGANIZER_NAME_2" runat="server" CssClass="lblMeeting"></asp:Label>
 
                                     </td>                                    
@@ -192,7 +192,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td align="left" class="tdmeeting3" colspan="3">Họ tên:
+                                    <td align="left" class="tdmeeting3">Họ tên:
                                      <asp:Label ID="lblCO_ORGANIZER_NAME_3" runat="server" CssClass="lblMeeting"></asp:Label>
 
                                     </td>
@@ -604,6 +604,7 @@
                                         <div style="text-align: center;">
                                             <br />
                                             <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Duyệt đăng ký" OnClick="btnSave_Click" />
+                                            
                                         </div>
                                     </td>
                                 </tr>
@@ -615,4 +616,19 @@
             <asp:HiddenField runat="server" ID="hdfID" />
         </ContentTemplate>
     </asp:UpdatePanel>
+
+    <asp:Panel runat="server" ID="Panel3">
+                <div style="text-align: left; width: 100%">
+                    <table width="100%">
+                        <tr id="trReport" runat="server" visible="true">
+                            <td>
+                                <div style="text-align: center;">
+                                    <br />
+                                    <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Xem Báo Cáo" Visible="true" OnClick="btnReport_Click" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </asp:Panel>
 </div>

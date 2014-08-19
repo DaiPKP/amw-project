@@ -166,6 +166,8 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.We
 
             lblSPEAKER_NATION_1.Text = result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
             lblSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
+
+            btnReport.Visible = bool.Parse(result.REPORTED.ToString());
         }
 
 
@@ -203,5 +205,11 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.We
             return;
         }
 
+    }
+
+    protected void btnReport_Click(object sender, EventArgs e)
+    {
+        string strUrl = "../distributor/reportR" + hdfID.Value;
+        Response.Redirect(strUrl);
     }
 }

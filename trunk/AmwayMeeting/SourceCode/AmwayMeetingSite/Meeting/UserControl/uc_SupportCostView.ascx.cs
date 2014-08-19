@@ -163,6 +163,8 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             lblDISTRIBUTOR_PAY.Text = result.DISTRIBUTOR_PAY == null ? string.Empty : string.Format("{0:N0}", result.DISTRIBUTOR_PAY);
             ddlSTATUS_MEETING_REGISTERID.SelectedValue = result.STATUS_MEETING_REGISTERID.ToString();
             ddlSTATUS_MEETING_PAYMENTID.SelectedValue = result.STATUS_MEETING_PAYMENTID==null ? "0" : result.STATUS_MEETING_PAYMENTID.ToString();
+
+            btnReport.Visible = bool.Parse(result.REPORTED.ToString());
         }
 
 
@@ -200,5 +202,11 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             return;
         }
 
+    }
+
+    protected void btnReport_Click(object sender, EventArgs e)
+    {
+        string strUrl = "../distributor/reportR" + hdfID.Value;
+        Response.Redirect(strUrl);
     }
 }

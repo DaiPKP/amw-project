@@ -618,6 +618,7 @@
                                         <div style="text-align: center;">
                                             <br />
                                             <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Duyệt đăng ký" OnClick="btnSave_Click" />
+                                            
                                         </div>
                                     </td>
                                 </tr>
@@ -723,4 +724,18 @@
             <asp:HiddenField runat="server" ID="hdfID" />
         </ContentTemplate>
     </asp:UpdatePanel>
+    <asp:Panel runat="server" ID="Panel4">
+                <div style="text-align: left; width: 100%">
+                    <table width="100%">
+                        <tr id="trReport" runat="server" visible="true">
+                            <td>
+                                <div style="text-align: center;">
+                                    <br />
+                                    <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Xem Báo Cáo" Visible="true" OnClick="btnReport_Click" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </asp:Panel>
 </div>
