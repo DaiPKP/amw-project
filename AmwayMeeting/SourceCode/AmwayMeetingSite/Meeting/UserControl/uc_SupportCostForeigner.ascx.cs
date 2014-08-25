@@ -634,7 +634,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             else
             {
                 trWarning.Visible = true;
-                obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày làm việc";
+                obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 30 ngày làm việc";
             }
 
         }
