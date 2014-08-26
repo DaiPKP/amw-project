@@ -824,6 +824,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             hdfID.Value = objBO.MeetingInsert(obj).ToString();
             if (int.Parse(hdfID.Value) > 0)
             {
+                hdfPAXID_OLD.Value = obj.PAXID.ToString();
                 btnSave.Text = "Cập nhật";
                 lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
                 return;
