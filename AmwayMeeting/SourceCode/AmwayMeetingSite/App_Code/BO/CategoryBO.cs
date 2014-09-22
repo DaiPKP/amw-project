@@ -647,6 +647,164 @@ public class CategoryBO : AMW_MEETINGDataContext
         {
             return "Cập nhật thất bại";
         }
-        
+
     }
+    #region UserType_Enhance
+    public int UserType_EnhanceInsert(SYS_AMW_USERTYPE_ENHANCE obj)
+    {
+        try
+        {
+            return PRC_SYS_AMW_USERTYPE_ENHANCE_INSERT(obj.USERTYPEID,obj.USERTYPE_ENHANCENAME, obj.DESCRIPTION, obj.ACTIVE, obj.CREATEUSER);
+
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    public bool UserType_EnhanceUpdate(SYS_AMW_USERTYPE_ENHANCE obj)
+    {
+        try
+        {
+
+            int result = PRC_SYS_AMW_USERTYPE_ENHANCE_UPDATE(obj.ID, obj.USERTYPEID, obj.USERTYPE_ENHANCENAME, obj.DESCRIPTION, obj.ACTIVE, obj.UPDATEUSER);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public List<PRC_SYS_AMW_USERTYPE_ENHANCE_CBOResult> UserType_EnhanceGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_ENHANCE_CBOResult> result = new List<PRC_SYS_AMW_USERTYPE_ENHANCE_CBOResult>();
+            result = PRC_SYS_AMW_USERTYPE_ENHANCE_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult> UserType_EnhanceGet_UserTypeIdCBO(int UserTypeId)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult> result = new List<PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult>();
+            result = PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEID(UserTypeId).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBYIDResult> UserType_EnhanceGetListByID(int ID)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBYID(ID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult> UserType_Enhance_Get_Search(SYS_AMW_USERTYPE_ENHANCE obj)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult> result = new List<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult>();
+            result = PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH(obj.USERTYPEID, obj.USERTYPE_ENHANCENAME, obj.DESCRIPTION, obj.ACTIVE).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    #endregion
+    #region User_system
+    public int User_SystemInsert(SYS_AMW_USER_SYSTEM obj)
+    {
+        try
+        {
+            return PRC_SYS_AMW_USER_SYSTEM_INSERT(obj.USERSYSTEMNAME, obj.DESCRIPTION, obj.ACTIVE, obj.CREATEUSER);
+
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    public bool User_SystemUpdate(SYS_AMW_USER_SYSTEM obj)
+    {
+        try
+        {
+
+            int result = PRC_SYS_AMW_USER_SYSTEM_UPDATE(obj.ID, obj.USERSYSTEMNAME, obj.DESCRIPTION, obj.ACTIVE, obj.UPDATEUSER);
+            if (result == 1)
+                return true;
+            else
+                return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    public List<PRC_SYS_AMW_USER_SYSTEM_GETLISTBYIDResult> User_SystemGetListByID(int ID)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USER_SYSTEM_GETLISTBYIDResult> result = new List<PRC_SYS_AMW_USER_SYSTEM_GETLISTBYIDResult>();
+            result = PRC_SYS_AMW_USER_SYSTEM_GETLISTBYID(ID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    public List<PRC_SYS_AMW_USER_SYSTEM_CBOResult> User_SystemGet_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USER_SYSTEM_CBOResult> result = new List<PRC_SYS_AMW_USER_SYSTEM_CBOResult>();
+            result = PRC_SYS_AMW_USER_SYSTEM_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_SYS_AMW_USER_SYSTEM_SEARCHResult> User_SystemGet_Search(SYS_AMW_USER_SYSTEM obj)
+    {
+        try
+        {
+            List<PRC_SYS_AMW_USER_SYSTEM_SEARCHResult> result = new List<PRC_SYS_AMW_USER_SYSTEM_SEARCHResult>();
+            result = PRC_SYS_AMW_USER_SYSTEM_SEARCH(obj.USERSYSTEMNAME, obj.DESCRIPTION, obj.ACTIVE).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+    #endregion
 }
