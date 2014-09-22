@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Data;
 
 public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserControl
 {
@@ -1099,5 +1100,50 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
         txtMEETING_STARTDATE.Enabled = bolValue;
         txtMEETING_ENDDATE.Enabled = bolValue;
+    }
+    protected void btnXuatUyQuyen_Click(object sender, EventArgs e)
+    {
+        Export export = new Export();
+        DataTable dTable = new DataTable();
+
+        DataColumn column = new DataColumn();
+        column.DataType = System.Type.GetType("System.String");
+        column.ColumnName = "NEWVALUE";
+        dTable.Columns.Add(column);
+
+        DataRow row0 = dTable.NewRow();
+        row0["NEWVALUE"] = hdfID.Value + "/ SA/ " + DateTime.Now.Year.ToString();
+        dTable.Rows.Add(row0);
+        DataRow row1 = dTable.NewRow();
+        row1["NEWVALUE"] = DateTime.Now.Day >= 10 ? DateTime.Now.Day.ToString() : "0" + DateTime.Now.Day.ToString();
+        dTable.Rows.Add(row1);
+        DataRow row2 = dTable.NewRow();
+        row2["NEWVALUE"] = DateTime.Now.Month >= 10 ? DateTime.Now.Month.ToString() : "0" + DateTime.Now.Month.ToString();
+        dTable.Rows.Add(row2);
+        DataRow row3 = dTable.NewRow();
+        row3["NEWVALUE"] = DateTime.Now.Year.ToString();
+        dTable.Rows.Add(row3);
+        DataRow row4 = dTable.NewRow();
+        row4["NEWVALUE"] = lblCO_ORGANIZER_NAME_1.Text;
+        dTable.Rows.Add(row4);
+        DataRow row5 = dTable.NewRow();
+        row5["NEWVALUE"] = txtCO_ORGANIZER_ADAID_1.Text;
+        dTable.Rows.Add(row5);
+        DataRow row6 = dTable.NewRow();
+        row6["NEWVALUE"] = txtMEETING_ADDRESS.Text;
+        dTable.Rows.Add(row6);
+        DataRow row7 = dTable.NewRow();
+        row7["NEWVALUE"] = txtMEETING_TIME.Text;
+        dTable.Rows.Add(row7);
+        DataRow row8 = dTable.NewRow();
+        row8["NEWVALUE"] = txtNUMBER_OF_PARTICIPANT.Text;
+        dTable.Rows.Add(row8);
+        DataRow row9 = dTable.NewRow();
+        row9["NEWVALUE"] = "01/01/" + DateTime.Now.Year.ToString();
+        dTable.Rows.Add(row9);
+        DataRow row10 = dTable.NewRow();
+        row9["NEWVALUE"] = "31/12/" + DateTime.Now.Year.ToString();
+        dTable.Rows.Add(row10);
+        export.ExportWord(MapPath("~/Template/Word/UQ_KHTCP.doc"), dTable, "_UQ_KHTCP.doc");
     }
 }

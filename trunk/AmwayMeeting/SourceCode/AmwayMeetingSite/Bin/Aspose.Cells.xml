@@ -1268,27 +1268,27 @@
           </tr>
           <tr>
             <td width="33%">37</td>
-            <td width="33%">Usering</td>
+            <td width="33%">Accounting</td>
             <td width="33%">#,##0;-#,##0</td>
           </tr>
           <tr>
             <td width="33%">38</td>
-            <td width="33%">Usering</td>
+            <td width="33%">Accounting</td>
             <td width="33%">#,##0;[Red]-#,##0</td>
           </tr>
           <tr>
             <td width="33%">39</td>
-            <td width="33%">Usering</td>
+            <td width="33%">Accounting</td>
             <td width="33%">#,##0.00;-#,##0.00</td>
           </tr>
           <tr>
             <td width="33%">40</td>
-            <td width="33%">Usering</td>
+            <td width="33%">Accounting</td>
             <td width="33%">#,##0.00;[Red]-#,##0.00</td>
           </tr>
           <tr>
             <td width="33%">41</td>
-            <td width="33%">Usering</td>
+            <td width="33%">Accounting</td>
             <td width="33%">_ * #,##0_ ;_ * -#,##0_ ;_ * "-"_ ;_ @_</td>
           </tr>
           <tr>
@@ -1298,7 +1298,7 @@
           </tr>
           <tr>
             <td width="33%">43</td>
-            <td width="33%">Usering</td>
+            <td width="33%">Accounting</td>
             <td width="33%">_ * #,##0.00_ ;_ * -#,##0.00_ ;_ * "-"??_ ;_ @_</td>
           </tr>
           <tr>
@@ -14638,7 +14638,7 @@
             Enumerates the font underline types.
             </summary>
     </member>
-    <member name="F:Aspose.Cells.FontUnderlineType.Usering">
+    <member name="F:Aspose.Cells.FontUnderlineType.Accounting">
       <summary>
             Represents single accounting underline.
             </summary>
@@ -14648,7 +14648,7 @@
             Represents double underline.
             </summary>
     </member>
-    <member name="F:Aspose.Cells.FontUnderlineType.DoubleUsering">
+    <member name="F:Aspose.Cells.FontUnderlineType.DoubleAccounting">
       <summary>
             Represents double accounting underline.
             </summary>

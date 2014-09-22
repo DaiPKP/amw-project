@@ -36,9 +36,11 @@ public class General
     public static void SetLicenseForAspose()
     {
         Aspose.Cells.License licCell = new Aspose.Cells.License();
+        Aspose.Words.License licWord = new Aspose.Words.License();
         try
         {
             licCell.SetLicense("Aspose.Cells.lic");
+            licWord.SetLicense("Aspose.Words.lic");
         }
         catch (Exception ex)
         {

@@ -655,6 +655,8 @@
                                         <div style="text-align: center;">
                                             <br />
                                             <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
                                         </div>
                                     </td>
                                 </tr>

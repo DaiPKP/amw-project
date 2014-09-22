@@ -36,6 +36,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.DEPARTMENTID = 0;
         objUser.WORKDISTRICTID = 0;
         objUser.WORKPROVINCEID = 0;
+        objUser.USER_SYSTEMID = 0;
+        objUser.USERTYPE_ENHANCEID = 0;
         objUser.DESCRIPTION = string.Empty;
         objUser.ACTIVE = chkActive.Checked;
         DisplayUsersInGrid(objUser);
@@ -47,6 +49,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         GetUserTypeBO();
         GetProvinceCBO();
         GetDistrictCBO(0);
+        GetUserSystemCBO();
+        GetUserTypeEnhanceCBO(0);
         hdfUserID.Value = "-1";
         txtADA.Text = string.Empty;
         txtFirstName.Text = string.Empty;
@@ -63,6 +67,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         ddlUserType.SelectedValue = "0";
         ddlWorkDistrict.SelectedValue = "0";
         ddlWorkProvince.SelectedValue = "0";
+        ddlUserType_Enhance.SelectedValue = "0";
+        ddlSystem.SelectedValue = "0";
         txtDescription.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
@@ -149,6 +155,28 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         {
         }
     }
+    private void GetUserSystemCBO()
+    {
+        try
+        {
+            CategoryBO catebo = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_USER_SYSTEM_CBOResult> lst = new List<DAL.PRC_SYS_AMW_USER_SYSTEM_CBOResult>();
+            lst = catebo.User_SystemGet_CBO();
+            if (lst != null)
+            {
+                ddlSystem.DataSource = lst;
+                ddlSystem.DataTextField = "USERSYSTEMNAME";
+                ddlSystem.DataValueField = "ID";
+                ddlSystem.DataBind();
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlSystem.Items.Insert(0, lstParent);
+                ddlSystem.SelectedIndex = ddlSystem.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
 
     private void GetDistrictCBO(int provinceId)
     {
@@ -185,6 +213,40 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         }
     }
 
+    private void GetUserTypeEnhanceCBO(int UserTypeId)
+    {
+        try
+        {
+            if (UserTypeId > 0)
+            {
+                CategoryBO catebo = new CategoryBO();
+                List<DAL.PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult> lst = new List<DAL.PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult>();
+                lst = catebo.UserType_EnhanceGet_UserTypeIdCBO(UserTypeId).ToList();
+                if (lst != null)
+                {
+
+                    ListItem lstParent = new ListItem("--Chọn--", "0");
+                    ddlUserType_Enhance.DataSource = lst;
+                    ddlUserType_Enhance.DataTextField = "USERTYPE_ENHANCENAME";
+                    ddlUserType_Enhance.DataValueField = "ID";
+                    ddlUserType_Enhance.DataBind();
+
+                    ddlUserType_Enhance.Items.Insert(0, lstParent);
+                    ddlUserType_Enhance.SelectedIndex = ddlUserType_Enhance.Items.IndexOf(lstParent);
+                }
+            }
+            else
+            {
+                List<DAL.PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult> lst = new List<DAL.PRC_SYS_AMW_USERTYPE_ENHANCE_GETLISTBY_USERTYPEIDResult>();
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlUserType_Enhance.Items.Add(lstParent);
+                ddlUserType_Enhance.SelectedIndex = ddlUserType_Enhance.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
 
     protected void btnSearch_Click(object sender, EventArgs e)
     {
@@ -213,6 +275,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         string strUserType = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUserTypeId")).Text;
         string strWorkDistrict = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingWorkDistrictId")).Text;
         string strWorkProvince = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingWorkProvinceId")).Text;
+        string strUser_System = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUser_System")).Text;
+        string strUserType_Enhance = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUserType_EnhanceId")).Text;
         bool Active = bool.Parse(((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
         string strDescription = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
 
@@ -230,10 +294,13 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         txtEmail.Text = strEmail;
         txtAddress.Text = strAddress;
         ddlDepartment.SelectedValue = strDepartment;
-        ddlUserType.SelectedValue = strUserType;
+        ddlSystem.SelectedValue = strUser_System;
         ddlWorkProvince.SelectedValue = strWorkProvince;
         GetDistrictCBO(int.Parse( strWorkProvince));
         ddlWorkDistrict.SelectedValue = strWorkDistrict;
+        ddlUserType.SelectedValue = strUserType;
+        GetUserTypeEnhanceCBO(int.Parse(strUserType));
+        ddlUserType_Enhance.SelectedValue = strUserType_Enhance;
         chkActive.Checked = Active;
         txtDescription.Text = strDescription;
 
@@ -279,7 +346,17 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         //}
         if (int.Parse(ddlUserType.SelectedValue) <= 0)
         {
+            lblAlerting.Text = "Bạn chưa chọn nhóm danh hiệu của người dùng!";
+            return;
+        }
+        if (int.Parse(ddlUserType_Enhance.SelectedValue) <= 0)
+        {
             lblAlerting.Text = "Bạn chưa chọn danh hiệu của người dùng!";
+            return;
+        }
+        if (int.Parse(ddlSystem.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn hệ thống của người dùng!";
             return;
         }
         if (int.Parse(ddlDepartment.SelectedValue) <= 0)
@@ -318,6 +395,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
         objUser.WORKDISTRICTID = int.Parse(ddlWorkDistrict.SelectedValue);
         objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
+        objUser.USER_SYSTEMID = int.Parse(ddlSystem.SelectedValue);
+        objUser.USERTYPE_ENHANCEID = int.Parse(ddlUserType_Enhance.SelectedValue);
 
         objUser.CREATEUSER = int.Parse(Session["UserID"].ToString());
         objUser.UPDATEUSER = int.Parse(Session["UserID"].ToString());
@@ -371,6 +450,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
         objUser.WORKDISTRICTID = int.Parse(ddlWorkDistrict.SelectedValue);
         objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
+        objUser.USERTYPE_ENHANCEID = int.Parse(ddlUserType_Enhance.SelectedValue);
+        objUser.USER_SYSTEMID = int.Parse(ddlSystem.SelectedValue);
         objUser.ACTIVE = chkActive.Checked;
         DisplayUsersInGrid(objUser);
     }
@@ -405,5 +486,9 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
     protected void ddlWorkProvince_SelectedIndexChanged(object sender, EventArgs e)
     {
         GetDistrictCBO(int.Parse(ddlWorkProvince.SelectedValue));
+    }
+    protected void ddlUserType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GetUserTypeEnhanceCBO(int.Parse(ddlUserType.SelectedValue));
     }
 }

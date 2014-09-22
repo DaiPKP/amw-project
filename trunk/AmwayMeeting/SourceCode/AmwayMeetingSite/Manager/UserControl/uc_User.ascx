@@ -140,10 +140,30 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Danh hiệu<span style="color: Red">(*)</span>:
+                                <td align="left" class="tdsearch2">Nhóm danh hiệu<span style="color: Red">(*)</span>:
                                 </td>
                                 <td align="left" class="tdsearch3">
-                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="101%">
+                                    <asp:DropDownList ID="ddlUserType" CssClass="txtBox" runat="server" Width="101%" AutoPostBack="True" OnSelectedIndexChanged="ddlUserType_SelectedIndexChanged">
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">Danh hiệu<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch6">
+                                    <asp:DropDownList ID="ddlUserType_Enhance" CssClass="txtBox" runat="server" Width="101%">
+                                    </asp:DropDownList>
+                                </td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                            <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2">Hệ thống<span style="color: Red">(*)</span>:
+                                </td>
+                                <td align="left" class="tdsearch3">
+                                    <asp:DropDownList ID="ddlSystem" CssClass="txtBox" runat="server" Width="101%">
                                     </asp:DropDownList>
                                 </td>
                                 <td class="tdsearch4"></td>
@@ -226,7 +246,7 @@
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Danh hiệu">
                             <ItemTemplate>
-                                <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
+                                <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("DANHHIEU") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                          <asp:TemplateField HeaderText="Nhóm người dùng">
@@ -294,9 +314,19 @@
                                 <asp:Label ID="lblListingActive" runat="server" Text='<%# Eval("Active") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
-                         <asp:TemplateField HeaderText="Mã số Danh Hiệu " Visible="false">
+                         <asp:TemplateField HeaderText="Mã số Nhóm Danh Hiệu " Visible="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingUserTypeId" runat="server" Text='<%# Eval("USERTYPEID") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Mã số Danh Hiệu " Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingUserType_EnhanceId" runat="server" Text='<%# Eval("USERTYPE_ENHANCEID") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                         <asp:TemplateField HeaderText="Mã số Hệ Thống " Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingUser_System" runat="server" Text='<%# Eval("USER_SYSTEMID") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Mã số nhóm" Visible="false">
