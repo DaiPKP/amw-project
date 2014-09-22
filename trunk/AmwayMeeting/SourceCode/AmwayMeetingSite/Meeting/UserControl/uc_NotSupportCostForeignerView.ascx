@@ -682,7 +682,7 @@
                                 <div style="text-align: center;">
                                     <br />
                                     <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <asp:Button CssClass="btn_admin" ID="btnDuyetDangKy" runat="server" Text="Duyệt đăng ký" OnClick="btnDuyetDangKy_Click" />
+                                    <asp:Button CssClass="btn_admin" ID="btnDuyetDangKy" runat="server" Text="Duyệt đăng ký" OnClick="btnDuyetDangKy_Click" />
 
                                 </div>
                             </td>
@@ -701,7 +701,6 @@
                         <tr id="trReport" runat="server" visible="false">
                             <td>
                                 <div style="text-align: center;">
-                                    <br />
                                     <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
 
                                 </div>

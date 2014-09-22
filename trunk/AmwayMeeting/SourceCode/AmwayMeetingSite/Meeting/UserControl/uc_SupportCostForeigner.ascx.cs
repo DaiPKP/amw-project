@@ -134,6 +134,15 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 {
                     btnSave.Visible = true;
                 }
+                if (result.STATUS_MEETING_REGISTERID == 2)
+                {
+                    trReport.Visible = true;
+
+                }
+                else
+                {
+                    trReport.Visible = false;
+                }
                 if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0)
                 {
                     divCO_ORGANIZER_QUOTA_1.Visible = true;
@@ -271,10 +280,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
     private void SetEnable(bool bolValue)
     {
 
-        trSave.Visible = bolValue;
-        btnSave.Visible = bolValue;
-        trReport.Visible = !bolValue;
-        btnReport.Visible = !bolValue;
+        
         txtORGANIZER_ADAID.Enabled = bolValue;
 
         ddlPAXID.Enabled = bolValue;

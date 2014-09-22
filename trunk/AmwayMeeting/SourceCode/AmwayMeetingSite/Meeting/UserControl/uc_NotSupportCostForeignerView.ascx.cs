@@ -109,7 +109,15 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerView : System
             {
                 trWarning.Visible = false;
             }
+            if (result.STATUS_MEETING_REGISTERID == 2)
+            {
+                trReport.Visible = true;
 
+            }
+            else
+            {
+                trReport.Visible = false;
+            }
             if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0)
             {
                 divCO_ORGANIZER_QUOTA_1.Visible = true;
@@ -1151,6 +1159,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerView : System
         if (objBO.MeetingUpdateApproval(obj))
         {
             lblAlerting.Text = "Anh/Chị đã duyệt đăng ký thành công!";
+            LoadData(obj.ID);
             return;
         }
         else
