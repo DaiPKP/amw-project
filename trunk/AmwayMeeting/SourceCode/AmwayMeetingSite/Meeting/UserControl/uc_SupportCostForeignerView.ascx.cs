@@ -1527,19 +1527,10 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.We
             return;
         }
     }
-    private void RedirectTo(string url)
-    {
-
-        string redirectURL = Page.ResolveClientUrl(url);
-
-        string script = "window.location = '" + redirectURL + "';";
-
-        ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
-
-    }
     protected void btnReport_Click(object sender, EventArgs e)
     {
-        RedirectTo("../distributor/reportR" + hdfID.Value);
+        string strUrl = "../distributor/reportR" + hdfID.Value;
+        Response.Redirect(strUrl);
     }
 
 }

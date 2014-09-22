@@ -296,7 +296,8 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         ddlINVITATIONID.Enabled = bolValue;
         ddlBANNERID.Enabled = bolValue;
         txtSEND_INVITATION_DATE.Enabled = bolValue;
-
+        ddlFOOD.Enabled = bolValue;
+        ddlWATER.Enabled= bolValue;
         txtWATER_PRICE.Enabled = bolValue;
         txtFOOD_PRICE.Enabled = bolValue;
 
