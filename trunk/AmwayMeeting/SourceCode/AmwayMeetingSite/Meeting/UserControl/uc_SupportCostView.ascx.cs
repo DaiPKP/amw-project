@@ -113,8 +113,16 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
             ddlSTATUS_MEETING_REGISTERID.SelectedValue = result.STATUS_MEETING_REGISTERID.ToString();
             ddlSTATUS_MEETING_PAYMENTID.SelectedValue = result.STATUS_MEETING_PAYMENTID == null ? "0" : result.STATUS_MEETING_PAYMENTID.ToString();
-            btnReport.Enabled = bool.Parse(result.REPORTED.ToString());
+            btnReport.Visible = bool.Parse(result.REPORTED.ToString());
 
+            if (result.STATUS_MEETING_REGISTERID==2)
+            {
+                trReport.Visible = true;
+            }
+            else
+            {
+                trReport.Visible = false;
+            }
             if (lblWarning.Text.Length > 0)
             {
                 trWarning.Visible = true;
@@ -123,7 +131,6 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             {
                 trWarning.Visible = false;
             }
-
             if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0)
             {
                 divCO_ORGANIZER_QUOTA_1.Visible = true;
@@ -250,6 +257,8 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
 
         btnSave.Enabled = bolValue;
         btnReport.Enabled = bolValue;
+        trReport.Visible = bolValue;
+        trSave.Visible = bolValue;
         txtORGANIZER_ADAID.Enabled = bolValue;
 
         ddlPAXID.Enabled = bolValue;
@@ -1507,7 +1516,7 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
                 objBO.MeetingUpdateStatusPayment(obj);
             }
             lblAlerting.Text = "Anh/Chị đã duyệt đăng ký thành công!";
-
+            LoadData(obj.ID);
             return;
         }
         else
@@ -1516,18 +1525,9 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             return;
         }
     }
-    private void RedirectTo(string url)
-    {
-
-        string redirectURL = Page.ResolveClientUrl(url);
-
-        string script = "window.location = '" + redirectURL + "';";
-
-        ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
-
-    } 
     protected void btnReport_Click(object sender, EventArgs e)
     {
-        RedirectTo("../distributor/reportR" + hdfID.Value);
+        string strUrl = "../distributor/reportR" + hdfID.Value;
+        Response.Redirect(strUrl);
     }
 }

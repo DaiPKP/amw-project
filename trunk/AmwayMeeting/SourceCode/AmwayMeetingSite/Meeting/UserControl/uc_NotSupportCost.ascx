@@ -55,16 +55,18 @@
             return;
         }
     </script>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <ContentTemplate>
-            <script>
-                var prm = Sys.WebForms.PageRequestManager.getInstance();
-                prm.add_endRequest(function () {
-                    BindEvents();
-                });
+    <asp:Panel runat="server" ID="hehe">
+        <fieldset>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <script>
+                        var prm = Sys.WebForms.PageRequestManager.getInstance();
+                        prm.add_endRequest(function () {
+                            BindEvents();
+                        });
 
-                $(function () {
-                    var objTuNgay = document.getElementById("<%=txtMEETING_STARTDATE.ClientID %>");
+                        $(function () {
+                            var objTuNgay = document.getElementById("<%=txtMEETING_STARTDATE.ClientID %>");
                     var objDenNgay = document.getElementById("<%=txtMEETING_ENDDATE.ClientID %>");
                     var objSend = document.getElementById("<%=txtSEND_INVITATION_DATE.ClientID %>");
                     $(objTuNgay).datepicker({
@@ -84,9 +86,8 @@
                        buttonImageOnly: true
                    });
                 });
-            </script>
-            <asp:Panel runat="server" ID="hehe">
-                <fieldset>
+                    </script>
+
                     <asp:Panel runat="server" ID="pnlSearch">
                         <div style="text-align: left; width: 100%">
                             <table width="100%">
@@ -96,7 +97,7 @@
                                     </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
-                                 <tr>
+                                <tr>
                                     <td class="tdmeeting1"></td>
                                     <td class="tdmeeting2"></td>
                                     <td class="tdmeeting3"></td>
@@ -118,11 +119,11 @@
                                     <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:Label ID="lblORGANIZER_NAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                     </td>
-                                    
+
                                     <td align="left" class="tdmeeting6">Danh hiệu:
                                      <asp:Label ID="lblORGANIZER_USERTYPENAME" runat="server" CssClass="lblMeeting"></asp:Label>
                                         <asp:HiddenField ID="hdfORGANIZER_USERTYPEID" runat="server"></asp:HiddenField>
-                                    </td>                                    
+                                    </td>
                                     <td class="tdmeeting7"></td>
                                 </tr>
                                 <tr>
@@ -333,7 +334,7 @@
                                             <asp:ImageButton ID="ImgBtnCO_ORGANIZER_ERROR_3" runat="server" Height="14px"
                                                 ImageUrl="~/images/error.png" Width="14px" Visible="false"
                                                 AlternateText="Quota Expire, Click Here to borrow quota !" />
-                                             <asp:Label ID="lblCO_ORGANIZER_OK_3" runat="server" CssClass="lblOk"></asp:Label>
+                                            <asp:Label ID="lblCO_ORGANIZER_OK_3" runat="server" CssClass="lblOk"></asp:Label>
                                             <asp:HiddenField ID="hdfCO_ORGANIZER_QUOTA_CHECK_3" runat="server"></asp:HiddenField>
                                         </div>
                                     </td>
@@ -571,7 +572,7 @@
                                     </td>
                                     <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:TextBox ID="txtSPEAKER_NAME_1" CssClass="txtBox" runat="server" Width="180px"></asp:TextBox>
-                                    </td>                                    
+                                    </td>
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
@@ -604,7 +605,7 @@
                                     </td>
                                     <td align="left" class="tdmeeting3" colspan="3">Họ tên:
                                      <asp:TextBox ID="txtSPEAKER_NAME_2" CssClass="txtBox" runat="server" Width="180px"></asp:TextBox>
-                                    </td>                                    
+                                    </td>
                                     <td align="left" class="tdmeeting6">
                                         <div style="float: right; margin-right: 4px">
                                             Danh hiệu:
@@ -645,8 +646,7 @@
                                     <td colspan="7">
                                         <div style="text-align: center;">
                                             <br />
-                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
+                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
 
                                         </div>
                                     </td>
@@ -654,10 +654,26 @@
                             </table>
                         </div>
                     </asp:Panel>
-                </fieldset>
+                    <asp:HiddenField runat="server" ID="hdfID" />
+                    <asp:HiddenField runat="server" ID="hdfReported" />
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:Panel runat="server" ID="Panel4">
+                <div style="text-align: left; width: 100%">
+                    <table width="100%">
+                        <tr id="trReport" runat="server" visible="false">
+                            <td>
+                                <div style="text-align: center;">
+                                    <br />
+                                    <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </asp:Panel>
-            <asp:HiddenField runat="server" ID="hdfID" />
-            <asp:HiddenField runat="server" ID="hdfReported" />
-        </ContentTemplate>
-    </asp:UpdatePanel>
+
+        </fieldset>
+    </asp:Panel>
 </div>
