@@ -1151,7 +1151,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         row9["NEWVALUE"] = txtMEETING_STARTDATE.Text;
         dTable.Rows.Add(row9);
         DataRow row10 = dTable.NewRow();
-        row9["NEWVALUE"] = txtMEETING_ENDDATE.Text;
+        row10["NEWVALUE"] = txtMEETING_ENDDATE.Text;
         dTable.Rows.Add(row10);
         export.ExportWord(MapPath("~/Template/Word/UQ_KHTCP.doc"), dTable, "_UQ_KHTCP.doc");
     }
