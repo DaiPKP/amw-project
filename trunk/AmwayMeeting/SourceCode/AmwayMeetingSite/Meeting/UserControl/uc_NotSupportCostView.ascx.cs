@@ -204,8 +204,6 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
         ddlINVITATIONID.SelectedIndex = 0;
         ddlBANNERID.SelectedIndex = 0;
         txtSEND_INVITATION_DATE.Text = string.Empty;
-        ddlFOOD.Enabled = bolValue;
-        ddlWATER.Enabled = bolValue;
         txtWATER_PRICE.Text = string.Empty;
         txtFOOD_PRICE.Text = string.Empty;
 
