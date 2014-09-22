@@ -732,7 +732,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr id="trSave" runat="server" visible="false">
+                                <tr id="trSave" runat="server">
                                     <td colspan="7">
                                         <div style="text-align: center;">
                                             <br />
