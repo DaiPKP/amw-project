@@ -1136,7 +1136,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         row7["NEWVALUE"] = txtMEETING_TIME.Text;
         dTable.Rows.Add(row7);
         DataRow row8 = dTable.NewRow();
-        row8["NEWVALUE"] = txtNUMBER_OF_PARTICIPANT.Text;
+        row8["NEWVALUE"] = string.Format("{0:N0}", txtNUMBER_OF_PARTICIPANT.Text);
         dTable.Rows.Add(row8);
         DataRow row9 = dTable.NewRow();
         row9["NEWVALUE"] = "01/01/" + DateTime.Now.Year.ToString();

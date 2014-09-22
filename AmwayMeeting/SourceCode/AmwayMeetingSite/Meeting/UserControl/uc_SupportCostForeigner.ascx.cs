@@ -1463,7 +1463,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         row8["NEWVALUE"] = txtMEETING_DATE.Text;
         dTable.Rows.Add(row8);
         DataRow row9 = dTable.NewRow();
-        row9["NEWVALUE"] = txtNUMBER_OF_PARTICIPANT.Text;
+        row9["NEWVALUE"] = string.Format("{0:N0}", txtNUMBER_OF_PARTICIPANT.Text);
         dTable.Rows.Add(row9);
         export.ExportWord(MapPath("~/Template/Word/UQ_HTCP.doc"), dTable, "_UQ_HTCP.doc");
     }
