@@ -116,7 +116,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.We
             chkAgree.Checked = result.AGREE == null ? false : result.AGREE ?? false;
             lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
             hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
-            btnReport.Enabled = bool.Parse(result.REPORTED.ToString());
+            btnReport.Visible = bool.Parse(result.REPORTED.ToString());
 
             if (lblWarning.Text.Length > 0)
             {
@@ -259,10 +259,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.We
     private void SetEnable(bool bolValue)
     {
 
-        btnSave.Visible = bolValue;
-        btnReport.Visible = bolValue;
-        trSave.Visible = bolValue;
-        trReport.Visible = bolValue;
+       
         txtORGANIZER_ADAID.Enabled = bolValue;
 
         ddlPAXID.Enabled = bolValue;

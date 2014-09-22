@@ -255,10 +255,7 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
     private void SetEnable(bool bolValue)
     {
 
-        btnSave.Enabled = bolValue;
-        btnReport.Enabled = bolValue;
-        trReport.Visible = bolValue;
-        trSave.Visible = bolValue;
+       
         txtORGANIZER_ADAID.Enabled = bolValue;
 
         ddlPAXID.Enabled = bolValue;
