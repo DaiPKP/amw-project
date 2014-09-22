@@ -694,7 +694,6 @@
                         <tr id="trReport" runat="server" visible="false">
                             <td>
                                 <div style="text-align: center;">
-                                    <br />
                                     <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
 
                                 </div>
