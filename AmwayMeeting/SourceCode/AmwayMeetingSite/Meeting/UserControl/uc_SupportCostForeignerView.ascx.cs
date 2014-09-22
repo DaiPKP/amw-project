@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
+using System.Data;
 
 public partial class Meeting_UserControl_uc_SupportCostForeignerView : System.Web.UI.UserControl
 {
