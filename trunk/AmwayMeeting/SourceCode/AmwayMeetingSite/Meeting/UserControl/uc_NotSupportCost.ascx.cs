@@ -1134,10 +1134,10 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         row3["NEWVALUE"] = DateTime.Now.Year.ToString();
         dTable.Rows.Add(row3);
         DataRow row4 = dTable.NewRow();
-        row4["NEWVALUE"] = lblCO_ORGANIZER_NAME_1.Text;
+        row4["NEWVALUE"] = lblORGANIZER_NAME.Text;
         dTable.Rows.Add(row4);
         DataRow row5 = dTable.NewRow();
-        row5["NEWVALUE"] = txtCO_ORGANIZER_ADAID_1.Text;
+        row5["NEWVALUE"] = txtORGANIZER_ADAID.Text;
         dTable.Rows.Add(row5);
         DataRow row6 = dTable.NewRow();
         row6["NEWVALUE"] = txtMEETING_ADDRESS.Text;
