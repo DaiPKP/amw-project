@@ -1360,9 +1360,9 @@ namespace DAL
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USER_UPDATE_Email_Address")]
-		public int PRC_SYS_AMW_USER_UPDATE_Email_Address([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="NVarChar(50)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="NVarChar(50)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADDRESS", DbType="NVarChar(200)")] string aDDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMAIL", DbType="NVarChar(50)")] string eMAIL)
+		public int PRC_SYS_AMW_USER_UPDATE_Email_Address([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="NVarChar(50)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="NVarChar(50)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADDRESS", DbType="NVarChar(200)")] string aDDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMAIL", DbType="NVarChar(50)")] string eMAIL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USER_SYSTEMID", DbType="Int")] System.Nullable<int> uSER_SYSTEMID)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID, fIRSTNAME, lASTNAME, aDDRESS, eMAIL);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID, fIRSTNAME, lASTNAME, aDDRESS, eMAIL, uSER_SYSTEMID);
 			return ((int)(result.ReturnValue));
 		}
 	}

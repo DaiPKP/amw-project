@@ -17,6 +17,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             InitData();
             txtEmail.Enabled = false;
             txtAddress.Enabled = false;
+            ddlSystem.Enabled = false;
             FirstName.Visible = false;
             LastName.Visible = false;
         }
@@ -44,7 +45,32 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         LoadDistributorInfo(int.Parse(Session["UserID"].ToString()));
         DisplayQuotaInGrid(int.Parse(Session["UserID"].ToString()));
         DisplayMeetingHistory(int.Parse(Session["UserID"].ToString()));
+        GetUserSystemCBO();
     }
+
+    private void GetUserSystemCBO()
+    {
+        try
+        {
+            CategoryBO catebo = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_USER_SYSTEM_CBOResult> lst = new List<DAL.PRC_SYS_AMW_USER_SYSTEM_CBOResult>();
+            lst = catebo.User_SystemGet_CBO();
+            if (lst != null)
+            {
+                ddlSystem.DataSource = lst;
+                ddlSystem.DataTextField = "USERSYSTEMNAME";
+                ddlSystem.DataValueField = "ID";
+                ddlSystem.DataBind();
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlSystem.Items.Insert(0, lstParent);
+                //ddlSystem.SelectedIndex = ddlSystem.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
+
     private void LoadDistributorInfo(int DistID)
     {
         UserBO bo = new UserBO();
@@ -58,6 +84,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         txtEmail.Text = dist.EMAIL;
         txtAddress.Text = dist.ADDRESS;
         lbUserType.Text = dist.USERTYPENAME;
+        ddlSystem.SelectedValue = dist.USER_SYSTEMID.ToString() ;
         lbWorkProvince.Text = dist.WORKPROVINCENAME;
         lbWorkDistrict.Text = dist.WORKDISTRICTNAME;
         if (txtEmail.Text.Equals(""))
@@ -174,6 +201,7 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         {
             txtAddress.Enabled = false;
             txtEmail.Enabled = true;
+            ddlSystem.Enabled = true;
             lbMess.Text = "";
             btnEdit.Text = "Lưu";
             FullName.Visible = false;
@@ -191,10 +219,11 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
                 }
             }
             UserBO bo = new UserBO();
-            if (bo.UserUpdateEmailAddress(int.Parse(Session["UserID"].ToString()), txtFirstName.Text.Trim(), txtLastName.Text.Trim(), txtEmail.Text.Trim(), txtAddress.Text.Trim()))
+            if (bo.UserUpdateEmailAddress(int.Parse(Session["UserID"].ToString()), txtFirstName.Text.Trim(), txtLastName.Text.Trim(), txtEmail.Text.Trim(), txtAddress.Text.Trim(), int.Parse(ddlSystem.SelectedValue)))
             {
                 txtAddress.Enabled = false;
                 txtEmail.Enabled = false;
+                ddlSystem.Enabled = false;
                 FirstName.Visible = false;
                 LastName.Visible = false;
                 FullName.Visible = true;
