@@ -1284,13 +1284,6 @@ namespace DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USER_UPDATE_Email_Address")]
-		public int PRC_SYS_AMW_USER_UPDATE_Email_Address([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADDRESS", DbType="NVarChar(200)")] string aDDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMAIL", DbType="NVarChar(50)")] string eMAIL)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID, aDDRESS, eMAIL);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USER_UPDATEBYADA")]
 		public int PRC_SYS_AMW_USER_UPDATEBYADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PASSWORD", DbType="VarChar(500)")] string pASSWORD)
 		{
@@ -1364,6 +1357,13 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDA, fIRSTNAME, lASTNAME, rELATIVE_FIRSTNAME, rELATIVE_LASTNAME, aDDRESS, tELEPHONE, cODE, fAX, eMAIL, aCCBANK, dESCRIPTION, uSERTYPEID, dEPARTMENTID, aCTIVE, wORKDISTRICTID, wORKPROVINCEID, uSER_SYSTEMID, uSERTYPE_ENHANCEID);
 			return ((ISingleResult<PRC_SYS_AMW_USER_SEARCHResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USER_UPDATE_Email_Address")]
+		public int PRC_SYS_AMW_USER_UPDATE_Email_Address([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIRSTNAME", DbType="NVarChar(50)")] string fIRSTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LASTNAME", DbType="NVarChar(50)")] string lASTNAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADDRESS", DbType="NVarChar(200)")] string aDDRESS, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EMAIL", DbType="NVarChar(50)")] string eMAIL)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID, fIRSTNAME, lASTNAME, aDDRESS, eMAIL);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
