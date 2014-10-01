@@ -17,6 +17,8 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             InitData();
             txtEmail.Enabled = false;
             txtAddress.Enabled = false;
+            FirstName.Visible = false;
+            LastName.Visible = false;
         }
     }
     private void InitData()
@@ -50,6 +52,8 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
         dist = bo.PRC_SYS_AMW_USER_GETLISTBYUSERID(DistID).SingleOrDefault();
         lbADA.Text = dist.ADA;
         lbName.Text = dist.FULLNAME;
+        txtLastName.Text = dist.LASTNAME;
+        txtFirstName.Text = dist.FIRSTNAME;
         lbTelephone.Text = dist.TELEPHONE;
         txtEmail.Text = dist.EMAIL;
         txtAddress.Text = dist.ADDRESS;
@@ -172,6 +176,9 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
             txtEmail.Enabled = true;
             lbMess.Text = "";
             btnEdit.Text = "Lưu";
+            FullName.Visible = false;
+            FirstName.Visible = true;
+            LastName.Visible = true;
         }
         else
         {
@@ -184,10 +191,14 @@ public partial class Distributor_UserControl_uc_Profile : System.Web.UI.UserCont
                 }
             }
             UserBO bo = new UserBO();
-            if (bo.UserUpdateEmailAddress(int.Parse(Session["UserID"].ToString()), txtEmail.Text.Trim(), txtAddress.Text.Trim()))
+            if (bo.UserUpdateEmailAddress(int.Parse(Session["UserID"].ToString()), txtFirstName.Text.Trim(), txtLastName.Text.Trim(), txtEmail.Text.Trim(), txtAddress.Text.Trim()))
             {
                 txtAddress.Enabled = false;
                 txtEmail.Enabled = false;
+                FirstName.Visible = false;
+                LastName.Visible = false;
+                FullName.Visible = true;
+                lbName.Text = txtLastName.Text.Trim() + " " + txtFirstName.Text.Trim();
                 btnEdit.Text = "Cập Nhật";
                 if (txtEmail.Text.Trim().Equals(""))
                 {

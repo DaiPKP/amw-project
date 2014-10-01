@@ -18,13 +18,27 @@
                         <td class="td_title" style="width: 25%;"></td>
                         <td class="td_value" style="width: 25%;"></td>
                     </tr>
-                    <tr>
+                    <tr id="FullName" runat="server">
                         <td class="td_title">Họ và tên</td>
                         <td class="td_value">
                             <asp:Label ID="lbName" runat="server" Text=""></asp:Label>
                         </td>
                         <td class="td_title"></td>
                         <td class="td_value"></td>
+                    </tr>
+                    
+                    <tr id="LastName" runat="server">
+                        <td class="td_title">Họ và tên đệm</td>
+                        <td class="td_value" colspan="3">
+                            <asp:TextBox ID="txtLastName" runat="server" Text="" Width="99%"></asp:TextBox>
+                        </td>
+                    </tr>
+
+                    <tr id="FirstName" runat="server">
+                        <td class="td_title">Tên</td>
+                        <td class="td_value" colspan="3">
+                            <asp:TextBox ID="txtFirstName" runat="server" Text="" Width="99%"></asp:TextBox>
+                        </td>
                     </tr>
                     <tr>
                         <td class="td_title">Số điện thoại</td>
