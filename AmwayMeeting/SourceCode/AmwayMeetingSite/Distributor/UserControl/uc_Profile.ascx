@@ -72,6 +72,15 @@
                         <td class="td_title"></td>
                         <td class="td_value"></td>
                     </tr>
+
+                    <tr>
+                        <td class="td_title">Thuộc hệ thống</td>
+                        <td class="td_value" colspan="3">
+                            <asp:DropDownList ID="ddlSystem" CssClass="txtBox" runat="server" Width="99.5%">
+                            </asp:DropDownList>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td class="td_title">Email</td>
                         <td class="td_value" colspan="3">
