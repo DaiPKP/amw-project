@@ -27,6 +27,27 @@
                 <table width="100%">
                     <tr>
                         <td class="tdsearch1"></td>
+                        <td align="left" class="tdsearch2">Mã ADA<span style="color: Red">(*)</span>:
+                        </td>
+                        <td align="left" class="tdsearch3">
+                            <asp:TextBox ID="txtADA" CssClass="txtBox" runat="server" Width="100%" Height="22px">
+                            </asp:TextBox>
+                        </td>
+                        <td class="tdsearch4"></td>
+                        <td align="left" class="tdsearch5">Tình trạng đăng ký:
+
+                        </td>
+                        <td align="left" class="tdsearch6">
+                            <asp:DropDownList ID="DropDownList2" CssClass="txtBox" runat="server" Width="101%" Height="22px">
+                            </asp:DropDownList>
+                        </td>
+                        <td class="tdsearch7"></td>
+                    </tr>
+                    <tr>
+                        <td align="left" class="divClearBothInAdmin"></td>
+                    </tr>
+                    <tr>
+                        <td class="tdsearch1"></td>
                         <td align="left" class="tdsearch2">Loại đăng ký hội họp<span style="color: Red">(*)</span>:
                         </td>
                         <td align="left" class="tdsearch3">

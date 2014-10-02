@@ -32,6 +32,7 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
         GetStatusMeetingRegisterCBO();
         txtStartDate.Text = "";
         txtEndDate.Text = "";
+        txtADA.Text = "";
         ddlMEETINGTYPEID.SelectedValue = "0";
         ddlSTATUS_MEETING_REGISTERID.SelectedValue = "0";
     }
@@ -83,11 +84,11 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
         }
     }
 
-    protected void DisplayInGrid(int userId, int MeetingTypeId, int Status_Meeting_RegisterId, DateTime TuNgay, DateTime DenNgay)
+    protected void DisplayInGrid(string  strADA, int MeetingTypeId, int Status_Meeting_RegisterId, DateTime TuNgay, DateTime DenNgay)
     {
         MeetingBO objBO = new MeetingBO();
         List<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult> lst = new List<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult>();
-        lst = objBO.Meeting_UyQuyen_Search(userId, MeetingTypeId, Status_Meeting_RegisterId, TuNgay, DenNgay).ToList();
+        lst = objBO.Meeting_UyQuyen_Search(strADA, MeetingTypeId, Status_Meeting_RegisterId, TuNgay, DenNgay).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
@@ -113,6 +114,11 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
         grdList.DataSource = lst;
         grdList.DataBind();
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
+        if (txtADA.Text.Length<= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập mã ADA!";
+            return;
+        }
         if (int.Parse(ddlMEETINGTYPEID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại đăng ký hội họp!";
@@ -132,12 +138,17 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
             DenNgay = DateTime.ParseExact("01/01/2900", "dd/MM/yyyy", CultureInfo.InvariantCulture);
         }
 
-        DisplayInGrid(int.Parse(Session["UserID"].ToString()), int.Parse(ddlMEETINGTYPEID.SelectedValue), int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue), TuNgay, DenNgay);
+        DisplayInGrid(txtADA.Text, int.Parse(ddlMEETINGTYPEID.SelectedValue), int.Parse(ddlSTATUS_MEETING_REGISTERID.SelectedValue), TuNgay, DenNgay);
 
     }
 
     protected void btnXuatUyQuyen_Click(object sender, EventArgs e)
     {
+        if (txtADA.Text.Length <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa nhập mã ADA!";
+            return;
+        }
         if (int.Parse(ddlMEETINGTYPEID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại đăng ký hội họp!";

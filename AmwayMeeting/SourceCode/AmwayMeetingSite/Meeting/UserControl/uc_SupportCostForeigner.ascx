@@ -733,9 +733,7 @@
                             <div style="text-align: center;">
                                 <br />
                                 <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                    <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
-                            </div>
+                                 </div>
                         </td>
                     </tr>
                 </table>
