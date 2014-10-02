@@ -208,7 +208,7 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
                 column55.DataType = System.Type.GetType("System.String");
                 column55.ColumnName = "GIOHOP";
                 dtData.Columns.Add(column55);
-
+                
                 for (int i = 0; i < grdList.Rows.Count; i++)
                 {
                     // Cell 9 la checkbox, cell 10 la textbox
@@ -335,6 +335,7 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
                             dtMater.Columns.Add(column15);
 
                             DataRow row = dtMater.NewRow();
+                            row["ID"] = dtData.Rows[0]["ID"].ToString();
                             row["YEAR"] = DateTime.Now.Year.ToString();
                             row["MONTH"] = DateTime.Now.Month >= 10 ? DateTime.Now.Month.ToString() : "0" + DateTime.Now.Month.ToString();
                             row["DAY"] = DateTime.Now.Day >= 10 ? DateTime.Now.Day.ToString() : "0" + DateTime.Now.Day.ToString();
