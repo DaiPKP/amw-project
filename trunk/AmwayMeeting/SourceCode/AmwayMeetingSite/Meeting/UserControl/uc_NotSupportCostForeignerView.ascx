@@ -695,20 +695,7 @@
                     <asp:HiddenField runat="server" ID="hdfReported" />
                 </ContentTemplate>
             </asp:UpdatePanel>
-            <asp:Panel runat="server" ID="Panel4">
-                <div style="text-align: left; width: 100%">
-                    <table width="100%">
-                        <tr id="trReport" runat="server" visible="false">
-                            <td>
-                                <div style="text-align: center;">
-                                    <asp:Button CssClass="btn_admin" ID="btnXuatUyQuyen" runat="server" Text="Xuất ủy quyền" Visible="true" OnClick="btnXuatUyQuyen_Click" />
-
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </asp:Panel>
+            
             <asp:Panel runat="server" ID="Panel3">
                 <div style="text-align: left; width: 100%">
                     <table width="100%">

@@ -2422,8 +2422,20 @@
     <Parameter Name="USER_SYSTEMID" Parameter="uSER_SYSTEMID" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO" Method="PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO">
+    <ElementType Name="PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MEETINGTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN" Method="PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN">
-    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="MEETINGTYPEID" Parameter="mEETINGTYPEID" Type="System.Int32" DbType="Int" />
     <Parameter Name="STATUS_MEETING_REGISTERID" Parameter="sTATUS_MEETING_REGISTERID" Type="System.Int32" DbType="Int" />
     <Parameter Name="TUNGAY" Parameter="tUNGAY" Type="System.DateTime" DbType="DateTime" />
@@ -2524,18 +2536,6 @@
       <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BANNERNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="DISTRICTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO" Method="PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO">
-    <ElementType Name="PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="MEETINGTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

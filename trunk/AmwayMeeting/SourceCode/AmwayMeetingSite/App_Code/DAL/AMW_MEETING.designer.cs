@@ -1366,18 +1366,18 @@ namespace DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN")]
-		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult> PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERID", DbType="Int")] System.Nullable<int> uSERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TUNGAY", DbType="DateTime")] System.Nullable<System.DateTime> tUNGAY, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DENNGAY", DbType="DateTime")] System.Nullable<System.DateTime> dENNGAY)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERID, mEETINGTYPEID, sTATUS_MEETING_REGISTERID, tUNGAY, dENNGAY);
-			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO")]
 		public ISingleResult<PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult> PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN")]
+		public ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult> PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGTYPEID", DbType="Int")] System.Nullable<int> mEETINGTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="STATUS_MEETING_REGISTERID", DbType="Int")] System.Nullable<int> sTATUS_MEETING_REGISTERID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TUNGAY", DbType="DateTime")] System.Nullable<System.DateTime> tUNGAY, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DENNGAY", DbType="DateTime")] System.Nullable<System.DateTime> dENNGAY)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), aDA, mEETINGTYPEID, sTATUS_MEETING_REGISTERID, tUNGAY, dENNGAY);
+			return ((ISingleResult<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -28680,6 +28680,158 @@ namespace DAL
 		}
 	}
 	
+	public partial class PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult
+	{
+		
+		private int _ID;
+		
+		private string _MEETINGTYPENAME;
+		
+		private string _DESCRIPTION;
+		
+		private System.Nullable<bool> _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		public PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string MEETINGTYPENAME
+		{
+			get
+			{
+				return this._MEETINGTYPENAME;
+			}
+			set
+			{
+				if ((this._MEETINGTYPENAME != value))
+				{
+					this._MEETINGTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit")]
+		public System.Nullable<bool> ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+	}
+	
 	public partial class PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult
 	{
 		
@@ -30393,158 +30545,6 @@ namespace DAL
 				if ((this._DISTRICTNAME != value))
 				{
 					this._DISTRICTNAME = value;
-				}
-			}
-		}
-	}
-	
-	public partial class PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult
-	{
-		
-		private int _ID;
-		
-		private string _MEETINGTYPENAME;
-		
-		private string _DESCRIPTION;
-		
-		private System.Nullable<bool> _ACTIVE;
-		
-		private System.Nullable<int> _CREATEUSER;
-		
-		private System.Nullable<System.DateTime> _CREATEDATE;
-		
-		private System.Nullable<int> _UPDATEUSER;
-		
-		private System.Nullable<System.DateTime> _UPDATEDATE;
-		
-		public PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETINGTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string MEETINGTYPENAME
-		{
-			get
-			{
-				return this._MEETINGTYPENAME;
-			}
-			set
-			{
-				if ((this._MEETINGTYPENAME != value))
-				{
-					this._MEETINGTYPENAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
-		public string DESCRIPTION
-		{
-			get
-			{
-				return this._DESCRIPTION;
-			}
-			set
-			{
-				if ((this._DESCRIPTION != value))
-				{
-					this._DESCRIPTION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit")]
-		public System.Nullable<bool> ACTIVE
-		{
-			get
-			{
-				return this._ACTIVE;
-			}
-			set
-			{
-				if ((this._ACTIVE != value))
-				{
-					this._ACTIVE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
-		public System.Nullable<int> CREATEUSER
-		{
-			get
-			{
-				return this._CREATEUSER;
-			}
-			set
-			{
-				if ((this._CREATEUSER != value))
-				{
-					this._CREATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATEDATE
-		{
-			get
-			{
-				return this._CREATEDATE;
-			}
-			set
-			{
-				if ((this._CREATEDATE != value))
-				{
-					this._CREATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
-		public System.Nullable<int> UPDATEUSER
-		{
-			get
-			{
-				return this._UPDATEUSER;
-			}
-			set
-			{
-				if ((this._UPDATEUSER != value))
-				{
-					this._UPDATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATEDATE
-		{
-			get
-			{
-				return this._UPDATEDATE;
-			}
-			set
-			{
-				if ((this._UPDATEDATE != value))
-				{
-					this._UPDATEDATE = value;
 				}
 			}
 		}
