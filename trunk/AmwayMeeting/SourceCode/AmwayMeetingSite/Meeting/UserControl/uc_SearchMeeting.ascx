@@ -54,7 +54,7 @@
                         <td align="left" class="tdsearch2">Tỉnh thành:
                         </td>
                         <td align="left" class="tdsearch3">
-                             <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="101%" Height="22px">
+                             <asp:DropDownList ID="ddlPROVINCEID" CssClass="txtBox" runat="server" Width="101%" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlPROVINCEID_SelectedIndexChanged">
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch4"></td>
@@ -78,8 +78,8 @@
                         <td align="left" class="tdsearch3">
                             <asp:DropDownList ID="ddlForeigner" CssClass="txtBox" runat="server" Width="101%" Height="22px">
                                 <asp:ListItem Value="-1">--Tất cả--</asp:ListItem>
-                                <asp:ListItem Value="0">Có</asp:ListItem>
-                                <asp:ListItem Value="1">Không</asp:ListItem>
+                                <asp:ListItem Value="1">Có</asp:ListItem>
+                                <asp:ListItem Value="0">Không</asp:ListItem>
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch4"></td>
@@ -88,8 +88,8 @@
                         <td align="left" class="tdsearch6">
                            <asp:DropDownList ID="ddlReport" CssClass="txtBox" runat="server" Width="101%" Height="22px">
                                 <asp:ListItem Value="-1">--Tất cả--</asp:ListItem>
-                                <asp:ListItem Value="0">Có</asp:ListItem>
-                                <asp:ListItem Value="1">Không</asp:ListItem>
+                                <asp:ListItem Value="1">Có</asp:ListItem>
+                                <asp:ListItem Value="0">Không</asp:ListItem>
                             </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>

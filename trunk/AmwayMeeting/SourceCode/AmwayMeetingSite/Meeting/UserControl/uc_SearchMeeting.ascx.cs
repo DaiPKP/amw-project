@@ -270,4 +270,11 @@ public partial class Meeting_UserControl_uc_SearchMeeting : System.Web.UI.UserCo
         grdList.PageIndex = e.NewPageIndex;
         grdList.DataBind();
     }
+    protected void ddlPROVINCEID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (int.Parse(ddlPROVINCEID.SelectedValue)>0)
+        {
+            GetDistrictCBO(int.Parse(ddlPROVINCEID.SelectedValue));
+        }
+    }
 }

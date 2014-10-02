@@ -34,12 +34,10 @@
                             </asp:TextBox>
                         </td>
                         <td class="tdsearch4"></td>
-                        <td align="left" class="tdsearch5">Tình trạng đăng ký:
+                        <td align="left" class="tdsearch5">
 
                         </td>
                         <td align="left" class="tdsearch6">
-                            <asp:DropDownList ID="DropDownList2" CssClass="txtBox" runat="server" Width="101%" Height="22px">
-                            </asp:DropDownList>
                         </td>
                         <td class="tdsearch7"></td>
                     </tr>
