@@ -173,7 +173,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Ngày đăng ký">
                     <ItemTemplate>
-                        <asp:Label ID="lblListingMEETING_STARTDATE" runat="server" Text='<%# String.Format("{0:dd/MM/yyyy HH:mm:ss}", Eval("CREATEDATE"))%>'></asp:Label>
+                        <asp:Label ID="lblListingMEETING_STARTDATE" runat="server" Text='<%# Eval("STR_CREATEDATE")%>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Giờ họp">

@@ -592,6 +592,19 @@ public class CategoryBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult> MeetingType_Not_Foreign_CBO()
+    {
+        try
+        {
+            List<PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult> result = new List<PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBOResult>();
+            result = PRC_SYS_AMW_MEETING_TYPE_NOT_FOREIGN_CBO().ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public List<PRC_SYS_AMW_PLACE_GETLISTBY_DISTRICTIDResult> PlaceGet_ByDistrictId(int districtId)
     {
         try

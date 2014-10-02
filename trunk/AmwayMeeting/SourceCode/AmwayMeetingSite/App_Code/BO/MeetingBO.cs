@@ -137,6 +137,19 @@ public class MeetingBO : AMW_MEETINGDataContext
             return null;
         }
     }
+    public List<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult> Meeting_UyQuyen_Search(int userId,int MeetingTypeId,int Status_Meeting_RegisterId,DateTime TuNgay,DateTime DenNgay)
+    {
+        try
+        {
+            List<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult> result = new List<PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYENResult>();
+            result = PRC_USR_AMW_MEETING_REGISTER_GETLIST_UYQUYEN(userId, MeetingTypeId,Status_Meeting_RegisterId,TuNgay,DenNgay).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
     public PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult Meeting_CheckQuota(string strADA, int paxId, int districtId)
     {
         try
