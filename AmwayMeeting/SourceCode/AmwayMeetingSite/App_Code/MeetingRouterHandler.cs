@@ -59,6 +59,8 @@ public class MeetingRouterHandler : IRouteHandler
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostForeigner.aspx", typeof(Page)) as Page;
                     }
                 case "search": return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SearchMeeting.aspx", typeof(Page)) as Page;
+                case "xuq": return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/XuatUyQuyen.aspx", typeof(Page)) as Page;
+
                 case "supportcost":
                     {
                         string strid = "-1";

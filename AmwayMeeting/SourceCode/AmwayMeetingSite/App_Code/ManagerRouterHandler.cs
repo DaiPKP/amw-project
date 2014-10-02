@@ -28,7 +28,7 @@ public class ManagerRouterHandler : IRouteHandler
                 case "user": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/User.aspx", typeof(Page)) as Page;
                 case "permission": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/Permission.aspx", typeof(Page)) as Page;
                 case "department": return BuildManager.CreateInstanceFromVirtualPath("~/Manager/Department.aspx", typeof(Page)) as Page;
-
+                
                 default:
                     {
                         return BuildManager.CreateInstanceFromVirtualPath("~/Manager/User.aspx", typeof(Page)) as Page;
