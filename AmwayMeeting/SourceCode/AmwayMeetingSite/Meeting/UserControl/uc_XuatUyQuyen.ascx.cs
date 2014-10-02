@@ -323,7 +323,7 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
                             dtMater.Columns.Add(column12);
                             DataColumn column13 = new DataColumn();
                             column13.DataType = System.Type.GetType("System.String");
-                            column13.ColumnName = "FULLLNAME";
+                            column13.ColumnName = "FULLNAME";
                             dtMater.Columns.Add(column13);
                             DataColumn column14 = new DataColumn();
                             column14.DataType = System.Type.GetType("System.String");
@@ -333,13 +333,16 @@ public partial class Meeting_UserControl_uc_XuatUyQuyen : System.Web.UI.UserCont
                             column15.DataType = System.Type.GetType("System.String");
                             column15.ColumnName = "ADA";
                             dtMater.Columns.Add(column15);
-
+                            DataColumn column16 = new DataColumn();
+                            column16.DataType = System.Type.GetType("System.String");
+                            column16.ColumnName = "ID";
+                            dtMater.Columns.Add(column16);
                             DataRow row = dtMater.NewRow();
                             row["ID"] = dtData.Rows[0]["ID"].ToString();
                             row["YEAR"] = DateTime.Now.Year.ToString();
                             row["MONTH"] = DateTime.Now.Month >= 10 ? DateTime.Now.Month.ToString() : "0" + DateTime.Now.Month.ToString();
                             row["DAY"] = DateTime.Now.Day >= 10 ? DateTime.Now.Day.ToString() : "0" + DateTime.Now.Day.ToString();
-                            row["FULLLNAME"] = result.ORGANIZER_NAME;
+                            row["FULLNAME"] = result.ORGANIZER_NAME;
                             row["DIACHI"] = result.MEETING_ADDRESS;
                             row["ADA"] = result.ORGANIZER_ADAID;
                             dtMater.Rows.Add(row);
