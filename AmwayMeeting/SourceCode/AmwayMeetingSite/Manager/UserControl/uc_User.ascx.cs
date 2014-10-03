@@ -316,11 +316,8 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
             lblAlerting.Text = "Bạn chưa nhập mã số ADA!";
             return;
         }
-        //if (txtLastName.Text.Trim().Length <= 0)
-        //{
-        //    lblAlerting.Text = "Bạn chưa nhập họ và tên đệm!";
-        //    return;
-        //}
+        
+
         if (txtFirstName.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập tên!";
@@ -405,6 +402,15 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         UserBO acc = new UserBO();
         if (int.Parse(hdfUserID.Value) <= 0)
         {
+            // Kiem tra xem ADA nay co ton tai chua
+            PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
+            MeetingBO objBO = new MeetingBO();
+            result = objBO.Meeting_GetDistributor_ByADA(txtADA.Text);
+            if (result != null)
+            {
+                lblAlerting.Text = "Mã số ADA này đã tồn tại trên hệ thống!";
+                return;
+            }
             objUser.PASSWORD = General.EncryptPassword("AMW@1234");
             hdfUserID.Value = acc.UserInsert(objUser).ToString();
             if (int.Parse(hdfUserID.Value) > 0)
