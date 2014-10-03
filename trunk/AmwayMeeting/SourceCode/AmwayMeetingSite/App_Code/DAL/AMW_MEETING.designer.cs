@@ -30295,6 +30295,8 @@ namespace DAL
 		
 		private string _USERTYPENAME;
 		
+		private string _TINHTRANG;
+		
 		public PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult()
 		{
 		}
@@ -30599,6 +30601,22 @@ namespace DAL
 				if ((this._USERTYPENAME != value))
 				{
 					this._USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINHTRANG", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string TINHTRANG
+		{
+			get
+			{
+				return this._TINHTRANG;
+			}
+			set
+			{
+				if ((this._TINHTRANG != value))
+				{
+					this._TINHTRANG = value;
 				}
 			}
 		}

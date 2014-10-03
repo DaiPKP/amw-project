@@ -2539,6 +2539,7 @@
       <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

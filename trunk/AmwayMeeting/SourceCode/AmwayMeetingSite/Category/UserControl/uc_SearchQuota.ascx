@@ -126,6 +126,11 @@
                         <asp:Label ID="lblListingUsedQuota" runat="server" Text='<%# Eval("USEDQUOTA") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="Tình trạng" ItemStyle-HorizontalAlign="Center">
+                     <ItemTemplate>
+                         <asp:Label ID="lblListingTinhTrang" runat="server" Text='<%# Eval("TINHTRANG") %>'></asp:Label>
+                     </ItemTemplate>
+                 </asp:TemplateField>
                  <asp:TemplateField HeaderText="Qui Tai Chinh" Visible="false">
                     <ItemTemplate>
                         <asp:Label ID="lblListingPeriodId" runat="server" Text='<%# Eval("PERIODID") %>'></asp:Label>
