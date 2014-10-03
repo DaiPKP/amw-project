@@ -273,22 +273,6 @@
       <Column Name="AGREE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.SYS_AMW_DISTRIBUTOR_QUOTA" Member="SYS_AMW_DISTRIBUTOR_QUOTAs">
-    <Type Name="SYS_AMW_DISTRIBUTOR_QUOTA">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PERIODID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="QUOTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BORROWEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.SYS_AMW_USER" Member="SYS_AMW_USERs">
     <Type Name="SYS_AMW_USER">
       <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -342,6 +326,23 @@
       <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SYS_AMW_DISTRIBUTOR_QUOTA" Member="SYS_AMW_DISTRIBUTOR_QUOTAs">
+    <Type Name="SYS_AMW_DISTRIBUTOR_QUOTA">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PERIODID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUOTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BORROWEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USERLEVEL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.PRC_SYS_AMW_DEPARTMENT_CBO" Method="PRC_SYS_AMW_DEPARTMENT_CBO">
@@ -447,30 +448,6 @@
     <Parameter Name="QUOTA" Parameter="qUOTA" Type="System.Int32" DbType="Int" />
     <Parameter Name="STATUS" Parameter="sTATUS" Type="System.String" DbType="NVarChar(50)" Direction="InOut" />
     <Return Type="System.Int32" />
-  </Function>
-  <Function Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH" Method="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH">
-    <Parameter Name="ADAID" Parameter="aDAID" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
-    <ElementType Name="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="PERIODID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="QUOTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BORROWEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ADA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
-      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </ElementType>
   </Function>
   <Function Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE" Method="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_UPDATE">
     <Parameter Name="ID" Parameter="iD" Type="System.Int32" DbType="Int" />
@@ -2536,6 +2513,32 @@
       <Column Name="INVITATIONNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="BANNERNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="DISTRICTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH" Method="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCH">
+    <Parameter Name="ADAID" Parameter="aDAID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PAXID" Parameter="pAXID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_DISTRIBUTOR_QUOTA_SEARCHResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PERIODID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QUOTA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BORROWEDQUOTA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USERLEVEL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USERLEVEL1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

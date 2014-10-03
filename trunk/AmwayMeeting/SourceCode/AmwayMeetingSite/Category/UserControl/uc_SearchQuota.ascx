@@ -103,7 +103,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Danh hiệu">
                     <ItemTemplate>
-                        <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERTYPENAME") %>'></asp:Label>
+                        <asp:Label ID="lblListingUserTypeName" runat="server" Text='<%# Eval("USERLEVEL") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Quí Tài Chính">
