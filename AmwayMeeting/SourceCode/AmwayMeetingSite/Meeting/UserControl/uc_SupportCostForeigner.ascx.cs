@@ -23,20 +23,16 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
     private void InitData()
     {
         ClearTextBox();
-        hdfID.Value = _ID.ToString();
         SetEnable(true);
         if (_ID > 0)
         {
-            btnSave.Text = "Cập nhật";
-            LoadData(int.Parse(hdfID.Value));
+            LoadData(_ID);
         }
         else
         {
             GetInfoUserLogin(int.Parse(Session["UserID"].ToString()));
 
         }
-
-
 
     }
 
@@ -176,7 +172,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
                 {
                     SetEnable(true);
                 }
-
+                btnClone.Visible = true;
 
             }
         }
@@ -201,6 +197,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
         hdfPAXID_OLD.Value = "-1";
         btnSave.Text = "Đăng ký";
         trSave.Visible = true;
+        btnClone.Visible = false;
         txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
@@ -282,7 +279,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
 
         
         txtORGANIZER_ADAID.Enabled = bolValue;
-
+        btnClone.Visible = bolValue;
         ddlPAXID.Enabled = bolValue;
         ddlPROVINCEID.Enabled = bolValue;
         ddlDISTRICTID.Enabled = bolValue;
@@ -834,6 +831,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
             if (int.Parse(hdfID.Value) > 0)
             {
                 hdfPAXID_OLD.Value = obj.PAXID.ToString();
+                btnClone.Visible = true;
                 btnSave.Text = "Cập nhật";
                 lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
                 return;
@@ -1434,4 +1432,9 @@ public partial class Meeting_UserControl_uc_SupportCostForeigner : System.Web.UI
     }
 
 
+    protected void btnClone_Click(object sender, EventArgs e)
+    {
+        string strUrl = "../meeting/supportcostforeignercloneR" + hdfID.Value;
+        Response.Redirect(strUrl);
+    }
 }

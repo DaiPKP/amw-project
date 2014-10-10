@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Data;
 
-public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : System.Web.UI.UserControl
 {
     public int _ID = -1;
     protected void Page_Load(object sender, EventArgs e)
@@ -23,12 +23,10 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     private void InitData()
     {
         ClearTextBox();
-        hdfID.Value = _ID.ToString();
         SetEnable(true);
         if (_ID > 0)
         {
-            btnSave.Text = "Cập nhật";
-            LoadData(int.Parse(hdfID.Value));
+            LoadData(_ID);
         }
         else
         {
@@ -89,7 +87,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 txtSPEAKER_ADAID_2.Text = result.SPEAKER_ADAID_2 == null ? string.Empty : result.SPEAKER_ADAID_2;
                 txtSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
                 txtSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
-
+                txtSPEAKER_NATION_1.Text= result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
+                txtSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
 
                 hdfCO_ORGANIZER_USERID_1.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
                 hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_2 == null ? string.Empty : result.CO_ORGANIZER_USERID_2.ToString();
@@ -140,8 +139,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                     hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "true";
                     ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
                 }
-
-
+                
                
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
@@ -153,7 +151,6 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                     SetEnable(true);
                 }
                 btnClone.Visible = true;
-
             }
         }
         else
@@ -174,8 +171,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         hdfReported.Value = "false";
         hdfID.Value = "-1";
         btnSave.Text = "Đăng ký";
-        btnSave.Visible = true;
         btnClone.Visible = false;
+        btnSave.Visible = true;
         txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
@@ -245,10 +242,12 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
         hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
+
+        txtSPEAKER_NATION_1.Text = string.Empty;
+        txtSPEAKER_NATION_2.Text = string.Empty;
         lblCO_ORGANIZER_OK_1.Text = string.Empty;
         lblCO_ORGANIZER_OK_2.Text = string.Empty;
         lblCO_ORGANIZER_OK_3.Text = string.Empty;
-
     }
     private void GetInvitationCBO()
     {
@@ -423,13 +422,11 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             lblAlerting.Text = "Bạn chưa lấy thông tin của người tổ chức!";
             return;
         }
-
         if (txtORGANIZER_ADDRESS.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập địa chỉ nhập thư ủy quyền!";
             return;
         }
-
         if (int.Parse(ddlPAXID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại phòng hội họp!";
@@ -523,210 +520,214 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 return;
             }
         }
-            if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
+       
+        if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
+        {
+            trWarning.Visible = true;
+            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 30 ngày làm việc";
+        }
+        else
+        {
+            trWarning.Visible = false;
+            obj.WARNING = lblWarning.Text = string.Empty;
+        }
+        if (!chkAgree.Checked)
+        {
+            lblAlerting.Text = "Bạn chưa cam kết với dữ liệu nhập ở trên!";
+            return;
+        }
+
+        if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)))
+        {
+            lblAlerting.Text = "Người tổ chức không còn đủ quota!";
+            return;
+        }
+        else
+        {
+            obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
+            obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
+        }
+        // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
+        MeetingBO objBO = new MeetingBO();
+
+        int ConditionCombine = objBO.MeetingGet_ConditionCombine_NotSupportCost(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value));
+        int quantity = 0;
+       
+        if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) quantity++;
+        if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) quantity++;
+        if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)) quantity++;
+
+        if (ConditionCombine > 0)
+        {
+            //Kiem tra xem nhung thang dong to chuc co du DK ko?
+            //Kiểm tra xem có du quantity voi ConditionCombine ko
+            if (ConditionCombine != quantity)
             {
-                trWarning.Visible = true;
-                obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày làm việc";
-            }
-            else
-            {
-                trWarning.Visible = false;
-                obj.WARNING = lblWarning.Text = string.Empty;
-            }
-            if (!chkAgree.Checked)
-            {
-                lblAlerting.Text = "Bạn chưa cam kết với dữ liệu nhập ở trên!";
+                lblAlerting.Text = "Bạn nhập số lượng người đồng tổ chức không đủ!";
                 return;
             }
-
-            if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)))
+            //Kiem tra xem nhung thang dong to chuc co cung usertype hay ko?
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (!bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
             {
-                lblAlerting.Text = "Người tổ chức không còn đủ quota!";
+                if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value))
+                {
+                    lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
+                    return;
+                }
+            }
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+            {
+
+                if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
+                {
+                    lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
+                    return;
+                }
+            }
+            //Kiem tra xem no con quota ko?
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (!bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+            {
+                if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)))
+                {
+                    lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
+                    return;
+                }
+            }
+            if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+            {
+
+                if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
+                {
+                    lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
+                    return;
+                }
+            }
+
+            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value))
+            {
+                obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
+                obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
+            }
+            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value))
+            {
+                obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
+                obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
+            }
+        }
+        else
+        {
+            if (quantity < 1)
+            {
+                lblAlerting.Text = "Bạn không có quota để đăng ký hội họp!";
                 return;
             }
-            else
+            if (quantity > 1)
             {
-                obj.CO_ORGANIZER_USERID_1 = int.Parse(hdfCO_ORGANIZER_USERID_1.Value);
-                obj.CO_ORGANIZER_USERTYPEID_1 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value);
-            }
-            // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
-            MeetingBO objBO = new MeetingBO();
-
-            int ConditionCombine = objBO.MeetingGet_ConditionCombine_NotSupportCost(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value));
-            int quantity = 0;           
-            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) quantity++;
-            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) quantity++;
-            if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)) quantity++;
-
-            if (ConditionCombine > 0)
-            {
-                //Kiem tra xem nhung thang dong to chuc co du DK ko?
-                //Kiểm tra xem có du quantity voi ConditionCombine ko
-                if (ConditionCombine != quantity)
-                {
-                    lblAlerting.Text = "Bạn nhập số lượng người đồng tổ chức không đủ!";
-                    return;
-                }
-                //Kiem tra xem nhung thang dong to chuc co cung usertype hay ko?
-                if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (!bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
-                {
-                    if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value))
-                    {
-                        lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
-                        return;
-                    }
-                }
-                if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
-                {
-
-                    if ((hdfCO_ORGANIZER_USERTYPEID_1.Value != hdfCO_ORGANIZER_USERTYPEID_2.Value) || (hdfCO_ORGANIZER_USERTYPEID_2.Value != hdfCO_ORGANIZER_USERTYPEID_3.Value))
-                    {
-                        lblAlerting.Text = "Bạn nhập người đồng tổ chức không cùng danh hiệu!";
-                        return;
-                    }
-                }
-                //Kiem tra xem no con quota ko?
-                if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (!bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
-                {
-                    if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)))
-                    {
-                        lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
-                        return;
-                    }
-                }
-                if ((bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) && (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
-                {
-
-                    if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) || !(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)))
-                    {
-                        lblAlerting.Text = "Người đồng tổ chức không còn đủ quota!";
-                        return;
-                    }
-                }
-
-                if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value))
-                {
-                    obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
-                    obj.CO_ORGANIZER_USERTYPEID_2 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_2.Value);
-                }
-                if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value))
-                {
-                    obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
-                    obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
-                }
-            }
-            else
-            {
-                if (quantity < 1)
-                {
-                    lblAlerting.Text = "Bạn không có quota để đăng ký hội họp!";
-                    return;
-                }
-                if (quantity > 1)
-                {
-                    lblAlerting.Text = "Cuộc họp này không cần người đồng tổ chức!";
-                    return;
-                }
-            }
-
-
-            //Thực hiên Insert
-
-            obj.ID = int.Parse(hdfID.Value);
-            obj.ORGANIZER_USERID = int.Parse(hdfORGANIZER_USERID.Value);
-            obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-            obj.ORGANIZER_ADDRESS_AUTHORIZED = txtORGANIZER_ADDRESS.Text.Trim();
-            obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
-            obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
-            obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
-            obj.MEETINGNAME = txtMEETINGNAME.Text.Trim();
-            obj.NUMBER_OF_PARTICIPANT = int.Parse(txtNUMBER_OF_PARTICIPANT.Text.Trim().Replace(",", ""));
-            obj.MEETING_PLACE_NAME = txtMEETING_PLACE_NAME.Text.Trim();
-            obj.MEETING_ADDRESS = txtMEETING_ADDRESS.Text.Trim();
-
-            obj.MEETING_STARTDATE = DateTime.ParseExact(txtMEETING_STARTDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            obj.MEETING_ENDDATE = DateTime.ParseExact(txtMEETING_ENDDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            obj.MEETING_TIME = txtMEETING_TIME.Text.Trim();
-            obj.INVITATIONID = int.Parse(ddlINVITATIONID.SelectedValue);
-            obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
-            obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            obj.WATER = bool.Parse(ddlWATER.SelectedValue);
-            if (bool.Parse(ddlWATER.SelectedValue))
-            {
-                if (CheckNumber(txtWATER_PRICE.Text.Trim()))
-                {
-                    obj.WATER_PRICE = int.Parse(txtWATER_PRICE.Text.Trim().Replace(",", ""));
-                }
-            }
-            obj.FOOD = bool.Parse(ddlFOOD.SelectedValue);
-            if (bool.Parse(ddlFOOD.SelectedValue))
-            {
-                if (CheckNumber(txtFOOD_PRICE.Text.Trim()))
-                {
-                    obj.FOOD_PRICE = int.Parse(txtFOOD_PRICE.Text.Trim().Replace(",", ""));
-                }
-
-            }
-
-            obj.MEETINGTYPEID = 1;
-            obj.STATUS_MEETING_REGISTERID = 1;
-            obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
-            obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-            obj.FOREIGNER = false;
-            obj.AGREE = chkAgree.Checked;
-            obj.REPORTED = true;
-            obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
-            obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
-            obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
-            obj.SPEAKER_TITLE_1 = txtSPEAKER_TITLE_1.Text.Trim();
-            obj.SPEAKER_ADAID_2 = txtSPEAKER_ADAID_2.Text.Trim();
-            obj.SPEAKER_USERTYPENAME_2 = txtSPEAKER_USERTYPENAME_2.Text.Trim();
-            obj.SPEAKER_NAME_2 = txtSPEAKER_NAME_2.Text.Trim();
-            obj.SPEAKER_TITLE_2 = txtSPEAKER_TITLE_2.Text.Trim();
-            obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
-            obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
-            if (int.Parse(hdfID.Value) <= 0)
-            {
-                hdfID.Value = objBO.MeetingInsert_NotSupportCost(obj).ToString();
-                if (int.Parse(hdfID.Value) > 0)
-                {
-                    btnClone.Visible = true;
-                    btnSave.Text = "Cập nhật";
-                    lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
-                    return;
-                }
-                else
-                {
-                    lblAlerting.Text = "Đăng ký hội họp mới thất bại, bạn vui lòng thử lại!";
-                    return;
-                }
-            }
-            else
-            {
-                //kiem tra xem cuộc họp này đã được duyệt chưa mà sửa
-                if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
-                {
-                    //Neu duyet roi thì được sửa
-                    if (objBO.MeetingUpdate_NotSupportCost(obj))
-                    {
-                        lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
-                        return;
-                    }
-                    else
-                    {
-                        lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, bạn vui lòng thử lại!";
-                        return;
-                    }
-                }
-                else
-                {
-                    lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, đăng ký này đã được phê duyệt!";
-                    return;
-                }
+                lblAlerting.Text = "Cuộc họp này không cần người đồng tổ chức!";
+                return;
             }
         }
 
-    
+
+        //Thực hiên Insert
+
+        obj.ID = int.Parse(hdfID.Value);
+        obj.ORGANIZER_USERID = int.Parse(hdfORGANIZER_USERID.Value);
+        obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
+        obj.ORGANIZER_ADDRESS_AUTHORIZED = txtORGANIZER_ADDRESS.Text.Trim();
+        obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
+        obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
+        obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
+        obj.MEETINGNAME = txtMEETINGNAME.Text.Trim();
+        obj.NUMBER_OF_PARTICIPANT = int.Parse(txtNUMBER_OF_PARTICIPANT.Text.Trim().Replace(",", ""));
+        obj.MEETING_PLACE_NAME = txtMEETING_PLACE_NAME.Text.Trim();
+        obj.MEETING_ADDRESS = txtMEETING_ADDRESS.Text.Trim();
+        
+        obj.MEETING_STARTDATE = DateTime.ParseExact(txtMEETING_STARTDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        obj.MEETING_ENDDATE = DateTime.ParseExact(txtMEETING_ENDDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        obj.MEETING_TIME = txtMEETING_TIME.Text.Trim();
+        obj.INVITATIONID = int.Parse(ddlINVITATIONID.SelectedValue);
+        obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
+        obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        obj.WATER = bool.Parse(ddlWATER.SelectedValue);
+        if (bool.Parse(ddlWATER.SelectedValue))
+        {
+            if (CheckNumber(txtWATER_PRICE.Text.Trim()))
+            {
+                obj.WATER_PRICE = int.Parse(txtWATER_PRICE.Text.Trim().Replace(",", ""));
+            }
+        }
+        obj.FOOD = bool.Parse(ddlFOOD.SelectedValue);
+        if (bool.Parse(ddlFOOD.SelectedValue))
+        {
+            if (CheckNumber(txtFOOD_PRICE.Text.Trim()))
+            {
+                obj.FOOD_PRICE = int.Parse(txtFOOD_PRICE.Text.Trim().Replace(",", ""));
+            }
+
+        }
+
+        obj.MEETINGTYPEID = 1;
+        obj.STATUS_MEETING_REGISTERID = 1;
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
+        obj.FOREIGNER = true;
+        obj.AGREE = chkAgree.Checked;
+        obj.REPORTED = true;
+        obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
+        obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
+        obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
+        obj.SPEAKER_TITLE_1 = txtSPEAKER_TITLE_1.Text.Trim();
+        obj.SPEAKER_ADAID_2 = txtSPEAKER_ADAID_2.Text.Trim();
+        obj.SPEAKER_USERTYPENAME_2 = txtSPEAKER_USERTYPENAME_2.Text.Trim();
+        obj.SPEAKER_NAME_2 = txtSPEAKER_NAME_2.Text.Trim();
+        obj.SPEAKER_TITLE_2 = txtSPEAKER_TITLE_2.Text.Trim();
+        obj.SPEAKER_NATION_1 = txtSPEAKER_NATION_1.Text.Trim();
+        obj.SPEAKER_NATION_2 = txtSPEAKER_NATION_2.Text.Trim();
+
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+        if (int.Parse(hdfID.Value) <= 0)
+        {
+            hdfID.Value = objBO.MeetingInsert_NotSupportCost(obj).ToString();
+            if (int.Parse(hdfID.Value) > 0)
+            {
+                btnClone.Visible = true;
+                btnSave.Text = "Cập nhật";
+                lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
+                return;
+            }
+            else
+            {
+                lblAlerting.Text = "Đăng ký hội họp mới thất bại, bạn vui lòng thử lại!";
+                return;
+            }
+        }
+        else
+        {
+            //kiem tra xem cuộc họp này đã được duyệt chưa mà sửa
+            if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
+            {
+                //Neu duyet roi thì được sửa
+                if (objBO.MeetingUpdate_NotSupportCost(obj))
+                {
+                    lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
+                    return;
+                }
+                else
+                {
+                    lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, bạn vui lòng thử lại!";
+                    return;
+                }
+            }
+            else
+            {
+                lblAlerting.Text = "Cập nhật đăng ký hội họp thất bại, đăng ký này đã được phê duyệt!";
+                return;
+            }
+        }
+
+    }
     public void GetInfoUserLogin(int UserID)
     {
 
@@ -782,7 +783,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 {
                     ImgBtnCO_ORGANIZER_OK_1.Visible = true;
                     ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
-                    lblCO_ORGANIZER_OK_1.Text = "Đủ điều kiện";
+                    lblCO_ORGANIZER_OK_3.Text = "Đủ điều kiện";
                 }
                 else
                 {
@@ -878,6 +879,9 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     }
     protected void ddlPROVINCEID_SelectedIndexChanged(object sender, EventArgs e)
     {
+
+        lblAlerting.Text = string.Empty;
+
         hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
         lblCO_ORGANIZER_NAME_1.Text = string.Empty;
         lblCO_ORGANIZER_USERTYPENAME_1.Text = string.Empty;
@@ -905,7 +909,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
         ImgBtnCO_ORGANIZER_OK_3.Visible = false;
         ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
-        lblAlerting.Text = string.Empty;
+
         if (int.Parse(ddlPROVINCEID.SelectedValue) > 0)
         {
             GetDistrictCBO(int.Parse(ddlPROVINCEID.SelectedValue));
@@ -914,21 +918,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
     }
 
-    protected void ImgBtnORGANIZER_CHECK_Click(object sender, ImageClickEventArgs e)
-    {
-
-        if (txtORGANIZER_ADAID.Text.Trim().Length > 0)
-        {
-            lblAlerting.Text = string.Empty;
-            MeetingBO objBO = new MeetingBO();
-            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult();
-            result = objBO.Meeting_CheckQuota_NotSupportCost(txtORGANIZER_ADAID.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
-            if (result != null)
-            {
-               
-            }
-        }
-    }
+    
 
     protected void ddlPLACE_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -982,37 +972,6 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             return false;
         }
     }
-
-    private int GetValuePaxId(int paxId)
-    {
-        try
-        {
-            if (paxId == 2) return 50;
-            else if (paxId == 3) return 100;
-            else if (paxId == 4) return 500;
-            else if (paxId == 5) return 1000;
-            else if (paxId == 6) return 2000;
-            else return 0;
-        }
-        catch
-        {
-            return 0;
-        }
-    }
-    private bool CheckQuantityJoin(int paxId, string strValue)
-    {
-        try
-        {
-           int value = int.Parse(strValue.Replace(",",""));
-           if (value <= GetValuePaxId(paxId))
-                return true;
-            else return false;
-        }
-        catch
-        {
-            return false;
-        }
-    }
     private bool CheckDateRegister(string strRegisterDate)
     {
         try
@@ -1020,7 +979,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
             DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
             double day = (dt1 - dt2).TotalDays;
-            if (day > 10)
+            if (day > 30)
                 return true;
             else return false;
         }
@@ -1032,7 +991,6 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
     protected void ddlDISTRICTID_SelectedIndexChanged(object sender, EventArgs e)
     {
-        lblAlerting.Text = string.Empty;
         hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
         lblCO_ORGANIZER_NAME_1.Text = string.Empty;
         lblCO_ORGANIZER_USERTYPENAME_1.Text = string.Empty;
@@ -1060,12 +1018,12 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
         ImgBtnCO_ORGANIZER_OK_3.Visible = false;
         ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
+        lblAlerting.Text = string.Empty;
         GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
     }
-
     private void SetEnable(bool bolValue)
     {
-        btnClone.Visible = bolValue;
+
         btnSave.Visible = bolValue;
         txtORGANIZER_ADAID.Enabled = bolValue;
         txtORGANIZER_ADDRESS.Enabled = bolValue;
@@ -1099,17 +1057,48 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         txtSPEAKER_TITLE_2.Enabled = bolValue;
         txtSPEAKER_ADAID_2.Enabled = bolValue;
         txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
+        txtSPEAKER_NATION_1.Enabled = bolValue;
+        txtSPEAKER_NATION_2.Enabled = bolValue;
         ImgBtnCO_ORGANIZER_ADA1_CHECK.Enabled = bolValue;
         ImgBtnCO_ORGANIZER_ADA2_CHECK.Enabled = bolValue;
         ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
-
         txtMEETING_STARTDATE.Enabled = bolValue;
         txtMEETING_ENDDATE.Enabled = bolValue;
+    }
+    private int GetValuePaxId(int paxId)
+    {
+        try
+        {
+            if (paxId == 2) return 50;
+            else if (paxId == 3) return 100;
+            else if (paxId == 4) return 500;
+            else if (paxId == 5) return 1000;
+            else if (paxId == 6) return 2000;
+            else return 0;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+    private bool CheckQuantityJoin(int paxId, string strValue)
+    {
+        try
+        {
+            int value = int.Parse(strValue.Replace(",", ""));
+            if (value <= GetValuePaxId(paxId))
+                return true;
+            else return false;
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     protected void btnClone_Click(object sender, EventArgs e)
     {
-        string strUrl = "../meeting/notsupportcostcloneR" + hdfID.Value;
+        string strUrl = "../meeting/notsupportcostforeignercloneR" + hdfID.Value;
         Response.Redirect(strUrl);
     }
 }
