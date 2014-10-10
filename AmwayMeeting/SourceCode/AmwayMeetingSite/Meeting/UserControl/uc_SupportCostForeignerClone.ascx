@@ -710,11 +710,12 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr id="trSave" runat="server" visible="false">
+                            <tr>
                                 <td colspan="7">
                                     <div style="text-align: center;">
                                         <br />
-                                        <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+                                        <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Sao chép" OnClick="btnClone_Click"/>
                                     </div>
                                 </td>
                             </tr>
@@ -733,8 +734,7 @@
                         <td>
                             <div style="text-align: center;">
                                 <br />
-                                <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Sao chép" OnClick="btnClone_Click"/>
+                                <asp:Button CssClass="btn_admin" ID="btnReport" runat="server" Text="Báo cáo" Visible="true" OnClick="btnReport_Click" />
                                  </div>
                         </td>
                     </tr>
