@@ -151,7 +151,14 @@ public partial class Meeting_UserControl_uc_NotSupportCostClone : System.Web.UI.
                     SetEnable(true);
                 }
 
-                btnClone.Visible = true;
+                if (int.Parse(hdfID.Value) <= 0)
+                {
+                    btnClone.Visible = false;
+                }
+                else
+                {
+                    btnClone.Visible = true;
+                }
             }
         }
         else
@@ -1113,7 +1120,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostClone : System.Web.UI.
 
         string script = "window.location = '" + redirectURL + "';";
 
-        ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
+        ScriptManager.RegisterStartupScript(base.Page, typeof(Page), "RedirectTo", script, true);
 
     } 
     protected void btnClone_Click(object sender, EventArgs e)
