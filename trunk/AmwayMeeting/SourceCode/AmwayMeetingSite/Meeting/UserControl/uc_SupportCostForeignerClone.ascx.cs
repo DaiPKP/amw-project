@@ -127,12 +127,12 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerClone : System.W
                 }
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
-                    trSave.Visible = false;
+                    btnSave.Visible = false;
 
                 }
                 else
                 {
-                    trSave.Visible = true;
+                    btnSave.Visible = true;
                 }
                 if (result.STATUS_MEETING_REGISTERID == 2)
                 {
@@ -207,7 +207,7 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerClone : System.W
         hdfPAXID_OLD.Value = "-1";
         btnClone.Visible = false;
         btnSave.Text = "Đăng ký";
-        trSave.Visible = true;
+        btnSave.Visible = true;
         txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
@@ -1454,6 +1454,6 @@ public partial class Meeting_UserControl_uc_SupportCostForeignerClone : System.W
     protected void btnClone_Click(object sender, EventArgs e)
     {
         string strUrl = "../meeting/supportcostforeignercloneR" + hdfID.Value;
-        Response.Redirect(strUrl);
+        RedirectTo(strUrl);
     }
 }
