@@ -42,7 +42,7 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCost.aspx", typeof(Page)) as Page;
                     }
-                case "notsupportcostforeigner":
+                case "notsupportcostdlone":
                     {
                         string strid = "-1";
                         try
@@ -56,7 +56,23 @@ public class MeetingRouterHandler : IRouteHandler
                         }
 
                         HttpContext.Current.Items["id"] = strid;
-                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostForeigner.aspx", typeof(Page)) as Page;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostClone.aspx", typeof(Page)) as Page;
+                    }
+                case "notsupportcostforeignerclone":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostForeignerClone.aspx", typeof(Page)) as Page;
                     }
                 case "search": return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SearchMeeting.aspx", typeof(Page)) as Page;
                 case "xuq": return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/XuatUyQuyen.aspx", typeof(Page)) as Page;
@@ -77,6 +93,22 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCost.aspx", typeof(Page)) as Page;
                     }
+                case "supportcostclone":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCostClone.aspx", typeof(Page)) as Page;
+                    }
                 case "supportcostforeigner":
                     {
                         string strid = "-1";
@@ -92,6 +124,22 @@ public class MeetingRouterHandler : IRouteHandler
 
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCostForeigner.aspx", typeof(Page)) as Page;
+                    }
+                case "supportcostforeignerclone":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/SupportCostForeignerClone.aspx", typeof(Page)) as Page;
                     }  
                 case "outsidecountry":
                     {
@@ -109,6 +157,23 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutSideCountry.aspx", typeof(Page)) as Page;
                
+                    }
+                case "outsidecountryclone":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/OutSideCountryClone.aspx", typeof(Page)) as Page;
+
                     }
                 case "outsidecountryview":
                     {
