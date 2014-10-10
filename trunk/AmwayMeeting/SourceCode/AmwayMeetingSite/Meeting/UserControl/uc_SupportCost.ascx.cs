@@ -1425,9 +1425,19 @@ public partial class Meeting_UserControl_uc_SupportCost : System.Web.UI.UserCont
         }
 
     }
+    private void RedirectTo(string url)
+    {
+
+        string redirectURL = Page.ResolveClientUrl(url);
+
+        string script = "window.location = '" + redirectURL + "';";
+
+        ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
+
+    } 
     protected void btnClone_Click(object sender, EventArgs e)
     {
         string strUrl = "../meeting/supportcostcloneR" + hdfID.Value;
-        Response.Redirect(strUrl);
+        RedirectTo(strUrl);
     }
 }

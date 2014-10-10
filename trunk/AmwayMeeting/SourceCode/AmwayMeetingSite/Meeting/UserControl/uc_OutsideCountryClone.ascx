@@ -1,10 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_OutsideCountryClone.ascx.cs" Inherits="Meeting_UserControl_uc_OutsideCountryClone" %>
-<div style="min-height: 600px; height: auto">
-     <div class="TitlePageSub" style="float:right">
-        <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Clone" OnClick="btnClone_Click"/>
-    </div>
-    <div class="divClearBothInAdmin">
-    </div>
+<div style="min-height: 600px; height: auto">    
     <div class="TitlePage">
         ĐĂNG KÝ HỘI HỌP NGOÀI LÃNH THỔ VIỆT NAM
     </div>
@@ -321,7 +316,8 @@
                                         <div style="text-align: center;">
 
                                             <br />
-                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Clone" OnClick="btnClone_Click"/>
                                         </div>
                                     </td>
                                 </tr>

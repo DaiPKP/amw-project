@@ -1106,10 +1106,19 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         txtMEETING_STARTDATE.Enabled = bolValue;
         txtMEETING_ENDDATE.Enabled = bolValue;
     }
+    private void RedirectTo(string url)
+    {
 
+        string redirectURL = Page.ResolveClientUrl(url);
+
+        string script = "window.location = '" + redirectURL + "';";
+
+        ScriptManager.RegisterStartupScript(this, typeof(Page), "RedirectTo", script, true);
+
+    } 
     protected void btnClone_Click(object sender, EventArgs e)
     {
         string strUrl = "../meeting/notsupportcostcloneR" + hdfID.Value;
-        Response.Redirect(strUrl);
+        RedirectTo(strUrl);
     }
 }

@@ -1,10 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostClone.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCostClone" %>
-<div style="min-height: 800px; height: auto">
-     <div class="TitlePageSub" style="float:right">
-        <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Clone" OnClick="btnClone_Click"/>
-    </div>
-    <div class="divClearBothInAdmin">
-    </div>
+<div style="min-height: 800px; height: auto">     
     <div class="TitlePage">
         ĐƠN ĐĂNG KÝ HỘI HỌP
         <br />
@@ -711,7 +706,8 @@
                                     <td colspan="7">
                                         <div style="text-align: center;">
                                             <br />
-                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />
+                                            <asp:Button CssClass="btn_admin" ID="btnSave" runat="server" Text="Đăng ký" OnClick="btnSave_Click" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Clone" OnClick="btnClone_Click"/>
                                         </div>
                                     </td>
                                 </tr>
