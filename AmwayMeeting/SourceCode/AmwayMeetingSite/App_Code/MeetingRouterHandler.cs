@@ -42,7 +42,7 @@ public class MeetingRouterHandler : IRouteHandler
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCost.aspx", typeof(Page)) as Page;
                     }
-                case "notsupportcostdlone":
+                case "notsupportcostclone":
                     {
                         string strid = "-1";
                         try
@@ -57,6 +57,22 @@ public class MeetingRouterHandler : IRouteHandler
 
                         HttpContext.Current.Items["id"] = strid;
                         return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostClone.aspx", typeof(Page)) as Page;
+                    }
+                case "notsupportcostforeigner":
+                    {
+                        string strid = "-1";
+                        try
+                        {
+                            strid = arrData[1];
+                        }
+                        catch
+                        {
+
+                            strid = "-1";
+                        }
+
+                        HttpContext.Current.Items["id"] = strid;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Meeting/NotSupportCostForeigner.aspx", typeof(Page)) as Page;
                     }
                 case "notsupportcostforeignerclone":
                     {
