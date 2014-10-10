@@ -1,6 +1,6 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCost.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCost" %>
-<div style="min-height: 800px; height: auto">     
-    <div class="TitlePageSub" style="float:right">
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_SupportCostClone.ascx.cs" Inherits="Meeting_UserControl_uc_SupportCostClone" %>
+<div style="min-height: 800px; height: auto">
+     <div class="TitlePageSub" style="float:right">
         <asp:Button CssClass="btn_admin" ID="btnClone" runat="server" Text="Clone" OnClick="btnClone_Click"/>
     </div>
     <div class="divClearBothInAdmin">

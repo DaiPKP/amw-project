@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Data;
 
-public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_SupportCostClone : System.Web.UI.UserControl
 {
     public int _ID = -1;
     protected void Page_Load(object sender, EventArgs e)
@@ -23,18 +23,18 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
     private void InitData()
     {
         ClearTextBox();
-        hdfID.Value = _ID.ToString();
         SetEnable(true);
         if (_ID > 0)
         {
-            btnSave.Text = "Cập nhật";
-            LoadData(int.Parse(hdfID.Value));
+            LoadData(_ID);
         }
         else
         {
             GetInfoUserLogin(int.Parse(Session["UserID"].ToString()));
 
         }
+
+
     }
 
     private void LoadData(int Id)
@@ -50,13 +50,18 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 txtORGANIZER_ADAID.Text = result.ORGANIZER_ADAID == null ? string.Empty : result.ORGANIZER_ADAID;
                 lblORGANIZER_NAME.Text = result.ORGANIZER_NAME == null ? string.Empty : result.ORGANIZER_NAME;
                 lblORGANIZER_EMAIL.Text = result.ORGANIZER_EMAIL == null ? string.Empty : result.ORGANIZER_EMAIL;
-                txtORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS_AUTHORIZED == null ? string.Empty : result.ORGANIZER_ADDRESS_AUTHORIZED;
+                lblORGANIZER_ADDRESS.Text = result.ORGANIZER_ADDRESS == null ? string.Empty : result.ORGANIZER_ADDRESS;
                 lblORGANIZER_TELEPHONE.Text = result.ORGANIZER_TELEPHONE == null ? string.Empty : result.ORGANIZER_TELEPHONE;
                 lblORGANIZER_USERTYPENAME.Text = result.ORGANIZER_USERTYPENAME == null ? string.Empty : result.ORGANIZER_USERTYPENAME;
                 ddlPAXID.SelectedValue = result.PAXID == null ? string.Empty : result.PAXID.ToString();
+                hdfPAXID_OLD.Value = result.PAXID == null ? string.Empty : result.PAXID.ToString();
+                GetProvinceCBO();
                 ddlPROVINCEID.SelectedValue = result.PROVINCEID == null ? string.Empty : result.PROVINCEID.ToString();
+                GetBannerCBO();
+                GetInvitationCBO();
                 GetDistrictCBO(int.Parse(ddlPROVINCEID.SelectedValue));
-                ddlDISTRICTID.SelectedValue = result.DISTRICTID == null ? string.Empty : result.DISTRICTID.ToString();
+                GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
+
                 txtCO_ORGANIZER_ADAID_1.Text = result.CO_ORGANIZER_ADAID_1 == null ? string.Empty : result.CO_ORGANIZER_ADAID_1;
                 lblCO_ORGANIZER_NAME_1.Text = result.CO_ORGANIZER_NAME_1 == null ? string.Empty : result.CO_ORGANIZER_NAME_1;
                 lblCO_ORGANIZER_USERTYPENAME_1.Text = result.CO_ORGANIZER_USERTYPENAME_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPENAME_1;
@@ -70,17 +75,17 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 txtNUMBER_OF_PARTICIPANT.Text = result.NUMBER_OF_PARTICIPANT == null ? string.Empty : string.Format("{0:N0}", result.NUMBER_OF_PARTICIPANT);
                 txtMEETING_PLACE_NAME.Text = result.MEETING_PLACE_NAME == null ? string.Empty : result.MEETING_PLACE_NAME;
                 txtMEETING_ADDRESS.Text = result.MEETING_ADDRESS == null ? string.Empty : result.MEETING_ADDRESS;
-                txtMEETING_ENDDATE.Text = result.MEETING_ENDDATE == null ? string.Empty : result.STR_MEETING_ENDDATE;
-                txtMEETING_STARTDATE.Text = result.MEETING_STARTDATE == null ? string.Empty : result.STR_MEETING_STARTDATE;
+                txtMEETING_DATE.Text = result.MEETING_DATE == null ? string.Empty : result.STR_MEETING_DATE;
                 txtMEETING_TIME.Text = result.MEETING_TIME == null ? string.Empty : result.MEETING_TIME;
+                ddlFORMS_OF_PAYMENTID.SelectedValue = result.FORMS_OF_PAYMENTID == null ? string.Empty : result.FORMS_OF_PAYMENTID.ToString();
                 ddlINVITATIONID.SelectedValue = result.INVITATIONID == null ? string.Empty : result.INVITATIONID.ToString();
                 ddlBANNERID.SelectedValue = result.BANNERID == null ? string.Empty : result.BANNERID.ToString();
                 txtSEND_INVITATION_DATE.Text = result.SEND_INVITATION_DATE == null ? string.Empty : result.STR_SEND_INVITATION_DATE;
                 hdfReported.Value = result.REPORTED == null ? "false" : result.REPORTED.ToString();
                 ddlWATER.SelectedValue = result.WATER.ToString();
                 ddlFOOD.SelectedValue = result.FOOD.ToString();
-                txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE.ToString());
-                txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE.ToString());
+                txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE);
+                txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE);
                 txtSPEAKER_TITLE_1.Text = result.SPEAKER_TITLE_1 == null ? string.Empty : result.SPEAKER_TITLE_1;
                 txtSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
                 txtSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
@@ -89,8 +94,9 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 txtSPEAKER_ADAID_2.Text = result.SPEAKER_ADAID_2 == null ? string.Empty : result.SPEAKER_ADAID_2;
                 txtSPEAKER_NAME_2.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_2;
                 txtSPEAKER_USERTYPENAME_2.Text = result.SPEAKER_USERTYPENAME_2 == null ? string.Empty : result.SPEAKER_USERTYPENAME_2;
-                txtSPEAKER_NATION_1.Text= result.SPEAKER_NATION_1 == null ? string.Empty : result.SPEAKER_NATION_1;
-                txtSPEAKER_NATION_2.Text = result.SPEAKER_NATION_2 == null ? string.Empty : result.SPEAKER_NATION_2;
+                txtTOTAL_PAY.Text = result.TOTAL_PAY == null ? string.Empty : string.Format("{0:N0}", result.TOTAL_PAY);
+                lblAMWAY_PAY.Text = result.AMWAY_PAY == null ? string.Empty : string.Format("{0:N0}", result.AMWAY_PAY);
+                lblDISTRIBUTOR_PAY.Text = result.DISTRIBUTOR_PAY == null ? string.Empty : string.Format("{0:N0}", result.DISTRIBUTOR_PAY);
 
                 hdfCO_ORGANIZER_USERID_1.Value = result.CO_ORGANIZER_USERID_1 == null ? string.Empty : result.CO_ORGANIZER_USERID_1.ToString();
                 hdfCO_ORGANIZER_USERID_2.Value = result.CO_ORGANIZER_USERID_2 == null ? string.Empty : result.CO_ORGANIZER_USERID_2.ToString();
@@ -100,8 +106,11 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 hdfCO_ORGANIZER_USERTYPEID_1.Value = result.CO_ORGANIZER_USERTYPEID_1 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_1.ToString();
                 hdfCO_ORGANIZER_USERTYPEID_2.Value = result.CO_ORGANIZER_USERTYPEID_2 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_2.ToString();
                 hdfCO_ORGANIZER_USERTYPEID_3.Value = result.CO_ORGANIZER_USERTYPEID_3 == null ? string.Empty : result.CO_ORGANIZER_USERTYPEID_3.ToString();
+                ddlDISTRICTID.SelectedValue = result.DISTRICTID == null ? string.Empty : result.DISTRICTID.ToString();
                 chkAgree.Checked = result.AGREE == null ? false : result.AGREE ?? false;
                 lblWarning.Text = result.WARNING == null ? string.Empty : result.WARNING;
+                hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
+
                 if (lblWarning.Text.Length > 0)
                 {
                     trWarning.Visible = true;
@@ -112,14 +121,22 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 }
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
-                    btnSave.Visible = false;
+                    trSave.Visible = false;
 
                 }
                 else
                 {
-                    btnSave.Visible = true;
+                    trSave.Visible = true;
                 }
-                
+                if (result.STATUS_MEETING_REGISTERID == 2)
+                {
+                    trReport.Visible = true;
+
+                }
+                else
+                {
+                    trReport.Visible = false;
+                }
                 if (hdfCO_ORGANIZER_USERID_1.Value.Length > 0)
                 {
                     divCO_ORGANIZER_QUOTA_1.Visible = true;
@@ -141,8 +158,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                     hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "true";
                     ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
                 }
-                
-               
+
                 if (result.STATUS_MEETING_REGISTERID > 1)
                 {
                     SetEnable(false);
@@ -152,6 +168,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 {
                     SetEnable(true);
                 }
+
                 btnClone.Visible = true;
             }
         }
@@ -169,24 +186,26 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         GetInvitationCBO();
         GetDistrictCBO(0);
         GetPlaceCBO(0);
+        GetFormOfPaymentCBO();
         lblAlerting.Text = string.Empty;
         hdfReported.Value = "false";
         hdfID.Value = "-1";
+        hdfPAXID_OLD.Value = "-1";
         btnSave.Text = "Đăng ký";
-        btnSave.Visible = true;
         btnClone.Visible = false;
+        trSave.Visible = true;
         txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
         lblORGANIZER_NAME.Text = string.Empty;
         lblORGANIZER_EMAIL.Text = string.Empty;
-        txtORGANIZER_ADDRESS.Text = string.Empty;
+        lblORGANIZER_ADDRESS.Text = string.Empty;
         lblORGANIZER_TELEPHONE.Text = string.Empty;
         lblORGANIZER_USERTYPENAME.Text = string.Empty;
         hdfORGANIZER_USERTYPEID.Value = string.Empty;
         ddlPAXID.SelectedIndex = 0;
         ddlPROVINCEID.SelectedIndex = 0;
-        ddlDISTRICTID.SelectedIndex = 0;
+
         txtCO_ORGANIZER_ADAID_1.Text = string.Empty;
         hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
         lblCO_ORGANIZER_NAME_1.Text = string.Empty;
@@ -207,11 +226,11 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
 
         txtMEETINGNAME.Text = string.Empty;
         txtNUMBER_OF_PARTICIPANT.Text = string.Empty;
+        ddlFORMS_OF_PAYMENTID.SelectedIndex = 0;
         ddlPLACE.SelectedIndex = 0;
         txtMEETING_PLACE_NAME.Text = string.Empty;
         txtMEETING_ADDRESS.Text = "Số..., Đường..., Phường/Xã..., Quận/Huyện..., Tỉnh/TP...";
-        txtMEETING_ENDDATE.Text = string.Empty;
-        txtMEETING_STARTDATE.Text = string.Empty;
+        txtMEETING_DATE.Text = string.Empty;
         txtMEETING_TIME.Text = "00h00 – 00h00";
 
         ddlINVITATIONID.SelectedIndex = 0;
@@ -241,15 +260,57 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         ImgBtnCO_ORGANIZER_OK_3.Visible = false;
         ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
 
+
         hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
         hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
-
-        txtSPEAKER_NATION_1.Text = string.Empty;
-        txtSPEAKER_NATION_2.Text = string.Empty;
         lblCO_ORGANIZER_OK_1.Text = string.Empty;
         lblCO_ORGANIZER_OK_2.Text = string.Empty;
         lblCO_ORGANIZER_OK_3.Text = string.Empty;
+
+    }
+    private void SetEnable(bool bolValue)
+    {
+
+       
+        txtORGANIZER_ADAID.Enabled = bolValue;
+        btnClone.Visible = bolValue;
+        ddlPAXID.Enabled = bolValue;
+        ddlPROVINCEID.Enabled = bolValue;
+        ddlDISTRICTID.Enabled = bolValue;
+        txtCO_ORGANIZER_ADAID_1.Enabled = bolValue;
+        txtCO_ORGANIZER_ADAID_2.Enabled = bolValue;
+
+        txtCO_ORGANIZER_ADAID_3.Enabled = bolValue;
+        txtMEETINGNAME.Enabled = bolValue;
+        txtNUMBER_OF_PARTICIPANT.Enabled = bolValue;
+        ddlFORMS_OF_PAYMENTID.Enabled = bolValue;
+        ddlPLACE.Enabled = bolValue;
+        txtMEETING_PLACE_NAME.Enabled = bolValue;
+        txtMEETING_ADDRESS.Enabled = bolValue;
+        txtMEETING_DATE.Enabled = bolValue;
+        txtMEETING_TIME.Enabled = bolValue;
+
+        ddlINVITATIONID.Enabled = bolValue;
+        ddlBANNERID.Enabled = bolValue;
+        txtSEND_INVITATION_DATE.Enabled = bolValue;
+        ddlFOOD.Enabled = bolValue;
+        ddlWATER.Enabled= bolValue;
+        txtWATER_PRICE.Enabled = bolValue;
+        txtFOOD_PRICE.Enabled = bolValue;
+
+        txtSPEAKER_TITLE_1.Enabled = bolValue;
+        txtSPEAKER_ADAID_1.Enabled = bolValue;
+        txtSPEAKER_USERTYPENAME_1.Enabled = bolValue;
+        txtSPEAKER_NAME_1.Enabled = bolValue;
+        txtSPEAKER_NAME_2.Enabled = bolValue;
+        txtSPEAKER_TITLE_2.Enabled = bolValue;
+        txtSPEAKER_ADAID_2.Enabled = bolValue;
+        txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA1_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA2_CHECK.Enabled = bolValue;
+        ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
+        txtTOTAL_PAY.Enabled = bolValue;
     }
     private void GetInvitationCBO()
     {
@@ -275,6 +336,30 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         }
     }
 
+
+    private void GetFormOfPaymentCBO()
+    {
+        try
+        {
+            CategoryBO objBO = new CategoryBO();
+            List<DAL.PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_STATUS_FORMS_OF_PAYMENT_CBOResult>();
+            lst = objBO.FormsOfPaymentGet_CBO().ToList();
+            if (lst != null)
+            {
+                ddlFORMS_OF_PAYMENTID.DataSource = lst;
+                ddlFORMS_OF_PAYMENTID.DataTextField = "STATUSNAME";
+                ddlFORMS_OF_PAYMENTID.DataValueField = "ID";
+                ddlFORMS_OF_PAYMENTID.DataBind();
+
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlFORMS_OF_PAYMENTID.Items.Insert(0, lstParent);
+                ddlFORMS_OF_PAYMENTID.SelectedIndex = ddlFORMS_OF_PAYMENTID.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
     private void GetPlaceCBO(int districtId)
     {
         try
@@ -327,8 +412,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         try
         {
             CategoryBO catebo = new CategoryBO();
-            List<DAL.PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBOResult> lst = new List<DAL.PRC_SYS_AMW_PAX_NOTSUPPORTCOST_CBOResult>();
-            lst = catebo.Pax_NotSupportCostGet_CBO().ToList();
+            List<DAL.PRC_SYS_AMW_PAX_CBOResult> lst = new List<DAL.PRC_SYS_AMW_PAX_CBOResult>();
+            lst = catebo.PaxGet_CBO().ToList();
             if (lst != null)
             {
                 ddlPAXID.DataSource = lst;
@@ -339,6 +424,39 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 ListItem lstParent = new ListItem("--Chọn--", "0");
                 ddlPAXID.Items.Insert(0, lstParent);
                 ddlPAXID.SelectedIndex = ddlPAXID.Items.IndexOf(lstParent);
+            }
+        }
+        catch
+        {
+        }
+    }
+    private void GetDistrictCBO(int provinceId)
+    {
+        try
+        {
+            if (provinceId > 0)
+            {
+                CategoryBO catebo = new CategoryBO();
+                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
+                lst = catebo.DistrictGet_CBO(provinceId).ToList();
+                if (lst != null)
+                {
+
+                    ListItem lstParent = new ListItem("--Chọn--", "0");
+                    ddlDISTRICTID.DataSource = lst;
+                    ddlDISTRICTID.DataTextField = "DISTRICTNAME";
+                    ddlDISTRICTID.DataValueField = "ID";
+                    ddlDISTRICTID.DataBind();
+
+                    ddlDISTRICTID.Items.Insert(0, lstParent);
+                    ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
+                }
+            }
+            else
+            {
+                ListItem lstParent = new ListItem("--Chọn--", "0");
+                ddlDISTRICTID.Items.Add(lstParent);
+                ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
             }
         }
         catch
@@ -371,44 +489,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         {
         }
     }
-    private void GetDistrictCBO(int provinceId)
-    {
-        try
-        {
-            if (provinceId > 0)
-            {
-                CategoryBO catebo = new CategoryBO();
-                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
-                lst = catebo.DistrictGet_CBO(provinceId).ToList();
-                if (lst != null)
-                {
-
-                    ListItem lstParent = new ListItem("--Chọn--", "0");
-                    ddlDISTRICTID.DataSource = lst;
-                    ddlDISTRICTID.DataTextField = "DISTRICTNAME";
-                    ddlDISTRICTID.DataValueField = "ID";
-                    ddlDISTRICTID.DataBind();
-
-                    ddlDISTRICTID.Items.Insert(0, lstParent);
-                    ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
-                }
-            }
-            else
-            {
-                List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult> lst = new List<DAL.PRC_SYS_AMW_DISTRICT_CBOResult>();
-                ListItem lstParent = new ListItem("--Chọn--", "0");
-                ddlDISTRICTID.Items.Add(lstParent);
-                ddlDISTRICTID.SelectedIndex = ddlDISTRICTID.Items.IndexOf(lstParent);
-            }
-        }
-        catch
-        {
-        }
-    }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        // Kiem tra neu chua có báo cáo của cuộc họp trước thì không cho đăng ký nưa? (chua lam)
-
         USR_AMW_MEETING_REGISTER obj = new USR_AMW_MEETING_REGISTER();
         // Thuc hien Insert Update
         //Kiem tra lai nhap đủ dữ liệu chưa?
@@ -424,11 +506,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn chưa lấy thông tin của người tổ chức!";
             return;
         }
-        if (txtORGANIZER_ADDRESS.Text.Trim().Length <= 0)
-        {
-            lblAlerting.Text = "Bạn chưa nhập địa chỉ nhập thư ủy quyền!";
-            return;
-        }
+
         if (int.Parse(ddlPAXID.SelectedValue) <= 0)
         {
             lblAlerting.Text = "Bạn chưa chọn loại phòng hội họp!";
@@ -446,11 +524,13 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn chưa chọn quận huyện tổ chức hội họp!";
             return;
         }
+
         if (hdfCO_ORGANIZER_USERID_1.Value.Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập mã số ADA của người đăng ký hội họp!";
             return;
         }
+
         if (txtMEETINGNAME.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập tên cuộc họp!";
@@ -471,11 +551,22 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn chưa nhập địa điểm họp!";
             return;
         }
-        if ((txtMEETING_STARTDATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_STARTDATE.Text)) || (txtMEETING_ENDDATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_ENDDATE.Text)))
+        if ((txtMEETING_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_DATE.Text)))
         {
             lblAlerting.Text = "Bạn nhập ngày họp không đúng!";
             return;
         }
+        if ((txtMEETING_DATE.Text.Trim().Length <= 0) || (!CheckQuota(txtMEETING_DATE.Text)))
+        {
+            lblAlerting.Text = "Với ngày họp này, người (đồng) tổ chức không còn đủ quota. Bạn có thể xem lại ở trên!";
+            return;
+        }
+        if (int.Parse(ddlFORMS_OF_PAYMENTID.SelectedValue) <= 0)
+        {
+            lblAlerting.Text = "Bạn chưa chọn hình thức thanh toán!";
+            return;
+        }
+
         if (txtMEETING_TIME.Text.Trim().Length <= 0)
         {
             lblAlerting.Text = "Bạn chưa nhập thời gian hội họp!";
@@ -498,13 +589,10 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblAlerting.Text = "Bạn nhập ngày phát giấy mời không đúng!";
             return;
         }
-        if (bool.Parse(ddlWATER.SelectedValue))
+        if ((txtTOTAL_PAY.Text.Trim().Length <= 0) || !(CheckNumber(txtTOTAL_PAY.Text.Trim())))
         {
-            if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
-            {
-                lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
-                return;
-            }
+            lblAlerting.Text = "Bạn chưa nhập tổng chi phí!";
+            return;
         }
         if (bool.Parse(ddlFOOD.SelectedValue))
         {
@@ -522,22 +610,48 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 return;
             }
         }
-       
-        if (!CheckDateRegister(txtMEETING_STARTDATE.Text.Trim()))
+        if (!CheckProvinceOrDistrict(ddlPAXID.SelectedValue, ddlPROVINCEID.SelectedValue, ddlDISTRICTID.SelectedValue))
         {
             trWarning.Visible = true;
-            obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 30 ngày làm việc";
+            obj.WARNING = lblWarning.Text = "(*) Bạn chọn tỉnh thành(quận/huyện) tổ chức không đúng qui định";
+
+
         }
         else
         {
             trWarning.Visible = false;
             obj.WARNING = lblWarning.Text = string.Empty;
         }
+        if (!CheckDateRegister(txtMEETING_DATE.Text.Trim()))
+        {
+            if (lblWarning.Text.Length > 0)
+            {
+                obj.WARNING = lblWarning.Text = lblWarning.Text + ", đối với cuộc họp này bạn phải đăng ký trước 10 ngày làm việc";
+            }
+            else
+            {
+                trWarning.Visible = true;
+                obj.WARNING = lblWarning.Text = "(*) Đối với cuộc họp này bạn phải đăng ký trước 10 ngày làm việc";
+            }
+
+        }
+        else
+        {
+            if (lblWarning.Text.Length <= 0)
+            {
+                trWarning.Visible = false;
+                obj.WARNING = lblWarning.Text = string.Empty;
+            }
+        }
+
+
         if (!chkAgree.Checked)
         {
             lblAlerting.Text = "Bạn chưa cam kết với dữ liệu nhập ở trên!";
             return;
         }
+
+        // kiem tra xem la thang Nguoi dang ky co quota ko?
 
         if (!(bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)))
         {
@@ -552,9 +666,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         // Kiem tra xem trong  pax nay số người đồng tổ chức đủ chưa?
         MeetingBO objBO = new MeetingBO();
 
-        int ConditionCombine = objBO.MeetingGet_ConditionCombine_NotSupportCost(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value));
+        int ConditionCombine = objBO.MeetingGet_ConditionCombine(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value));
         int quantity = 0;
-       
         if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_1.Value)) quantity++;
         if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value)) quantity++;
         if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_3.Value)) quantity++;
@@ -604,7 +717,6 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                     return;
                 }
             }
-
             if (bool.Parse(hdfCO_ORGANIZER_QUOTA_CHECK_2.Value))
             {
                 obj.CO_ORGANIZER_USERID_2 = int.Parse(hdfCO_ORGANIZER_USERID_2.Value);
@@ -615,6 +727,8 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
                 obj.CO_ORGANIZER_USERID_3 = int.Parse(hdfCO_ORGANIZER_USERID_3.Value);
                 obj.CO_ORGANIZER_USERTYPEID_3 = int.Parse(hdfCO_ORGANIZER_USERTYPEID_3.Value);
             }
+
+
         }
         else
         {
@@ -636,7 +750,6 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         obj.ID = int.Parse(hdfID.Value);
         obj.ORGANIZER_USERID = int.Parse(hdfORGANIZER_USERID.Value);
         obj.ORGANIZER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-        obj.ORGANIZER_ADDRESS_AUTHORIZED = txtORGANIZER_ADDRESS.Text.Trim();
         obj.PAXID = int.Parse(ddlPAXID.SelectedValue);
         obj.PROVINCEID = int.Parse(ddlPROVINCEID.SelectedValue);
         obj.DISTRICTID = int.Parse(ddlDISTRICTID.SelectedValue);
@@ -644,10 +757,10 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         obj.NUMBER_OF_PARTICIPANT = int.Parse(txtNUMBER_OF_PARTICIPANT.Text.Trim().Replace(",", ""));
         obj.MEETING_PLACE_NAME = txtMEETING_PLACE_NAME.Text.Trim();
         obj.MEETING_ADDRESS = txtMEETING_ADDRESS.Text.Trim();
-        
-        obj.MEETING_STARTDATE = DateTime.ParseExact(txtMEETING_STARTDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-        obj.MEETING_ENDDATE = DateTime.ParseExact(txtMEETING_ENDDATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
+        obj.MEETING_DATE = DateTime.ParseExact(txtMEETING_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
         obj.MEETING_TIME = txtMEETING_TIME.Text.Trim();
+        obj.FORMS_OF_PAYMENTID = int.Parse(ddlFORMS_OF_PAYMENTID.SelectedValue);
         obj.INVITATIONID = int.Parse(ddlINVITATIONID.SelectedValue);
         obj.BANNERID = int.Parse(ddlBANNERID.SelectedValue);
         obj.SEND_INVITATION_DATE = DateTime.ParseExact(txtSEND_INVITATION_DATE.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
@@ -669,13 +782,13 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
 
         }
 
-        obj.MEETINGTYPEID = 1;
+        obj.MEETINGTYPEID = 2;
         obj.STATUS_MEETING_REGISTERID = 1;
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.CREATEUSER_USERTYPEID = int.Parse(hdfORGANIZER_USERTYPEID.Value);
-        obj.FOREIGNER = true;
+        obj.FOREIGNER = false;
         obj.AGREE = chkAgree.Checked;
-        obj.REPORTED = true;
+        obj.REPORTED = bool.Parse(hdfReported.Value);
         obj.SPEAKER_ADAID_1 = txtSPEAKER_ADAID_1.Text.Trim();
         obj.SPEAKER_USERTYPENAME_1 = txtSPEAKER_USERTYPENAME_1.Text.Trim();
         obj.SPEAKER_NAME_1 = txtSPEAKER_NAME_1.Text.Trim();
@@ -684,16 +797,33 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         obj.SPEAKER_USERTYPENAME_2 = txtSPEAKER_USERTYPENAME_2.Text.Trim();
         obj.SPEAKER_NAME_2 = txtSPEAKER_NAME_2.Text.Trim();
         obj.SPEAKER_TITLE_2 = txtSPEAKER_TITLE_2.Text.Trim();
-        obj.SPEAKER_NATION_1 = txtSPEAKER_NATION_1.Text.Trim();
-        obj.SPEAKER_NATION_2 = txtSPEAKER_NATION_2.Text.Trim();
-
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
         obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+
+        if (CheckNumber(txtTOTAL_PAY.Text.Trim()))
+        {
+            double TOTAL_PAY = double.Parse(txtTOTAL_PAY.Text.Trim().Replace(",", ""));
+            double AMWAY_PAY = 0;
+            double DISTRIBUTOR_PAY = 0;
+            // tinh tien theo 80%
+            AMWAY_PAY = TOTAL_PAY * 0.8;
+            if (AMWAY_PAY > double.Parse(hdfMAXPAYMENT.Value))
+            {
+                AMWAY_PAY = double.Parse(hdfMAXPAYMENT.Value);
+            }
+            DISTRIBUTOR_PAY = TOTAL_PAY - AMWAY_PAY;
+            obj.TOTAL_PAY = (decimal)TOTAL_PAY;
+            obj.AMWAY_PAY = (decimal)AMWAY_PAY;
+            obj.DISTRIBUTOR_PAY = (decimal)DISTRIBUTOR_PAY;
+        }
+        lblAMWAY_PAY.Text = string.Format("{0:N0}", obj.AMWAY_PAY);
+        lblDISTRIBUTOR_PAY.Text = string.Format("{0:N0}", obj.DISTRIBUTOR_PAY);
         if (int.Parse(hdfID.Value) <= 0)
         {
-            hdfID.Value = objBO.MeetingInsert_NotSupportCost(obj).ToString();
+            hdfID.Value = objBO.MeetingInsert(obj).ToString();
             if (int.Parse(hdfID.Value) > 0)
             {
+                hdfPAXID_OLD.Value = obj.PAXID.ToString();
                 btnClone.Visible = true;
                 btnSave.Text = "Cập nhật";
                 lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
@@ -711,9 +841,10 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             if (objBO.MeetingGet_ListByID(int.Parse(hdfID.Value)).STATUS_MEETING_REGISTERID <= 1)
             {
                 //Neu duyet roi thì được sửa
-                if (objBO.MeetingUpdate_NotSupportCost(obj))
+                if (objBO.MeetingUpdate(obj, int.Parse(hdfPAXID_OLD.Value)))
                 {
                     lblAlerting.Text = "Anh/Chị đã cập nhật đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!!";
+                    hdfPAXID_OLD.Value = obj.PAXID.ToString();
                     return;
                 }
                 else
@@ -739,6 +870,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         lblORGANIZER_USERTYPENAME.Text = string.Empty;
         lblORGANIZER_EMAIL.Text = string.Empty;
         lblORGANIZER_TELEPHONE.Text = string.Empty;
+        lblORGANIZER_ADDRESS.Text = string.Empty;
         hdfORGANIZER_USERTYPEID.Value = string.Empty;
         UserBO objBO = new UserBO();
         PRC_SYS_AMW_USER_GETLISTBYUSERIDResult result = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
@@ -751,6 +883,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             lblORGANIZER_USERTYPENAME.Text = result.USERTYPENAME;
             lblORGANIZER_EMAIL.Text = result.EMAIL;
             lblORGANIZER_TELEPHONE.Text = result.TELEPHONE;
+            lblORGANIZER_ADDRESS.Text = result.ADDRESS;
             hdfORGANIZER_USERTYPEID.Value = result.USERTYPEID.ToString();
         }
     }
@@ -766,34 +899,31 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
         ImgBtnCO_ORGANIZER_OK_1.Visible = false;
         ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
-
+        hdfMAXPAYMENT.Value = "0";
         if (txtCO_ORGANIZER_ADAID_1.Text.Trim().Length > 0)
         {
 
             MeetingBO objBO = new MeetingBO();
-            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult();
-            result = objBO.Meeting_CheckQuota_NotSupportCost(txtCO_ORGANIZER_ADAID_1.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
+            PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
+            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_1.Text.Trim());
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_1.Value = result.USERID.ToString();
                 lblCO_ORGANIZER_NAME_1.Text = result.FULLNAME;
                 lblCO_ORGANIZER_USERTYPENAME_1.Text = result.USERTYPENAME;
                 hdfCO_ORGANIZER_USERTYPEID_1.Value = result.USERTYPEID.ToString();
-                divCO_ORGANIZER_QUOTA_1.Visible = true;
-                hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = result.ISQUOTA.ToString();
-                if (result.ISQUOTA ?? false)
+
+                if ((int.Parse(ddlDISTRICTID.SelectedValue) > 0) && (int.Parse(ddlPAXID.SelectedValue) > 0))
                 {
-                    ImgBtnCO_ORGANIZER_OK_1.Visible = true;
-                    ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
-                    lblCO_ORGANIZER_OK_3.Text = "Đủ điều kiện";
+                    hdfMAXPAYMENT.Value = GetMaxPayment().ToString();
                 }
                 else
                 {
-                    ImgBtnCO_ORGANIZER_OK_1.Visible = false;
-                    ImgBtnCO_ORGANIZER_ERROR_1.Visible = true;
-                    lblCO_ORGANIZER_OK_1.Text = "Không đủ điều kiện";
+                    hdfMAXPAYMENT.Value = "0";
                 }
+
             }
+
         }
     }
     protected void ImgBtnCO_ORGANIZER_ADA2_CHECK_Click(object sender, ImageClickEventArgs e)
@@ -811,32 +941,18 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
 
         if (txtCO_ORGANIZER_ADAID_2.Text.Trim().Length > 0)
         {
-
             MeetingBO objBO = new MeetingBO();
-            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult();
-            result = objBO.Meeting_CheckQuota_NotSupportCost(txtCO_ORGANIZER_ADAID_2.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
+            PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
+            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_2.Text.Trim());
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_2.Value = result.USERID.ToString();
                 lblCO_ORGANIZER_NAME_2.Text = result.FULLNAME;
                 lblCO_ORGANIZER_USERTYPENAME_2.Text = result.USERTYPENAME;
                 hdfCO_ORGANIZER_USERTYPEID_2.Value = result.USERTYPEID.ToString();
-                divCO_ORGANIZER_QUOTA_2.Visible = true;
-                hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = result.ISQUOTA.ToString();
-                if (result.ISQUOTA ?? false)
-                {
-                    ImgBtnCO_ORGANIZER_OK_2.Visible = true;
-                    ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
-                    lblCO_ORGANIZER_OK_2.Text = "Đủ điều kiện";
-                }
-                else
-                {
-                    ImgBtnCO_ORGANIZER_OK_2.Visible = false;
-                    ImgBtnCO_ORGANIZER_ERROR_2.Visible = true;
-                    lblCO_ORGANIZER_OK_2.Text = "Không đủ điều kiện";
-                }
             }
         }
+
     }
     protected void ImgBtnCO_ORGANIZER_ADA3_CHECK_Click(object sender, ImageClickEventArgs e)
     {
@@ -854,36 +970,21 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         if (txtCO_ORGANIZER_ADAID_3.Text.Trim().Length > 0)
         {
             MeetingBO objBO = new MeetingBO();
-            PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADA_NOTSUPPORTCOSTResult();
-            result = objBO.Meeting_CheckQuota_NotSupportCost(txtCO_ORGANIZER_ADAID_3.Text.Trim(), int.Parse(ddlPAXID.SelectedValue));
+            PRC_SYS_AMW_USER_GETBY_ADAResult result = new PRC_SYS_AMW_USER_GETBY_ADAResult();
+            result = objBO.Meeting_GetDistributor_ByADA(txtCO_ORGANIZER_ADAID_3.Text.Trim());
             if (result != null)
             {
                 hdfCO_ORGANIZER_USERID_3.Value = result.USERID.ToString();
                 lblCO_ORGANIZER_NAME_3.Text = result.FULLNAME;
                 lblCO_ORGANIZER_USERTYPENAME_3.Text = result.USERTYPENAME;
                 hdfCO_ORGANIZER_USERTYPEID_3.Value = result.USERTYPEID.ToString();
-                divCO_ORGANIZER_QUOTA_3.Visible = true;
-                hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = result.ISQUOTA.ToString();
-                if (result.ISQUOTA ?? false)
-                {
-                    ImgBtnCO_ORGANIZER_OK_3.Visible = true;
-                    ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
-                    lblCO_ORGANIZER_OK_3.Text = "Đủ điều kiện";
-                }
-                else
-                {
-                    ImgBtnCO_ORGANIZER_OK_3.Visible = false;
-                    ImgBtnCO_ORGANIZER_ERROR_3.Visible = true;
-                    lblCO_ORGANIZER_OK_3.Text = "Không đủ điều kiện";
-                }
+
             }
         }
     }
     protected void ddlPROVINCEID_SelectedIndexChanged(object sender, EventArgs e)
     {
-
         lblAlerting.Text = string.Empty;
-
         hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
         lblCO_ORGANIZER_NAME_1.Text = string.Empty;
         lblCO_ORGANIZER_USERTYPENAME_1.Text = string.Empty;
@@ -911,16 +1012,17 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
         ImgBtnCO_ORGANIZER_OK_3.Visible = false;
         ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
-
-        if (int.Parse(ddlPROVINCEID.SelectedValue) > 0)
+        if (int.Parse(ddlPAXID.SelectedValue) > 0 && int.Parse(ddlPROVINCEID.SelectedValue) > 0)
         {
             GetDistrictCBO(int.Parse(ddlPROVINCEID.SelectedValue));
         }
 
-
     }
-
-    
+    private int GetMaxPayment()
+    {
+        MeetingBO objBO = new MeetingBO();
+        return objBO.MeetingGet_MaxPayment(int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfCO_ORGANIZER_USERTYPEID_1.Value));
+    }
 
     protected void ddlPLACE_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -948,42 +1050,12 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             return false;
         }
     }
-    private bool CheckNumberMax(string strValue, int MaxValue)
-    {
-        try
-        {
-            if (MaxValue < int.Parse(strValue.Replace(",", "")))
-                return false;
-            else
-                return true;
-        }
-        catch
-        {
-            return false;
-        }
-    }
     private bool CheckDate(string strDate)
     {
         try
         {
             DateTime dt = DateTime.ParseExact(strDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             return true;
-        }
-        catch
-        {
-            return false;
-        }
-    }
-    private bool CheckDateRegister(string strRegisterDate)
-    {
-        try
-        {
-            DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            double day = (dt1 - dt2).TotalDays;
-            if (day > 30)
-                return true;
-            else return false;
         }
         catch
         {
@@ -1020,53 +1092,176 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
         hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
         ImgBtnCO_ORGANIZER_OK_3.Visible = false;
         ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
-        lblAlerting.Text = string.Empty;
+
         GetPlaceCBO(int.Parse(ddlDISTRICTID.SelectedValue));
     }
-    private void SetEnable(bool bolValue)
+    private bool CheckDateRegister(string strRegisterDate)
     {
+        try
+        {
+            DateTime dt1 = DateTime.ParseExact(strRegisterDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            DateTime dt2 = DateTime.ParseExact(DateTime.Now.ToString("dd/MM/yyyy"), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            double day = (dt1 - dt2).TotalDays;
+            if (day > 10)
+                return true;
+            else return false;
+        }
+        catch
+        {
+            return false;
+        }
+    }
 
-        btnClone.Visible = bolValue;
-        btnSave.Visible = bolValue;
-        txtORGANIZER_ADAID.Enabled = bolValue;
-        txtORGANIZER_ADDRESS.Enabled = bolValue;
-        ddlPAXID.Enabled = bolValue;
-        ddlPROVINCEID.Enabled = bolValue;
-        ddlDISTRICTID.Enabled = bolValue;
-        txtCO_ORGANIZER_ADAID_1.Enabled = bolValue;
-        txtCO_ORGANIZER_ADAID_2.Enabled = bolValue;
+    private bool CheckProvinceOrDistrict(string PaxId, string ProvinceId, string DistrictId)
+    {
+        try
+        {
 
-        txtCO_ORGANIZER_ADAID_3.Enabled = bolValue;
-        txtMEETINGNAME.Enabled = bolValue;
-        txtNUMBER_OF_PARTICIPANT.Enabled = bolValue;
-        ddlPLACE.Enabled = bolValue;
-        txtMEETING_PLACE_NAME.Enabled = bolValue;
-        txtMEETING_ADDRESS.Enabled = bolValue;
-        txtMEETING_TIME.Enabled = bolValue;
+            MeetingBO objBO = new MeetingBO();
+            if (txtCO_ORGANIZER_ADAID_1.Text.Trim().Length > 0)
+            {
+                if (int.Parse(PaxId) > 4)
+                {
 
-        ddlINVITATIONID.Enabled = bolValue;
-        ddlBANNERID.Enabled = bolValue;
-        txtSEND_INVITATION_DATE.Enabled = bolValue;
-        ddlFOOD.Enabled = bolValue;
-        ddlWATER.Enabled = bolValue;
-        txtWATER_PRICE.Enabled = bolValue;
-        txtFOOD_PRICE.Enabled = bolValue;
+                    PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult();
+                    result = objBO.Meeting_CheckQuota_ByUserId_Province(int.Parse(hdfCO_ORGANIZER_USERID_1.Value), int.Parse(PaxId), int.Parse(ProvinceId));
+                    if (result != null)
+                    {
+                        if (!result.ISQUOTA ?? false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult();
+                    result = objBO.Meeting_CheckQuota_ByUserId(int.Parse(hdfCO_ORGANIZER_USERID_1.Value), int.Parse(PaxId), int.Parse(DistrictId));
+                    if (result != null)
+                    {
+                        if (!result.ISQUOTA ?? false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
 
-        txtSPEAKER_TITLE_1.Enabled = bolValue;
-        txtSPEAKER_ADAID_1.Enabled = bolValue;
-        txtSPEAKER_USERTYPENAME_1.Enabled = bolValue;
-        txtSPEAKER_NAME_1.Enabled = bolValue;
-        txtSPEAKER_NAME_2.Enabled = bolValue;
-        txtSPEAKER_TITLE_2.Enabled = bolValue;
-        txtSPEAKER_ADAID_2.Enabled = bolValue;
-        txtSPEAKER_USERTYPENAME_2.Enabled = bolValue;
-        txtSPEAKER_NATION_1.Enabled = bolValue;
-        txtSPEAKER_NATION_2.Enabled = bolValue;
-        ImgBtnCO_ORGANIZER_ADA1_CHECK.Enabled = bolValue;
-        ImgBtnCO_ORGANIZER_ADA2_CHECK.Enabled = bolValue;
-        ImgBtnCO_ORGANIZER_ADA3_CHECK.Enabled = bolValue;
-        txtMEETING_STARTDATE.Enabled = bolValue;
-        txtMEETING_ENDDATE.Enabled = bolValue;
+            if (txtCO_ORGANIZER_ADAID_2.Text.Trim().Length > 0)
+            {
+                if (int.Parse(PaxId) > 4)
+                {
+
+                    PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult();
+                    result = objBO.Meeting_CheckQuota_ByUserId_Province(int.Parse(hdfCO_ORGANIZER_USERID_2.Value), int.Parse(PaxId), int.Parse(ProvinceId));
+                    if (result != null)
+                    {
+                        if (!result.ISQUOTA ?? false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult();
+                    result = objBO.Meeting_CheckQuota_ByUserId(int.Parse(hdfCO_ORGANIZER_USERID_2.Value), int.Parse(PaxId), int.Parse(DistrictId));
+                    if (result != null)
+                    {
+                        if (!result.ISQUOTA ?? false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            if (txtCO_ORGANIZER_ADAID_3.Text.Trim().Length > 0)
+            {
+                if (int.Parse(PaxId) > 4)
+                {
+
+                    PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERID_PROVINCEResult();
+                    result = objBO.Meeting_CheckQuota_ByUserId_Province(int.Parse(hdfCO_ORGANIZER_USERID_3.Value), int.Parse(PaxId), int.Parse(ProvinceId));
+                    if (result != null)
+                    {
+                        if (!result.ISQUOTA ?? false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                else
+                {
+                    PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult result = new PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_USERIDResult();
+                    result = objBO.Meeting_CheckQuota_ByUserId(int.Parse(hdfCO_ORGANIZER_USERID_3.Value), int.Parse(PaxId), int.Parse(DistrictId));
+                    if (result != null)
+                    {
+                        if (!result.ISQUOTA ?? false)
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+
+    private bool CheckNumberMax(string strValue, int MaxValue)
+    {
+        try
+        {
+            if (MaxValue < int.Parse(strValue.Replace(",", "")))
+                return false;
+            else
+                return true;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+    protected void ddlPAXID_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        hdfCO_ORGANIZER_USERID_1.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_1.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_1.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_1.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_1.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_1.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
+
+        hdfCO_ORGANIZER_USERID_2.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_2.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_2.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_2.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_2.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_2.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+
+
+        hdfCO_ORGANIZER_USERID_3.Value = string.Empty;
+        lblCO_ORGANIZER_NAME_3.Text = string.Empty;
+        lblCO_ORGANIZER_USERTYPENAME_3.Text = string.Empty;
+        hdfCO_ORGANIZER_USERTYPEID_3.Value = string.Empty;
+        divCO_ORGANIZER_QUOTA_3.Visible = false;
+        hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
+        ImgBtnCO_ORGANIZER_OK_3.Visible = false;
+        ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
+        lblAlerting.Text = string.Empty;
+    }
+    protected void btnReport_Click(object sender, EventArgs e)
+    {
+        string strUrl = "../distributor/reportR" + hdfID.Value;
+        Response.Redirect(strUrl);
     }
     private int GetValuePaxId(int paxId)
     {
@@ -1098,10 +1293,138 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeigner : System.Web
             return false;
         }
     }
+    private bool CheckQuota(string strNgayHoiHop)
+    {
+        try
+        {
+            bool valueReturn = false;
+            DateTime NgayHoiHop = DateTime.ParseExact(strNgayHoiHop, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
+            MeetingBO objBO = new MeetingBO();
+            if (txtCO_ORGANIZER_ADAID_1.Text.Trim().Length > 0)
+            {
+                lblCO_ORGANIZER_OK_1.Text = string.Empty;
+                lblAlerting.Text = string.Empty;
+                divCO_ORGANIZER_QUOTA_1.Visible = false;
+                hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = "false";
+                ImgBtnCO_ORGANIZER_OK_1.Visible = false;
+                ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
+                if (txtCO_ORGANIZER_ADAID_1.Text.Trim().Length > 0)
+                {
+
+                    V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
+                    if (hdfPAXID_OLD.Value == null || hdfPAXID_OLD.Value.Length <= 0) hdfPAXID_OLD.Value = "-1";
+                    result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_1.Text.Trim(), int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfPAXID_OLD.Value),NgayHoiHop);
+                    if (result != null)
+                    {
+
+                        divCO_ORGANIZER_QUOTA_1.Visible = true;
+                        hdfCO_ORGANIZER_QUOTA_CHECK_1.Value = result.ISQUOTA.ToString();
+
+                        if (result.ISQUOTA ?? false)
+                        {
+                            valueReturn = true;
+                            ImgBtnCO_ORGANIZER_OK_1.Visible = true;
+                            ImgBtnCO_ORGANIZER_ERROR_1.Visible = false;
+                            lblCO_ORGANIZER_OK_1.Text = "Đủ điều kiện";
+                        }
+                        else
+                        {
+                            valueReturn = false;
+                            ImgBtnCO_ORGANIZER_OK_1.Visible = false;
+                            ImgBtnCO_ORGANIZER_ERROR_1.Visible = true;
+                            lblCO_ORGANIZER_OK_1.Text = "Không đủ điều kiện";
+                        }
+                    }
+
+                }
+            }
+
+            if (txtCO_ORGANIZER_ADAID_2.Text.Trim().Length > 0)
+            {
+                lblCO_ORGANIZER_OK_2.Text = string.Empty;
+                lblAlerting.Text = string.Empty;
+                divCO_ORGANIZER_QUOTA_2.Visible = false;
+                hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = "false";
+                ImgBtnCO_ORGANIZER_OK_2.Visible = false;
+                ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+
+                if (txtCO_ORGANIZER_ADAID_2.Text.Trim().Length > 0)
+                {
+                    V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
+                    if (hdfPAXID_OLD.Value == null || hdfPAXID_OLD.Value.Length <= 0) hdfPAXID_OLD.Value = "-1";
+                    result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_2.Text.Trim(), int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfPAXID_OLD.Value), NgayHoiHop);
+                    if (result != null)
+                    {
+                        divCO_ORGANIZER_QUOTA_2.Visible = true;
+                        hdfCO_ORGANIZER_QUOTA_CHECK_2.Value = result.ISQUOTA.ToString();
+                        if (result.ISQUOTA ?? false)
+                        {
+                            valueReturn = true;
+                            ImgBtnCO_ORGANIZER_OK_2.Visible = true;
+                            ImgBtnCO_ORGANIZER_ERROR_2.Visible = false;
+                            lblCO_ORGANIZER_OK_2.Text = "Đủ điều kiện";
+                        }
+                        else
+                        {
+                            valueReturn = false;
+                            ImgBtnCO_ORGANIZER_OK_2.Visible = false;
+                            ImgBtnCO_ORGANIZER_ERROR_2.Visible = true;
+                            lblCO_ORGANIZER_OK_2.Text = "Không đủ điều kiện";
+                        }
+                    }
+                }
+            }
+
+            if (txtCO_ORGANIZER_ADAID_3.Text.Trim().Length > 0)
+            {
+
+                lblCO_ORGANIZER_OK_3.Text = string.Empty;
+                lblAlerting.Text = string.Empty;
+                divCO_ORGANIZER_QUOTA_3.Visible = false;
+                hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = "false";
+                ImgBtnCO_ORGANIZER_OK_3.Visible = false;
+                ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
+
+                if (txtCO_ORGANIZER_ADAID_3.Text.Trim().Length > 0)
+                {
+                    V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult result = new V2_PRC_USR_AMW_USER_DISTRIBUTOR_CHECKBY_ADAResult();
+                    if (hdfPAXID_OLD.Value == null || hdfPAXID_OLD.Value.Length <= 0) hdfPAXID_OLD.Value = "-1";
+                    result = objBO.Meeting_CheckQuota_V2(txtCO_ORGANIZER_ADAID_3.Text.Trim(), int.Parse(ddlPAXID.SelectedValue), int.Parse(hdfPAXID_OLD.Value), NgayHoiHop);
+                    if (result != null)
+                    {
+
+                        divCO_ORGANIZER_QUOTA_3.Visible = true;
+                        hdfCO_ORGANIZER_QUOTA_CHECK_3.Value = result.ISQUOTA.ToString();
+                        if (result.ISQUOTA ?? false)
+                        {
+                            valueReturn = true;
+                            ImgBtnCO_ORGANIZER_OK_3.Visible = true;
+                            ImgBtnCO_ORGANIZER_ERROR_3.Visible = false;
+                            lblCO_ORGANIZER_OK_3.Text = "Đủ điều kiện";
+                        }
+                        else
+                        {
+                            valueReturn = false;
+                            ImgBtnCO_ORGANIZER_OK_3.Visible = false;
+                            ImgBtnCO_ORGANIZER_ERROR_3.Visible = true;
+                            lblCO_ORGANIZER_OK_3.Text = "Không đủ điều kiện";
+                        }
+                    }
+                }
+            }
+
+            return valueReturn;
+        }
+        catch
+        {
+            return false;
+        }
+
+    }
     protected void btnClone_Click(object sender, EventArgs e)
     {
-        string strUrl = "../meeting/notsupportcostforeignercloneR" + hdfID.Value;
+        string strUrl = "../meeting/supportcostcloneR" + hdfID.Value;
         Response.Redirect(strUrl);
     }
 }

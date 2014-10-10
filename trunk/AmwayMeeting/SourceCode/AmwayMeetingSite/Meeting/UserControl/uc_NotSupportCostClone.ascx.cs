@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 using System.Globalization;
 using System.Data;
 
-public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_NotSupportCostClone : System.Web.UI.UserControl
 {
     public int _ID = -1;
     protected void Page_Load(object sender, EventArgs e)
@@ -23,12 +23,10 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
     private void InitData()
     {
         ClearTextBox();
-        hdfID.Value = _ID.ToString();
         SetEnable(true);
         if (_ID > 0)
         {
-            btnSave.Text = "Cập nhật";
-            LoadData(int.Parse(hdfID.Value));
+            LoadData(_ID);
         }
         else
         {
@@ -152,8 +150,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 {
                     SetEnable(true);
                 }
-                btnClone.Visible = true;
 
+                btnClone.Visible = true;
             }
         }
         else
@@ -174,8 +172,8 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
         hdfReported.Value = "false";
         hdfID.Value = "-1";
         btnSave.Text = "Đăng ký";
-        btnSave.Visible = true;
         btnClone.Visible = false;
+        btnSave.Visible = true;
         txtORGANIZER_ADAID.ReadOnly = true;
         txtORGANIZER_ADAID.Text = string.Empty;
         hdfORGANIZER_USERID.Value = string.Empty;
@@ -690,6 +688,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
                 hdfID.Value = objBO.MeetingInsert_NotSupportCost(obj).ToString();
                 if (int.Parse(hdfID.Value) > 0)
                 {
+
                     btnClone.Visible = true;
                     btnSave.Text = "Cập nhật";
                     lblAlerting.Text = "Anh/Chị đã đăng ký thành công, Công ty Amway sẽ có thông báo đến Anh/Chị ngay sau khi hoàn thành việc xử lý hồ sơ đăng ký!";
@@ -1065,6 +1064,7 @@ public partial class Meeting_UserControl_uc_NotSupportCost : System.Web.UI.UserC
 
     private void SetEnable(bool bolValue)
     {
+
         btnClone.Visible = bolValue;
         btnSave.Visible = bolValue;
         txtORGANIZER_ADAID.Enabled = bolValue;

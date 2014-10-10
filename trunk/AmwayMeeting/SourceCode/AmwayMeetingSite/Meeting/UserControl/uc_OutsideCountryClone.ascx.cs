@@ -8,7 +8,7 @@ using DAL;
 using System.Text.RegularExpressions;
 using System.Globalization;
 
-public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserControl
+public partial class Meeting_UserControl_uc_OutsideCountryClone : System.Web.UI.UserControl
 {
     public int _ID = -1;
     protected void Page_Load(object sender, EventArgs e)
@@ -22,11 +22,9 @@ public partial class Meeting_UserControl_uc_OutSideCountry : System.Web.UI.UserC
     private void InitData()
     {
         ClearTextBox();
-        hdfID.Value = _ID.ToString();
         if (_ID > 0)
         {
-            btnSave.Text = "Cập nhật";
-            LoadData(int.Parse(hdfID.Value));
+            LoadData(_ID);
         }
         else
         {
