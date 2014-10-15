@@ -43,7 +43,7 @@ function Datepicker() {
 	this.regional = []; // Available regional settings, indexed by language code
 	this.regional[''] = { // Default regional settings
 		closeText: 'Xong', // Display text for close link
-		prevText: 'Lui', // Display text for previous month link
+		prevText: 'Lùi', // Display text for previous month link
 		nextText: 'Tới', // Display text for next month link
 		currentText: 'Hôm nay', // Display text for current month link
 		monthNames: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6',
