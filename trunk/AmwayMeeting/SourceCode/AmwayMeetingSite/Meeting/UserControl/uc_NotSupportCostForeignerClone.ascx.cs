@@ -431,12 +431,12 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : Syste
         }
         if (txtORGANIZER_ADDRESS.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập địa chỉ nhập thư ủy quyền!";
+            lblAlerting.Text = "Bạn chưa nhập địa chỉ nhận thư ủy quyền!";
             return;
         }
         if (int.Parse(ddlPAXID.SelectedValue) <= 0)
         {
-            lblAlerting.Text = "Bạn chưa chọn loại phòng hội họp!";
+            lblAlerting.Text = "Bạn chưa chọn loại hội họp!";
             return;
         }
 
@@ -453,7 +453,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : Syste
         }
         if (hdfCO_ORGANIZER_USERID_1.Value.Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập mã số ADA của người đăng ký hội họp!";
+            lblAlerting.Text = "Bạn chưa nhập và kiểm tra  mã số ADA của người đồng tổ chức!";
             return;
         }
         if (txtMEETINGNAME.Text.Trim().Length <= 0)
@@ -463,7 +463,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : Syste
         }
         if ((txtNUMBER_OF_PARTICIPANT.Text.Trim().Length <= 0) || !(CheckNumber(txtNUMBER_OF_PARTICIPANT.Text.Trim())))
         {
-            lblAlerting.Text = "Bạn nhập số lượng người tham gia cuộc họp không đúng!";
+            lblAlerting.Text = "Bạn chưa nhập số lượng người tham dự ước lượng!";
             return;
         }
         if (txtMEETING_PLACE_NAME.Text.Trim().Length <= 0)
@@ -473,7 +473,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : Syste
         }
         if (txtMEETING_ADDRESS.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập địa điểm họp!";
+            lblAlerting.Text = "Bạn chưa nhập địa chỉ địa điểm họp!";
             return;
         }
         if ((txtMEETING_STARTDATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_STARTDATE.Text)) || (txtMEETING_ENDDATE.Text.Trim().Length <= 0) || (!CheckDate(txtMEETING_ENDDATE.Text)))
@@ -500,7 +500,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : Syste
 
         if ((txtSEND_INVITATION_DATE.Text.Trim().Length <= 0) || (!CheckDate(txtSEND_INVITATION_DATE.Text)))
         {
-            lblAlerting.Text = "Bạn nhập ngày phát giấy mời không đúng!";
+            lblAlerting.Text = "Bạn chưa nhập ngày phát giấy mời!";
             return;
         }
         if (bool.Parse(ddlWATER.SelectedValue))
@@ -540,7 +540,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostForeignerClone : Syste
         }
         if (!chkAgree.Checked)
         {
-            lblAlerting.Text = "Bạn chưa cam kết với dữ liệu nhập ở trên!";
+            lblAlerting.Text = "Bạn chưa cam kết với dữ liệu đã kê khai trên!";
             return;
         }
 

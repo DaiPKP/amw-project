@@ -195,7 +195,7 @@ public partial class Meeting_UserControl_uc_OutsideCountryClone : System.Web.UI.
         }
         if (txtMEETING_ADDRESS.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập địa điểm họp!";
+            lblAlerting.Text = "Bạn chưa nhập địa chỉ địa điểm họp!";
             return;
         }
         if (txtCOUNTRYNAME.Text.Trim().Length <= 0)
