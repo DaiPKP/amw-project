@@ -61,7 +61,7 @@ public class General
             string host = ConfigurationSettings.AppSettings["SmtpServer"].ToString();
             string password = ConfigurationSettings.AppSettings["ContactPass"].ToString();
             string userEmail = ConfigurationSettings.AppSettings["ContactEmail"].ToString();
-            mail.From = new MailAddress(userEmail, "IT Dai Truong Phat");
+            mail.From = new MailAddress(userEmail, "IT Amway");
             SmtpClient emailClient = new SmtpClient();
             System.Net.NetworkCredential SMTPUserInfo = new System.Net.NetworkCredential(userEmail, password);
             emailClient.UseDefaultCredentials = false;
