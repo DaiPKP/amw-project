@@ -503,7 +503,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
         {
             if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
             {
-                lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
+                lblAlerting.Text = "Bạn nhập tiền nước uống không đúng!";
                 return;
             }
         }
@@ -511,7 +511,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
         {
             if ((txtFOOD_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtFOOD_PRICE.Text, 30000)))
             {
-                lblAlerting.Text = "Bạn số tiền thức ăn không đúng!";
+                lblAlerting.Text = "Bạn nhập tiền thức ăn không đúng!";
                 return;
             }
         }
@@ -519,7 +519,7 @@ public partial class Meeting_UserControl_uc_NotSupportCostView : System.Web.UI.U
         {
             if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
             {
-                lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
+                lblAlerting.Text = "Bạn nhập tiền nước uống không đúng!";
                 return;
             }
         }

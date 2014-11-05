@@ -72,6 +72,14 @@
         obj.value = addCommasString(value);
         return;
     }
+    function CheckDocument(obj) {
+        var value = parseFloat(replaceAll(obj.value, ',', ''));
+        if (value > 10000) {
+            value = 10000;
+        }
+        obj.value = addCommasString(value);
+        return;
+    }
 </script>
 <asp:Panel runat="server" ID="hehe">
     <fieldset>
@@ -541,7 +549,30 @@
 
                                 <td class="tdmeeting7"></td>
                             </tr>
+                             <tr>
+                                    <td align="left" class="divClearBothInAdmin"></td>
+                                </tr>
+                                <tr>
+                                    <td class="tdmeeting1"></td>
+                                    <td align="left" class="tdmeeting2">Tài liệu<span style="color: Red">(*)</span>:
+                                    
+                                    </td>
+                                    <td align="left" class="tdmeeting3">
+                                        <asp:DropDownList ID="ddlDOCUMENT" runat="server" Width="70px" Height="22px" CssClass="txtBox">
+                                            <asp:ListItem Value="False" Text="Không" />
+                                            <asp:ListItem Value="True" Text="Có" />
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td class="tdmeeting4"></td>
+                                    <td align="left" class="tdmeeting5" colspan="2">Giá tài liệu:
+                                        <div style="float: right">
+                                            <asp:TextBox ID="txtDOCUMENT_PRICE" CssClass="txtNumberBox" runat="server" Width="140px" onKeyUp="CheckDocument(this);"></asp:TextBox>
+                                            đồng.
+                                        </div>
+                                    </td>
 
+                                    <td class="tdmeeting7"></td>
+                                </tr>
                             <tr>
                                 <td colspan="7">
                                     <hr />

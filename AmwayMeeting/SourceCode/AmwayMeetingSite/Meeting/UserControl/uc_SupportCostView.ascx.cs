@@ -87,6 +87,8 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             ddlFOOD.SelectedValue = result.FOOD.ToString();
             txtWATER_PRICE.Text = result.WATER_PRICE == null ? string.Empty : string.Format("{0:N0}", result.WATER_PRICE);
             txtFOOD_PRICE.Text = result.FOOD_PRICE == null ? string.Empty : string.Format("{0:N0}", result.FOOD_PRICE);
+            ddlDOCUMENT.SelectedValue = result.DOCUMENT.ToString();
+            txtDOCUMENT_PRICE.Text = result.DOCUMENT_PRICE == null ? string.Empty : string.Format("{0:N0}", result.DOCUMENT_PRICE);
             txtSPEAKER_TITLE_1.Text = result.SPEAKER_TITLE_1 == null ? string.Empty : result.SPEAKER_TITLE_1;
             txtSPEAKER_ADAID_1.Text = result.SPEAKER_ADAID_1 == null ? string.Empty : result.SPEAKER_ADAID_1;
             txtSPEAKER_NAME_1.Text = result.SPEAKER_NAME_2 == null ? string.Empty : result.SPEAKER_NAME_1;
@@ -223,6 +225,7 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
         txtWATER_PRICE.Text = string.Empty;
         txtFOOD_PRICE.Text = string.Empty;
 
+        txtDOCUMENT_PRICE.Text = string.Empty;
         txtSPEAKER_TITLE_1.Text = string.Empty;
         txtSPEAKER_ADAID_1.Text = string.Empty;
         txtSPEAKER_USERTYPENAME_1.Text = string.Empty;
@@ -277,9 +280,13 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
         ddlINVITATIONID.Enabled = bolValue;
         ddlBANNERID.Enabled = bolValue;
         txtSEND_INVITATION_DATE.Enabled = bolValue;
-
+        ddlFOOD.Enabled = bolValue;
+        ddlWATER.Enabled = bolValue;
         txtWATER_PRICE.Enabled = bolValue;
         txtFOOD_PRICE.Enabled = bolValue;
+
+        ddlDOCUMENT.Enabled = bolValue;
+        txtDOCUMENT_PRICE.Enabled = bolValue;
 
         txtSPEAKER_TITLE_1.Enabled = bolValue;
         txtSPEAKER_ADAID_1.Enabled = bolValue;
@@ -636,7 +643,7 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
         {
             if ((txtFOOD_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtFOOD_PRICE.Text, 30000)))
             {
-                lblAlerting.Text = "Bạn số tiền thức ăn không đúng!";
+                lblAlerting.Text = "Bạn nhập tiền thức ăn không đúng!";
                 return;
             }
         }
@@ -644,7 +651,15 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
         {
             if ((txtWATER_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtWATER_PRICE.Text, 25000)))
             {
-                lblAlerting.Text = "Bạn số tiền nước uống không đúng!";
+                lblAlerting.Text = "Bạn nhập tiền nước uống không đúng!";
+                return;
+            }
+        }
+        if (bool.Parse(ddlDOCUMENT.SelectedValue))
+        {
+            if ((txtDOCUMENT_PRICE.Text.Trim().Length > 0) && (!CheckNumberMax(txtDOCUMENT_PRICE.Text, 10000)))
+            {
+                lblAlerting.Text = "Bạn nhập tiền tài liệu không đúng!";
                 return;
             }
         }
@@ -819,7 +834,15 @@ public partial class Meeting_UserControl_uc_SupportCostView : System.Web.UI.User
             }
 
         }
+        obj.DOCUMENT = bool.Parse(ddlDOCUMENT.SelectedValue);
+        if (bool.Parse(ddlDOCUMENT.SelectedValue))
+        {
+            if (CheckNumber(txtDOCUMENT_PRICE.Text.Trim()))
+            {
+                obj.DOCUMENT_PRICE = int.Parse(txtDOCUMENT_PRICE.Text.Trim().Replace(",", ""));
+            }
 
+        }
         obj.MEETINGTYPEID = 2;
         obj.STATUS_MEETING_REGISTERID = 1;
         obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
