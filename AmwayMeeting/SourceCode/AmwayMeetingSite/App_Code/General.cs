@@ -80,7 +80,7 @@ public class General
             return false;
         }
     }
-    private DataTable ConvertToDataTable<T>(List<T> data)
+    private static DataTable ConvertToDataTable<T>(List<T> data)
     {
         PropertyDescriptorCollection properties =
            TypeDescriptor.GetProperties(typeof(T));
