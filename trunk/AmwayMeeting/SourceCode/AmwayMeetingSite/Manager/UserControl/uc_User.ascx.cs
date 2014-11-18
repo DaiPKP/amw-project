@@ -39,6 +39,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.USER_SYSTEMID = 0;
         objUser.USERTYPE_ENHANCEID = 0;
         objUser.DESCRIPTION = string.Empty;
+        objUser.USER_SYSTEMANOTHER = string.Empty;
         objUser.ACTIVE = chkActive.Checked;
         DisplayUsersInGrid(objUser);
     }
@@ -70,6 +71,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         ddlUserType_Enhance.SelectedValue = "0";
         ddlSystem.SelectedValue = "0";
         txtDescription.Text = string.Empty;
+        txtUserSystemEnhance.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
@@ -279,6 +281,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         string strUserType_Enhance = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUserType_EnhanceId")).Text;
         bool Active = bool.Parse(((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
         string strDescription = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
+        string strUserSystemEnhance = ((Label)grdUserList.Rows[e.NewEditIndex].FindControl("lblListingUserSystemEnhance")).Text;
 
         // Bind len control
 
@@ -303,6 +306,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         ddlUserType_Enhance.SelectedValue = strUserType_Enhance;
         chkActive.Checked = Active;
         txtDescription.Text = strDescription;
+        txtUserSystemEnhance.Text = strUserSystemEnhance;
 
     }
     protected void btnXoaTrang_Click(object sender, EventArgs e)
@@ -394,7 +398,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.WORKPROVINCEID = int.Parse(ddlWorkProvince.SelectedValue);
         objUser.USER_SYSTEMID = int.Parse(ddlSystem.SelectedValue);
         objUser.USERTYPE_ENHANCEID = int.Parse(ddlUserType_Enhance.SelectedValue);
-
+        objUser.USER_SYSTEMANOTHER = txtUserSystemEnhance.Text.Trim();
         objUser.CREATEUSER = int.Parse(Session["UserID"].ToString());
         objUser.UPDATEUSER = int.Parse(Session["UserID"].ToString());
 
@@ -451,6 +455,7 @@ public partial class Manager_UserControl_uc_User : System.Web.UI.UserControl
         objUser.FAX = txtFax.Text.Trim();
         objUser.ADDRESS = txtAddress.Text.Trim();
         objUser.DESCRIPTION = txtDescription.Text.Trim();
+        objUser.USER_SYSTEMANOTHER = txtUserSystemEnhance.Text.Trim();
         objUser.EMAIL = txtEmail.Text.Trim();
         objUser.USERTYPEID = int.Parse(ddlUserType.SelectedValue);
         objUser.DEPARTMENTID = int.Parse(ddlDepartment.SelectedValue);
