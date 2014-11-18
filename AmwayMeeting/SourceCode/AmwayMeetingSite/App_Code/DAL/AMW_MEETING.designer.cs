@@ -1028,13 +1028,6 @@ namespace DAL
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH")]
-		public ISingleResult<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult> PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPEID", DbType="Int")] System.Nullable<int> uSERTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ENHANCENAME", DbType="NVarChar(50)")] string uSERTYPE_ENHANCENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DESCRIPTION", DbType="NVarChar(500)")] string dESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVE", DbType="Bit")] System.Nullable<bool> aCTIVE)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERTYPEID, uSERTYPE_ENHANCENAME, dESCRIPTION, aCTIVE);
-			return ((ISingleResult<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USER_SEARCH")]
 		public ISingleResult<PRC_SYS_AMW_USER_SEARCHResult> PRC_SYS_AMW_USER_SEARCH(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA, 
@@ -1396,6 +1389,13 @@ namespace DAL
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD, oRGANIZER_USERID, oRGANIZER_USERTYPEID, oRGANIZER_ADDRESS_AUTHORIZED, pAXID, dISTRICTID, pROVINCEID, mEETINGNAME, nUMBER_OF_PARTICIPANT, mEETING_PLACE_NAME, mEETING_ADDRESS, cOUNTRYNAME, mEETING_DATE, dEPARTURE_DATE, aRRIVAL_DATE, mEETING_STARTDATE, mEETING_ENDDATE, mEETING_TIME, fORMS_OF_PAYMENTID, iNVITATIONID, bANNERID, sEND_INVITATION_DATE, wATER, wATER_PRICE, fOOD, fOOD_PRICE, tOTAL_PAY, aMWAY_PAY, dISTRIBUTOR_PAY, mEETINGTYPEID, sTATUS_MEETING_PAYMENTID, sTATUS_MEETING_REGISTERID, uPDATEUSER, fOREIGNER, rEPORTED, cO_ORGANIZER_USERID_1, cO_ORGANIZER_USERTYPEID_1, cO_ORGANIZER_USERID_2, cO_ORGANIZER_USERTYPEID_2, cO_ORGANIZER_USERID_3, cO_ORGANIZER_USERTYPEID_3, sPEAKER_ADAID_1, sPEAKER_USERTYPENAME_1, sPEAKER_NAME_1, sPEAKER_TITLE_1, sPEAKER_NATION_1, sPEAKER_ADAID_2, sPEAKER_USERTYPENAME_2, sPEAKER_NAME_2, sPEAKER_TITLE_2, sPEAKER_NATION_2, cOMMENTS, wARNING, pLACEID, aGREE, pAXID_OLD, dOCUMENT, dOCUMENT_PRICE);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH")]
+		public ISingleResult<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult> PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPEID", DbType="Int")] System.Nullable<int> uSERTYPEID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="USERTYPE_ENHANCENAME", DbType="NVarChar(50)")] string uSERTYPE_ENHANCENAME, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DESCRIPTION", DbType="NVarChar(500)")] string dESCRIPTION, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACTIVE", DbType="Bit")] System.Nullable<bool> aCTIVE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), uSERTYPEID, uSERTYPE_ENHANCENAME, dESCRIPTION, aCTIVE);
+			return ((ISingleResult<PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -22470,194 +22470,6 @@ namespace DAL
 		}
 	}
 	
-	public partial class PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult
-	{
-		
-		private int _ID;
-		
-		private System.Nullable<int> _USERTYPEID;
-		
-		private string _USERTYPE_ENHANCENAME;
-		
-		private string _DESCRIPTION;
-		
-		private bool _ACTIVE;
-		
-		private System.Nullable<int> _CREATEUSER;
-		
-		private System.Nullable<System.DateTime> _CREATEDATE;
-		
-		private System.Nullable<int> _UPDATEUSER;
-		
-		private System.Nullable<System.DateTime> _UPDATEDATE;
-		
-		private string _TINHTRANG;
-		
-		public PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPEID", DbType="Int")]
-		public System.Nullable<int> USERTYPEID
-		{
-			get
-			{
-				return this._USERTYPEID;
-			}
-			set
-			{
-				if ((this._USERTYPEID != value))
-				{
-					this._USERTYPEID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ENHANCENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string USERTYPE_ENHANCENAME
-		{
-			get
-			{
-				return this._USERTYPE_ENHANCENAME;
-			}
-			set
-			{
-				if ((this._USERTYPE_ENHANCENAME != value))
-				{
-					this._USERTYPE_ENHANCENAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
-		public string DESCRIPTION
-		{
-			get
-			{
-				return this._DESCRIPTION;
-			}
-			set
-			{
-				if ((this._DESCRIPTION != value))
-				{
-					this._DESCRIPTION = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit NOT NULL")]
-		public bool ACTIVE
-		{
-			get
-			{
-				return this._ACTIVE;
-			}
-			set
-			{
-				if ((this._ACTIVE != value))
-				{
-					this._ACTIVE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
-		public System.Nullable<int> CREATEUSER
-		{
-			get
-			{
-				return this._CREATEUSER;
-			}
-			set
-			{
-				if ((this._CREATEUSER != value))
-				{
-					this._CREATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CREATEDATE
-		{
-			get
-			{
-				return this._CREATEDATE;
-			}
-			set
-			{
-				if ((this._CREATEDATE != value))
-				{
-					this._CREATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
-		public System.Nullable<int> UPDATEUSER
-		{
-			get
-			{
-				return this._UPDATEUSER;
-			}
-			set
-			{
-				if ((this._UPDATEUSER != value))
-				{
-					this._UPDATEUSER = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
-		public System.Nullable<System.DateTime> UPDATEDATE
-		{
-			get
-			{
-				return this._UPDATEDATE;
-			}
-			set
-			{
-				if ((this._UPDATEDATE != value))
-				{
-					this._UPDATEDATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINHTRANG", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
-		public string TINHTRANG
-		{
-			get
-			{
-				return this._TINHTRANG;
-			}
-			set
-			{
-				if ((this._TINHTRANG != value))
-				{
-					this._TINHTRANG = value;
-				}
-			}
-		}
-	}
-	
 	public partial class PRC_SYS_AMW_USER_SEARCHResult
 	{
 		
@@ -30827,6 +30639,212 @@ namespace DAL
 				if ((this._DISTRICTNAME != value))
 				{
 					this._DISTRICTNAME = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult
+	{
+		
+		private int _ID;
+		
+		private System.Nullable<int> _USERTYPEID;
+		
+		private string _USERTYPE_ENHANCENAME;
+		
+		private string _DESCRIPTION;
+		
+		private bool _ACTIVE;
+		
+		private System.Nullable<int> _CREATEUSER;
+		
+		private System.Nullable<System.DateTime> _CREATEDATE;
+		
+		private System.Nullable<int> _UPDATEUSER;
+		
+		private System.Nullable<System.DateTime> _UPDATEDATE;
+		
+		private string _USERTYPENAME;
+		
+		private string _TINHTRANG;
+		
+		public PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPEID", DbType="Int")]
+		public System.Nullable<int> USERTYPEID
+		{
+			get
+			{
+				return this._USERTYPEID;
+			}
+			set
+			{
+				if ((this._USERTYPEID != value))
+				{
+					this._USERTYPEID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPE_ENHANCENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERTYPE_ENHANCENAME
+		{
+			get
+			{
+				return this._USERTYPE_ENHANCENAME;
+			}
+			set
+			{
+				if ((this._USERTYPE_ENHANCENAME != value))
+				{
+					this._USERTYPE_ENHANCENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="NVarChar(500)")]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTIVE", DbType="Bit NOT NULL")]
+		public bool ACTIVE
+		{
+			get
+			{
+				return this._ACTIVE;
+			}
+			set
+			{
+				if ((this._ACTIVE != value))
+				{
+					this._ACTIVE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEUSER", DbType="Int")]
+		public System.Nullable<int> CREATEUSER
+		{
+			get
+			{
+				return this._CREATEUSER;
+			}
+			set
+			{
+				if ((this._CREATEUSER != value))
+				{
+					this._CREATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CREATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CREATEDATE
+		{
+			get
+			{
+				return this._CREATEDATE;
+			}
+			set
+			{
+				if ((this._CREATEDATE != value))
+				{
+					this._CREATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEUSER", DbType="Int")]
+		public System.Nullable<int> UPDATEUSER
+		{
+			get
+			{
+				return this._UPDATEUSER;
+			}
+			set
+			{
+				if ((this._UPDATEUSER != value))
+				{
+					this._UPDATEUSER = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UPDATEDATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> UPDATEDATE
+		{
+			get
+			{
+				return this._UPDATEDATE;
+			}
+			set
+			{
+				if ((this._UPDATEDATE != value))
+				{
+					this._UPDATEDATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPENAME", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string USERTYPENAME
+		{
+			get
+			{
+				return this._USERTYPENAME;
+			}
+			set
+			{
+				if ((this._USERTYPENAME != value))
+				{
+					this._USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINHTRANG", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string TINHTRANG
+		{
+			get
+			{
+				return this._TINHTRANG;
+			}
+			set
+			{
+				if ((this._TINHTRANG != value))
+				{
+					this._TINHTRANG = value;
 				}
 			}
 		}
