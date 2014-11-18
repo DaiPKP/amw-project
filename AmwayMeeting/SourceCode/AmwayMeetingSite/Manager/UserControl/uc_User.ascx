@@ -180,17 +180,34 @@
                             </tr>
                             <tr>
                                 <td class="tdsearch1"></td>
-                                <td align="left" class="tdsearch2">Ghi chú :</td>
+                                <td align="left" class="tdsearch2">Ghi chú hệ thống khác :</td>
 
                                 <td align="left" class="tdsearch3">
-                                    <asp:TextBox ID="txtDescription" runat="server" CssClass="txtBox" MaxLength="500" Width="100%"></asp:TextBox>
+                                    <asp:TextBox ID="txtUserSystemEnhance" runat="server" CssClass="txtBox" MaxLength="500" Width="100%"></asp:TextBox>
                                
                                 </td>
                                 <td class="tdsearch4"></td>
                                 <td align="left" class="tdsearch5">
-                                    Tình trạng<span style="color: Red">(*)</span>:
+                                    Ghi chú :
                                 </td>
-                                <td align="left" class="tdsearch6"><asp:CheckBox ID="chkActive" runat="server" Checked="true" /></td>
+                                <td align="left" class="tdsearch6">
+                                    <asp:TextBox ID="txtDescription" runat="server" CssClass="txtBox" MaxLength="500" Width="100%"></asp:TextBox></td>
+                                <td class="tdsearch7"></td>
+                            </tr>
+                            <tr>
+                                <td align="left" class="divClearBothInAdmin"></td>
+                            </tr>
+                            <tr>
+                                <td class="tdsearch1"></td>
+                                <td align="left" class="tdsearch2"> Tình trạng<span style="color: Red">(*)</span>:</td>
+
+                                <td align="left" class="tdsearch3">
+                                    <asp:CheckBox ID="chkActive" runat="server" Checked="true" />                               
+                                </td>
+                                <td class="tdsearch4"></td>
+                                <td align="left" class="tdsearch5">                                   
+                                </td>
+                                <td align="left" class="tdsearch6"></td>
                                 <td class="tdsearch7"></td>
                             </tr>
                             <tr>
@@ -307,6 +324,11 @@
                          <asp:TemplateField HeaderText="Description" Visible="false">
                             <ItemTemplate>
                                 <asp:Label ID="lblListingDescription" runat="server" Text='<%# Eval("DESCRIPTION") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField> 
+                        <asp:TemplateField HeaderText="UserSystemEnhance" Visible="false">
+                            <ItemTemplate>
+                                <asp:Label ID="lblListingUserSystemEnhance" runat="server" Text='<%# Eval("USER_SYSTEMANOTHER") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Active" Visible="false">
