@@ -748,6 +748,7 @@ public class CategoryBO : AMW_MEETINGDataContext
     }
 
     #endregion
+
     #region User_system
     public int User_SystemInsert(SYS_AMW_USER_SYSTEM obj)
     {

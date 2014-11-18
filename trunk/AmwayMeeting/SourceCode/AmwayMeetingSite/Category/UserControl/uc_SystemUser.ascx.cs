@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using DAL;
 
-public partial class Manager_UserControl_uc_UserType : System.Web.UI.UserControl
+public partial class Category_UserControl_uc_SystemUser : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -18,28 +18,28 @@ public partial class Manager_UserControl_uc_UserType : System.Web.UI.UserControl
     private void InitData()
     {
         ClearTextBox();
-        SYS_AMW_USERTYPE obj = new SYS_AMW_USERTYPE();
-        obj.USERTYPENAME = string.Empty;
+        SYS_AMW_USER_SYSTEM obj = new SYS_AMW_USER_SYSTEM();
+        obj.USERSYSTEMNAME = string.Empty;
         obj.DESCRIPTION = string.Empty;
         obj.ACTIVE = chkActive.Checked;
-        DisplayUserTypeInGrid(obj);
+        DisplaySystemInGrid(obj);
     }
 
     private void ClearTextBox()
     {
 
-        hdfUserTypeId.Value = "-1";
-        txtUserTypeName.Text = string.Empty;
+        hdfSystemId.Value = "-1";
+        txtSystemName.Text = string.Empty;
         txtDescription.Text = string.Empty;
         chkActive.Checked = true;
         btnSave.Text = "Thêm mới";
         lblAlerting.Text = string.Empty;
     }
-    protected void DisplayUserTypeInGrid(SYS_AMW_USERTYPE obj)
+    protected void DisplaySystemInGrid(SYS_AMW_USER_SYSTEM obj)
     {
         CategoryBO objBO = new CategoryBO();
-        List<PRC_SYS_AMW_USERTYPE_SEARCHResult> lst = new List<PRC_SYS_AMW_USERTYPE_SEARCHResult>();
-        lst = objBO.UserTypeGet_Search(obj).ToList();
+        List<PRC_SYS_AMW_USER_SYSTEM_SEARCHResult> lst = new List<PRC_SYS_AMW_USER_SYSTEM_SEARCHResult>();
+        lst = objBO.User_SystemGet_Search(obj).ToList();
         grdList.DataSource = lst;
         if (lst.Count > 0)
         {
@@ -49,7 +49,7 @@ public partial class Manager_UserControl_uc_UserType : System.Web.UI.UserControl
     }    
     protected void btnSearch_Click(object sender, EventArgs e)
     {
-        hdfUserTypeId.Value = "-1";
+        hdfSystemId.Value = "-1";
         lblAlerting.Text = string.Empty;
         LoadGrid();
 
@@ -59,13 +59,13 @@ public partial class Manager_UserControl_uc_UserType : System.Web.UI.UserControl
         lblAlerting.Text = string.Empty;
         btnSave.Text = "Cập nhật";
         grdList.EditIndex = e.NewEditIndex;
-        hdfUserTypeId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
-        string strUserTypeName = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingUserTypeName")).Text;
+        hdfSystemId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
+        string strSystemName = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingSystemName")).Text;
         string strDescription = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingDescription")).Text;
         bool Active = bool.Parse(((Label)grdList.Rows[e.NewEditIndex].FindControl("lblListingActive")).Text);
 
         // Bind len control
-        txtUserTypeName.Text = strUserTypeName;
+        txtSystemName.Text = strSystemName;
         txtDescription.Text = strDescription;
         chkActive.Checked = Active;
 
@@ -76,55 +76,56 @@ public partial class Manager_UserControl_uc_UserType : System.Web.UI.UserControl
     }
     protected void btnSave_Click(object sender, EventArgs e)
     {
-        if (txtUserTypeName.Text.Trim().Length <= 0)
+        if (txtSystemName.Text.Trim().Length <= 0)
         {
-            lblAlerting.Text = "Bạn chưa nhập tên nhóm danh hiệu!";
+            lblAlerting.Text = "Bạn chưa nhập tên hệ thống!";
             return;
         }
 
         // Thuc hien Insert Update
-        SYS_AMW_USERTYPE objDep = new SYS_AMW_USERTYPE();
-        objDep.ID = int.Parse(hdfUserTypeId.Value);
-        objDep.USERTYPENAME = txtUserTypeName.Text.Trim();
-        objDep.DESCRIPTION = txtDescription.Text.Trim();
-        objDep.ACTIVE = chkActive.Checked;
+        SYS_AMW_USER_SYSTEM obj = new SYS_AMW_USER_SYSTEM();
+        obj.ID = int.Parse(hdfSystemId.Value);
+        obj.USERSYSTEMNAME = txtSystemName.Text.Trim();
+        obj.DESCRIPTION = txtDescription.Text.Trim();
+        obj.ACTIVE = chkActive.Checked;
 
-        objDep.CREATEUSER = int.Parse(Session["UserID"].ToString());
-        objDep.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.CREATEUSER = int.Parse(Session["UserID"].ToString());
+        obj.UPDATEUSER = int.Parse(Session["UserID"].ToString());
+
         CategoryBO objBO = new CategoryBO();
-        if (int.Parse(hdfUserTypeId.Value) <= 0)
+        if (int.Parse(hdfSystemId.Value) <= 0)
         {
-            hdfUserTypeId.Value = objBO.UserTypeInsert(objDep).ToString();
-            if (int.Parse(hdfUserTypeId.Value) > 0)
+            hdfSystemId.Value = objBO.User_SystemInsert(obj).ToString();
+            if (int.Parse(hdfSystemId.Value) > 0)
             {
                 btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Thêm mới nhóm danh hiệu thành công!";
+                lblAlerting.Text = "Thêm mới hệ thống thành công!";
             }
             else
             {
-                lblAlerting.Text = "Thêm mới nhóm danh hiệu thất bại, bạn vui lòng thử lại!";
+                lblAlerting.Text = "Thêm mới hệ thống thất bại, bạn vui lòng thử lại!";
             }
         }
         else
-            if (objBO.UserTypeUpdate(objDep))
+            if (objBO.User_SystemUpdate(obj))
             {
                 //btnSave.Text = "Cập nhật";
-                lblAlerting.Text = "Cập nhật nhóm danh hiệu thành công!";
+                lblAlerting.Text = "Cập nhật hệ thống thành công!";
             }
             else
             {
-                lblAlerting.Text = "Cập nhật nhóm danh hiệu thất bại, bạn vui lòng thử lại!";
+                lblAlerting.Text = "Cập nhật hệ thống thất bại, bạn vui lòng thử lại!";
             }
         LoadGrid();
 
     }
     private void LoadGrid()
     {
-        SYS_AMW_USERTYPE obj = new SYS_AMW_USERTYPE();
-        obj.USERTYPENAME = txtUserTypeName.Text.Trim();
+        SYS_AMW_USER_SYSTEM obj = new SYS_AMW_USER_SYSTEM();
+        obj.USERSYSTEMNAME = txtSystemName.Text.Trim();
         obj.DESCRIPTION = txtDescription.Text.Trim();
         obj.ACTIVE = chkActive.Checked;
-        DisplayUserTypeInGrid(obj);
+        DisplaySystemInGrid(obj);
 
     }
 

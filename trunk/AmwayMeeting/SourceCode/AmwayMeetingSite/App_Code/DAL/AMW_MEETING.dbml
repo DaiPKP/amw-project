@@ -1759,24 +1759,6 @@
     <Parameter Name="CREATEUSER" Parameter="cREATEUSER" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH" Method="PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH">
-    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
-    <Parameter Name="USERTYPE_ENHANCENAME" Parameter="uSERTYPE_ENHANCENAME" Type="System.String" DbType="NVarChar(50)" />
-    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
-    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
-    <ElementType Name="PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="USERTYPE_ENHANCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="TINHTRANG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.PRC_SYS_AMW_USER_SEARCH" Method="PRC_SYS_AMW_USER_SEARCH">
     <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
     <Parameter Name="FIRSTNAME" Parameter="fIRSTNAME" Type="System.String" DbType="NVarChar(50)" />
@@ -2566,5 +2548,24 @@
     <Parameter Name="DOCUMENT" Parameter="dOCUMENT" Type="System.Boolean" DbType="Bit" />
     <Parameter Name="DOCUMENT_PRICE" Parameter="dOCUMENT_PRICE" Type="System.Decimal" DbType="Decimal(18,0)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH" Method="PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCH">
+    <Parameter Name="USERTYPEID" Parameter="uSERTYPEID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="USERTYPE_ENHANCENAME" Parameter="uSERTYPE_ENHANCENAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="DESCRIPTION" Parameter="dESCRIPTION" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="ACTIVE" Parameter="aCTIVE" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="PRC_SYS_AMW_USERTYPE_ENHANCE_SEARCHResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USERTYPE_ENHANCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="TINHTRANG" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
   </Function>
 </Database>
