@@ -160,6 +160,9 @@ public partial class Category_UserControl_uc_Pax_Province : System.Web.UI.UserCo
         ddlPax.SelectedValue = strPaxId;
         ddlProvince.SelectedValue = strProvinceId;
         GetDistrictCBO(int.Parse(strProvinceId));
+        if(strDistrictId==null||strDistrictId.Length<=0)
+            strDistrictId="0";
+
         ddlDistrict.SelectedValue = strDistrictId;
         txtDescription.Text = strDescription;
         chkActive.Checked = Active;
