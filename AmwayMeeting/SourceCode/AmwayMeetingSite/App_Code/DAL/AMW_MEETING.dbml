@@ -2576,4 +2576,94 @@
     <Parameter Name="PASSWORD" Parameter="pASSWORD" Type="System.String" DbType="VarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST" Method="PRC_RPT_GET_TOTAL_COST">
+    <ElementType Name="PRC_RPT_GET_TOTAL_COSTResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="STARTDATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ENDDATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="[BUDGET COST]" Member="BUDGET_COST" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[ACTUAL COST]" Member="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[REMAIN BUDGET]" Member="REMAIN_BUDGET" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[PERCENT COST]" Member="PERCENT_COST" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST_BY_PAX" Method="PRC_RPT_GET_TOTAL_COST_BY_PAX">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_GET_TOTAL_COST_BY_PAXResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[ACTUAL COST]" Member="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST_BY_PIN" Method="PRC_RPT_GET_TOTAL_COST_BY_PIN">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_GET_TOTAL_COST_BY_PINResult">
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST_BY_PROV" Method="PRC_RPT_GET_TOTAL_COST_BY_PROV">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_GET_TOTAL_COST_BY_PROVResult">
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[100 PAX SESSION]" Member="_100_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[100 PAX COST]" Member="_100_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[500 PAX SESSION]" Member="_500_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[500 PAX COST]" Member="_500_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[1000 PAX SESSION]" Member="_1000_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1000 PAX COST]" Member="_1000_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[2000 PAX SESSION]" Member="_2000_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2000 PAX COST]" Member="_2000_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST_BY_DIST" Method="PRC_RPT_GET_TOTAL_COST_BY_DIST">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_GET_TOTAL_COST_BY_DISTResult">
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="[100 PAX SESSION]" Member="_100_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[100 PAX COST]" Member="_100_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[500 PAX SESSION]" Member="_500_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[500 PAX COST]" Member="_500_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[1000 PAX SESSION]" Member="_1000_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1000 PAX COST]" Member="_1000_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[2000 PAX SESSION]" Member="_2000_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2000 PAX COST]" Member="_2000_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST_BY_SYSTEM" Method="PRC_RPT_GET_TOTAL_COST_BY_SYSTEM">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_GET_TOTAL_COST_BY_SYSTEMResult">
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SYSTEM" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[100 PAX SESSION]" Member="_100_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[100 PAX COST]" Member="_100_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[500 PAX SESSION]" Member="_500_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[500 PAX COST]" Member="_500_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[1000 PAX SESSION]" Member="_1000_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[1000 PAX COST]" Member="_1000_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[2000 PAX SESSION]" Member="_2000_PAX_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2000 PAX COST]" Member="_2000_PAX_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_TOTAL_COST_BY_LOCATION" Method="PRC_RPT_GET_TOTAL_COST_BY_LOCATION">
+    <Parameter Name="PERIODID" Parameter="pERIODID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_GET_TOTAL_COST_BY_LOCATIONResult">
+      <Column Name="PERIODNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="VENUE" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PROVINCE" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="[TOTAL COST]" Member="TOTAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
