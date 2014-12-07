@@ -112,4 +112,60 @@ public class ReportBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+    public List<PRC_RPT_LIST_MEETINGResult> GetMeetingList(DateTime FromDate, DateTime ToDate, int MeetingTypeID)
+    {
+        try
+        {
+            List<PRC_RPT_LIST_MEETINGResult> result = new List<PRC_RPT_LIST_MEETINGResult>();
+            result = PRC_RPT_LIST_MEETING(FromDate, ToDate, MeetingTypeID).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_RPT_GET_SESSION_BY_PAXResult> GetSessionByPax(DateTime FromDate, DateTime ToDate)
+    {
+        try
+        {
+            List<PRC_RPT_GET_SESSION_BY_PAXResult> result = new List<PRC_RPT_GET_SESSION_BY_PAXResult>();
+            result = PRC_RPT_GET_SESSION_BY_PAX(FromDate, ToDate).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_RPT_GET_SESSION_BY_PAX_PROVINCEResult> GetSessionByProvince(DateTime FromDate, DateTime ToDate, bool Foreigner)
+    {
+        try
+        {
+            List<PRC_RPT_GET_SESSION_BY_PAX_PROVINCEResult> result = new List<PRC_RPT_GET_SESSION_BY_PAX_PROVINCEResult>();
+            result = PRC_RPT_GET_SESSION_BY_PAX_PROVINCE(FromDate, ToDate, Foreigner).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAILResult> GetSessionByProvinceDetail(DateTime FromDate, DateTime ToDate, bool Foreigner)
+    {
+        try
+        {
+            List<PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAILResult> result = new List<PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAILResult>();
+            result = PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAIL(FromDate, ToDate, Foreigner).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }

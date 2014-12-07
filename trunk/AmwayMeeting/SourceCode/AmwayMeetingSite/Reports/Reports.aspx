@@ -7,10 +7,9 @@
 <%@ Register Src="~/Reports/UserControl/uc_rpt_GetTotalCostByPIN.ascx" TagPrefix="uc1" TagName="uc_rpt_GetTotalCostByPIN" %>
 <%@ Register Src="~/Reports/UserControl/uc_rpt_GetTotalCostByProvince.ascx" TagPrefix="uc1" TagName="uc_rpt_GetTotalCostByProvince" %>
 <%@ Register Src="~/Reports/UserControl/uc_rpt_GetTotalCostBySystem.ascx" TagPrefix="uc1" TagName="uc_rpt_GetTotalCostBySystem" %>
-
-
-
-
+<%@ Register Src="~/Reports/UserControl/uc_rpt_ListMeeting.ascx" TagPrefix="uc1" TagName="uc_rpt_ListMeeting" %>
+<%@ Register Src="~/Reports/UserControl/uc_rpt_GetSessionByPax.ascx" TagPrefix="uc1" TagName="uc_rpt_GetSessionByPax" %>
+<%@ Register Src="~/Reports/UserControl/uc_rpt_GetSessionByProvince.ascx" TagPrefix="uc1" TagName="uc_rpt_GetSessionByProvince" %>
 
 
 
@@ -20,16 +19,29 @@
     <div class="TitlePage">
        DANH SÁCH BÁO CÁO
     </div>
+    <HR />
     <div style="text-align:left;">
         <uc1:uc_rpt_GetTotalCost runat="server" ID="uc_rpt_GetTotalCost" />
+        <HR />
         <uc1:uc_rpt_GetTotalCostByDistributor runat="server" ID="uc_rpt_GetTotalCostByDistributor" />
+        <HR />
         <uc1:uc_rpt_GetTotalCostByLocation runat="server" ID="uc_rpt_GetTotalCostByLocation" />
+        <HR />
         <uc1:uc_rpt_GetTotalCostByPax runat="server" ID="uc_rpt_GetTotalCostByPax" />
+        <HR />
         <uc1:uc_rpt_GetTotalCostByPIN runat="server" ID="uc_rpt_GetTotalCostByPIN" />
+        <HR />
         <uc1:uc_rpt_GetTotalCostByProvince runat="server" ID="uc_rpt_GetTotalCostByProvince" />
+        <HR />
         <uc1:uc_rpt_GetTotalCostBySystem runat="server" ID="uc_rpt_GetTotalCostBySystem" />
+        <HR />
+        <uc1:uc_rpt_ListMeeting runat="server" id="uc_rpt_ListMeeting" />
+        <hr />
+        <uc1:uc_rpt_GetSessionByPax runat="server" ID="uc_rpt_GetSessionByPax" />
+        <HR />
+        <uc1:uc_rpt_GetSessionByProvince runat="server" ID="uc_rpt_GetSessionByProvince" />
+        <hr />
     </div>
-    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBoxLeft" Runat="Server">   
 </asp:Content>
