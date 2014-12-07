@@ -2666,4 +2666,88 @@
       <Column Name="[TOTAL COST]" Member="TOTAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.PRC_RPT_LIST_MEETING" Method="PRC_RPT_LIST_MEETING">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="MEETINGTYPEID" Parameter="mEETINGTYPEID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_RPT_LIST_MEETINGResult">
+      <Column Name="STT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NGUOICHUTRI" Type="System.String" DbType="NVarChar(154)" CanBeNull="true" />
+      <Column Name="DIENGIA" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIADIEM" Type="System.String" DbType="NVarChar(241)" CanBeNull="true" />
+      <Column Name="THOIGIAN" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="NOIDUNG" Type="System.String" DbType="NVarChar(178)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANT" Method="PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANT">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANTResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ESTIMATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_SUMMARY_SPEND" Method="PRC_RPT_SUMMARY_SPEND">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="PRC_RPT_SUMMARY_SPENDResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WATER_ESTIMATE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="FOOD_ESTIMATE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="WATER_ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FOOD_ACTUAL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_SESSION_BY_PAX" Method="PRC_RPT_GET_SESSION_BY_PAX">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="PRC_RPT_GET_SESSION_BY_PAXResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DISTRICTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[ACTUAL COST]" Member="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_SESSION_BY_PAX_PROVINCE" Method="PRC_RPT_GET_SESSION_BY_PAX_PROVINCE">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="FOREIGNER" Parameter="fOREIGNER" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="PRC_RPT_GET_SESSION_BY_PAX_PROVINCEResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[ACTUAL COST]" Member="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAIL" Method="PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAIL">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="FOREIGNER" Parameter="fOREIGNER" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAILResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QUOTA_OF" Type="System.String" DbType="NVarChar(465)" CanBeNull="true" />
+      <Column Name="MEETING_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MEETING_TIME" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AMWAY_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DISTRIBUTOR_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="COMMENTS" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="[FOREIGNER SPEAKER]" Member="FOREIGNER_SPEAKER" Type="System.String" DbType="NVarChar(495)" CanBeNull="true" />
+      <Column Name="REASON" Type="System.String" DbType="NVarChar(369)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>
