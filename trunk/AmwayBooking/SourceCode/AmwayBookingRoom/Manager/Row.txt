@@ -1,0 +1,34 @@
+﻿<tr style="mso-yfti-irow:1">
+		<td style="width:110.55pt;border-top:none;border-left:none;
+  border-bottom:solid #4C4C27 1.0pt;border-right:solid #4C4C27 1.0pt;
+  mso-border-bottom-alt:solid #4C4C27 .5pt;mso-border-right-alt:solid #4C4C27 .5pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt" width="147" class="style2">
+		<p align="center" class="MsoNormal">
+		<span lang="VI" style="font-family:&quot;Tahoma&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:VI">[Room]<o:p></o:p></span></p>
+		</td>
+		<td style="width:110.55pt;border-top:none;border-left:none;
+  border-bottom:solid #4C4C27 1.0pt;border-right:solid #4C4C27 1.0pt;
+  mso-border-bottom-alt:solid #4C4C27 .5pt;mso-border-right-alt:solid #4C4C27 .5pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt" width="147">
+		<p align="center" class="MsoNormal">
+		<span lang="VI" style="font-family:&quot;Tahoma&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:VI">[MeetingDate]<o:p></o:p></span></p>
+		</td>
+		<td style="width:110.55pt;border-top:none;border-left:none;
+  border-bottom:solid #4C4C27 1.0pt;border-right:solid #4C4C27 1.0pt;
+  mso-border-bottom-alt:solid #4C4C27 .5pt;mso-border-right-alt:solid #4C4C27 .5pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt" width="147">
+		<p align="center" class="MsoNormal">
+		<span lang="VI" style="font-family:&quot;Tahoma&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:VI" class="style2">[MeetingTime]<o:p></o:p></span></p>
+		</td>
+		<td style="width:110.0pt;border-top:none;border-left:none;
+  border-bottom:solid #4C4C27 1.0pt;border-right:solid #4C4C27 1.0pt;
+  mso-border-bottom-alt:solid #4C4C27 .5pt;mso-border-right-alt:solid #4C4C27 .5pt;
+  padding:1.5pt 1.5pt 1.5pt 1.5pt" width="147">
+		<p align="center" class="MsoNormal">
+		<span lang="VI" style="font-family:&quot;Tahoma&quot;,&quot;sans-serif&quot;;mso-fareast-font-family:&quot;Times New Roman&quot;;
+  mso-fareast-language:VI">[Money]<o:p></o:p></span></p>
+		</td>
+	</tr>
