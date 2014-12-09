@@ -2750,4 +2750,36 @@
       <Column Name="REASON" Type="System.String" DbType="NVarChar(369)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTH" Method="PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTH">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[JAN SESSION]" Member="JAN_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[FEB SESSION]" Member="FEB_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[MAR SESSION]" Member="MAR_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[APR SESSION]" Member="APR_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[MAY SESSION]" Member="MAY_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[JUN SESSION]" Member="JUN_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[JUL SESSION]" Member="JUL_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[AUG SESSION]" Member="AUG_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[SEP SESSION]" Member="SEP_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[OCT SESSION]" Member="OCT_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[NOV SESSION]" Member="NOV_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[DEC SESSION]" Member="DEC_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[JAN EXPENSE]" Member="JAN_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[FEB EXPENSE]" Member="FEB_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[MAR EXPENSE]" Member="MAR_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[APR EXPENSE]" Member="APR_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[MAY EXPENSE]" Member="MAY_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[JUN EXPENSE]" Member="JUN_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[JUL EXPENSE]" Member="JUL_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[AUG EXPENSE]" Member="AUG_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[SEP EXPENSE]" Member="SEP_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[OCT EXPENSE]" Member="OCT_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[NOV EXPENSE]" Member="NOV_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+      <Column Name="[DEC EXPENSE]" Member="DEC_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

@@ -10,6 +10,12 @@
 <%@ Register Src="~/Reports/UserControl/uc_rpt_ListMeeting.ascx" TagPrefix="uc1" TagName="uc_rpt_ListMeeting" %>
 <%@ Register Src="~/Reports/UserControl/uc_rpt_GetSessionByPax.ascx" TagPrefix="uc1" TagName="uc_rpt_GetSessionByPax" %>
 <%@ Register Src="~/Reports/UserControl/uc_rpt_GetSessionByProvince.ascx" TagPrefix="uc1" TagName="uc_rpt_GetSessionByProvince" %>
+<%@ Register Src="~/Reports/UserControl/uc_rpt_Summary_Number_of_Participant.ascx" TagPrefix="uc1" TagName="uc_rpt_Summary_Number_of_Participant" %>
+<%@ Register Src="~/Reports/UserControl/uc_rpt_Summary_Spend.ascx" TagPrefix="uc1" TagName="uc_rpt_Summary_Spend" %>
+<%@ Register Src="~/Reports/UserControl/uc_rpt_Summary_Session_Expense.ascx" TagPrefix="uc1" TagName="uc_rpt_Summary_Session_Expense" %>
+
+
+
 
 
 
@@ -40,6 +46,12 @@
         <uc1:uc_rpt_GetSessionByPax runat="server" ID="uc_rpt_GetSessionByPax" />
         <HR />
         <uc1:uc_rpt_GetSessionByProvince runat="server" ID="uc_rpt_GetSessionByProvince" />
+        <hr />
+        <uc1:uc_rpt_Summary_Number_of_Participant runat="server" ID="uc_rpt_Summary_Number_of_Participant" />
+        <hr />
+        <uc1:uc_rpt_Summary_Spend runat="server" ID="uc_rpt_Summary_Spend" />
+        <hr />
+        <uc1:uc_rpt_Summary_Session_Expense runat="server" ID="uc_rpt_Summary_Session_Expense" />
         <hr />
     </div>
 </asp:Content>
