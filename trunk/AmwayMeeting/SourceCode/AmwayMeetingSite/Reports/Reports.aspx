@@ -13,6 +13,8 @@
 <%@ Register Src="~/Reports/UserControl/uc_rpt_Summary_Number_of_Participant.ascx" TagPrefix="uc1" TagName="uc_rpt_Summary_Number_of_Participant" %>
 <%@ Register Src="~/Reports/UserControl/uc_rpt_Summary_Spend.ascx" TagPrefix="uc1" TagName="uc_rpt_Summary_Spend" %>
 <%@ Register Src="~/Reports/UserControl/uc_rpt_Summary_Session_Expense.ascx" TagPrefix="uc1" TagName="uc_rpt_Summary_Session_Expense" %>
+<%@ Register Src="~/Reports/UserControl/uc_rpt_GetSessionByPaxADA.ascx" TagPrefix="uc1" TagName="uc_rpt_GetSessionByPaxADA" %>
+
 
 
 
@@ -52,6 +54,8 @@
         <uc1:uc_rpt_Summary_Spend runat="server" ID="uc_rpt_Summary_Spend" />
         <hr />
         <uc1:uc_rpt_Summary_Session_Expense runat="server" ID="uc_rpt_Summary_Session_Expense" />
+        <hr />
+        <uc1:uc_rpt_GetSessionByPaxADA runat="server" ID="uc_rpt_GetSessionByPaxADA" />
         <hr />
     </div>
 </asp:Content>

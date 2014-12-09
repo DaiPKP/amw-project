@@ -1497,6 +1497,20 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fROMDATE, tODATE);
 			return ((ISingleResult<PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_RPT_GET_SESSION_BY_PAX_ADA")]
+		public ISingleResult<PRC_RPT_GET_SESSION_BY_PAX_ADAResult> PRC_RPT_GET_SESSION_BY_PAX_ADA([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FROMDATE", DbType="DateTime")] System.Nullable<System.DateTime> fROMDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TODATE", DbType="DateTime")] System.Nullable<System.DateTime> tODATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fROMDATE, tODATE, aDA);
+			return ((ISingleResult<PRC_RPT_GET_SESSION_BY_PAX_ADAResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAIL")]
+		public ISingleResult<PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult> PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAIL([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FROMDATE", DbType="DateTime")] System.Nullable<System.DateTime> fROMDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TODATE", DbType="DateTime")] System.Nullable<System.DateTime> tODATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA", DbType="VarChar(50)")] string aDA)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fROMDATE, tODATE, aDA);
+			return ((ISingleResult<PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SYS_AMW_DEPARTMENT")]
@@ -33457,6 +33471,364 @@ namespace DAL
 				if ((this._DEC_EXPENSE != value))
 				{
 					this._DEC_EXPENSE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_RPT_GET_SESSION_BY_PAX_ADAResult
+	{
+		
+		private System.Nullable<int> _PAXID;
+		
+		private string _PAXNAME;
+		
+		private string _ADA;
+		
+		private string _FULLNAME;
+		
+		private System.Nullable<int> _NUM_SESSION;
+		
+		private System.Nullable<decimal> _ACTUAL_COST;
+		
+		public PRC_RPT_GET_SESSION_BY_PAX_ADAResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int")]
+		public System.Nullable<int> PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50)")]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADA", DbType="VarChar(50)")]
+		public string ADA
+		{
+			get
+			{
+				return this._ADA;
+			}
+			set
+			{
+				if ((this._ADA != value))
+				{
+					this._ADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FULLNAME", DbType="NVarChar(100)")]
+		public string FULLNAME
+		{
+			get
+			{
+				return this._FULLNAME;
+			}
+			set
+			{
+				if ((this._FULLNAME != value))
+				{
+					this._FULLNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[NUM SESSION]", Storage="_NUM_SESSION", DbType="Int")]
+		public System.Nullable<int> NUM_SESSION
+		{
+			get
+			{
+				return this._NUM_SESSION;
+			}
+			set
+			{
+				if ((this._NUM_SESSION != value))
+				{
+					this._NUM_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[ACTUAL COST]", Storage="_ACTUAL_COST", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> ACTUAL_COST
+		{
+			get
+			{
+				return this._ACTUAL_COST;
+			}
+			set
+			{
+				if ((this._ACTUAL_COST != value))
+				{
+					this._ACTUAL_COST = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult
+	{
+		
+		private System.Nullable<int> _PAXID;
+		
+		private string _PAXNAME;
+		
+		private string _FULLNAME;
+		
+		private string _ADA;
+		
+		private string _USERTYPENAME;
+		
+		private string _QUOTA_OF;
+		
+		private System.Nullable<System.DateTime> _MEETING_DATE;
+		
+		private string _MEETING_TIME;
+		
+		private string _PROVINCENAME;
+		
+		private System.Nullable<decimal> _AMWAY_PAY;
+		
+		private System.Nullable<decimal> _DISTRIBUTOR_PAY;
+		
+		private System.Nullable<decimal> _TOTAL_PAY;
+		
+		private string _COMMENTS;
+		
+		public PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int")]
+		public System.Nullable<int> PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50)")]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FULLNAME", DbType="NVarChar(101)")]
+		public string FULLNAME
+		{
+			get
+			{
+				return this._FULLNAME;
+			}
+			set
+			{
+				if ((this._FULLNAME != value))
+				{
+					this._FULLNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADA", DbType="VarChar(50)")]
+		public string ADA
+		{
+			get
+			{
+				return this._ADA;
+			}
+			set
+			{
+				if ((this._ADA != value))
+				{
+					this._ADA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USERTYPENAME", DbType="NVarChar(50)")]
+		public string USERTYPENAME
+		{
+			get
+			{
+				return this._USERTYPENAME;
+			}
+			set
+			{
+				if ((this._USERTYPENAME != value))
+				{
+					this._USERTYPENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOTA_OF", DbType="NVarChar(465)")]
+		public string QUOTA_OF
+		{
+			get
+			{
+				return this._QUOTA_OF;
+			}
+			set
+			{
+				if ((this._QUOTA_OF != value))
+				{
+					this._QUOTA_OF = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> MEETING_DATE
+		{
+			get
+			{
+				return this._MEETING_DATE;
+			}
+			set
+			{
+				if ((this._MEETING_DATE != value))
+				{
+					this._MEETING_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MEETING_TIME", DbType="NVarChar(20)")]
+		public string MEETING_TIME
+		{
+			get
+			{
+				return this._MEETING_TIME;
+			}
+			set
+			{
+				if ((this._MEETING_TIME != value))
+				{
+					this._MEETING_TIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROVINCENAME", DbType="NVarChar(50)")]
+		public string PROVINCENAME
+		{
+			get
+			{
+				return this._PROVINCENAME;
+			}
+			set
+			{
+				if ((this._PROVINCENAME != value))
+				{
+					this._PROVINCENAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMWAY_PAY", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> AMWAY_PAY
+		{
+			get
+			{
+				return this._AMWAY_PAY;
+			}
+			set
+			{
+				if ((this._AMWAY_PAY != value))
+				{
+					this._AMWAY_PAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DISTRIBUTOR_PAY", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> DISTRIBUTOR_PAY
+		{
+			get
+			{
+				return this._DISTRIBUTOR_PAY;
+			}
+			set
+			{
+				if ((this._DISTRIBUTOR_PAY != value))
+				{
+					this._DISTRIBUTOR_PAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTAL_PAY", DbType="Decimal(18,0)")]
+		public System.Nullable<decimal> TOTAL_PAY
+		{
+			get
+			{
+				return this._TOTAL_PAY;
+			}
+			set
+			{
+				if ((this._TOTAL_PAY != value))
+				{
+					this._TOTAL_PAY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMMENTS", DbType="NText", UpdateCheck=UpdateCheck.Never)]
+		public string COMMENTS
+		{
+			get
+			{
+				return this._COMMENTS;
+			}
+			set
+			{
+				if ((this._COMMENTS != value))
+				{
+					this._COMMENTS = value;
 				}
 			}
 		}

@@ -2782,4 +2782,37 @@
       <Column Name="[DEC EXPENSE]" Member="DEC_EXPENSE" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.PRC_RPT_GET_SESSION_BY_PAX_ADA" Method="PRC_RPT_GET_SESSION_BY_PAX_ADA">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="PRC_RPT_GET_SESSION_BY_PAX_ADAResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="[NUM SESSION]" Member="NUM_SESSION" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[ACTUAL COST]" Member="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(38,0)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAIL" Method="PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAIL">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
+    <ElementType Name="PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult">
+      <Column Name="PAXID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PAXNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="USERTYPENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QUOTA_OF" Type="System.String" DbType="NVarChar(465)" CanBeNull="true" />
+      <Column Name="MEETING_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MEETING_TIME" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="PROVINCENAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="AMWAY_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="DISTRIBUTOR_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="TOTAL_PAY" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="COMMENTS" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
 </Database>
