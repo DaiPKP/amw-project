@@ -1490,6 +1490,13 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fROMDATE, tODATE, fOREIGNER);
 			return ((ISingleResult<PRC_RPT_GET_SESSION_BY_PAX_PROVINCE_DETAILResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTH")]
+		public ISingleResult<PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult> PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTH([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FROMDATE", DbType="DateTime")] System.Nullable<System.DateTime> fROMDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TODATE", DbType="DateTime")] System.Nullable<System.DateTime> tODATE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fROMDATE, tODATE);
+			return ((ISingleResult<PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SYS_AMW_DEPARTMENT")]
@@ -32974,6 +32981,482 @@ namespace DAL
 				if ((this._REASON != value))
 				{
 					this._REASON = value;
+				}
+			}
+		}
+	}
+	
+	public partial class PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult
+	{
+		
+		private System.Nullable<int> _PAXID;
+		
+		private string _PAXNAME;
+		
+		private System.Nullable<int> _JAN_SESSION;
+		
+		private System.Nullable<int> _FEB_SESSION;
+		
+		private System.Nullable<int> _MAR_SESSION;
+		
+		private System.Nullable<int> _APR_SESSION;
+		
+		private System.Nullable<int> _MAY_SESSION;
+		
+		private System.Nullable<int> _JUN_SESSION;
+		
+		private System.Nullable<int> _JUL_SESSION;
+		
+		private System.Nullable<int> _AUG_SESSION;
+		
+		private System.Nullable<int> _SEP_SESSION;
+		
+		private System.Nullable<int> _OCT_SESSION;
+		
+		private System.Nullable<int> _NOV_SESSION;
+		
+		private System.Nullable<int> _DEC_SESSION;
+		
+		private System.Nullable<decimal> _JAN_EXPENSE;
+		
+		private System.Nullable<decimal> _FEB_EXPENSE;
+		
+		private System.Nullable<decimal> _MAR_EXPENSE;
+		
+		private System.Nullable<decimal> _APR_EXPENSE;
+		
+		private System.Nullable<decimal> _MAY_EXPENSE;
+		
+		private System.Nullable<decimal> _JUN_EXPENSE;
+		
+		private System.Nullable<decimal> _JUL_EXPENSE;
+		
+		private System.Nullable<decimal> _AUG_EXPENSE;
+		
+		private System.Nullable<decimal> _SEP_EXPENSE;
+		
+		private System.Nullable<decimal> _OCT_EXPENSE;
+		
+		private System.Nullable<decimal> _NOV_EXPENSE;
+		
+		private System.Nullable<decimal> _DEC_EXPENSE;
+		
+		public PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXID", DbType="Int")]
+		public System.Nullable<int> PAXID
+		{
+			get
+			{
+				return this._PAXID;
+			}
+			set
+			{
+				if ((this._PAXID != value))
+				{
+					this._PAXID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAXNAME", DbType="NVarChar(50)")]
+		public string PAXNAME
+		{
+			get
+			{
+				return this._PAXNAME;
+			}
+			set
+			{
+				if ((this._PAXNAME != value))
+				{
+					this._PAXNAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JAN SESSION]", Storage="_JAN_SESSION", DbType="Int")]
+		public System.Nullable<int> JAN_SESSION
+		{
+			get
+			{
+				return this._JAN_SESSION;
+			}
+			set
+			{
+				if ((this._JAN_SESSION != value))
+				{
+					this._JAN_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[FEB SESSION]", Storage="_FEB_SESSION", DbType="Int")]
+		public System.Nullable<int> FEB_SESSION
+		{
+			get
+			{
+				return this._FEB_SESSION;
+			}
+			set
+			{
+				if ((this._FEB_SESSION != value))
+				{
+					this._FEB_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[MAR SESSION]", Storage="_MAR_SESSION", DbType="Int")]
+		public System.Nullable<int> MAR_SESSION
+		{
+			get
+			{
+				return this._MAR_SESSION;
+			}
+			set
+			{
+				if ((this._MAR_SESSION != value))
+				{
+					this._MAR_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[APR SESSION]", Storage="_APR_SESSION", DbType="Int")]
+		public System.Nullable<int> APR_SESSION
+		{
+			get
+			{
+				return this._APR_SESSION;
+			}
+			set
+			{
+				if ((this._APR_SESSION != value))
+				{
+					this._APR_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[MAY SESSION]", Storage="_MAY_SESSION", DbType="Int")]
+		public System.Nullable<int> MAY_SESSION
+		{
+			get
+			{
+				return this._MAY_SESSION;
+			}
+			set
+			{
+				if ((this._MAY_SESSION != value))
+				{
+					this._MAY_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JUN SESSION]", Storage="_JUN_SESSION", DbType="Int")]
+		public System.Nullable<int> JUN_SESSION
+		{
+			get
+			{
+				return this._JUN_SESSION;
+			}
+			set
+			{
+				if ((this._JUN_SESSION != value))
+				{
+					this._JUN_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JUL SESSION]", Storage="_JUL_SESSION", DbType="Int")]
+		public System.Nullable<int> JUL_SESSION
+		{
+			get
+			{
+				return this._JUL_SESSION;
+			}
+			set
+			{
+				if ((this._JUL_SESSION != value))
+				{
+					this._JUL_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[AUG SESSION]", Storage="_AUG_SESSION", DbType="Int")]
+		public System.Nullable<int> AUG_SESSION
+		{
+			get
+			{
+				return this._AUG_SESSION;
+			}
+			set
+			{
+				if ((this._AUG_SESSION != value))
+				{
+					this._AUG_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SEP SESSION]", Storage="_SEP_SESSION", DbType="Int")]
+		public System.Nullable<int> SEP_SESSION
+		{
+			get
+			{
+				return this._SEP_SESSION;
+			}
+			set
+			{
+				if ((this._SEP_SESSION != value))
+				{
+					this._SEP_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[OCT SESSION]", Storage="_OCT_SESSION", DbType="Int")]
+		public System.Nullable<int> OCT_SESSION
+		{
+			get
+			{
+				return this._OCT_SESSION;
+			}
+			set
+			{
+				if ((this._OCT_SESSION != value))
+				{
+					this._OCT_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[NOV SESSION]", Storage="_NOV_SESSION", DbType="Int")]
+		public System.Nullable<int> NOV_SESSION
+		{
+			get
+			{
+				return this._NOV_SESSION;
+			}
+			set
+			{
+				if ((this._NOV_SESSION != value))
+				{
+					this._NOV_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DEC SESSION]", Storage="_DEC_SESSION", DbType="Int")]
+		public System.Nullable<int> DEC_SESSION
+		{
+			get
+			{
+				return this._DEC_SESSION;
+			}
+			set
+			{
+				if ((this._DEC_SESSION != value))
+				{
+					this._DEC_SESSION = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JAN EXPENSE]", Storage="_JAN_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> JAN_EXPENSE
+		{
+			get
+			{
+				return this._JAN_EXPENSE;
+			}
+			set
+			{
+				if ((this._JAN_EXPENSE != value))
+				{
+					this._JAN_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[FEB EXPENSE]", Storage="_FEB_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> FEB_EXPENSE
+		{
+			get
+			{
+				return this._FEB_EXPENSE;
+			}
+			set
+			{
+				if ((this._FEB_EXPENSE != value))
+				{
+					this._FEB_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[MAR EXPENSE]", Storage="_MAR_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> MAR_EXPENSE
+		{
+			get
+			{
+				return this._MAR_EXPENSE;
+			}
+			set
+			{
+				if ((this._MAR_EXPENSE != value))
+				{
+					this._MAR_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[APR EXPENSE]", Storage="_APR_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> APR_EXPENSE
+		{
+			get
+			{
+				return this._APR_EXPENSE;
+			}
+			set
+			{
+				if ((this._APR_EXPENSE != value))
+				{
+					this._APR_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[MAY EXPENSE]", Storage="_MAY_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> MAY_EXPENSE
+		{
+			get
+			{
+				return this._MAY_EXPENSE;
+			}
+			set
+			{
+				if ((this._MAY_EXPENSE != value))
+				{
+					this._MAY_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JUN EXPENSE]", Storage="_JUN_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> JUN_EXPENSE
+		{
+			get
+			{
+				return this._JUN_EXPENSE;
+			}
+			set
+			{
+				if ((this._JUN_EXPENSE != value))
+				{
+					this._JUN_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[JUL EXPENSE]", Storage="_JUL_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> JUL_EXPENSE
+		{
+			get
+			{
+				return this._JUL_EXPENSE;
+			}
+			set
+			{
+				if ((this._JUL_EXPENSE != value))
+				{
+					this._JUL_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[AUG EXPENSE]", Storage="_AUG_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> AUG_EXPENSE
+		{
+			get
+			{
+				return this._AUG_EXPENSE;
+			}
+			set
+			{
+				if ((this._AUG_EXPENSE != value))
+				{
+					this._AUG_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[SEP EXPENSE]", Storage="_SEP_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> SEP_EXPENSE
+		{
+			get
+			{
+				return this._SEP_EXPENSE;
+			}
+			set
+			{
+				if ((this._SEP_EXPENSE != value))
+				{
+					this._SEP_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[OCT EXPENSE]", Storage="_OCT_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> OCT_EXPENSE
+		{
+			get
+			{
+				return this._OCT_EXPENSE;
+			}
+			set
+			{
+				if ((this._OCT_EXPENSE != value))
+				{
+					this._OCT_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[NOV EXPENSE]", Storage="_NOV_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> NOV_EXPENSE
+		{
+			get
+			{
+				return this._NOV_EXPENSE;
+			}
+			set
+			{
+				if ((this._NOV_EXPENSE != value))
+				{
+					this._NOV_EXPENSE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DEC EXPENSE]", Storage="_DEC_EXPENSE", DbType="Decimal(38,0)")]
+		public System.Nullable<decimal> DEC_EXPENSE
+		{
+			get
+			{
+				return this._DEC_EXPENSE;
+			}
+			set
+			{
+				if ((this._DEC_EXPENSE != value))
+				{
+					this._DEC_EXPENSE = value;
 				}
 			}
 		}

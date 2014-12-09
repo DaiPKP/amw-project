@@ -168,4 +168,46 @@ public class ReportBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+    public List<PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANTResult> GetSummaryNumberParticipant(DateTime FromDate, DateTime ToDate)
+    {
+        try
+        {
+            List<PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANTResult> result = new List<PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANTResult>();
+            result = PRC_RPT_SUMMARY_NUMBER_OF_PARTICIPANT(FromDate, ToDate).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_RPT_SUMMARY_SPENDResult> GetSummarySpend(DateTime FromDate, DateTime ToDate)
+    {
+        try
+        {
+            List<PRC_RPT_SUMMARY_SPENDResult> result = new List<PRC_RPT_SUMMARY_SPENDResult>();
+            result = PRC_RPT_SUMMARY_SPEND(FromDate, ToDate).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult> GetSummarySession_Expense(DateTime FromDate, DateTime ToDate)
+    {
+        try
+        {
+            List<PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult> result = new List<PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTHResult>();
+            result = PRC_RPT_SUMMARY_SESSION_EXPENSE_BY_MONTH(FromDate, ToDate).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }

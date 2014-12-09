@@ -22,26 +22,18 @@ public class ReportsRouterHandler : IRouteHandler
     {
         try
         {
-            return BuildManager.CreateInstanceFromVirtualPath("~/Reports/Reports.aspx", typeof(Page)) as Page;
-            //string data = requestContext.RouteData.Values["data"] as string;
-            //switch (data)
-            //{
-            //    case "0":
-            //        return BuildManager.CreateInstanceFromVirtualPath("~/News/News0.aspx", typeof(Page)) as Page;
-            //    case "1":
+            string data = requestContext.RouteData.Values["data"] as string;
+            switch (data)
+            {
+                case "reports":
+                    return BuildManager.CreateInstanceFromVirtualPath("~/Reports/Reports.aspx", typeof(Page)) as Page;
+                default:
+                    {
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Reports/Reports.aspx", typeof(Page)) as Page;
 
-            //        return BuildManager.CreateInstanceFromVirtualPath("~/News/News1.aspx", typeof(Page)) as Page;
-            //    case "2":
-            //        return BuildManager.CreateInstanceFromVirtualPath("~/News/News2.aspx", typeof(Page)) as Page;
-            //    case "3":
-            //        return BuildManager.CreateInstanceFromVirtualPath("~/News/News3.aspx", typeof(Page)) as Page;
-            //    default:
-            //        {
-            //            return BuildManager.CreateInstanceFromVirtualPath("~/News/News0.aspx", typeof(Page)) as Page;
+                    }
 
-            //        }
-
-            //}
+            }
 
         }
         catch
