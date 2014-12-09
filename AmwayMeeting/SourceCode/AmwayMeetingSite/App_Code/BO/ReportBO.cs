@@ -210,4 +210,32 @@ public class ReportBO : AMW_MEETINGDataContext
             return null;
         }
     }
+
+    public List<PRC_RPT_GET_SESSION_BY_PAX_ADAResult> GetSessionByPaxADA(DateTime FromDate, DateTime ToDate, string ADA)
+    {
+        try
+        {
+            List<PRC_RPT_GET_SESSION_BY_PAX_ADAResult> result = new List<PRC_RPT_GET_SESSION_BY_PAX_ADAResult>();
+            result = PRC_RPT_GET_SESSION_BY_PAX_ADA(FromDate, ToDate, ADA).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
+
+    public List<PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult> GetSessionByPaxADADetail(DateTime FromDate, DateTime ToDate, string ADA)
+    {
+        try
+        {
+            List<PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult> result = new List<PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAILResult>();
+            result = PRC_RPT_GET_SESSION_BY_PAX_ADA_DETAIL(FromDate, ToDate, ADA).ToList();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
 }
