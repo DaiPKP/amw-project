@@ -25,11 +25,11 @@ public class ReportsRouterHandler : IRouteHandler
             string data = requestContext.RouteData.Values["data"] as string;
             switch (data)
             {
-                case "reports":
-                    return BuildManager.CreateInstanceFromVirtualPath("~/Reports/Reports.aspx", typeof(Page)) as Page;
+                case "rpt":
+                    return BuildManager.CreateInstanceFromVirtualPath("~/Report/Report.aspx", typeof(Page)) as Page;
                 default:
                     {
-                        return BuildManager.CreateInstanceFromVirtualPath("~/Reports/Reports.aspx", typeof(Page)) as Page;
+                        return BuildManager.CreateInstanceFromVirtualPath("~/Report/Report.aspx", typeof(Page)) as Page;
 
                     }
 
