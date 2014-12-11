@@ -9,7 +9,7 @@ public partial class Reports_Reports : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("4")))
+        if ((Session["UserID"] == null) || (!CheckPermission("36")))
         {
             Response.Redirect("~/home");
         }

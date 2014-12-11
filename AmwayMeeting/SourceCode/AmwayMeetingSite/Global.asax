@@ -13,7 +13,7 @@
         routes.Add("Distributor", new System.Web.Routing.Route("distributor/{data}", new DistributorRouterHandler()));
         routes.Add("MEETING", new System.Web.Routing.Route("meeting/{data}", new MeetingRouterHandler()));
         routes.Add("NEWS", new System.Web.Routing.Route("news/{data}", new NewsRouterHandler()));
-        routes.Add("REPORTS", new System.Web.Routing.Route("reports/{data}", new ReportsRouterHandler()));
+        routes.Add("REPORT", new System.Web.Routing.Route("report/{data}", new ReportsRouterHandler()));
     }
     void Application_End(object sender, EventArgs e)
     {
