@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="AMW_BOOKING" Class="AMW_BookingDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=14.0.24.245;Initial Catalog=AMW_BOOKING;User ID=amw123" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="AmwayBookingRoomDBConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Center" Member="Centers">
+    <Type Name="Center">
+      <Column Name="CenterCode" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CenterName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Center_Room" Member="Rooms" ThisKey="CenterCode" OtherKey="CenterCode" Type="Room" />
+      <Association Name="City_Center" Member="City" ThisKey="CityCode" OtherKey="CityCode" Type="City" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.City" Member="Cities">
+    <Type Name="City">
+      <Column Name="CityCode" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="City_Center" Member="Centers" ThisKey="CityCode" OtherKey="CityCode" Type="Center" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Image" Member="Images">
+    <Type Name="Image">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Member="Image1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Room_Image" Member="Room" ThisKey="RoomCode" OtherKey="RoomCode" Type="Room" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Information" Member="Informations">
+    <Type Name="Information">
+      <Column Name="Code" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Content" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RegistryRoom" Member="RegistryRooms">
+    <Type Name="RegistryRoom">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ADA_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
+      <Column Name="Weekend" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Room_RegistryRoom" Member="Room" ThisKey="RoomCode" OtherKey="RoomCode" Type="Room" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Room" Member="Rooms">
+    <Type Name="Room">
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PriceMorning" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PriceWeekendMorning" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CenterCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceAfternoon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceEvening" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceWeekendAfternoon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceWeekendEvening" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceBookingMonthly" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="Room_Image" Member="Images" ThisKey="RoomCode" OtherKey="RoomCode" Type="Image" />
+      <Association Name="Room_RegistryRoom" Member="RegistryRooms" ThisKey="RoomCode" OtherKey="RoomCode" Type="RegistryRoom" />
+      <Association Name="Center_Room" Member="Center" ThisKey="CenterCode" OtherKey="CenterCode" Type="Center" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.sp_insert_center" Method="sp_insert_center">
+    <Parameter Name="CenterCode" Parameter="centerCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CenterName" Parameter="centerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CityCode" Parameter="cityCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(100)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_insert_city" Method="sp_insert_city">
+    <Parameter Name="CityCode" Parameter="cityCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CityName" Parameter="cityName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_insert_room" Method="sp_insert_room">
+    <Parameter Name="RoomCode" Parameter="roomCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="RoomName" Parameter="roomName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CenterCode" Parameter="centerCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PriceMorning" Parameter="priceMorning" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceAfternoon" Parameter="priceAfternoon" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceEvening" Parameter="priceEvening" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceWeekendMorning" Parameter="priceWeekendMorning" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceWeekendAfternoon" Parameter="priceWeekendAfternoon" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceWeekendEvening" Parameter="priceWeekendEvening" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceBookingMonthly" Parameter="priceBookingMonthly" Type="System.Double" DbType="Float" />
+    <Parameter Name="Status" Parameter="status" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_update_center" Method="sp_update_center">
+    <Parameter Name="CenterCode" Parameter="centerCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CenterName" Parameter="centerName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CityCode" Parameter="cityCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_update_city" Method="sp_update_city">
+    <Parameter Name="CityCode" Parameter="cityCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CityName" Parameter="cityName" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_update_information" Method="sp_update_information">
+    <Parameter Name="Code" Parameter="code" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Content" Parameter="content" Type="System.String" DbType="NText" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_update_registry_room" Method="sp_update_registry_room">
+    <Parameter Name="Code" Parameter="code" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ADA_ID" Parameter="aDA_ID" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ADA_Name" Parameter="aDA_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="Status" Parameter="status" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Paid" Parameter="paid" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="Text" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_update_room" Method="sp_update_room">
+    <Parameter Name="RoomCode" Parameter="roomCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="RoomName" Parameter="roomName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="CenterCode" Parameter="centerCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PriceMorning" Parameter="priceMorning" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceAfternoon" Parameter="priceAfternoon" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceEvening" Parameter="priceEvening" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceWeekendMorning" Parameter="priceWeekendMorning" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceWeekendAfternoon" Parameter="priceWeekendAfternoon" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceWeekendEvening" Parameter="priceWeekendEvening" Type="System.Double" DbType="Float" />
+    <Parameter Name="PriceBookingMonthly" Parameter="priceBookingMonthly" Type="System.Double" DbType="Float" />
+    <Parameter Name="Status" Parameter="status" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_weekly_booking" Method="sp_weekly_booking">
+    <Parameter Name="DSDateSection" Parameter="dSDateSection" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="ADA_ID" Parameter="aDA_ID" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ADA_Name" Parameter="aDA_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="RoomCode" Parameter="roomCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NChar(15)" />
+    <Parameter Name="Paid" Parameter="paid" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Weekend" Parameter="weekend" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Section" Parameter="section" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="Text" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CENTER_GET_CBO_BY_CITYCODE" Method="SP_CENTER_GET_CBO_BY_CITYCODE">
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="SP_CENTER_GET_CBO_BY_CITYCODEResult">
+      <Column Name="CenterCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CenterName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CITY_GET_CBO" Method="SP_CITY_GET_CBO">
+    <ElementType Name="SP_CITY_GET_CBOResult">
+      <Column Name="CityCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ROOM_GET_CBO_BY_CENTERCODE" Method="SP_ROOM_GET_CBO_BY_CENTERCODE">
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="VarChar(20)" />
+    <ElementType Name="SP_ROOM_GET_CBO_BY_CENTERCODEResult">
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_REGISTYROOM_GETLIST" Method="SP_REGISTYROOM_GETLIST">
+    <Parameter Name="ROOMCODE" Parameter="rOOMCODE" Type="System.String" DbType="VarChar(20)" />
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="SP_REGISTYROOM_GETLISTResult">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
+      <Column Name="Weekend" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_REGISTYROOM_GET_BY_CODE" Method="SP_REGISTYROOM_GET_BY_CODE">
+    <Parameter Name="CODE" Parameter="cODE" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_REGISTYROOM_GET_BY_CODEResult">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
+      <Column Name="Weekend" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.sp_registry_room" Method="sp_registry_room">
+    <Parameter Name="ADA_ID" Parameter="aDA_ID" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ADA_Name" Parameter="aDA_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="RoomCode" Parameter="roomCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Date" Parameter="date" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Section" Parameter="section" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NChar(15)" />
+    <Parameter Name="Weekend" Parameter="weekend" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Paid" Parameter="paid" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="Text" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.sp_monthly_booking" Method="sp_monthly_booking">
+    <Parameter Name="DSDateSection" Parameter="dSDateSection" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="DSSection" Parameter="dSSection" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="ADA_ID" Parameter="aDA_ID" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ADA_Name" Parameter="aDA_Name" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="NChar(11)" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="RoomCode" Parameter="roomCode" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="Type" Parameter="type" Type="System.String" DbType="NChar(15)" />
+    <Parameter Name="Paid" Parameter="paid" Type="System.Char" DbType="Char(1)" />
+    <Parameter Name="Note" Parameter="note" Type="System.String" DbType="Text" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -34,7 +34,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView><br />
             </div>
-            <div style="font-size:11px; margin-left:20px; position:absolute; top:130px;">
+            <div style="font-size:10px; margin-left:20px; position:absolute; top:130px;">
                 Tổng lượt truy cập:<span style="font-weight:bold;"> <asp:Label ID="lbSum" runat="server" Text=""></asp:Label></span><br />
                 Số người đang online:<span style="font-weight:bold;"> <asp:Label ID="lbOnline" runat="server" Text=""></asp:Label></span>
             </div>
