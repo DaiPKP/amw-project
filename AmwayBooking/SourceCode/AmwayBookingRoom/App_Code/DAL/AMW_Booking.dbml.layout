@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11.25, 8.5" name="AMW_Booking">
+  <DataContextMoniker Name="/AMW_BookingDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c6802635-c150-4037-bc7d-902210ab03a3" absoluteBounds="3.5, 3.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/AMW_BookingDataContext/Center" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e07676a1-5ed1-4b52-9bb6-0208000d78ad" absoluteBounds="3.515, 3.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b95600d4-b548-4a80-ac92-8c53c2ed699f" absoluteBounds="0.75, 3.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/AMW_BookingDataContext/City" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0706260c-4e29-440b-b124-2832780d285b" absoluteBounds="0.765, 3.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4ee6f401-5844-40e2-9559-ac48286b9f2f" absoluteBounds="9, 1.125, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/AMW_BookingDataContext/Image" />
+      <nestedChildShapes>
+        <elementListCompartment Id="371344c9-7eeb-4b25-8f52-fe43a7292f6c" absoluteBounds="9.015, 1.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="87c20010-282f-4bd1-a862-f85f2ecd0746" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/AMW_BookingDataContext/Information" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c9cfb19-1bc8-4f75-95ec-0bbf37840d7e" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="26a0e517-e990-4bbc-ade0-e771b9632571" absoluteBounds="9, 3.625, 2, 3.6939111328124992">
+      <DataClassMoniker Name="/AMW_BookingDataContext/RegistryRoom" />
+      <nestedChildShapes>
+        <elementListCompartment Id="64770162-f3d9-4f4b-8347-ba0d861afd40" absoluteBounds="9.015, 4.085, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="843513fe-e71c-4e16-a9b3-21224e170f02" absoluteBounds="6.25, 2.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/AMW_BookingDataContext/Room" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6d19478e-2381-4712-a662-9177fc2a0082" absoluteBounds="6.265, 3.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.28929768880208); (3.5 : 4.28929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AMW_BookingDataContext/City/City_Center" />
+      <nodes>
+        <classShapeMoniker Id="b95600d4-b548-4a80-ac92-8c53c2ed699f" />
+        <classShapeMoniker Id="c6802635-c150-4037-bc7d-902210ab03a3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.25 : 2.625); (7.25 : 1.8749995); (9 : 1.8749995)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AMW_BookingDataContext/Room/Room_Image" />
+      <nodes>
+        <classShapeMoniker Id="843513fe-e71c-4e16-a9b3-21224e170f02" />
+        <classShapeMoniker Id="4ee6f401-5844-40e2-9559-ac48286b9f2f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 4.77965413411458); (9 : 4.77965413411458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AMW_BookingDataContext/Room/Room_RegistryRoom" />
+      <nodes>
+        <classShapeMoniker Id="843513fe-e71c-4e16-a9b3-21224e170f02" />
+        <classShapeMoniker Id="26a0e517-e990-4bbc-ade0-e771b9632571" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.26044840494792); (6.25 : 4.26044840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/AMW_BookingDataContext/Center/Center_Room" />
+      <nodes>
+        <classShapeMoniker Id="c6802635-c150-4037-bc7d-902210ab03a3" />
+        <classShapeMoniker Id="843513fe-e71c-4e16-a9b3-21224e170f02" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

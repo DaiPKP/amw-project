@@ -22,7 +22,7 @@ public class Connection
 
 	public Connection()
 	{
-        ConStr = ConfigurationManager.ConnectionStrings["AmwayBookingRoomConnectionString"].ConnectionString.ToString();
+        ConStr = ConfigurationManager.ConnectionStrings["AmwayBookingRoomDBConnectionString"].ConnectionString.ToString();
         con = new SqlConnection();
         con.ConnectionString = ConStr;
         com = con.CreateCommand();
