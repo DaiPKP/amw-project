@@ -11,6 +11,7 @@ using System.Net.Configuration;
 using System.Net.Mail;
 using System.IO;
 using DAL;
+using System.Globalization;
 
 public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
 {
@@ -122,7 +123,7 @@ public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
 
         RegistryRoomBO BO = new RegistryRoomBO();
         List<SP_REGISTYROOM_GETLISTResult> listBooking = new List<SP_REGISTYROOM_GETLISTResult>();
-        listBooking = BO.SP_REGISTYROOM_GETLIST(ddlRoom.SelectedValue.Trim(), startdate, enddate).ToList();
+        listBooking = BO.GetListBooking(ddlRoom.SelectedValue.Trim(), startdate, enddate);
 
         string strCode1 = "";
         string strCode2 = "";
@@ -268,14 +269,15 @@ public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
         booking.Email = txtEmail.Text.Trim();
         booking.Address = txtAddress.Text.Trim();
         booking.RoomCode = ddlRoom.SelectedValue.Trim();
-        booking.Date = DateTime.Parse(lbDate.Text.ToString());
+        string strDate = lbDate.Text.Trim().Substring(lbDate.Text.Trim().Length - 10, 10);
+        booking.Date = DateTime.ParseExact(strDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
         booking.Section = lbSection.Text.ToString(); 
         booking.Type =ddlType.SelectedValue.ToString(); 
         
         
         btDatPhong.Enabled = false;
- 
-        DateTime date = DateTime.Parse(lbDate.Text.ToString());
+
+        DateTime date = DateTime.ParseExact(strDate, "dd/MM/yyyy", CultureInfo.InvariantCulture);
 
         string strWeekend;
         if (date.DayOfWeek == DayOfWeek.Sunday || date.DayOfWeek == DayOfWeek.Saturday)
@@ -298,50 +300,8 @@ public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
         }
         booking.Paid = Char.Parse(strPaid);
         booking.Note = txtNote.Text.Trim();
-        BO.InsertBooking(booking);
+        int IDBooking = BO.InsertBooking(booking);
 
-        //if (ddlType.SelectedItem.Text.Equals("Distributor") && !txtEmail.Text.Trim().Equals(""))
-        //{
-        //    DataTable table = new DataTable();
-        //    table = con.ExcuteQuery("Select * from Room where RoomCode = '" + ddlRoom.SelectedValue.Trim() + "'");
-        //    string strGia = "";
-        //    string strSection = "";
-        //    if (strWeekend.Equals("N"))
-        //    {
-        //        switch (lbSection.Text.ToString())
-        //        {
-        //            case "Ca Sáng":
-        //                strSection = "Từ 8 giờ đến 12 giờ";
-        //                strGia = string.Format("{0:0,0 VNĐ}", table.Rows[0]["PriceMorning"]);
-        //                break;
-        //            case "Ca Chiều":
-        //                strSection = "Từ 13 giờ đến 17 giờ";
-        //                strGia = string.Format("{0:0,0 VNĐ}", table.Rows[0]["PriceAfternoon"]);
-        //                break;
-        //            case "Ca Tối":
-        //                strSection = "Từ 18 giờ đến 22 giờ";
-        //                strGia = string.Format("{0:0,0 VNĐ}", table.Rows[0]["PriceEvening"]);
-        //                break;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        switch (lbSection.Text.ToString())
-        //        {
-        //            case "Ca Sáng":
-        //                strSection = "Từ 8 giờ đến 12 giờ";
-        //                strGia = string.Format("{0:0,0 VNĐ}", table.Rows[0]["PriceWeekendMorning"]);
-        //                break;
-        //            case "Ca Chiều":
-        //                strSection = "Từ 13 giờ đến 17 giờ";
-        //                strGia = string.Format("{0:0,0 VNĐ}", table.Rows[0]["PriceWeekendAfternoon"]);
-        //                break;
-        //            case "Ca Tối":
-        //                strSection = "Từ 18 giờ đến 22 giờ";
-        //                strGia = string.Format("{0:0,0 VNĐ}", table.Rows[0]["PriceWeekendEvening"]);
-        //                break;
-        //        }
-        //    }
         //    //Begin send email
         //    //Load Row
         //    StreamReader srRow = new StreamReader(Server.MapPath("Row.txt"));
@@ -389,14 +349,16 @@ public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
     protected void btCapNhat_Click(object sender, EventArgs e)
     {
         btCapNhat.Enabled = false;
-        SqlParameter[] paras = new SqlParameter[9];
-        paras[0] = new SqlParameter("@ADA_ID", txtADAID.Text.Trim());
-        paras[1] = new SqlParameter("@ADA_Name", txtName.Text.Trim());
-        paras[2] = new SqlParameter("@Phone", txtPhone.Text.Trim());
-        paras[3] = new SqlParameter("@Email", txtEmail.Text.Trim());
-        paras[4] = new SqlParameter("@Address", txtAddress.Text.Trim());
-        paras[5] = new SqlParameter("@Status", ddlStatus.Text);
-        paras[6] = new SqlParameter("@Code", Int16.Parse(strCode));
+        RegistryRoom booking = new RegistryRoom();
+        RegistryRoomBO BO = new RegistryRoomBO();
+
+        booking.ADA_ID = txtADAID.Text.Trim();
+        booking.ADA_Name = txtName.Text.Trim();
+        booking.Phone = txtPhone.Text.Trim();
+        booking.Email = txtEmail.Text.Trim();
+        booking.Address = txtAddress.Text.Trim();
+        booking.Status = Char.Parse(ddlStatus.Text);
+        booking.Code = Int16.Parse(strCode);
         string strPaid;
         if (chkPaid.Checked == true)
         {
@@ -406,10 +368,10 @@ public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
         {
             strPaid = "N";
         }
-        paras[7] = new SqlParameter("@Paid", strPaid);
-        paras[8] = new SqlParameter("@Note", txtNote.Text.Trim());
-        con.ExcuteNonQuery("sp_update_registry_room", paras);
+        booking.Paid = Char.Parse(strPaid);
+        booking.Note = txtNote.Text.Trim();
 
+        BO.UpdateBooking(booking);
         CheckBookingRoom();
         ClearField();
     }

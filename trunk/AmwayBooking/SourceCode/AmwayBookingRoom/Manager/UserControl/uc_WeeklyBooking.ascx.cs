@@ -78,8 +78,9 @@ public partial class Manager_UserControl_uc_WeeklyBooking : System.Web.UI.UserCo
         DateTime startdate = new DateTime(iNam, iThang, 1);
         int dateofmonth = DateTime.DaysInMonth(iNam, iThang);
         DateTime enddate = new DateTime(iNam, iThang, dateofmonth);
-        DataTable tb = new DataTable();
-        tb = con.ExcuteQuery(startdate, enddate, ddlRoom.SelectedValue.Trim());
+        RegistryRoomBO BO = new RegistryRoomBO();
+        List<SP_REGISTYROOM_GETLISTResult> listBooking = new List<SP_REGISTYROOM_GETLISTResult>();
+        listBooking = BO.GetListBooking(ddlRoom.SelectedValue.Trim(), startdate, enddate);
         string strStatus = "";
         string strWeekend = "N";
         string strSection = ddlSection.SelectedValue.ToString();
@@ -120,9 +121,9 @@ public partial class Manager_UserControl_uc_WeeklyBooking : System.Web.UI.UserCo
             if (i.DayOfWeek == day)
             {
                 strStatus = "Y";
-                foreach (DataRow row in tb.Rows)
+                foreach (SP_REGISTYROOM_GETLISTResult row in listBooking)
                 {
-                    if (DateTime.Parse(row["Date"].ToString()) == i && row["Section"].ToString().Trim().Equals(strSection))
+                    if (row.Date == i && row.Section.ToString().Trim().Equals(strSection))
                     {
                         strStatus = "N";
                     }

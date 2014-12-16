@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
+using DAL;
 
 public partial class Manager_UserControl_uc_Payment : System.Web.UI.UserControl
 {
@@ -18,10 +19,10 @@ public partial class Manager_UserControl_uc_Payment : System.Web.UI.UserControl
             lbDay.Text = lbday2.Text = DateTime.Today.Day.ToString();
             lbMonth.Text = lbMonth2.Text = DateTime.Today.Month.ToString();
             lbYear.Text = lbYear2.Text = DateTime.Today.Year.ToString();
-            DataTable tb = new DataTable();
-            string strQuery = "select * from City where [Status] = 'Y'";
-            tb = con.ExcuteQuery(strQuery);
-            ddlCity.DataSource = tb;
+            CategoryBO BO = new CategoryBO();
+            List<SP_CITY_GET_CBOResult> listCity = new List<SP_CITY_GET_CBOResult>();
+            listCity = BO.GetCity();
+            ddlCity.DataSource = listCity;
             ddlCity.DataTextField = "CityName";
             ddlCity.DataValueField = "CityCode";
             ddlCity.DataBind();
@@ -40,22 +41,22 @@ public partial class Manager_UserControl_uc_Payment : System.Web.UI.UserControl
         data.Columns.Add("Time", typeof(string));
         data.Columns.Add("Price", typeof(float));
 
-        string strQuery = "select * from v_Payment where Paid = 'N' and [Status] = 'Y' and CityCode = '" + ddlCity.SelectedValue.ToString() + "' and ADA_ID = '" + txtADAID.Text.Trim() + "' and [Date] >= '" + txtFormDate.Text + "' and [Date] <= '" + txtToDate.Text + "' order by [Date]";
-        DataTable tb = new DataTable();
-        tb = con.ExcuteQuery(strQuery);
-        if (tb.Rows.Count > 0)
+        PaymentBO BO = new PaymentBO();
+        List<SP_GET_PAYMENTResult> listPayment = new List<SP_GET_PAYMENTResult>();
+        listPayment = BO.GetPayment(ddlCity.SelectedValue.ToString(), txtADAID.Text.Trim(), DateTime.Parse(txtFormDate.Text), DateTime.Parse(txtToDate.Text));
+        if (listPayment.Count > 0)
         {
             lbADAID.Text = txtADAID.Text.Trim();
-            lbDistributor.Text = tb.Rows[0]["ADA_Name"].ToString();
+            lbDistributor.Text = listPayment[0].ADA_Name.ToString();
             string strRoomName = "";
             string strDate = "";
             string strTime = "";
             float fPrice;
-            foreach (DataRow row in tb.Rows)
+            foreach (SP_GET_PAYMENTResult row in listPayment)
             {
-                strRoomName = row["RoomName"].ToString().Trim();
-                strDate = ((DateTime)row["Date"]).ToString("dd/MM/yyyy");
-                strTime = row["Section"].ToString();
+                strRoomName = row.RoomName.ToString().Trim();
+                strDate = row.Date.ToString("dd/MM/yyyy");
+                strTime = row.Section.ToString();
                 if (strTime.Equals("Ca Sáng"))
                 {
                     strTime = "Từ 8 giờ đến 12 giờ";
@@ -68,7 +69,7 @@ public partial class Manager_UserControl_uc_Payment : System.Web.UI.UserControl
                 {
                     strTime = "Từ 18 giờ đến 22 giờ";
                 }
-                fPrice = float.Parse(row["Price"].ToString());
+                fPrice = float.Parse(row.Price.ToString());
                 data.Rows.Add(strRoomName, strDate, strTime, fPrice);
             }
             panelPhieuThu.Visible = true;

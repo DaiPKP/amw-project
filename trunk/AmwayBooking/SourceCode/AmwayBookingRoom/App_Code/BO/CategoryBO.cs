@@ -32,4 +32,24 @@ public class CategoryBO: AMW_BookingDataContext
         result = SP_ROOM_GET_CBO_BY_CENTERCODE(CenterCode).ToList();
         return result;
     }
+
+    public List<SP_GET_ROOMLIST_BY_CITYCODEResult> GetRoomByCityCode(String CityCode)
+    {
+        return SP_GET_ROOMLIST_BY_CITYCODE(CityCode).ToList();
+    }
+
+    public List<SP_GET_CITYNAME_BY_CITYCODEResult> GetCityNameByCityCode(String CityCode)
+    {
+        return SP_GET_CITYNAME_BY_CITYCODE(CityCode).ToList();
+    }
+
+    public List<SP_GET_ROOM_BY_ROOMCODEResult> GetRoomByRoomCode(String RoomCode)
+    {
+        return SP_GET_ROOM_BY_ROOMCODE(RoomCode).ToList();
+    }
+
+    public List<SP_GET_INFORMATIONResult> GetInformation()
+    {
+        return SP_GET_INFORMATION().ToList();
+    }
 }

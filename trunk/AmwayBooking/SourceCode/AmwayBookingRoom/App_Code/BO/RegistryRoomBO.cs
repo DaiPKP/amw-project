@@ -42,4 +42,9 @@ public class RegistryRoomBO:AMW_BookingDataContext
     {
         return sp_registry_room(refRoom.ADA_ID, refRoom.ADA_Name, refRoom.Phone, refRoom.Email, refRoom.Address, refRoom.RoomCode, refRoom.Date, refRoom.Section, refRoom.Type, refRoom.Weekend, refRoom.Paid, refRoom.Note);
     }
+
+    public void UpdateBooking(RegistryRoom refRoom)
+    {
+        sp_update_registry_room(refRoom.Code, refRoom.ADA_ID, refRoom.ADA_Name, refRoom.Phone, refRoom.Email, refRoom.Address, refRoom.Status, refRoom.Paid, refRoom.Note);
+    }
 }
