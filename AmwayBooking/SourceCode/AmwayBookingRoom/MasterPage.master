@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,7 +47,7 @@
                 <asp:ListView ID="listView" runat="server">
                     <ItemTemplate>
                         <td style="text-align:center;"><br />
-                            <a href="/City.aspx?CityCode=<%# Eval("CityCode") %>">
+                            <a href="/Distributor/City.aspx?CityCode=<%# Eval("CityCode") %>">
                                 <img src='/ImageHandler.ashx?ID=<%#Eval("CityCode")%>&table=City&column=CityCode' width="200px" height="120px"/><br /><br />
                                 <asp:Label ID="Label1" runat="server" Text='<%# Eval("CityName") %>' CssClass="CityName"></asp:Label>
                             </a>
@@ -66,13 +67,6 @@
                         </tr>
                     </GroupTemplate>
                 </asp:ListView>   
-                <asp:SqlDataSource ID="SqlDataSourceCity" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>" 
-                    SelectCommand="SELECT * FROM [City] WHERE ([Status] = @Status)">
-                    <SelectParameters>
-                        <asp:Parameter DefaultValue="Y" Name="Status" Type="String" />
-                    </SelectParameters>
-                </asp:SqlDataSource>
             </div>            
             <div id="Content">
                 <asp:ContentPlaceHolder id="MainContent" runat="server">

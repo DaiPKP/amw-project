@@ -1,6 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Payment.ascx.cs" Inherits="Manager_UserControl_uc_Payment" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<script src="/scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btPrint").click(function (e) {

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
+using DAL;
 
 public partial class Distributor_UserControl_uc_City : System.Web.UI.UserControl
 {
@@ -15,16 +16,17 @@ public partial class Distributor_UserControl_uc_City : System.Web.UI.UserControl
         strCityCode = Request.QueryString["CityCode"].ToString();
         if (!IsPostBack)
         {
-            DataTable tb = new DataTable();
-            string strQuery = "select * from Center b, Room c where c.Status = 'Y' and b.Status = 'Y' and c.CenterCode = b.CenterCode and b.CityCode = '" + strCityCode + "' order by b.CenterName";
-            tb = con.ExcuteQuery(strQuery);
-            listViewRoom.DataSource = tb;
+            List<SP_GET_ROOMLIST_BY_CITYCODEResult> listRoom = new List<SP_GET_ROOMLIST_BY_CITYCODEResult>();
+            CategoryBO BO = new CategoryBO();
+            listRoom = BO.SP_GET_ROOMLIST_BY_CITYCODE(strCityCode).ToList();
+            listViewRoom.DataSource = listRoom;
             listViewRoom.DataBind();
-            strQuery = "select CityName from City where CityCode = '" + strCityCode + "'";
-            tb = con.ExcuteQuery(strQuery);
-            if (tb.Rows.Count > 0)
+
+            List<SP_GET_CITYNAME_BY_CITYCODEResult> listCity = new List<SP_GET_CITYNAME_BY_CITYCODEResult>();
+            listCity = BO.GetCityNameByCityCode(strCityCode);
+            if (listCity.Count > 0)
             {
-                lbCityName.Text = tb.Rows[0]["CityName"].ToString();
+                lbCityName.Text = listCity[0].CityName.ToString();
             }
         }
     }

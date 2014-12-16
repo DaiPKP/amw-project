@@ -239,6 +239,41 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dSDateSection, dSSection, aDA_ID, aDA_Name, phone, email, address, roomCode, type, paid, note);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_PAYMENT")]
+		public ISingleResult<SP_GET_PAYMENTResult> SP_GET_PAYMENT([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CITYCODE", DbType="NChar(10)")] string cITYCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ADA_ID", DbType="NChar(10)")] string aDA_ID, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FROMDATE", DbType="DateTime")] System.Nullable<System.DateTime> fROMDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TODATE", DbType="DateTime")] System.Nullable<System.DateTime> tODATE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cITYCODE, aDA_ID, fROMDATE, tODATE);
+			return ((ISingleResult<SP_GET_PAYMENTResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_ROOMLIST_BY_CITYCODE")]
+		public ISingleResult<SP_GET_ROOMLIST_BY_CITYCODEResult> SP_GET_ROOMLIST_BY_CITYCODE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CITYCODE", DbType="NChar(10)")] string cITYCODE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cITYCODE);
+			return ((ISingleResult<SP_GET_ROOMLIST_BY_CITYCODEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_CITYNAME_BY_CITYCODE")]
+		public ISingleResult<SP_GET_CITYNAME_BY_CITYCODEResult> SP_GET_CITYNAME_BY_CITYCODE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CITYCODE", DbType="NChar(10)")] string cITYCODE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cITYCODE);
+			return ((ISingleResult<SP_GET_CITYNAME_BY_CITYCODEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_ROOM_BY_ROOMCODE")]
+		public ISingleResult<SP_GET_ROOM_BY_ROOMCODEResult> SP_GET_ROOM_BY_ROOMCODE([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROOMCODE", DbType="NChar(10)")] string rOOMCODE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rOOMCODE);
+			return ((ISingleResult<SP_GET_ROOM_BY_ROOMCODEResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GET_INFORMATION")]
+		public ISingleResult<SP_GET_INFORMATIONResult> SP_GET_INFORMATION()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_GET_INFORMATIONResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Center")]
@@ -2508,6 +2543,856 @@ namespace DAL
 				if ((this._Note != value))
 				{
 					this._Note = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_PAYMENTResult
+	{
+		
+		private string _ADA_ID;
+		
+		private string _ADA_Name;
+		
+		private System.DateTime _Date;
+		
+		private string _Section;
+		
+		private System.Nullable<double> _Price;
+		
+		private System.Nullable<char> _Paid;
+		
+		private char _Status;
+		
+		private string _RoomName;
+		
+		private string _CenterCode;
+		
+		private string _CityCode;
+		
+		public SP_GET_PAYMENTResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADA_ID", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string ADA_ID
+		{
+			get
+			{
+				return this._ADA_ID;
+			}
+			set
+			{
+				if ((this._ADA_ID != value))
+				{
+					this._ADA_ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADA_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string ADA_Name
+		{
+			get
+			{
+				return this._ADA_Name;
+			}
+			set
+			{
+				if ((this._ADA_Name != value))
+				{
+					this._ADA_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Section", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Section
+		{
+			get
+			{
+				return this._Section;
+			}
+			set
+			{
+				if ((this._Section != value))
+				{
+					this._Section = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Float")]
+		public System.Nullable<double> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this._Price = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Paid", DbType="Char(1)")]
+		public System.Nullable<char> Paid
+		{
+			get
+			{
+				return this._Paid;
+			}
+			set
+			{
+				if ((this._Paid != value))
+				{
+					this._Paid = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1) NOT NULL")]
+		public char Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RoomName
+		{
+			get
+			{
+				return this._RoomName;
+			}
+			set
+			{
+				if ((this._RoomName != value))
+				{
+					this._RoomName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CenterCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string CenterCode
+		{
+			get
+			{
+				return this._CenterCode;
+			}
+			set
+			{
+				if ((this._CenterCode != value))
+				{
+					this._CenterCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string CityCode
+		{
+			get
+			{
+				return this._CityCode;
+			}
+			set
+			{
+				if ((this._CityCode != value))
+				{
+					this._CityCode = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_ROOMLIST_BY_CITYCODEResult
+	{
+		
+		private string _CenterCode;
+		
+		private string _CityCode;
+		
+		private string _CenterName;
+		
+		private string _Address;
+		
+		private char _Status;
+		
+		private string _RoomCode;
+		
+		private string _RoomName;
+		
+		private int _Amount;
+		
+		private double _PriceMorning;
+		
+		private double _PriceWeekendMorning;
+		
+		private char _Status1;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private string _CenterCode1;
+		
+		private System.Nullable<double> _PriceAfternoon;
+		
+		private System.Nullable<double> _PriceEvening;
+		
+		private System.Nullable<double> _PriceWeekendAfternoon;
+		
+		private System.Nullable<double> _PriceWeekendEvening;
+		
+		private System.Nullable<double> _PriceBookingMonthly;
+		
+		public SP_GET_ROOMLIST_BY_CITYCODEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CenterCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string CenterCode
+		{
+			get
+			{
+				return this._CenterCode;
+			}
+			set
+			{
+				if ((this._CenterCode != value))
+				{
+					this._CenterCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string CityCode
+		{
+			get
+			{
+				return this._CityCode;
+			}
+			set
+			{
+				if ((this._CityCode != value))
+				{
+					this._CityCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CenterName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string CenterName
+		{
+			get
+			{
+				return this._CenterName;
+			}
+			set
+			{
+				if ((this._CenterName != value))
+				{
+					this._CenterName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(100)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this._Address = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1) NOT NULL")]
+		public char Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string RoomCode
+		{
+			get
+			{
+				return this._RoomCode;
+			}
+			set
+			{
+				if ((this._RoomCode != value))
+				{
+					this._RoomCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RoomName
+		{
+			get
+			{
+				return this._RoomName;
+			}
+			set
+			{
+				if ((this._RoomName != value))
+				{
+					this._RoomName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int NOT NULL")]
+		public int Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceMorning", DbType="Float NOT NULL")]
+		public double PriceMorning
+		{
+			get
+			{
+				return this._PriceMorning;
+			}
+			set
+			{
+				if ((this._PriceMorning != value))
+				{
+					this._PriceMorning = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceWeekendMorning", DbType="Float NOT NULL")]
+		public double PriceWeekendMorning
+		{
+			get
+			{
+				return this._PriceWeekendMorning;
+			}
+			set
+			{
+				if ((this._PriceWeekendMorning != value))
+				{
+					this._PriceWeekendMorning = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status1", DbType="Char(1) NOT NULL")]
+		public char Status1
+		{
+			get
+			{
+				return this._Status1;
+			}
+			set
+			{
+				if ((this._Status1 != value))
+				{
+					this._Status1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image")]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CenterCode1", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string CenterCode1
+		{
+			get
+			{
+				return this._CenterCode1;
+			}
+			set
+			{
+				if ((this._CenterCode1 != value))
+				{
+					this._CenterCode1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceAfternoon", DbType="Float")]
+		public System.Nullable<double> PriceAfternoon
+		{
+			get
+			{
+				return this._PriceAfternoon;
+			}
+			set
+			{
+				if ((this._PriceAfternoon != value))
+				{
+					this._PriceAfternoon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceEvening", DbType="Float")]
+		public System.Nullable<double> PriceEvening
+		{
+			get
+			{
+				return this._PriceEvening;
+			}
+			set
+			{
+				if ((this._PriceEvening != value))
+				{
+					this._PriceEvening = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceWeekendAfternoon", DbType="Float")]
+		public System.Nullable<double> PriceWeekendAfternoon
+		{
+			get
+			{
+				return this._PriceWeekendAfternoon;
+			}
+			set
+			{
+				if ((this._PriceWeekendAfternoon != value))
+				{
+					this._PriceWeekendAfternoon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceWeekendEvening", DbType="Float")]
+		public System.Nullable<double> PriceWeekendEvening
+		{
+			get
+			{
+				return this._PriceWeekendEvening;
+			}
+			set
+			{
+				if ((this._PriceWeekendEvening != value))
+				{
+					this._PriceWeekendEvening = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceBookingMonthly", DbType="Float")]
+		public System.Nullable<double> PriceBookingMonthly
+		{
+			get
+			{
+				return this._PriceBookingMonthly;
+			}
+			set
+			{
+				if ((this._PriceBookingMonthly != value))
+				{
+					this._PriceBookingMonthly = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_CITYNAME_BY_CITYCODEResult
+	{
+		
+		private string _CityName;
+		
+		public SP_GET_CITYNAME_BY_CITYCODEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CityName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CityName
+		{
+			get
+			{
+				return this._CityName;
+			}
+			set
+			{
+				if ((this._CityName != value))
+				{
+					this._CityName = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_ROOM_BY_ROOMCODEResult
+	{
+		
+		private string _RoomCode;
+		
+		private string _RoomName;
+		
+		private int _Amount;
+		
+		private double _PriceMorning;
+		
+		private double _PriceWeekendMorning;
+		
+		private char _Status;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private string _CenterCode;
+		
+		private System.Nullable<double> _PriceAfternoon;
+		
+		private System.Nullable<double> _PriceEvening;
+		
+		private System.Nullable<double> _PriceWeekendAfternoon;
+		
+		private System.Nullable<double> _PriceWeekendEvening;
+		
+		private System.Nullable<double> _PriceBookingMonthly;
+		
+		public SP_GET_ROOM_BY_ROOMCODEResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string RoomCode
+		{
+			get
+			{
+				return this._RoomCode;
+			}
+			set
+			{
+				if ((this._RoomCode != value))
+				{
+					this._RoomCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string RoomName
+		{
+			get
+			{
+				return this._RoomName;
+			}
+			set
+			{
+				if ((this._RoomName != value))
+				{
+					this._RoomName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Int NOT NULL")]
+		public int Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceMorning", DbType="Float NOT NULL")]
+		public double PriceMorning
+		{
+			get
+			{
+				return this._PriceMorning;
+			}
+			set
+			{
+				if ((this._PriceMorning != value))
+				{
+					this._PriceMorning = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceWeekendMorning", DbType="Float NOT NULL")]
+		public double PriceWeekendMorning
+		{
+			get
+			{
+				return this._PriceWeekendMorning;
+			}
+			set
+			{
+				if ((this._PriceWeekendMorning != value))
+				{
+					this._PriceWeekendMorning = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1) NOT NULL")]
+		public char Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="Image")]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this._Image = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CenterCode", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string CenterCode
+		{
+			get
+			{
+				return this._CenterCode;
+			}
+			set
+			{
+				if ((this._CenterCode != value))
+				{
+					this._CenterCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceAfternoon", DbType="Float")]
+		public System.Nullable<double> PriceAfternoon
+		{
+			get
+			{
+				return this._PriceAfternoon;
+			}
+			set
+			{
+				if ((this._PriceAfternoon != value))
+				{
+					this._PriceAfternoon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceEvening", DbType="Float")]
+		public System.Nullable<double> PriceEvening
+		{
+			get
+			{
+				return this._PriceEvening;
+			}
+			set
+			{
+				if ((this._PriceEvening != value))
+				{
+					this._PriceEvening = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceWeekendAfternoon", DbType="Float")]
+		public System.Nullable<double> PriceWeekendAfternoon
+		{
+			get
+			{
+				return this._PriceWeekendAfternoon;
+			}
+			set
+			{
+				if ((this._PriceWeekendAfternoon != value))
+				{
+					this._PriceWeekendAfternoon = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceWeekendEvening", DbType="Float")]
+		public System.Nullable<double> PriceWeekendEvening
+		{
+			get
+			{
+				return this._PriceWeekendEvening;
+			}
+			set
+			{
+				if ((this._PriceWeekendEvening != value))
+				{
+					this._PriceWeekendEvening = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceBookingMonthly", DbType="Float")]
+		public System.Nullable<double> PriceBookingMonthly
+		{
+			get
+			{
+				return this._PriceBookingMonthly;
+			}
+			set
+			{
+				if ((this._PriceBookingMonthly != value))
+				{
+					this._PriceBookingMonthly = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GET_INFORMATIONResult
+	{
+		
+		private string _Code;
+		
+		private string _Content;
+		
+		private char _Status;
+		
+		public SP_GET_INFORMATIONResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Code", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string Code
+		{
+			get
+			{
+				return this._Code;
+			}
+			set
+			{
+				if ((this._Code != value))
+				{
+					this._Code = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Content", DbType="NText NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string Content
+		{
+			get
+			{
+				return this._Content;
+			}
+			set
+			{
+				if ((this._Content != value))
+				{
+					this._Content = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Char(1) NOT NULL")]
+		public char Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
 				}
 			}
 		}

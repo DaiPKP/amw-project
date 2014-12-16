@@ -81,8 +81,11 @@ public partial class Manager_UserControl_uc_MonthlyBooking : System.Web.UI.UserC
         DateTime startdate = new DateTime(iNam, iThang, 1);
         int dateofmonth = DateTime.DaysInMonth(iNam, iThang);
         DateTime enddate = new DateTime(iNam, iThang, dateofmonth);
-        DataTable tb = new DataTable();
-        tb = con.ExcuteQuery(startdate, enddate, ddlRoom.SelectedValue.Trim());
+
+        RegistryRoomBO BO = new RegistryRoomBO();
+        List<SP_REGISTYROOM_GETLISTResult> listBooking = new List<SP_REGISTYROOM_GETLISTResult>();
+        listBooking = BO.GetListBooking(ddlRoom.SelectedValue.Trim(), startdate, enddate);
+
         string strCa1 = "";
         string strCa2 = "";
         for (DateTime i = startdate; i <= enddate; i = i.AddDays(1))
@@ -90,15 +93,15 @@ public partial class Manager_UserControl_uc_MonthlyBooking : System.Web.UI.UserC
             strCa1 = strCa2 = "Y";
             if (i.DayOfWeek != DayOfWeek.Sunday && i.DayOfWeek != DayOfWeek.Saturday)
             {
-                foreach (DataRow row in tb.Rows)
+                foreach (SP_REGISTYROOM_GETLISTResult row in listBooking)
                 {
-                    if (DateTime.Parse(row["Date"].ToString()) == i)
+                    if (row.Date == i)
                     {
-                        if (row["Section"].ToString().Equals("Ca Sáng"))
+                        if (row.Section.ToString().Equals("Ca Sáng"))
                         {
                             strCa1 = "N";
                         }
-                        if (row["Section"].ToString().Equals("Ca Chiều"))
+                        if (row.Section.ToString().Equals("Ca Chiều"))
                         {
                             strCa2 = "N";
                         }
