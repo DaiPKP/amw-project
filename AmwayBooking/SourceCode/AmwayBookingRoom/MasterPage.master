@@ -7,6 +7,7 @@
 <head runat="server">
     <title>Amway Booking Room</title>
     <link href= "Styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href= "Styles/Style.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder id="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -5,11 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using System.Data.SqlClient;
+using DAL;
 
-public partial class Reports : System.Web.UI.Page
+public partial class Report_UserControl_uc_ReportUtilization : System.Web.UI.UserControl
 {
-    public Connection con = new Connection();
     public DataTable data = new DataTable();
     public static string strRoomCode;
     public static string strCode;
@@ -17,53 +16,35 @@ public partial class Reports : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            string strQuery = "select CityCode,CityName from City where Status = 'Y'";
-            DataTable table = new DataTable();
-            table = con.ExcuteQuery(strQuery);
-            ddlCity.DataSource = table;
+            CategoryBO BO = new CategoryBO();
+            List<SP_CITY_GET_CBOResult> listCity = new List<SP_CITY_GET_CBOResult>();
+            listCity = BO.GetCity();
+            ddlCity.DataSource = listCity;
             ddlCity.DataTextField = "CityName";
             ddlCity.DataValueField = "CityCode";
             ddlCity.DataBind();
-            strQuery = "select CenterCode,CenterName from Center where Status = 'Y' and CityCode = '" + ddlCity.SelectedValue.ToString() + "'";
-            table = con.ExcuteQuery(strQuery);
-            ddlCenter.DataSource = table;
+
+            List<SP_CENTER_GET_CBO_BY_CITYCODEResult> listCenter = new List<SP_CENTER_GET_CBO_BY_CITYCODEResult>();
+            listCenter = BO.GetCenter(ddlCity.SelectedValue.ToString());
+            ddlCenter.DataSource = listCenter;
             ddlCenter.DataTextField = "CenterName";
             ddlCenter.DataValueField = "CenterCode";
             ddlCenter.DataBind();
-            //strQuery = "select RoomCode,RoomName from Room where Status = 'Y' and CenterCode = '" + ddlCenter.SelectedValue.ToString() + "'";
-            //table = con.ExcuteQuery(strQuery);
-            //ddlRoom.DataSource = table;
-            //ddlRoom.DataTextField = "RoomName";
-            //ddlRoom.DataValueField = "RoomCode";
-            //ddlRoom.DataBind();
         }
     }
+
     protected void ddlCity_SelectedIndexChanged(object sender, EventArgs e)
     {
-        string strQuery = "select CenterCode,CenterName from Center where Status = 'Y' and CityCode = '" + ddlCity.SelectedValue.ToString() + "'";
-        DataTable table = new DataTable();
-        table = con.ExcuteQuery(strQuery);
-        ddlCenter.DataSource = table;
+        CategoryBO BO = new CategoryBO();
+
+        List<SP_CENTER_GET_CBO_BY_CITYCODEResult> listCenter = new List<SP_CENTER_GET_CBO_BY_CITYCODEResult>();
+        listCenter = BO.GetCenter(ddlCity.SelectedValue.ToString());
+        ddlCenter.DataSource = listCenter;
         ddlCenter.DataTextField = "CenterName";
         ddlCenter.DataValueField = "CenterCode";
         ddlCenter.DataBind();
-        //strQuery = "select RoomCode,RoomName from Room where Status = 'Y' and CenterCode = '" + ddlCenter.SelectedValue.ToString() + "'";
-        //table = con.ExcuteQuery(strQuery);
-        //ddlRoom.DataSource = table;
-        //ddlRoom.DataTextField = "RoomName";
-        //ddlRoom.DataValueField = "RoomCode";
-        //ddlRoom.DataBind();
     }
-    //protected void ddlCenter_SelectedIndexChanged(object sender, EventArgs e)
-    //{
-    //    string strQuery = "select RoomCode,RoomName from Room where Status = 'Y' and CenterCode = '" + ddlCenter.SelectedValue.ToString() + "'";
-    //    DataTable table = new DataTable();
-    //    table = con.ExcuteQuery(strQuery);
-    //    ddlRoom.DataSource = table;
-    //    ddlRoom.DataTextField = "RoomName";
-    //    ddlRoom.DataValueField = "RoomCode";
-    //    ddlRoom.DataBind();
-    //}
+
     protected void btXemBaoCao_Click(object sender, EventArgs e)
     {
         report.Visible = true;
@@ -78,19 +59,22 @@ public partial class Reports : System.Web.UI.Page
         data.Columns.Add("Utilization", typeof(float));
         data.Columns.Add("VND", typeof(float));
         data.Columns.Add("USD", typeof(float));
-        string strQuery = "select RoomCode,RoomName from Room where Status = 'Y' and CenterCode = '" + ddlCenter.SelectedValue.ToString() + "'";
-        DataTable tbRooms = new DataTable();
-        tbRooms = con.ExcuteQuery(strQuery);
-        strQuery = "select * from RegistryRoom where [Status] = 'Y' and [Type] = 'Distributor' and [Date] >= '" + txtFromDate.Text.Trim() + "' and [Date] <= '" + txtToDate.Text.Trim() + "'";
-        DataTable tbSection = new DataTable();
-        tbSection = con.ExcuteQuery(strQuery);
+
+        CategoryBO BO = new CategoryBO();
+
+        List<SP_ROOM_GET_CBO_BY_CENTERCODEResult> listRoom = new List<SP_ROOM_GET_CBO_BY_CENTERCODEResult>();
+        listRoom = BO.GetRoom(ddlCenter.SelectedValue.ToString());
+
+        List<SP_GET_REGISTRYROOM_USED_REPORTResult> listSection = new List<SP_GET_REGISTRYROOM_USED_REPORTResult>();
+        listSection = BO.GetRegistryRoomUsedReport(DateTime.Parse(txtFromDate.Text.Trim()), DateTime.Parse(txtToDate.Text.Trim()));
+
         int iNomalMorning, iNomalAfternoon, iNomalEvening, iWeekendlMorning, iWeekendAfternoon, iWeekendEvening, iTotalSection;
         float fUtilization, fVND, fUSD;
         int iNomalPlanSection, iWeekendPlanSection, iPlanTotal;
         iNomalPlanSection = iWeekendPlanSection = iPlanTotal = 0;
-        for(DateTime i = DateTime.Parse(txtFromDate.Text.Trim()); i <= DateTime.Parse(txtToDate.Text.Trim());i= i.AddDays(1))
+        for (DateTime i = DateTime.Parse(txtFromDate.Text.Trim()); i <= DateTime.Parse(txtToDate.Text.Trim()); i = i.AddDays(1))
         {
-            if(i.DayOfWeek == DayOfWeek.Saturday || i.DayOfWeek == DayOfWeek.Sunday)
+            if (i.DayOfWeek == DayOfWeek.Saturday || i.DayOfWeek == DayOfWeek.Sunday)
             {
                 iWeekendPlanSection++;
             }
@@ -99,22 +83,22 @@ public partial class Reports : System.Web.UI.Page
                 iNomalPlanSection++;
             }
         }
-        iPlanTotal = iNomalPlanSection*3 + iWeekendPlanSection*3;
+        iPlanTotal = iNomalPlanSection * 3 + iWeekendPlanSection * 3;
         lbNonalMorning.Text = lbNomalAfternoon.Text = lbNomalEvening.Text = iNomalPlanSection.ToString();
         lbWeekendMorning.Text = lbWeekendAfternoon.Text = lbWeekendEvening.Text = iWeekendPlanSection.ToString();
         lbTotal.Text = iPlanTotal.ToString();
-        foreach (DataRow rowRoom in tbRooms.Rows)
+        foreach (SP_ROOM_GET_CBO_BY_CENTERCODEResult rowRoom in listRoom)
         {
             iNomalMorning = iNomalAfternoon = iNomalEvening = iWeekendlMorning = iWeekendAfternoon = iWeekendEvening = iTotalSection = 0;
             fUtilization = fVND = fUSD = 0;
-            foreach (DataRow rowSection in tbSection.Rows)
+            foreach (SP_GET_REGISTRYROOM_USED_REPORTResult rowSection in listSection)
             {
-                if(rowRoom["RoomCode"].ToString().Equals(rowSection["RoomCode"].ToString()))
+                if (rowRoom.RoomCode.ToString().Equals(rowSection.RoomCode.ToString()))
                 {
-                    fVND = fVND + float.Parse(rowSection["Price"].ToString());
-                    if(rowSection["Section"].ToString().Equals("Ca Sáng"))
+                    fVND = fVND + float.Parse(rowSection.Price.ToString());
+                    if (rowSection.Section.ToString().Equals("Ca Sáng"))
                     {
-                        if(rowSection["Weekend"].ToString().Equals("N"))
+                        if (rowSection.Weekend.ToString().Equals("N"))
                         {
                             iNomalMorning++;
                         }
@@ -123,9 +107,9 @@ public partial class Reports : System.Web.UI.Page
                             iWeekendlMorning++;
                         }
                     }
-                    if(rowSection["Section"].ToString().Equals("Ca Chiều"))
+                    if (rowSection.Section.ToString().Equals("Ca Chiều"))
                     {
-                        if(rowSection["Weekend"].ToString().Equals("N"))
+                        if (rowSection.Weekend.ToString().Equals("N"))
                         {
                             iNomalAfternoon++;
                         }
@@ -134,9 +118,9 @@ public partial class Reports : System.Web.UI.Page
                             iWeekendAfternoon++;
                         }
                     }
-                    if(rowSection["Section"].ToString().Equals("Ca Tối"))
+                    if (rowSection.Section.ToString().Equals("Ca Tối"))
                     {
-                        if(rowSection["Weekend"].ToString().Equals("N"))
+                        if (rowSection.Weekend.ToString().Equals("N"))
                         {
                             iNomalEvening++;
                         }
@@ -148,15 +132,15 @@ public partial class Reports : System.Web.UI.Page
                 }
             }
             iTotalSection = iNomalMorning + iNomalAfternoon + iNomalEvening + iWeekendlMorning + iWeekendAfternoon + iWeekendEvening;
-            data.Rows.Add(rowRoom["RoomName"].ToString().Trim(), iNomalMorning, iNomalAfternoon, iNomalEvening, iWeekendlMorning, iWeekendAfternoon, iWeekendEvening, iTotalSection, iTotalSection * 100 / iPlanTotal, fVND, fVND / int.Parse(txtExchangeRate.Text));
-            data.Rows.Add("% Utilization by session",iNomalMorning*100/iNomalPlanSection,iNomalAfternoon*100/iNomalPlanSection,iNomalEvening*100/iNomalPlanSection,iWeekendlMorning*100/iWeekendPlanSection,iWeekendAfternoon*100/iWeekendPlanSection,iWeekendEvening*100/iWeekendPlanSection,0,0,0,0);
+            data.Rows.Add(rowRoom.RoomName.ToString().Trim(), iNomalMorning, iNomalAfternoon, iNomalEvening, iWeekendlMorning, iWeekendAfternoon, iWeekendEvening, iTotalSection, iTotalSection * 100 / iPlanTotal, fVND, fVND / int.Parse(txtExchangeRate.Text));
+            data.Rows.Add("% Utilization by session", iNomalMorning * 100 / iNomalPlanSection, iNomalAfternoon * 100 / iNomalPlanSection, iNomalEvening * 100 / iNomalPlanSection, iWeekendlMorning * 100 / iWeekendPlanSection, iWeekendAfternoon * 100 / iWeekendPlanSection, iWeekendEvening * 100 / iWeekendPlanSection, 0, 0, 0, 0);
         }
         int iNomalMorningTotal, iNomalAfternoonTotal, iNomalEveningTotal, iWeekendlMorningTotal, iWeekendAfternoonTotal, iWeekendEveningTotal, iTotalSectionTotal;
         iNomalMorningTotal = iNomalAfternoonTotal = iNomalEveningTotal = iWeekendlMorningTotal = iWeekendAfternoonTotal = iWeekendEveningTotal = iTotalSectionTotal = 0;
         float fTotalVND = 0;
         float fTotalUSD = 0;
         int iCount = 0;
-        for (int i = 0; i < data.Rows.Count; i=i+2)
+        for (int i = 0; i < data.Rows.Count; i = i + 2)
         {
             iNomalMorningTotal = iNomalMorningTotal + (int)data.Rows[i]["NomalMorning"];
             iNomalAfternoonTotal = iNomalAfternoonTotal + (int)data.Rows[i]["NomalAfternoon"];
@@ -175,9 +159,9 @@ public partial class Reports : System.Web.UI.Page
         lbTotalWeekendAternoon.Text = iWeekendAfternoonTotal.ToString();
         lbTotalWeekendEvening.Text = iWeekendEveningTotal.ToString();
         lbTotalofTotal.Text = iTotalSectionTotal.ToString();
-        lbTotalVND.Text = string.Format("{0:0,0}", fTotalVND);
-        fTotalUSD = fTotalVND/int.Parse(txtExchangeRate.Text.Trim());
-        lbTotalUSD.Text = fTotalUSD.ToString();
+        //lbTotalVND.Text = fTotalVND.ToString();
+        //fTotalUSD = fTotalVND / int.Parse(txtExchangeRate.Text.Trim());
+        //lbTotalUSD.Text = fTotalUSD.ToString();
         lbNM.Text = ((iNomalMorningTotal * 100) / (iNomalPlanSection * iCount)).ToString() + "%";
         lbNA.Text = ((iNomalAfternoonTotal * 100) / (iNomalPlanSection * iCount)).ToString() + "%";
         lbNE.Text = ((iNomalEveningTotal * 100) / (iNomalPlanSection * iCount)).ToString() + "%";

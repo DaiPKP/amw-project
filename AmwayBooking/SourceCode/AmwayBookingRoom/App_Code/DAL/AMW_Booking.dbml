@@ -329,4 +329,46 @@
       <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_GET_REGISTRYROOM_REPORT" Method="SP_GET_REGISTRYROOM_REPORT">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="SP_GET_REGISTRYROOM_REPORTResult">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
+      <Column Name="Weekend" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GET_REGISTRYROOM_USED_REPORT" Method="SP_GET_REGISTRYROOM_USED_REPORT">
+    <Parameter Name="FROMDATE" Parameter="fROMDATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="TODATE" Parameter="tODATE" Type="System.DateTime" DbType="DateTime" />
+    <ElementType Name="SP_GET_REGISTRYROOM_USED_REPORTResult">
+      <Column Name="Code" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ADA_Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="NChar(11)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NChar(15)" CanBeNull="true" />
+      <Column Name="Weekend" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Paid" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </ElementType>
+  </Function>
 </Database>

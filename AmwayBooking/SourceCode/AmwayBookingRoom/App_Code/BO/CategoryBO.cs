@@ -52,4 +52,14 @@ public class CategoryBO: AMW_BookingDataContext
     {
         return SP_GET_INFORMATION().ToList();
     }
+
+    public List<SP_GET_REGISTRYROOM_REPORTResult> GetRegistryRoomReport(DateTime FromDate, DateTime ToDate)
+    {
+        return SP_GET_REGISTRYROOM_REPORT(FromDate, ToDate).ToList();
+    }
+
+    public List<SP_GET_REGISTRYROOM_USED_REPORTResult> GetRegistryRoomUsedReport(DateTime FromDate, DateTime ToDate)
+    {
+        return SP_GET_REGISTRYROOM_USED_REPORT(FromDate, ToDate).ToList();
+    }
 }
