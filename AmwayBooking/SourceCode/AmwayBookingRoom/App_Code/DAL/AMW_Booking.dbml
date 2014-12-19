@@ -371,4 +371,109 @@
       <Column Name="Note" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_CITY_INSERT" Method="SP_CITY_INSERT">
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CITYNAME" Parameter="cITYNAME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CITY_SEARCH" Method="SP_CITY_SEARCH">
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CITYNAME" Parameter="cITYNAME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <ElementType Name="SP_CITY_SEARCHResult">
+      <Column Name="CityCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CityName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CITY_UPDATE" Method="SP_CITY_UPDATE">
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CITYNAME" Parameter="cITYNAME" Type="System.String" DbType="NVarChar(100)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CENTER_INSERT" Method="SP_CENTER_INSERT">
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CENTERNAME" Parameter="cENTERNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ADDRESS" Parameter="aDDRESS" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_CENTER_SEARCH" Method="SP_CENTER_SEARCH">
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CENTERNAME" Parameter="cENTERNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <ElementType Name="SP_CENTER_SEARCHResult">
+      <Column Name="CenterCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CityCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="CenterName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Address" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="CITYNAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CENTER_UPDATE" Method="SP_CENTER_UPDATE">
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CITYCODE" Parameter="cITYCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CENTERNAME" Parameter="cENTERNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ADDRESS" Parameter="aDDRESS" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ROOM_INSERT" Method="SP_ROOM_INSERT">
+    <Parameter Name="ROOMCODE" Parameter="rOOMCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ROOMNAME" Parameter="rOOMNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AMOUNT" Parameter="aMOUNT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRICEMORNING" Parameter="pRICEMORNING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEAFTERNOON" Parameter="pRICEAFTERNOON" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEEVENING" Parameter="pRICEEVENING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEWEEKENDMORNING" Parameter="pRICEWEEKENDMORNING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEWEEKENDAFTERNOON" Parameter="pRICEWEEKENDAFTERNOON" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEWEEKENDEVENING" Parameter="pRICEWEEKENDEVENING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEBOOKINGMONTHLY" Parameter="pRICEBOOKINGMONTHLY" Type="System.Double" DbType="Float" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SP_ROOM_SEARCH" Method="SP_ROOM_SEARCH">
+    <Parameter Name="ROOMCODE" Parameter="rOOMCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ROOMNAME" Parameter="rOOMNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <ElementType Name="SP_ROOM_SEARCHResult">
+      <Column Name="RoomCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="RoomName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PriceMorning" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="PriceWeekendMorning" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" />
+      <Column Name="CenterCode" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceAfternoon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceEvening" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceWeekendAfternoon" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceWeekendEvening" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PriceBookingMonthly" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CENTERNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_ROOM_UPDATE" Method="SP_ROOM_UPDATE">
+    <Parameter Name="ROOMCODE" Parameter="rOOMCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="CENTERCODE" Parameter="cENTERCODE" Type="System.String" DbType="NChar(10)" />
+    <Parameter Name="ROOMNAME" Parameter="rOOMNAME" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="AMOUNT" Parameter="aMOUNT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="PRICEMORNING" Parameter="pRICEMORNING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEAFTERNOON" Parameter="pRICEAFTERNOON" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEEVENING" Parameter="pRICEEVENING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEWEEKENDMORNING" Parameter="pRICEWEEKENDMORNING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEWEEKENDAFTERNOON" Parameter="pRICEWEEKENDAFTERNOON" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEWEEKENDEVENING" Parameter="pRICEWEEKENDEVENING" Type="System.Double" DbType="Float" />
+    <Parameter Name="PRICEBOOKINGMONTHLY" Parameter="pRICEBOOKINGMONTHLY" Type="System.Double" DbType="Float" />
+    <Parameter Name="STATUS" Parameter="sTATUS" Type="System.Char" DbType="Char(1)" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
