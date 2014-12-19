@@ -7,10 +7,9 @@
                 <span class="titleText">Quản lý thông tin thành phố</span><br />
                 <img src="/Images/line.gif" />
                 <br />
-                <table width="100%" style="margin-left:auto; margin-right:auto;">
+                <table width="100%" style="margin-left: auto; margin-right: auto;">
                     <tr>
-                        <td class="td_title" width="45%">
-                            Mã thành phố
+                        <td class="td_title" width="45%">Mã thành phố
                         </td>
                         <td class="td_value">
                             <asp:TextBox ID="txtCityCode" MaxLength="10" runat="server"></asp:TextBox>
@@ -18,8 +17,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="td_title">
-                            Tên thành phố
+                        <td class="td_title">Tên thành phố
                         </td>
                         <td class="td_value">
 
@@ -28,27 +26,63 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="td_title">
-                            Trạng thái
+                        <td class="td_title">Trạng thái
                         </td>
                         <td class="td_value">
 
-                            <asp:CheckBox ID="CheckBox1" runat="server" />
+                            <asp:CheckBox ID="chkStatus" runat="server" />
 
                         </td>
                     </tr>
                     <tr>
                         <td colspan="2">
 
-                            <asp:Button CssClass="button" ID="Button1" runat="server" Text="Tìm Kiếm" />
+                            <asp:Button CssClass="button" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
 
-                            <asp:Button CssClass="button" ID="Button2" runat="server" Text="Tạo Mới" />
+                            <asp:Button CssClass="button" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
 
-                            <asp:Button CssClass="button" ID="Button3" runat="server" Text="Xóa Trắng" />
+                            <asp:Button CssClass="button" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
                         </td>
                     </tr>
                 </table>
             </div>
+            <div style="width:100%; text-align:center; color:red;">
+                <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
+            </div>
+            
+            <img src="/Images/line.gif" />
+            <br /><br />
+            <div id="divUserList">
+                <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="CityCode"
+                    Width="100%" CssClass="grid" AllowPaging="True"
+                    PageSize="20" OnRowEditing="grdList_RowEditing">
+                    <Columns>
+                        <asp:TemplateField HeaderText="Mã thành phố" HeaderStyle-BackColor="#333300" HeaderStyle-ForeColor="White">
+                            <ItemTemplate>
+                                <asp:Label ID="lbCityCode" runat="server" Text='<%# Eval("CityCode") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Tên thành phố" HeaderStyle-BackColor="#333300" HeaderStyle-ForeColor="White">
+                            <ItemTemplate>
+                                <asp:Label ID="lbCityName" runat="server" Text='<%# Eval("CityName") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Trạng thái" HeaderStyle-BackColor="#333300" HeaderStyle-ForeColor="White">
+                            <ItemTemplate>
+                                <asp:Label ID="lbStatus" runat="server" Text='<%# Eval("Status") %>'>></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField ItemStyle-HorizontalAlign="Center" HeaderStyle-BackColor="#333300" HeaderStyle-ForeColor="White">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="btnEdit" runat="server" Text="Sửa" CommandName="Edit"
+                                    Font-Underline="false" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <PagerStyle CssClass="pager" HorizontalAlign="Right" />
+                </asp:GridView>
+            </div>
+            <asp:HiddenField ID="hdfId" runat="server" />
         </ContentTemplate>
     </asp:UpdatePanel>
 </div>

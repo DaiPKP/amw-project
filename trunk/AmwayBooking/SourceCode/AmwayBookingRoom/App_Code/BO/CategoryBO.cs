@@ -62,4 +62,127 @@ public class CategoryBO: AMW_BookingDataContext
     {
         return SP_GET_REGISTRYROOM_USED_REPORT(FromDate, ToDate).ToList();
     }
+
+    //City Action
+    
+    public List<SP_CITY_SEARCHResult> CitySearch(City refCity)
+    {
+        return SP_CITY_SEARCH(refCity.CityCode, refCity.CityName, refCity.Status).ToList();
+    }
+
+    public string CityInsert(City refCity)
+    {
+        int resutlt = SP_CITY_INSERT(refCity.CityCode, refCity.CityName, refCity.Status);
+        if(resutlt == 1)
+        {
+            return "Mã thành phố này đã được sử dụng trước đó, vui lòng chọn mã khác.";
+        }
+        else if(resutlt == 2)
+        {
+            return "Thêm mới thành phố thành công.";
+        }
+        else
+        {
+            return "Thêm mới thành phố thất bại, vui lòng thử lại.";
+        }
+    }
+
+    public string CityUpdate(City refCity)
+    {
+        int resutlt = SP_CITY_UPDATE(refCity.CityCode, refCity.CityName, refCity.Status);
+        if (resutlt == 1)
+        {
+            return "Mã thành phố này chưa có, vui lòng tạo mới.";
+        }
+        else if (resutlt == 2)
+        {
+            return "Cập nhật thành công.";
+        }
+        else
+        {
+            return "Cập nhật thất bại, vui lòng thử lại.";
+        }
+    }
+
+    //Center Action
+
+    public List<SP_CENTER_SEARCHResult> CenterSearch(Center refCenter)
+    {
+        return SP_CENTER_SEARCH(refCenter.CenterCode, refCenter.CityCode, refCenter.CenterName, refCenter.Status).ToList();
+    }
+
+    public string CenterInsert(Center refCenter)
+    {
+        int resutlt = SP_CENTER_INSERT(refCenter.CenterCode, refCenter.CityCode, refCenter.CenterName, refCenter.Address, refCenter.Status);
+        if (resutlt == 1)
+        {
+            return "Mã trung tâm này đã được sử dụng trước đó, vui lòng chọn mã khác.";
+        }
+        else if (resutlt == 2)
+        {
+            return "Thêm mới trung tâm thành công.";
+        }
+        else
+        {
+            return "Thêm mới trung tâm thất bại, vui lòng thử lại.";
+        }
+    }
+
+    public string CenterUpdate(Center refCenter)
+    {
+        int resutlt = SP_CENTER_UPDATE(refCenter.CenterCode, refCenter.CityCode, refCenter.CenterName, refCenter.Address, refCenter.Status);
+        if (resutlt == 1)
+        {
+            return "Mã trung tâm này chưa có, vui lòng tạo mới.";
+        }
+        else if (resutlt == 2)
+        {
+            return "Cập nhật thành công.";
+        }
+        else
+        {
+            return "Cập nhật thất bại, vui lòng thử lại.";
+        }
+    }
+
+    //Room Action
+
+    public List<SP_ROOM_SEARCHResult> RoomSearch(Room refRoom)
+    {
+        return SP_ROOM_SEARCH(refRoom.RoomCode, refRoom.CenterCode, refRoom.RoomName, refRoom.Status).ToList();
+    }
+
+    public string RoomInsert(Room refRoom)
+    {
+        int resutlt = SP_ROOM_INSERT(refRoom.RoomCode, refRoom.CenterCode, refRoom.RoomName, refRoom.Amount, refRoom.PriceMorning, refRoom.PriceAfternoon, refRoom.PriceEvening, refRoom.PriceWeekendMorning, refRoom.PriceWeekendAfternoon, refRoom.PriceWeekendEvening, refRoom.PriceBookingMonthly, refRoom.Status);
+        if (resutlt == 1)
+        {
+            return "Mã phòng họp này đã được sử dụng trước đó, vui lòng chọn mã khác.";
+        }
+        else if (resutlt == 2)
+        {
+            return "Thêm mới phòng họp thành công.";
+        }
+        else
+        {
+            return "Thêm mới phòng họp thất bại, vui lòng thử lại.";
+        }
+    }
+
+    public string RoomUpdate(Room refRoom)
+    {
+        int resutlt = SP_ROOM_UPDATE(refRoom.RoomCode, refRoom.CenterCode, refRoom.RoomName, refRoom.Amount, refRoom.PriceMorning, refRoom.PriceAfternoon, refRoom.PriceEvening, refRoom.PriceWeekendMorning, refRoom.PriceWeekendAfternoon, refRoom.PriceWeekendEvening, refRoom.PriceBookingMonthly, refRoom.Status);
+        if (resutlt == 1)
+        {
+            return "Mã phòng họp này chưa có, vui lòng tạo mới.";
+        }
+        else if (resutlt == 2)
+        {
+            return "Cập nhật thành công.";
+        }
+        else
+        {
+            return "Cập nhật thất bại, vui lòng thử lại.";
+        }
+    }
 }
