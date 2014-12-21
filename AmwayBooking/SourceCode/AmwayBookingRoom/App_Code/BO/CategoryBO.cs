@@ -147,9 +147,9 @@ public class CategoryBO: AMW_BookingDataContext
 
     //Room Action
 
-    public List<SP_ROOM_SEARCHResult> RoomSearch(Room refRoom)
+    public List<SP_ROOM_SEARCHResult> RoomSearch(Room refRoom, string CityCode)
     {
-        return SP_ROOM_SEARCH(refRoom.RoomCode, refRoom.CenterCode, refRoom.RoomName, refRoom.Status).ToList();
+        return SP_ROOM_SEARCH(refRoom.RoomCode, CityCode, refRoom.CenterCode, refRoom.RoomName, refRoom.Status).ToList();
     }
 
     public string RoomInsert(Room refRoom)

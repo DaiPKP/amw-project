@@ -47,4 +47,26 @@ public class RegistryRoomBO:AMW_BookingDataContext
     {
         sp_update_registry_room(refRoom.Code, refRoom.ADA_ID, refRoom.ADA_Name, refRoom.Phone, refRoom.Email, refRoom.Address, refRoom.Status, refRoom.Paid, refRoom.Note);
     }
+
+    public List<SP_REGISTYROOM_GET_BY_BOOKINGCODEResult> SearchBooking(string BookingCode, string RoomCode, string ADAID, string PaymentStatus, string BookingStatus)
+    {
+        return SP_REGISTYROOM_GET_BY_BOOKINGCODE(BookingCode, RoomCode, ADAID,char.Parse(PaymentStatus), char.Parse(BookingStatus)).ToList();
+    }
+
+    public string UpdateBookingStatus(int Code, string BookingStatus, string PaymentStatus)
+    {
+        int resutlt = SP_REGISTYROOM_UPDATE_PAYMENT_STATUS(Code, char.Parse(BookingStatus), char.Parse(PaymentStatus));
+        if (resutlt == 1)
+        {
+            return "Mã đặt phòng này không tồn tại.";
+        }
+        else if (resutlt == 2)
+        {
+            return "Cập nhật thành công.";
+        }
+        else
+        {
+            return "Cập nhật thất bại, vui lòng thử lại.";
+        }
+    }
 }
