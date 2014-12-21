@@ -26,6 +26,20 @@ public partial class Admin_UserControl_uc_ManageCity : System.Web.UI.UserControl
         CategoryBO BO = new CategoryBO();
         List<SP_CITY_SEARCHResult> result = new List<SP_CITY_SEARCHResult>();
         result = BO.CitySearch(refCity);
+        grdList.DataSource = result;
+        grdList.DataBind();
+    }
+
+    public void Search(String CityCode, String CityName, String Status)
+    {
+        City refCity = new City();
+        refCity.CityCode = CityCode;
+        refCity.CityName = CityName;
+        refCity.Status = Char.Parse(Status);
+
+        CategoryBO BO = new CategoryBO();
+        List<SP_CITY_SEARCHResult> result = new List<SP_CITY_SEARCHResult>();
+        result = BO.CitySearch(refCity);
         if (result.Count > 0)
         {
             lblAlerting.Text = string.Empty;
@@ -83,7 +97,7 @@ public partial class Admin_UserControl_uc_ManageCity : System.Web.UI.UserControl
             strStatus = "N";
         }
 
-        LoadCityGrid(txtCityCode.Text.Trim(), txtCityName.Text.Trim(), strStatus);
+        Search(txtCityCode.Text.Trim(), txtCityName.Text.Trim(), strStatus);
     }
     protected void btSave_Click(object sender, EventArgs e)
     {
