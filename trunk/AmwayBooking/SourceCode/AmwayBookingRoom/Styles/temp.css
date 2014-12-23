@@ -35,7 +35,7 @@ div#header
     overflow: hidden;
     margin: 0px 0px 0px 0px;
     position: relative;
-    background: url(../images/banner_top.jpg) no-repeat center top;
+    background: url(../Images/banner.gif) no-repeat center top;
 }
 div.header_left
 {
@@ -111,7 +111,7 @@ form[name=formsearch] input[type=text]
 }
 form[name=formsearch] input[type=submit]
 {
-    background: url(../images/bg_search.jpg) repeat-x center top;
+    background: url(../Images/bg_search.jpg) repeat-x center top;
     background-color: transparent;
     border: none;
     height: 26px;
@@ -161,7 +161,7 @@ div#slide_main > div.left > div.left_box > div.left_box_content
     padding: 10px 15px 0px 15px;
     overflow: hidden;
     float: left;
-    background: url(../images/bg_boxleft.jpg) repeat-x center bottom;
+    background: url(../Images/bg_boxleft.jpg) repeat-x center bottom;
 }
 div#slide_main > div.left > div.left_box > div.left_box_arrow
 {
@@ -169,7 +169,7 @@ div#slide_main > div.left > div.left_box > div.left_box_arrow
     height: 80px;
     overflow: hidden;
     float: left;
-    position: relative; /*background-color: #d52215; 	background-image: url(../images/shadow_w_39.png); 	background-repeat: repeat-x; 	background-position: center bottom;*/
+    position: relative; /*background-color: #d52215; 	background-image: url(../Images/shadow_w_39.png); 	background-repeat: repeat-x; 	background-position: center bottom;*/
 }
 div#slide_main > div.left > div.left_box > div.left_box_arrow img
 {
@@ -288,7 +288,7 @@ div.tinnoibat_content > div span
 ul.list_tin > li
 {
     line-height: 22px;
-    background: url(../images/icon_tri.png) no-repeat left 7px;
+    background: url(../Images/icon_tri.png) no-repeat left 7px;
     padding: 5px 0px 0px 20px;
 }
 ul.list_tin > li > a
@@ -310,7 +310,7 @@ div.box_right
 }
 div.box_right.togiactoipham
 {
-    background: url(../images/bg_tocao.png) no-repeat center top;
+    background: url(../Images/bg_tocao.png) no-repeat center top;
     height: 103px;
     color: #fff;
 }
@@ -344,7 +344,7 @@ div.box_right_title
     color: #fff;
     text-transform: uppercase;
     font-size: 20px;
-    background: url(../images/bg_red_55.jpg) repeat-x center top;
+    background: url(../Images/bg_red_55.jpg) repeat-x center top;
     text-align: center;
     font-weight: bold;
     -webkit-border-radius: 7px 7px 0px 0px;
@@ -407,7 +407,7 @@ span.customSelect.changed
 .customSelectInner
 {
     width: 250px !important;
-    background: url(../images/arrow_select.jpg) no-repeat center right;
+    background: url(../Images/arrow_select.jpg) no-repeat center right;
 }
 div.box_right_content.truycap
 {
@@ -445,7 +445,7 @@ div.box_tin
 }
 div.box_tin_title
 {
-    background: url(../images/bg_gold.png) no-repeat center top;
+    background: url(../Images/bg_gold.png) no-repeat center top;
     height: 42px;
     line-height: 42px;
     color: #fff;
@@ -500,7 +500,7 @@ div.tinkhac ul
 div.tinkhac ul li
 {
     line-height: 22px;
-    background: url(../images/icon_tri.png) no-repeat left 7px;
+    background: url(../Images/icon_tri.png) no-repeat left 7px;
     padding: 0px 0px 0px 12px;
 }
 div.tinkhac ul li a
@@ -528,7 +528,7 @@ div.slider_title
 }
 div.slider_title div.top
 {
-    background: url(../images/tab_hinhanh_top_34.jpg) repeat-x center top;
+    background: url(../Images/tab_hinhanh_top_34.jpg) repeat-x center top;
     height: 34px;
     line-height: 34px;
     padding: 0px 0px 0px 20px;
@@ -539,19 +539,19 @@ div.slider_title div.top
 }
 div.slider_title div.bottom
 {
-    background: url(../images/tab_hinhanh_bot_15.png) no-repeat left top;
+    background: url(../Images/tab_hinhanh_bot_15.png) no-repeat left top;
     height: 15px;
 }
 div#footer
 {
-    background: url(../images/bg_red_128.jpg) repeat-x center top;
+    background: url(../Images/bg_red_128.jpg) repeat-x center top;
     height: 98px;
     position: relative;
 }
 div.gototop
 {
     color: #003D68;
-    background: url(../images/gototop.png) no-repeat center top;
+    background: url(../Images/gototop.png) no-repeat center top;
     width: 175px;
     height: 37px;
     position: absolute;
@@ -567,7 +567,7 @@ div.gototop:hover
 }
 div.bg_online
 {
-    background: url(../images/img_footer.jpg) no-repeat center top;
+    background: url(../Images/img_footer.jpg) no-repeat center top;
     width: 390px;
     height: 98px;
     float: right;
@@ -694,7 +694,7 @@ a.unitibar:hover
 
 .btn_blue
 {
-    background: url("../images/btn-blue.gif") repeat-x scroll 0 0 #0090E3;
+    background: url("../Images/btn-blue.gif") repeat-x scroll 0 0 #0090E3;
     border: 1px solid #0090E3;
     -webkit-border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
@@ -710,7 +710,7 @@ a.unitibar:hover
 
 .btn_registry
 {
-    background: url("../images/btn-blue.gif") repeat-x scroll 0 0 #0090E3;
+    background: url("../Images/btn-blue.gif") repeat-x scroll 0 0 #0090E3;
     border: 1px solid #0090E3;
     -webkit-border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
@@ -729,7 +729,7 @@ a.btn_blue:hover
 }
 .btn_black
 {
-    background: url("../images/btn-gray.gif") repeat-x scroll 0 0 #D1D1D1;
+    background: url("../Images/btn-gray.gif") repeat-x scroll 0 0 #D1D1D1;
     border: 1px solid #AAAAAA;
     -webkit-border-radius: 3px 3px 3px 3px;
     -moz-border-radius: 3px 3px 3px 3px;
@@ -829,7 +829,7 @@ a.a_link:hover
 .grid th
 {
     border: 1px solid #000000;
-    background: url(../images/toolbar_gr.gif);
+    background: url(../Images/toolbar_gr.gif);
     height: 30px;
     color: #FFFFFF;
     padding: 0px 5px;
@@ -900,15 +900,15 @@ html[xmlns] .clearfix
 }
 .buttonLeft
 {
-    background: url("../images/buttonLeft.png");
+    background: url("../Images/buttonLeft.png");
 }
 .buttonRight
 {
-    background: url("../images/buttonRight.png");
+    background: url("../Images/buttonRight.png");
 }
 .buttonMiddle
 {
-    background: url("../images/buttonMiddle.png");
+    background: url("../Images/buttonMiddle.png");
     width: auto;
     border: none;
     padding: 0px 13px;
@@ -920,7 +920,7 @@ html[xmlns] .clearfix
 
 .buttonMiddle
 {
-    background: url("../images/buttonMiddle.png");
+    background: url("../Images/buttonMiddle.png");
     width: auto;
     border: none;
     padding: 0px 13px;
@@ -932,7 +932,7 @@ html[xmlns] .clearfix
 
 .btn_admin
 {
-    background: url("../images/btn_Back.png") no-repeat scroll left top transparent;
+    background: url("../Images/btn_Back.png") no-repeat scroll left top transparent;
     border: medium none;
     cursor: pointer;
     height: 25px;
@@ -961,7 +961,7 @@ html[xmlns] .clearfix
 }
 .thper
 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1013,7 +1013,7 @@ html[xmlns] .clearfix
     line-height: 25px;
 }
 .thmaindel1 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1021,7 +1021,7 @@ html[xmlns] .clearfix
     width: 70px;
 }
 .thmaindel2 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1029,7 +1029,7 @@ html[xmlns] .clearfix
     width: 80px;
 }
 .thmaindel3 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1037,7 +1037,7 @@ html[xmlns] .clearfix
     width: 150px;
 }
 .thmaindel4 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1045,7 +1045,7 @@ html[xmlns] .clearfix
     width: 70px;
 }
 .thmaindel5 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1053,7 +1053,7 @@ html[xmlns] .clearfix
     width: 70px;
 }
 .thmaindel6 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1061,7 +1061,7 @@ html[xmlns] .clearfix
     width: 100px;
 }
 .thmaindel7 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1069,7 +1069,7 @@ html[xmlns] .clearfix
     width: 80px;
 }
 .thmaindel8 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1077,7 +1077,7 @@ html[xmlns] .clearfix
    width: 80px;
 }
 .thmaindel9 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1085,7 +1085,7 @@ html[xmlns] .clearfix
    width: 90px;
 }
 .thmaindel10 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1093,7 +1093,7 @@ html[xmlns] .clearfix
    width: 90px;
 }
 .thmaindel11 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1101,7 +1101,7 @@ html[xmlns] .clearfix
     width: 90px;
 }
 .thmaindel12 {
-    background: url("../images/toolbar_gr.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1204,7 +1204,7 @@ html[xmlns] .clearfix
     line-height: 25px;
 }
 .throutemaster1 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1212,7 +1212,7 @@ html[xmlns] .clearfix
     width: 70px;
 }
 .throutemaster2 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1220,7 +1220,7 @@ html[xmlns] .clearfix
     width: 80px;
 }
 .throutemaster3 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1228,7 +1228,7 @@ html[xmlns] .clearfix
     width: 150px;
 }
 .throutemaster4 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1236,7 +1236,7 @@ html[xmlns] .clearfix
     width: 70px;
 }
 .throutemaster5 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1244,7 +1244,7 @@ html[xmlns] .clearfix
     width: 70px;
 }
 .throutemaster6 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1252,7 +1252,7 @@ html[xmlns] .clearfix
     width: 100px;
 }
 .throutemaster7 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1260,7 +1260,7 @@ html[xmlns] .clearfix
     width: 80px;
 }
 .throutemaster8 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1268,7 +1268,7 @@ html[xmlns] .clearfix
    width: 80px;
 }
 .throutemaster9 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1276,7 +1276,7 @@ html[xmlns] .clearfix
     width: 90px;
 }
 .throutemaster10 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1284,7 +1284,7 @@ html[xmlns] .clearfix
     width: 90px;
 }
 .throutemaster11 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1292,7 +1292,7 @@ html[xmlns] .clearfix
     width: 90px;
 }
 .throutemaster12 {
-    background: url("../images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
+    background: url("../Images/toolbar_gr1.gif") repeat scroll 0 0 transparent;
     border: 1px solid #000000;
     color: #FFFFFF;
     height: 30px;
@@ -1424,7 +1424,7 @@ table.gvTheGrid caption {
 .gvTheGrid th
 {
     border: 1px solid #000000;
-    background: url(../images/toolbar_gr.gif);
+    background: url(../Images/toolbar_gr.gif);
     height: 30px;
     color: #FFFFFF;
     padding: 0px 5px;
@@ -1477,7 +1477,7 @@ table.gvTheGrid caption {
 .grid1 th
 {
     border: 1px solid #000000;
-    background: url(../images/toolbar_gr.gif);
+    background: url(../Images/toolbar_gr.gif);
     height: 30px;
     color: #FFFFFF;
     padding: 0px 5px;
@@ -1545,7 +1545,7 @@ ul.topnav li a{
 
 ul.topnav li a:hover{
 
-    background: url(../images/topnav_hover.gif) no-repeat center top;
+    background: url(../Images/topnav_hover.gif) no-repeat center top;
 
 }
 
@@ -1554,7 +1554,7 @@ ul.topnav li span { /*--Drop down trigger styles--*/
     width: 17px;
     height: 35px;
     float: left;
-    background: url(../images/subnav_btn.gif) no-repeat center top;
+    background: url(../Images/subnav_btn.gif) no-repeat center top;
 
 }
 
@@ -1587,20 +1587,20 @@ html ul.topnav li ul.subnav li a {
 
     float: left;
     width: 245px;
-    background: #003D69 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+    background: #003D69 url(../Images/dropdown_linkbg.gif) no-repeat 10px center;
     padding-left: 20px;
 
 }
 
 html ul.topnav li ul.subnav li a:hover { /*--Hover effect for subnav links--*/
 
-    background: #3D7E46 url(../images/dropdown_linkbg.gif) no-repeat 10px center;
+    background: #3D7E46 url(../Images/dropdown_linkbg.gif) no-repeat 10px center;
 
 } 
 
 ul.nav_top
 {
-    background: url(../images/bg_nav.jpg) repeat-x center top;
+    background: url(../Images/bg_nav.jpg) repeat-x center top;
     height: 34px;
     position: relative;
 }

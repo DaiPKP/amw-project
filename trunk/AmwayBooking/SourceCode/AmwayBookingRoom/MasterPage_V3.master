@@ -1,0 +1,286 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage_V3.master.cs" Inherits="MasterPage" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Amway Booking Room</title>
+    <link href="Styles/StyleSheet.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/Style.css" rel="stylesheet" type="text/css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a#show-popup {
+            margin: 20px 0 0 20px;
+            float: left;
+            text-decoration: none;
+        }
+
+        div#popup-bg {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: #000;
+            display: none;
+        }
+
+        div#popup {
+            width: 400px;
+            border: solid 4px #85B561;
+            z-index: 999;
+            display: none;
+            background: #FFF;
+        }
+
+        div#popup-header {
+            position: relative;
+            float: left;
+            width: 400px;
+            min-height:22px;
+            font: 16px "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            background: #85B561;
+            color: white;
+            cursor: move;
+            text-align: left;
+            padding-left:5px;
+            padding-top:5px;
+        }
+
+        span#popup-close {
+            cursor: pointer;
+            color: #FFF;
+            font-size: 12px;
+            position: absolute;
+            top: -2px;
+            right: 10px;
+            z-index: 9999;
+        }
+
+        div#popup-content {
+            width: 400px;
+            float: left;
+            padding: 5px;
+        }
+
+        .input {
+            border: 1px solid #D5D5D5;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px rgba(0,0,0,.07) inset;
+            color: black;
+            font: 12px/25px "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            height: 28px;
+            padding: 0px 8px;
+            word-spacing: 0.1em;
+            width: 300px;
+        }
+
+        .submit-button {
+            display: inline-block;
+            padding: auto;
+            margin: 15px 75px;
+            width: 150px;
+        }
+
+        .label {
+            display: block;
+            font: 12px/25px "Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            padding-left: 40px;
+            text-align: left;
+        }
+
+        .login-content span {
+            display: block;
+        }
+
+        .login-content {
+            font-family: Verdana, Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            padding-left: 35px;
+            background-color: white;
+            margin-left: 5px;
+            margin-right: 5px;
+            height: auto;
+            padding-top: 15px;
+            overflow: hidden;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+    <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script language="javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function () {
+            (function ($) {
+                //Căn giữa phần tử thuộc tính là absolute so với phần hiển thị của trình duyệt, chỉ dùng cho phần tử absolute đối với body
+                $.fn.absoluteCenter = function () {
+                    this.each(function () {
+                        var top = -($(this).outerHeight() / 2) + 'px';
+                        var left = -($(this).outerWidth() / 2) + 'px';
+                        $(this).css({ 'position': 'absolute', 'position': 'fixed', 'margin-top': top, 'margin-left': left, 'top': '50%', 'left': '50%' });
+                        return this;
+                    });
+                }
+            })(jQuery);
+
+            $('a#HeadLoginStatus').click(function () {
+                //Đặt biến cho các đối tượng để gọi dễ dàng
+                var bg = $('div#popup-bg');
+                var obj = $('div#popup');
+                var btnClose = obj.find('#popup-close');
+                //Hiện các đối tượng
+                bg.animate({ opacity: 0.2 }, 0).fadeIn(300); //cho nền trong suốt
+                obj.fadeIn("slow").draggable({ cursor: 'move', handle: '#popup-header' }).absoluteCenter(); //căn giữa popup và thêm draggable của jquery UI cho phần header của popup
+                //Đóng popup khi nhấn nút
+                btnClose.click(function () {
+                    bg.fadeOut(300);
+                    obj.fadeOut(300);
+                });
+                //Đóng popup khi nhấn background
+                //bg.click(function(){
+                //btnClose.click(); //Kế thừa nút đóng ở trên
+                //});
+                //Đóng popup khi nhấn nút Esc trên bàn phím
+                $(document).keydown(function (e) {
+                    if (e.keyCode == 27) {
+                        btnClose.click(); //Kế thừa nút đóng ở trên
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <!--Popup Login -->
+        <div id="popup-bg"></div>
+        <div id="popup">
+            <div id="popup-header">
+                Đăng Nhập
+		<span id="popup-close" title="Close">
+            <img src="/images/close.png" class="img-close" title="Close Window" alt="Close" />
+        </span>
+            </div>
+            <div id="popup-content">
+                <form method="post" class="login-content" action="#">
+                    <label class="username">
+                        <span class="label">Mã ADA</span>
+                        <asp:TextBox ID="txtADAID" runat="server" autocomplete="on" placeholder="Mã ADA" CssClass="input"></asp:TextBox>
+                    </label>
+                    <label class="password">
+                        <span class="label">Mật khẩu</span>
+                        <asp:TextBox ID="txtPassword" TextMode="Password" runat="server" autocomplete="on" placeholder="Mật khẩu" CssClass="input"></asp:TextBox>
+                    </label>
+                    <asp:Button id="btLogin" runat ="server" CssClass="button submit-button" Text="Đăng nhập"/>
+                </form>
+            </div>
+        </div>
+        <!--End -->
+        <div id="wrap">
+            <div id="Header">
+                <a href="http://www.amway2u.com/c1/main.jsp">
+                    <img src="/Images/banner.gif" style="margin-top: -10px; margin-left: 70px; border: 0px;" /></a><br />
+                <div style="float: right; margin-right: 10px; margin-top: -5px; font-size: 12px;">
+                </div>
+                <div style="float: left; font-size: 12px; text-align: center; width: 800px; margin-left: 224px;">
+                    <a href="http://www.amway2u.com/c1/main.jsp">Amway2u </a>|
+                <a href="http://www.phonghopamway.com.vn">Trang Chủ </a>|
+                <a href="/Training.aspx">Lịch Huấn Luyện </a>|
+                <a href="/News.aspx">Thông Tin Mới </a>|
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                        [ <a href="#" id="HeadLoginStatus">Log In</a> ]
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>!
+                        [
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Log Out" LogoutPageUrl="~/" />
+                        ]
+                    </LoggedInTemplate>
+                </asp:LoginView>
+                    <br />
+                </div>
+                <div style="font-size: 10px; margin-left: 20px; position: absolute; top: 130px;">
+                    Tổng lượt truy cập:<span style="font-weight: bold;">
+                        <asp:Label ID="lbSum" runat="server" Text=""></asp:Label></span><br />
+                    Số người đang online:<span style="font-weight: bold;">
+                        <asp:Label ID="lbOnline" runat="server" Text=""></asp:Label></span>
+                </div>
+            </div>
+            <div id="space">
+            </div>
+            <div id="center">
+                <div id="menuLeft">
+                    <asp:ListView ID="listView" runat="server">
+                        <ItemTemplate>
+                            <td style="text-align: center;">
+                                <br />
+                                <a href="/Distributor/City.aspx?CityCode=<%# Eval("CityCode") %>">
+                                    <img src='/ImageHandler.ashx?ID=<%#Eval("CityCode")%>&table=City&column=CityCode' width="200px" height="120px" /><br />
+                                    <br />
+                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("CityName") %>' CssClass="CityName"></asp:Label>
+                                </a>
+                            </td>
+                        </ItemTemplate>
+                        <EmptyDataTemplate>
+                            <span>Không có thành phố nào trong danh sách</span>
+                        </EmptyDataTemplate>
+                        <LayoutTemplate>
+                            <table cellpadding="0" runat="server" id="tblDepartments" cellspacing="2">
+                                <tr runat="server" id="groupPlaceholder" />
+                            </table>
+                        </LayoutTemplate>
+                        <GroupTemplate>
+                            <tr id="Tr1" runat="server">
+                                <td runat="server" id="itemPlaceholder" />
+                            </tr>
+                        </GroupTemplate>
+                    </asp:ListView>
+                </div>
+                <div id="Content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+
+            </div>
+            <div id="footer">
+            </div>
+            <div id="end">
+                <span class="CopyRight">Copyright © 2012 Amway</span><br />
+                <div style="text-align: left; width: 95%; font-size: 13px; font-family: Arial; margin-left: 30px;">
+                    <asp:Label ID="lbLienHe" runat="server" Text=""></asp:Label>
+                </div>
+                <img src="/Images/line.gif" /><br />
+                <div style="text-align: center; font-size: 13px;">
+                    <a href="/Manager/BookingRoom.aspx">Booking Room </a>|
+               <a href="/Manager/BookingMonthly.aspx">Booking Monthly </a>|
+               <a href="/Manager/BookingWeekly.aspx">Booking Weekly </a>|
+               <a href="/Manager/ManageRejectBooking.aspx">Manage Rejected Booking </a>|
+               <a href="/Manager/Payment.aspx">Payment </a>
+                    <br />
+                    <a href="/ManageUser/ManageUsers.aspx">Manage Users </a>|
+               <a href="/Admin/ManageInfo.aspx">Manage Information Room </a>|
+               <a href="/Admin/Information.aspx">Manage Information </a>|
+               <a href="/Admin/ReportCost.aspx">Report by Cost </a>|
+               <a href="/Admin/ReportUtilization.aspx">Report by Utilization </a>|
+               <a href="/Account/ChangePassword.aspx">Change Password </a>
+                </div>
+                <img src="/Images/line.gif" />
+            </div>
+        </div>
+
+    </form>
+</body>
+</html>

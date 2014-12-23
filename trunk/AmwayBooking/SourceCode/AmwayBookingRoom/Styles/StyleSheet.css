@@ -155,15 +155,7 @@ img
 	border-bottom: 1px solid #4c4c27;
 	text-align:center;
 }
-a
-{
-    color:#4c4c27;
-    text-decoration:none;
-}
-a:hover{ 
-	text-decoration:none;
-	color:orange;
-}
+
 #defaultpage
 {
     width:100%;

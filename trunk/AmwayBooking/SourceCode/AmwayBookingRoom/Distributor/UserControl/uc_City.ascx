@@ -42,7 +42,7 @@
                 </GroupTemplate>
             </asp:ListView>
             <asp:SqlDataSource ID="SqlDataSourceRoom" runat="server"
-                ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>"
+                ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>"
                 SelectCommand="SELECT * FROM [Room] WHERE (([CityCode] = @CityCode) AND ([Status] = @Status))">
                 <SelectParameters>
                     <asp:QueryStringParameter DefaultValue="HCM" Name="CityCode"
