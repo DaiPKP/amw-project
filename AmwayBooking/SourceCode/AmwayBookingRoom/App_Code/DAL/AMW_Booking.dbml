@@ -519,4 +519,110 @@
     <Parameter Name="SECTION" Parameter="sECTION" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.PRC_SYS_AMW_DEPARTMENT_CBO" Method="PRC_SYS_AMW_DEPARTMENT_CBO">
+    <ElementType Name="PRC_SYS_AMW_DEPARTMENT_CBOResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DEPARTMENTNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MENU_GETBY_USERID_AND_MENUPARENTID" Method="PRC_SYS_AMW_MENU_GETBY_USERID_AND_MENUPARENTID">
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MENUPARENTID" Parameter="mENUPARENTID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_MENU_GETBY_USERID_AND_MENUPARENTIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENUNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENUPARENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GROUPMENU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MENUPARENT_GETBY_USERID" Method="PRC_SYS_AMW_MENUPARENT_GETBY_USERID">
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_MENUPARENT_GETBY_USERIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENUNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENUPARENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GROUPMENU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MENU_PROPERTIES_INSERT" Method="PRC_SYS_AMW_MENU_PROPERTIES_INSERT">
+    <Parameter Name="DEPARTMENTID" Parameter="dEPARTMENTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DSMENUID" Parameter="dSMENUID" Type="System.String" DbType="VarChar(1000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MENU_PERMISSION_GETCHILD_BY_MENUID" Method="PRC_SYS_AMW_MENU_PERMISSION_GETCHILD_BY_MENUID">
+    <Parameter Name="MENUPARENTID" Parameter="mENUPARENTID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="DEPARTMENTID" Parameter="dEPARTMENTID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_MENU_PERMISSION_GETCHILD_BY_MENUIDResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENUNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENUPARENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GROUPMENU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHECKPER" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_MENU_GETPERMISSION" Method="PRC_SYS_AMW_MENU_GETPERMISSION">
+    <Parameter Name="DEPARTMENTID" Parameter="dEPARTMENTID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="PRC_SYS_AMW_MENU_GETPERMISSIONResult">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MENUNAME" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MENUPARENT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="GROUPMENU" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="STT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CHECKPER" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_USER_CHANGEPASS" Method="PRC_SYS_AMW_USER_CHANGEPASS">
+    <Parameter Name="USERID" Parameter="uSERID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="OLDPASS" Parameter="oLDPASS" Type="System.String" DbType="VarChar(500)" />
+    <Parameter Name="NEWPASS" Parameter="nEWPASS" Type="System.String" DbType="VarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.PRC_SYS_AMW_USER_GETLIST" Method="PRC_SYS_AMW_USER_GETLIST">
+    <Parameter Name="ADA" Parameter="aDA" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(500)" />
+    <ElementType Name="PRC_SYS_AMW_USER_GETLISTResult">
+      <Column Name="USERID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ADA" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PASSWORD" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_FIRSTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RELATIVE_LASTNAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ADDRESS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAX" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ACCBANK" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="USERTYPEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEPARTMENTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WORKPROVINCEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WORKDISTRICTID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CREATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CREATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="UPDATEUSER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UPDATEDATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FULLNAME" Type="System.String" DbType="NVarChar(101)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

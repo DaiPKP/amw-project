@@ -88,7 +88,7 @@
             </ContentTemplate>
             </asp:UpdatePanel> --%>
                 <asp:SqlDataSource ID="SqlDataSourceCity" runat="server"
-                    ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>"
+                    ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>"
                     SelectCommand="SELECT * FROM [City] WHERE ([Status] = @Status) order by CityName">
                     <SelectParameters>
                         <asp:Parameter DefaultValue="Y" Name="Status" Type="String" />

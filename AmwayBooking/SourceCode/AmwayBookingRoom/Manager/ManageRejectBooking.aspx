@@ -242,7 +242,7 @@
     </ContentTemplate>
     </asp:UpdatePanel>
         <asp:SqlDataSource ID="SqlDataSourceManageBooking" runat="server" 
-            ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>" 
+            ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>" 
             SelectCommand="SELECT * FROM [RegistryRoom] where [Status] = 'N'"></asp:SqlDataSource>
     </div>
 </asp:Content>

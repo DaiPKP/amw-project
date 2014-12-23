@@ -180,7 +180,7 @@
                         <SortedDescendingHeaderStyle BackColor="#002876" />
                     </asp:GridView>
                     <asp:SqlDataSource ID="SqlDataSourceCenter" runat="server" 
-                        ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>" 
+                        ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>" 
                         SelectCommand="SELECT * FROM [Center] where [Status] = 'Y'"></asp:SqlDataSource>
                 </div>
             </div>
@@ -381,7 +381,7 @@
                     <SortedDescendingHeaderStyle BackColor="#002876" />
                 </asp:GridView>
                 <asp:SqlDataSource ID="SqlDataSourceRoom" runat="server" 
-                    ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>" 
+                    ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>" 
                     SelectCommand="SELECT * FROM [Room] where [Status] = 'Y'">
                 </asp:SqlDataSource>
             </div>            
@@ -390,7 +390,7 @@
         </asp:UpdatePanel> 
     </div><br />
     <asp:SqlDataSource ID="SqlDataSourceCity" runat="server" 
-                ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomConnectionString %>" 
+                ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>" 
                 SelectCommand="SELECT * FROM [City] where [Status] = 'Y'"></asp:SqlDataSource>  
 </asp:Content>
 
