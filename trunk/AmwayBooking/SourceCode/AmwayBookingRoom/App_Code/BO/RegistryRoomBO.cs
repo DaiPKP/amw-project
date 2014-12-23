@@ -69,4 +69,9 @@ public class RegistryRoomBO:AMW_BookingDataContext
             return "Cập nhật thất bại, vui lòng thử lại.";
         }
     }
+    
+    public int MoveBooking(string BookingCode, string RoomCode, string FromRoom, DateTime MeetingDate, string Section)
+    {
+        return SP_MOVE_BOOKING(BookingCode, RoomCode, FromRoom, MeetingDate, Section);
+    }
 }

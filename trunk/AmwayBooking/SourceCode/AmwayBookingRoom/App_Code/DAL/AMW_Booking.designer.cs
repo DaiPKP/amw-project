@@ -365,6 +365,13 @@ namespace DAL
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bOOKINGCODE, rOOMCODE, aDA_ID, pAYMENTSTATUS, bOOKINGSTATUS);
 			return ((ISingleResult<SP_REGISTYROOM_GET_BY_BOOKINGCODEResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_MOVE_BOOKING")]
+		public int SP_MOVE_BOOKING([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BOOKINGCODE", DbType="NVarChar(50)")] string bOOKINGCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ROOMCODE", DbType="NChar(10)")] string rOOMCODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FROMROOM", DbType="NVarChar(10)")] string fROMROOM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MEETINGDATE", DbType="DateTime")] System.Nullable<System.DateTime> mEETINGDATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SECTION", DbType="NVarChar(50)")] string sECTION)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bOOKINGCODE, rOOMCODE, fROMROOM, mEETINGDATE, sECTION);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Center")]
