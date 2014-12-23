@@ -71,9 +71,12 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
     {
         lblAlerting.Text = string.Empty;
         btMove.Visible = true;
+        MoveRoom.Visible = false;
         txtBookingCode.Enabled = false;
         txtADAID.Enabled = false;
         ddlRoom.Enabled = false;
+        chkBookingStatus.Enabled = false;
+        chkPaymentStatus.Enabled = false;
         grdList.EditIndex = e.NewEditIndex;
         hdfId.Value = grdList.DataKeys[e.NewEditIndex].Value.ToString();
         string strBookingCode = ((Label)grdList.Rows[e.NewEditIndex].FindControl("lbBookingCode")).Text;
@@ -127,6 +130,8 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
         lbPrice.Text = string.Empty;
         chkBookingStatus.Checked = false;
         chkPaymentStatus.Checked = false;
+        chkBookingStatus.Enabled = true;
+        chkPaymentStatus.Enabled = true;
     }
     protected void btSearch_Click(object sender, EventArgs e)
     {
@@ -162,13 +167,14 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
         DateTime currentDate = DateTime.Now;
         TimeSpan time = date - currentDate;
         int day = time.Days;
-        if(day > 2)
+        if(day >= 2 && chkBookingStatus.Checked && chkPaymentStatus.Checked)
         {
             MoveRoom.Visible = true;
+            btSave.Visible = true;
         }
         else
         {
-            lblAlerting.Text = "Bạn chỉ được phép chuyển phòng trước ngày hội họp ít nhất 2 ngày.";
+            lblAlerting.Text = "Bạn chỉ được phép chuyển phòng trước ngày hội họp ít nhất 2 ngày, và chi phí đặt phòng phải được thanh toán.";
         }
     }
     protected void grdList_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -198,6 +204,26 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
     }
     protected void btSave_Click(object sender, EventArgs e)
     {
+        btSave.Visible = false;
+        RegistryRoomBO BO = new RegistryRoomBO();
+        DateTime MeetingDate = DateTime.ParseExact(txtMeetingDate.Text.Trim(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
+        int iResult = BO.MoveBooking(txtBookingCode.Text.Trim(), ddlRoomMove.SelectedValue.ToString(), ddlRoom.SelectedValue.ToString(), MeetingDate, ddlSection.SelectedValue.ToString());
+        if(iResult == 1)
+        {
+            lblAlerting.Text = "Giao dịch đặt phòng hội họp mà bạn di chuyển không tồn tại.";
+        }
+        if(iResult == 2)
+        {
+            lblAlerting.Text = "Phòng họp mà bạn chọn đã được NPP khác đặt, vui lòng chọn phòng khác";
+        }
+        if(iResult == 0)
+        {
+            lblAlerting.Text = "Chuyển phòng thất bại, vui lòng thử lại sau.";
+        }
+        if(iResult > 2)
+        {
+            lblAlerting.Text = "Giao dịch chuyển phòng thành công, mã đặt phòng mới của bạn là : " + iResult.ToString() + "-" + ddlRoomMove.SelectedValue.ToString() + "-" + txtADAID.Text.Trim();
+        }
     }
 }
