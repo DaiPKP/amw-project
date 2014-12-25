@@ -19,17 +19,5 @@ public partial class Home_UserControl_uc_Home : System.Web.UI.UserControl
         listView.DataBind();
         strQuery = "select * from Information where [Status] = 'Y'";
         tb = con.ExcuteQuery(strQuery);
-        if (tb.Rows.Count > 0)
-        {
-            foreach (DataRow row in tb.Rows)
-            {
-                if (row["Code"].ToString().Trim().Equals("LienHe"))
-                {
-                    lbLienHe.Text = row["Content"].ToString();
-                }
-            }
-        }
-        lbSum.Text = "  " + func.ReadXML("~/Count.xml").ToString();
-        lbOnline.Text = "  " + Application.Get("demOnline").ToString();
     }
 }

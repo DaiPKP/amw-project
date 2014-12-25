@@ -95,65 +95,62 @@
 </script>
 <asp:UpdatePanel ID="update" runat="server">
     <ContentTemplate>
-        <div style="text-align: center; width: 100%; height: auto; float: right; color: #4c4c27; font-size: 15px;">
+        <div style="text-align: center; width: 100%; height: auto; color: #4c4c27; font-size: 15px;">
             <div style="text-align: center;">
                 <br />
                 <span class="titleText">Thông Tin Phòng Họp 
                 <asp:Label ID="lbRoomName" runat="server" Text="Label"></asp:Label></span>
                 <br />
-                <br />
-                <img src="/Images/line.gif" /><br />
+                <hr />
             </div>
-            <div style="text-align: center; width: 800px; float: right; border: 0px; border-style: double;">
-                <table style="text-align: left;" width="100%">
+            <div style="text-align: center; border: 0px; border-style: double; width:100%;">
+                <table style="text-align: left; margin-left: auto; margin-right: auto; width:80%;">
                     <tr>
-                        <td style="font-weight: bold;">Mã phòng:</td>
-                        <td>
+                        <td class="td_title">Mã phòng:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbMaPhong" runat="server" Text=""></asp:Label></td>
-                        <td style="font-weight: bold;">Tên phòng:</td>
-                        <td>
+                        <td class="td_title">Tên phòng:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbTenPhong" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">Số người:</td>
-                        <td>
+                        <td class="td_title">Số người:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbSucChua" runat="server" Text=""></asp:Label></td>
-                        <td style="font-weight: bold;">Giá thuê theo tháng:</td>
-                        <td>
+                        <td class="td_title">Giá thuê theo tháng:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaThang" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">Giá từ thứ 2 đến thứ 6, 8h-12h:</td>
-                        <td>
+                        <td class="td_title">Giá từ thứ 2 đến thứ 6, 8h-12h:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaPhong" runat="server" Text=""></asp:Label></td>
-                        <td style="font-weight: bold;">Giá thứ 7 và chủ nhật, 8h-12h:</td>
-                        <td>
+                        <td class="td_title">Giá thứ 7 và chủ nhật, 8h-12h:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaCuoiTuan" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">Giá từ thứ 2 đến thứ 6, 13h-17h:</td>
-                        <td>
+                        <td class="td_title">Giá từ thứ 2 đến thứ 6, 13h-17h:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaChieuThuong" runat="server" Text=""></asp:Label></td>
-                        <td style="font-weight: bold;">Giá thứ 7 và chủ nhật, 13h-17h:</td>
-                        <td>
+                        <td class="td_title">Giá thứ 7 và chủ nhật, 13h-17h:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaChieuCuoi" runat="server" Text=""></asp:Label></td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bold;">Giá từ thứ 2 đến thứ 6, 18h-22h:</td>
-                        <td>
+                        <td class="td_title">Giá từ thứ 2 đến thứ 6, 18h-22h:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaToiThuong" runat="server" Text=""></asp:Label></td>
-                        <td style="font-weight: bold;">Giá thứ 7 và chủ nhật, 18h-22h:</td>
-                        <td>
+                        <td class="td_title">Giá thứ 7 và chủ nhật, 18h-22h:</td>
+                        <td class="td_value">
                             <asp:Label ID="lbGiaToiCuoi" runat="server" Text=""></asp:Label></td>
                     </tr>
                 </table>
-                <img src="/Images/line.gif" />
                 <br />
             </div>
-            <div style="text-align: center; width: 800px; float: right; font-family: Tahoma; color: #4c4c27; font-size: 12px; font-weight: bold;">
+            <div style="text-align: center; width: 100%; font-family: Tahoma; color: #4c4c27; font-size: 12px; font-weight: bold;">
                 Chọn tháng&nbsp;&nbsp;&nbsp;&nbsp; 
-            <asp:DropDownList ID="ddlThang" runat="server" BackColor="#4c4c27"
-                Font-Bold="True" Font-Size="12px" ForeColor="White" Height="20px">
+            <asp:DropDownList ID="ddlThang" runat="server" Height="22px">
                 <asp:ListItem>01</asp:ListItem>
                 <asp:ListItem>02</asp:ListItem>
                 <asp:ListItem>03</asp:ListItem>
@@ -168,8 +165,8 @@
                 <asp:ListItem>12</asp:ListItem>
             </asp:DropDownList>
                 &nbsp;&nbsp;&nbsp;&nbsp; Chọn năm&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:DropDownList ID="ddlNam" runat="server" BackColor="#4c4c27"
-                Font-Bold="True" Font-Size="12px" ForeColor="White" Height="20px">
+            <asp:DropDownList ID="ddlNam" runat="server" 
+                Font-Bold="True" Height="22px">
                 <asp:ListItem>2012</asp:ListItem>
                 <asp:ListItem>2013</asp:ListItem>
                 <asp:ListItem>2014</asp:ListItem>
@@ -181,12 +178,12 @@
                 <asp:ListItem>2020</asp:ListItem>
             </asp:DropDownList>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Button ID="btXemLich" runat="server" BackColor="#4c4c27" Font-Bold="True"
-                Font-Size="12px" ForeColor="White" Height="20px" OnClick="btXemLich_Click"
+            <asp:Button CssClass="btn_admin" ID="btXemLich" runat="server" Font-Bold="True" OnClick="btXemLich_Click"
                 Text="Xem Lịch" />
             </div>
             <br />
-            <div style="display: table;">
+            <hr />
+            <div style="display: table; width:100%;">
                 <table border="0" width="100%" cellpadding="2" cellspacing="0" class="borderTable">
                     <asp:Repeater ID="repeat" runat="server" onitemcommand="repeat_ItemCommand">
                         <HeaderTemplate>
@@ -205,7 +202,7 @@
 
                             <!--<tr style= "background-color:White;  color:#4c4c27; "> -->
                             <tr style='<%# Eval("Weekend")=="Y"?"background-color:White;  color:red; ": "background-color:White;  color:#4c4c27;" %>'>
-                                <td class="borderTD" style="text-align: right;">
+                                <td class="borderTD" style="text-align: right; width:15%;">
                                     <%# DataBinder.Eval(Container.DataItem, "Ngay")%>
                                 </td>
                                 <td class="borderTD">

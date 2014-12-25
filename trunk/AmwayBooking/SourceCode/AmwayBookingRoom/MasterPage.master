@@ -8,7 +8,7 @@
     <title>Amway Meeting Subsidy</title>
     <link rel="shortcut icon" type="image/ico" href="../images/favicon.ico" />
     <link href="../Styles/css.css" rel="stylesheet" type="text/css" />
-
+    <link href="../Styles/Style.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../Scripts/Core/jquery-1.8.2.js"></script>
     <script type="text/javascript" src="../Scripts/Validation_User.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.simplemodal.js"></script>
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="../Scripts/coin-slider.min.js"></script>
     <script type="text/javascript" src="../Scripts/osx.js"></script>
 
-
+    
     <link href="../css/Style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../Styles/jquery/jRating.jquery.css" media="screen" />
     <!--<script type="text/javascript" src="../css/jquery/jquery.js"></script>-->
@@ -347,12 +347,7 @@
             </div>
             <div id="footer">
                 <div class="adress">
-                    <p>
-                        THÔNG TIN LIÊN HỆ
-                    </p>
-                    Trần Văn Quốc Bình; SĐT: (84-8) 39 529 217, Email: binh.tranvq@amway.com<br />
-                    Trần Thu Hương; SĐT: (84-8) 39 529 290, Email: huong.tran.thu@amway.com
-                <br />
+
                 </div>
                 <div class="bg_online">
                     <div class="online">

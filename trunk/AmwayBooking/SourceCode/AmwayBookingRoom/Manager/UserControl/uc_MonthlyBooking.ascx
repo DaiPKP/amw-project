@@ -4,7 +4,6 @@
         <div style="text-align: center; width: 100%; height: auto; float: right; font-family: Tahoma; color: #4c4c27; font-size: 13px;">
             <div>
                 <span class="titleText">Đặt Phòng Theo Tháng</span><br />
-                <img src="/Images/line.gif" />
             </div>
             <table style="text-align: left; width: 100%; border: 1px; border-style: solid; color: #4c4c27;" cellpadding="3" cellspacing="0">
 

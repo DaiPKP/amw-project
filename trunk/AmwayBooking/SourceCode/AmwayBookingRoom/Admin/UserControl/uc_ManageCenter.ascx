@@ -5,7 +5,7 @@
         <ContentTemplate>
             <div>
                 <span class="titleText">Quản lý thông tin trung tâm</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
                 <br />
                 <table width="100%" style="margin-left: auto; margin-right: auto;">
                     <tr>
@@ -46,13 +46,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
+                        <td colspan="2" style="text-align: center;">
+                            <hr />
+                            <asp:Button CssClass="btn_admin" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
 
-                            <asp:Button CssClass="button" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
 
-                            <asp:Button CssClass="button" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
-
-                            <asp:Button CssClass="button" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
                         </td>
                     </tr>
                 </table>
@@ -61,8 +61,7 @@
                 <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
             </div>
             
-            <img src="/Images/line.gif" />
-            <br /><br />
+            <hr />
             <div id="divUserList">
                 <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="CityCode"
                     Width="100%" CssClass="grid" AllowPaging="True"

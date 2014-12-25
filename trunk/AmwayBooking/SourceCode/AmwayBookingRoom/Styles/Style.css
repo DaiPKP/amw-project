@@ -94,3 +94,100 @@
 .textboxnumber{
     text-align:right;
 }
+
+#space
+{
+    width:100%; 
+    height:10px;
+    background-image:url(../Images/bg_space.gif);   
+    text-align:center; 
+    color:White;
+}
+#end
+{
+    width:100%; 
+    height:auto;
+    text-align:center;
+    color:#4c4c27;
+    display:table;
+}
+#end td
+{
+    line-height:12px;
+}
+.spanName
+{
+    color:#4c4c27; 
+    font-weight:bold;
+    font-family:Tahoma;
+    font-size:small;
+}
+.spanValue
+{
+    color:#4c4c27;
+    font-family:Tahoma;
+    font-size:small;
+}
+.titleText
+{
+    font-size:20px; 
+     
+    color:#4c4c27;
+}
+.borderTD
+{
+    border-right: 1px solid #4c4c27;
+	border-bottom: 1px solid #4c4c27;
+    width:200px;
+}
+.borderTable
+{
+   border-left: 1px solid #4c4c27;
+    border-top: 1px solid #4c4c27; 
+   font-family:Tahoma; 
+   font-size:12px; 
+}
+.TDTopPhieuThu
+{
+    width:25%;
+    border-right: 1px solid #4c4c27;
+	border-bottom: 1px solid #4c4c27;
+	background-color:#4c4c27;
+	font-weight:bold;
+	text-align:center;
+	color:White;
+}
+.TDPhieuThu
+{
+    width:25%;
+    border-right: 1px solid #4c4c27;
+	border-bottom: 1px solid #4c4c27;
+	text-align:center;
+}
+
+#defaultpage
+{
+    width:100%;
+    height:auto;    
+    text-align:center;
+    display:table; 
+}
+.CityName
+{
+    font-size:18px;
+}
+.CopyRight
+{
+    font-size:10px;
+    text-shadow: #4c4c27 0.1em 0.1em 0.2em;
+}
+
+img
+{
+    -moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px; 
+    border-radius: 5px;
+    border:0px;
+}
+

@@ -99,28 +99,27 @@
         <ContentTemplate>
             <div>
                 <span class="titleText">Tình Trạng Phòng Họp</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
             </div>
 
-            <div style="font-size: 12px; font-family: Tahoma; color: #4c4c27;">
+            <div >
                 Chọn Thành Phố 
-            <asp:DropDownList ID="ddlCity" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White" AutoPostBack="True"
+            <asp:DropDownList ID="ddlCity" runat="server"
+                Font-Size="12px" AutoPostBack="True"
                 OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
             </asp:DropDownList>
                 &nbsp; Chọn Trung Tâm
-            <asp:DropDownList ID="ddlCenter" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White" AutoPostBack="True"
+            <asp:DropDownList ID="ddlCenter" runat="server"
+                Font-Size="12px" AutoPostBack="True"
                 OnSelectedIndexChanged="ddlCenter_SelectedIndexChanged">
             </asp:DropDownList>
                 &nbsp; Chọn Phòng
-            <asp:DropDownList ID="ddlRoom" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White">
+            <asp:DropDownList ID="ddlRoom" runat="server"
+                Font-Size="12px">
             </asp:DropDownList>
                 <br />
                 Chọn Tháng
-            <asp:DropDownList ID="ddlMonth" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White">
+            <asp:DropDownList ID="ddlMonth" runat="server">
                 <asp:ListItem>01</asp:ListItem>
                 <asp:ListItem>02</asp:ListItem>
                 <asp:ListItem>03</asp:ListItem>
@@ -135,8 +134,7 @@
                 <asp:ListItem>12</asp:ListItem>
             </asp:DropDownList>
                 &nbsp; Chọn Năm
-            <asp:DropDownList ID="ddlYear" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White">
+            <asp:DropDownList ID="ddlYear" runat="server">
                 <asp:ListItem>2012</asp:ListItem>
                 <asp:ListItem>2013</asp:ListItem>
                 <asp:ListItem>2014</asp:ListItem>
@@ -149,9 +147,9 @@
             </asp:DropDownList>
 
                 &nbsp;
-            <asp:Button ID="btXemLich" runat="server" Text="Xem Lịch" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White" OnClick="btXemLich_Click" />
+            <asp:Button ID="btXemLich" CssClass="btn_admin" runat="server" Text="Xem Lịch" OnClick="btXemLich_Click" />
             </div>
+            <hr />
             <div style="font-size: 12px; font-family: Tahoma; color: #4c4c27;">
                 <table border="0" width="100%" cellpadding="2" cellspacing="0" class="borderTable">
                     <asp:Repeater ID="repeat" runat="server" OnItemCommand="repeat_ItemCommand">
