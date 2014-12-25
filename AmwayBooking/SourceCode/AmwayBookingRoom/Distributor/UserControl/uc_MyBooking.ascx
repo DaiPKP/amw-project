@@ -15,6 +15,21 @@
     </script>
     <asp:UpdatePanel ID="update" runat="server">
         <ContentTemplate>
+            <script>
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_endRequest(function () {
+                    BindEvents();
+                });
+
+                $(function () {
+                    var objTuNgay = document.getElementById("<%=txtMeetingDate.ClientID %>");
+                    $(objTuNgay).datepicker({
+                        showOn: "button",
+                        buttonImage: "../Images/calendar.gif",
+                        buttonImageOnly: true
+                    })
+                });
+            </script>
             <div>
                 <span class="titleText">Lịch sử đăng ký phòng hội họp</span><br />
                 <hr />

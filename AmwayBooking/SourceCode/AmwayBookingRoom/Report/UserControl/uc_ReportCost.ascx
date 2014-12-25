@@ -1,8 +1,49 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_ReportCost.ascx.cs" Inherits="Report_UserControl_uc_ReportCost" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<script type="text/javascript">
+    function BindEvents() {
+        $(document).ready(function () {
+            var objTuNgay = document.getElementById("<%=txtFromDate.ClientID %>");
+                var objDenNgay = document.getElementById("<%=txtToDate.ClientID %>");
+                $(objTuNgay).datepicker({
+                    showOn: "button",
+                    buttonImage: "../Images/calendar.gif",
+                    buttonImageOnly: true
+                }),
+
+                     $(objDenNgay).datepicker({
+                         showOn: "button",
+                         buttonImage: "../Images/calendar.gif",
+                         buttonImageOnly: true
+                     });
+            });
+        }
+    </script>
 <div style="text-align: center; width: 100%; height: auto; float: right; font-size: 12px; font-family: Tahoma; color: #4c4c27;">
     <asp:UpdatePanel ID="update" runat="server">
         <ContentTemplate>
+            <script>
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_endRequest(function () {
+                    BindEvents();
+                });
+
+                $(function () {
+                    var objTuNgay = document.getElementById("<%=txtFromDate.ClientID %>");
+                    var objDenNgay = document.getElementById("<%=txtToDate.ClientID %>");
+                    $(objTuNgay).datepicker({
+                        showOn: "button",
+                        buttonImage: "../Images/calendar.gif",
+                        buttonImageOnly: true
+                    }),
+
+                         $(objDenNgay).datepicker({
+                             showOn: "button",
+                             buttonImage: "../Images/calendar.gif",
+                             buttonImageOnly: true
+                         });
+                });
+            </script>
             <div>
                 <span class="titleText">Summary Meeting by Cost Report</span><br />
                 <hr />

@@ -9,6 +9,29 @@ public partial class Report_ReportCost : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((Session["UserID"] == null) || (!CheckPermission("39")))
+        {
+            Response.Redirect("~/home");
+        }
+
+    }
+    private bool CheckPermission(string func)
+    {
+        if (Session["Permission"] != null)
+        {
+            foreach (string item in Session["Permission"].ToString().Split(','))
+            {
+                if (item == func)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return false;
+        }
 
     }
 }
