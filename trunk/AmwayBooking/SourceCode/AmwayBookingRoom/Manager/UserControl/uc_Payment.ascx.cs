@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using DAL;
+using System.Globalization;
 
 public partial class Manager_UserControl_uc_Payment : System.Web.UI.UserControl
 {
@@ -43,7 +44,7 @@ public partial class Manager_UserControl_uc_Payment : System.Web.UI.UserControl
 
         PaymentBO BO = new PaymentBO();
         List<SP_GET_PAYMENTResult> listPayment = new List<SP_GET_PAYMENTResult>();
-        listPayment = BO.GetPayment(ddlCity.SelectedValue.ToString(), txtADAID.Text.Trim(), DateTime.Parse(txtFormDate.Text), DateTime.Parse(txtToDate.Text));
+        listPayment = BO.GetPayment(ddlCity.SelectedValue.ToString(), txtADAID.Text.Trim(), DateTime.ParseExact(txtFormDate.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture), DateTime.ParseExact(txtToDate.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture));
         if (listPayment.Count > 0)
         {
             lbADAID.Text = txtADAID.Text.Trim();

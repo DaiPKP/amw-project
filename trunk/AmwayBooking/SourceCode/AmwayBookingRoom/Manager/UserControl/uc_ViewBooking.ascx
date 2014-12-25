@@ -174,19 +174,19 @@
                                     <%--<%# DataBinder.Eval(Container.DataItem, "Ca1")%>--%>
                                     <asp:LinkButton ID="btClick" Style="color: Blue; text-decoration: none;" CommandName="Ca1" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "Ngay")%>' runat="server" Visible='<%# DataBinder.Eval(Container.DataItem, "Ca1").ToString() == ""%>' Text="Phòng Vẫn Còn Trống"></asp:LinkButton>
                                     <asp:LinkButton ID="LinkButton1" Style='<%# DataBinder.Eval(Container.DataItem, "Weekend").ToString() == "Y"?"color:Red; text-decoration:none;": "color:#4c4c27; text-decoration:none;" %>' CommandName="Update" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "Code1")%>' runat="server" Visible='<%# DataBinder.Eval(Container.DataItem, "Ca1").ToString() != ""%>' Text='<%# DataBinder.Eval(Container.DataItem, "Ca1")%>'></asp:LinkButton>
-                                    <img src="Images/ok.png" style='<%# DataBinder.Eval(Container.DataItem, "Paid1").ToString() == "Y"?"width:15px;height:15px;float:right;": "display:none;" %>' />
+                                    <img src="/Images/ok.png" style='<%# DataBinder.Eval(Container.DataItem, "Paid1").ToString() == "Y"?"width:15px;height:15px;float:right;": "display:none;" %>' />
                                 </td>
                                 <td class="borderTD">
                                     <%--<%# DataBinder.Eval(Container.DataItem, "Ca2")%>--%>
                                     <asp:LinkButton ID="Label1" Style="color: Blue; text-decoration: none;" CommandName="Ca2" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "Ngay")%>' runat="server" Visible='<%# DataBinder.Eval(Container.DataItem, "Ca2").ToString() == ""%>'>Phòng Vẫn Còn Trống</asp:LinkButton>
                                     <asp:LinkButton ID="LinkButton2" Style='<%# DataBinder.Eval(Container.DataItem, "Weekend").ToString() == "Y"?"color:Red; text-decoration:none;": "color:#4c4c27; text-decoration:none;" %>' CommandName="Update" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "Code2")%>' runat="server" Visible='<%# DataBinder.Eval(Container.DataItem, "Ca2").ToString() != ""%>' Text='<%# DataBinder.Eval(Container.DataItem, "Ca2")%>'></asp:LinkButton>
-                                    <img src="Images/ok.png" style='<%# DataBinder.Eval(Container.DataItem, "Paid2").ToString() == "Y"?"width:15px;height:15px;float:right;": "display:none;" %>' />
+                                    <img src="/Images/ok.png" style='<%# DataBinder.Eval(Container.DataItem, "Paid2").ToString() == "Y"?"width:15px;height:15px;float:right;": "display:none;" %>' />
                                 </td>
                                 <td class="borderTD">
                                     <%--<%# DataBinder.Eval(Container.DataItem, "Ca3")%>--%>
                                     <asp:LinkButton ID="Label2" Style="color: Blue; text-decoration: none;" CommandName="Ca3" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "Ngay")%>' runat="server" Visible='<%# DataBinder.Eval(Container.DataItem, "Ca3").ToString() == ""%>'>Phòng Vẫn Còn Trống</asp:LinkButton>
                                     <asp:LinkButton ID="LinkButton3" Style='<%# DataBinder.Eval(Container.DataItem, "Weekend").ToString() == "Y"?"color:Red; text-decoration:none;": "color:#4c4c27; text-decoration:none;" %>' CommandName="Update" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "Code3")%>' runat="server" Visible='<%# DataBinder.Eval(Container.DataItem, "Ca3").ToString() != ""%>' Text='<%# DataBinder.Eval(Container.DataItem, "Ca3")%>'></asp:LinkButton>
-                                    <img src="Images/ok.png" style='<%# DataBinder.Eval(Container.DataItem, "Paid3").ToString() == "Y"?"width:15px;height:15px;float:right;": "display:none;" %>' />
+                                    <img src="/Images/ok.png" style='<%# DataBinder.Eval(Container.DataItem, "Paid3").ToString() == "Y"?"width:15px;height:15px;float:right;": "display:none;" %>' />
                                 </td>
                             </tr>
                         </ItemTemplate>

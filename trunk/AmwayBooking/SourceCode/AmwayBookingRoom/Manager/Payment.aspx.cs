@@ -9,6 +9,29 @@ public partial class Payment : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        if ((Session["UserID"] == null) || (!CheckPermission("45")))
+        {
+            Response.Redirect("~/home");
+        }
+
+    }
+    private bool CheckPermission(string func)
+    {
+        if (Session["Permission"] != null)
+        {
+            foreach (string item in Session["Permission"].ToString().Split(','))
+            {
+                if (item == func)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        else
+        {
+            return false;
+        }
 
     }
 }

@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_Payment.ascx.cs" Inherits="Manager_UserControl_uc_Payment" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <script type="text/javascript">
     $(document).ready(function () {
         $("#btPrint").click(function (e) {
@@ -24,10 +23,50 @@
         prtContent.innerHTML = strOldOne;
     }
 </script>
+<script type="text/javascript">
+    function BindEvents() {
+        $(document).ready(function () {
+            var objTuNgay = document.getElementById("<%=txtFormDate.ClientID %>");
+                var objDenNgay = document.getElementById("<%=txtToDate.ClientID %>");
+                $(objTuNgay).datepicker({
+                    showOn: "button",
+                    buttonImage: "../Images/calendar.gif",
+                    buttonImageOnly: true
+                }),
 
+                     $(objDenNgay).datepicker({
+                         showOn: "button",
+                         buttonImage: "../Images/calendar.gif",
+                         buttonImageOnly: true
+                     });
+            });
+        }
+    </script>
 <div style="text-align: center; width: 100%; height: auto; float: right; font-size: 12px; font-family: Tahoma; color: #4c4c27;">
     <asp:UpdatePanel ID="update" runat="server">
         <ContentTemplate>
+            <script>
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_endRequest(function () {
+                    BindEvents();
+                });
+
+                $(function () {
+                    var objTuNgay = document.getElementById("<%=txtFormDate.ClientID %>");
+                    var objDenNgay = document.getElementById("<%=txtToDate.ClientID %>");
+                    $(objTuNgay).datepicker({
+                        showOn: "button",
+                        buttonImage: "../Images/calendar.gif",
+                        buttonImageOnly: true
+                    }),
+
+                         $(objDenNgay).datepicker({
+                             showOn: "button",
+                             buttonImage: "../Images/calendar.gif",
+                             buttonImageOnly: true
+                         });
+                });
+            </script>
             <div>
                 <span class="titleText">Lập Phiếu Thu</span><br />
                 <hr />
@@ -39,10 +78,10 @@
         <asp:DropDownList ID="ddlCity" runat="server" Width="200px">
         </asp:DropDownList>
                 Từ ngày 
-        <asp:TextBox ID="txtFormDate" runat="server" Width="100px"></asp:TextBox>
+        <asp:TextBox ID="txtFormDate" runat="server" Width="65px"></asp:TextBox>
 
                 Đến ngày
-        <asp:TextBox ID="txtToDate" runat="server" Width="100px"></asp:TextBox>
+        <asp:TextBox ID="txtToDate" runat="server" Width="65px"></asp:TextBox>
 
                 <asp:Button ID="btLapPhieuThu" runat="server" Text="Lập phiếu thu" CssClass="btn_admin" OnClick="btLapPhieuThu_Click" />
             </div>

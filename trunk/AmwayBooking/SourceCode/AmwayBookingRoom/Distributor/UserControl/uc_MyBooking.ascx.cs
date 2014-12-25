@@ -206,8 +206,12 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
     {
         btSave.Visible = false;
         RegistryRoomBO BO = new RegistryRoomBO();
-        DateTime MeetingDate = DateTime.ParseExact(txtMeetingDate.Text.Trim(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
-
+        DateTime MeetingDate = DateTime.ParseExact(txtMeetingDate.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        if(ddlRoomMove.SelectedValue.ToString().Equals(""))
+        {
+            lblAlerting.Text = "Bạn chưa chọn phòng cần chuyển đến.";
+            return;
+        }
         int iResult = BO.MoveBooking(txtBookingCode.Text.Trim(), ddlRoomMove.SelectedValue.ToString(), ddlRoom.SelectedValue.ToString(), MeetingDate, ddlSection.SelectedValue.ToString());
         if(iResult == 1)
         {
