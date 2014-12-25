@@ -1,15 +1,15 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_City.ascx.cs" Inherits="Distributor_UserControl_uc_City" %>
 <div style="text-align: center; width: 100%;">
     <div style="text-align: center;">
-        <div style="width: 800px; float: right;">
+        <div>
             <br />
             <span class="titleText">Phòng Họp Tại 
                     <asp:Label ID="lbCityName" runat="server" Text=""></asp:Label></span><br />
             <br />
-            <img src="/Images/line.gif" />
+            <hr />
         </div>
 
-        <div style="text-align: center; width: 800px; float: right;">
+        <div style="text-align: center;">
             <asp:ListView ID="listViewRoom" runat="server" GroupItemCount="3">
                 <ItemTemplate>
                     <td>
@@ -41,15 +41,6 @@
                     </tr>
                 </GroupTemplate>
             </asp:ListView>
-            <asp:SqlDataSource ID="SqlDataSourceRoom" runat="server"
-                ConnectionString="<%$ ConnectionStrings:AmwayBookingRoomDBConnectionString %>"
-                SelectCommand="SELECT * FROM [Room] WHERE (([CityCode] = @CityCode) AND ([Status] = @Status))">
-                <SelectParameters>
-                    <asp:QueryStringParameter DefaultValue="HCM" Name="CityCode"
-                        QueryStringField="CityCode" Type="String" />
-                    <asp:Parameter DefaultValue="Y" Name="Status" Type="String" />
-                </SelectParameters>
-            </asp:SqlDataSource>
         </div>
     </div>
 </div>

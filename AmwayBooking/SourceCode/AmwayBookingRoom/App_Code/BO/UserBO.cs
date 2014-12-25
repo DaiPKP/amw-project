@@ -47,5 +47,19 @@ public class UserBO : AMW_BookingDataContext
             return null;
         }
     }
+
+    public PRC_SYS_AMW_USER_GETLISTBYUSERIDResult UserGetListByUserID(int UserID)
+    {
+        try
+        {
+            PRC_SYS_AMW_USER_GETLISTBYUSERIDResult result = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
+            result = PRC_SYS_AMW_USER_GETLISTBYUSERID(UserID).SingleOrDefault();
+            return result;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+    }
    
 }

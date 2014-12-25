@@ -30,7 +30,7 @@
         <ContentTemplate>
             <div>
                 <span class="titleText">Lập Phiếu Thu</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
             </div>
             <div>
                 ADA ID 
@@ -40,18 +40,14 @@
         </asp:DropDownList>
                 Từ ngày 
         <asp:TextBox ID="txtFormDate" runat="server" Width="100px"></asp:TextBox>
-                <asp:CalendarExtender ID="txtFormDate_CalendarExtender" runat="server"
-                    Enabled="True" TargetControlID="txtFormDate">
-                </asp:CalendarExtender>
+
                 Đến ngày
         <asp:TextBox ID="txtToDate" runat="server" Width="100px"></asp:TextBox>
-                <asp:CalendarExtender ID="txtToDate_CalendarExtender" runat="server"
-                    Enabled="True" TargetControlID="txtToDate">
-                </asp:CalendarExtender>
-                <asp:Button ID="btLapPhieuThu" runat="server" Text="Lập phiếu thu" BackColor="#4c4c27"
-                    Font-Size="12px" ForeColor="White" OnClick="btLapPhieuThu_Click" />
+
+                <asp:Button ID="btLapPhieuThu" runat="server" Text="Lập phiếu thu" CssClass="btn_admin" OnClick="btLapPhieuThu_Click" />
             </div>
-            <img src="Images/line.gif" /><br />
+            <hr />
+            <br />
             <div style="height: 10px;"></div>
             <asp:Panel ID="panelPhieuThu" runat="server" Visible="false">
                 <div id="divPrint">

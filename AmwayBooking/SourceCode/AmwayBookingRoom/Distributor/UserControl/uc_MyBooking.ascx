@@ -1,11 +1,23 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="uc_MyBooking.ascx.cs" Inherits="Distributor_UserControl_uc_MyBooking" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <div style="text-align: center; width: 100%; height: auto; float: right; font-size: 12px; font-family: Tahoma; color: #4c4c27;">
+        <script type="text/javascript">
+            function BindEvents() {
+                $(document).ready(function () {
+                    var objTuNgay = document.getElementById("<%=txtMeetingDate.ClientID %>");
+                    $(objTuNgay).datepicker({
+                        showOn: "button",
+                        buttonImage: "../Images/calendar.gif",
+                        buttonImageOnly: true
+                    })
+                });
+            }
+    </script>
     <asp:UpdatePanel ID="update" runat="server">
         <ContentTemplate>
             <div>
                 <span class="titleText">Lịch sử đăng ký phòng hội họp</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
                 <br />
                 <table width="100%" style="margin-left: auto; margin-right: auto;">
                     <tr>
@@ -78,18 +90,18 @@
                     <tr>
                         <td colspan="4">
 
-                            <asp:Button CssClass="button" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
 
-                            <asp:Button CssClass="button" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
 
-                            <asp:Button CssClass="button" ID="btMove" runat="server" Text="Chuyển Phòng" OnClick="btMove_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btMove" runat="server" Text="Chuyển Phòng" OnClick="btMove_Click" />
                         </td>
                     </tr>
                 </table>
             </div>
             <div style="width:100%;"">
                 <asp:Panel ID ="MoveRoom" runat ="server" Visible="false">
-                    <img src="/Images/line.gif" />
+                    <hr />
                     <table width="100%" style="margin-left: auto; margin-right: auto;">
                         <tr>
                             <td class="td_title" style="width:45%;">Chọn phòng
@@ -104,9 +116,7 @@
                             </td>
                             <td class="td_value">                            
                                 <asp:TextBox ID="txtMeetingDate" runat="server" Width="195px"></asp:TextBox>
-                                <asp:CalendarExtender ID="txtFormDate_CalendarExtender" runat="server"
-                                    Enabled="True" TargetControlID="txtMeetingDate">
-                                </asp:CalendarExtender>                           
+                                                          
                             </td>
                         </tr>
                         <tr>
@@ -122,7 +132,7 @@
                         </tr>
                         <tr>
                             <td colspan="6">
-                                <asp:Button CssClass="button" ID="btSave" runat="server" Text="Lưu" OnClick="btSave_Click" />
+                                <asp:Button CssClass="btn_admin" ID="btSave" runat="server" Text="Lưu" OnClick="btSave_Click" />
                             </td>
                         </tr>
                     </table>
@@ -132,7 +142,7 @@
                 <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
             </div>
             
-            <img src="/Images/line.gif" />
+            <hr />
             <br /><br />
             <div id="divUserList">
                 <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="Code"

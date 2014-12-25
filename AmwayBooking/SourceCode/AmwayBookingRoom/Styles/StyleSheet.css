@@ -172,3 +172,19 @@ img
     font-size:10px;
     text-shadow: #4c4c27 0.1em 0.1em 0.2em;
 }
+
+a:link, a:visited
+{
+    color: #034af3;
+}
+
+a:hover
+{
+    color: #1d60ff;
+    text-decoration: none;
+}
+
+a:active
+{
+    color: #034af3;
+}

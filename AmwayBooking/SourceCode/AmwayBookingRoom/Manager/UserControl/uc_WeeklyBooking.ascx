@@ -4,7 +4,7 @@
         <div style="text-align: center; width: 100%; height: auto; float: right; font-family: Tahoma; color: #4c4c27; font-size: 13px;">
             <div>
                 <span class="titleText">Đặt Phòng Cố Định Một Ngày Trong Tuần Theo Tháng</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
             </div>
             <table style="text-align: left; width: 100%; border: 1px; border-style: solid; color: #4c4c27;" cellpadding="3" cellspacing="0">
 
@@ -17,8 +17,7 @@
                     <td style="padding-left: 15px;">Chọn thứ
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlDayorWeek" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White">
+                        <asp:DropDownList ID="ddlDayorWeek" runat="server" CssClass="txtBox" Height="22px">
                             <asp:ListItem Value="Monday">Thứ 2</asp:ListItem>
                             <asp:ListItem Value="Tuesday">Thứ 3</asp:ListItem>
                             <asp:ListItem Value="Wednesday">Thứ 4</asp:ListItem>
@@ -31,8 +30,7 @@
                     <td style="padding-left: 15px;">Chọn buổi
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlSection" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White">
+                        <asp:DropDownList ID="ddlSection" runat="server" CssClass="txtBox" Height="22px" Width="220px">
                             <asp:ListItem Value="Ca Sáng">Từ 8h đến 12h</asp:ListItem>
                             <asp:ListItem Value="Ca Chiều">Từ 13h đến 17h</asp:ListItem>
                             <asp:ListItem Value="Ca Tối">Từ 18h đến 22h</asp:ListItem>
@@ -43,8 +41,7 @@
                     <td style="padding-left: 15px;">Chọn Tháng
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlMonth" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White">
+                        <asp:DropDownList ID="ddlMonth" runat="server" CssClass="txtBox" Height="22px">
                             <asp:ListItem>01</asp:ListItem>
                             <asp:ListItem>02</asp:ListItem>
                             <asp:ListItem>03</asp:ListItem>
@@ -62,15 +59,14 @@
                     <td style="padding-left: 15px;">ADA ID
                     </td>
                     <td>
-                        <asp:TextBox ID="txtADAID" runat="server" Width="220px"></asp:TextBox>
+                        <asp:TextBox ID="txtADAID" runat="server" Width="220px" CssClass="txtBox" Height="22px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-left: 15px;">Chọn Năm
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlYear" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White">
+                        <asp:DropDownList ID="ddlYear" runat="server" CssClass="txtBox" Height="22px">
                             <asp:ListItem>2012</asp:ListItem>
                             <asp:ListItem>2013</asp:ListItem>
                             <asp:ListItem>2014</asp:ListItem>
@@ -85,59 +81,55 @@
                     <td style="padding-left: 15px;">Họ và tên
                     </td>
                     <td>
-                        <asp:TextBox ID="txtName" runat="server" Width="220px"></asp:TextBox>
+                        <asp:TextBox ID="txtName" runat="server" Width="220px" CssClass="txtBox" Height="22px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-left: 15px;">Chọn thành phố
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlCity" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White" AutoPostBack="True"
+                        <asp:DropDownList ID="ddlCity" runat="server" CssClass="txtBox" Height="22px" AutoPostBack="True"
                             OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                     <td style="padding-left: 15px;">Thư điện tử
                     </td>
                     <td>
-                        <asp:TextBox ID="txtEmail" runat="server" Width="220px"></asp:TextBox>
+                        <asp:TextBox ID="txtEmail" runat="server" Width="220px" CssClass="txtBox" Height="22px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-left: 15px;">Chọn trung tâm
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlCenter" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White" AutoPostBack="True"
+                        <asp:DropDownList ID="ddlCenter" runat="server" CssClass="txtBox" Height="22px" AutoPostBack="True"
                             OnSelectedIndexChanged="ddlCenter_SelectedIndexChanged">
                         </asp:DropDownList>
                     </td>
                     <td style="padding-left: 15px;">Số điện thoại
                     </td>
                     <td>
-                        <asp:TextBox ID="txtPhone" runat="server" Width="220px"></asp:TextBox>
+                        <asp:TextBox ID="txtPhone" runat="server" Width="220px" CssClass="txtBox" Height="22px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-left: 15px;">Chọn phòng
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlRoom" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White">
+                        <asp:DropDownList ID="ddlRoom" runat="server" CssClass="txtBox" Height="22px">
                         </asp:DropDownList>
                     </td>
                     <td style="padding-left: 15px;">Địa chỉ
                     </td>
                     <td>
-                        <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Width="220px"></asp:TextBox>
+                        <asp:TextBox ID="txtAddress" runat="server" TextMode="MultiLine" Width="215px" CssClass="txtBox" Height="22px"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding-left: 15px;">Đối tượng
                     </td>
                     <td>
-                        <asp:DropDownList ID="ddlType" runat="server" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White">
+                        <asp:DropDownList ID="ddlType" runat="server" CssClass="txtBox" Height="22px">
                             <asp:ListItem>Distributor</asp:ListItem>
                             <asp:ListItem>Amway</asp:ListItem>
                         </asp:DropDownList>
@@ -145,7 +137,7 @@
                     <td style="padding-left: 15px;">Ghi chú
                     </td>
                     <td>
-                        <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Width="220px"></asp:TextBox>
+                        <asp:TextBox ID="txtNote" runat="server" TextMode="MultiLine" Width="215px" CssClass="txtBox" Height="22px"></asp:TextBox>
                     </td>
                     <tr>
                         <td style="padding-left: 15px;">Đã đóng tiền
@@ -158,8 +150,7 @@
                     </tr>
                 <tr>
                     <td colspan="4" style="text-align: center;">
-                        <asp:Button ID="btDatPhong" runat="server" Text="Đăng ký" BackColor="#4c4c27"
-                            Font-Size="12px" ForeColor="White" OnClick="btDatPhong_Click" />
+                        <asp:Button ID="btDatPhong" runat="server" Text="Đăng ký" CssClass="btn_admin" OnClick="btDatPhong_Click" />
                     </td>
                 </tr>
             </table>

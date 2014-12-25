@@ -5,17 +5,15 @@
         <ContentTemplate>
             <div>
                 <span class="titleText">Summary Meeting by Utilization Report</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
             </div>
-            <div style="font-size: 12px; font-family: Tahoma; color: #4c4c27;">
+            <div style="font-family: Tahoma; color: #4c4c27;">
                 Chọn Thành Phố 
-            <asp:DropDownList ID="ddlCity" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White" AutoPostBack="True"
+            <asp:DropDownList ID="ddlCity" runat="server" AutoPostBack="True"
                 OnSelectedIndexChanged="ddlCity_SelectedIndexChanged">
             </asp:DropDownList>
                 &nbsp; Chọn Trung Tâm
-            <asp:DropDownList ID="ddlCenter" runat="server" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White">
+            <asp:DropDownList ID="ddlCenter" runat="server">
             </asp:DropDownList>
                 <%--&nbsp; Chọn Phòng
             <asp:DropDownList ID="ddlRoom" runat="server" BackColor="#4c4c27" 
@@ -23,20 +21,11 @@
             </asp:DropDownList>--%>
                 <br />
                 Từ ngày
-        <asp:TextBox ID="txtFromDate" runat="server" BackColor="#4c4c27"
-            Font-Size="12px" ForeColor="White" Style="width=100px;"></asp:TextBox>
-                <asp:CalendarExtender ID="txtFromDate_CalendarExtender" runat="server"
-                    Enabled="True" TargetControlID="txtFromDate">
-                </asp:CalendarExtender>
+        <asp:TextBox ID="txtFromDate" runat="server" Style="width=100px;"></asp:TextBox>
                 &nbsp; Đến ngày
-        <asp:TextBox ID="txtToDate" runat="server" BackColor="#4c4c27"
-            Font-Size="12px" ForeColor="White" Style="width=100px;"></asp:TextBox>
-                <asp:CalendarExtender ID="txtToDate_CalendarExtender" runat="server"
-                    Enabled="True" TargetControlID="txtToDate">
-                </asp:CalendarExtender>
+        <asp:TextBox ID="txtToDate" runat="server" Style="width=100px;"></asp:TextBox>
                 &nbsp; Tỉ giá USD
-        <asp:TextBox ID="txtExchangeRate" runat="server" BackColor="#4c4c27"
-            Font-Size="12px" ForeColor="White" Style="width=100px;">21800</asp:TextBox>
+        <asp:TextBox ID="txtExchangeRate" runat="server" Style="width=100px;">21800</asp:TextBox>
                 <asp:NumericUpDownExtender ID="txtExchangeRate_NumericUpDownExtender"
                     runat="server" Enabled="True" Maximum="1.7976931348623157E+308"
                     Minimum="0" RefValues="" ServiceDownMethod=""
@@ -44,10 +33,9 @@
                     TargetButtonUpID="" TargetControlID="txtExchangeRate" Width="150">
                 </asp:NumericUpDownExtender>
                 &nbsp;
-            <asp:Button ID="btXemBaoCao" runat="server" Text="Xem Báo Cáo" BackColor="#4c4c27"
-                Font-Size="12px" ForeColor="White" OnClick="btXemBaoCao_Click" />
+            <asp:Button ID="btXemBaoCao" runat="server" Text="Xem Báo Cáo" CssClass="btn_admin" OnClick="btXemBaoCao_Click" />
             </div>
-            <img src="/Images/line.gif" />
+            <hr />
             <asp:Panel ID="report" runat="server" Visible="false">
                 <table width="100%" border="0" cellpadding="2" cellspacing="0" style="border: 1px; border-style: solid; border-color: #4c4c27">
                     <tr style="background-color: #4c4c27; color: White; font-weight: bold;">

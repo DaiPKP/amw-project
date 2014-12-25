@@ -21,7 +21,7 @@
         <ContentTemplate>
             <div>
                 <span class="titleText">Quản lý thông tin phòng họp</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
                 <br />
                 <table width="100%" style="margin-left: auto; margin-right: auto;">
                     <tr>
@@ -121,11 +121,11 @@
                     <tr>
                         <td colspan="4">
 
-                            <asp:Button CssClass="button" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
 
-                            <asp:Button CssClass="button" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
 
-                            <asp:Button CssClass="button" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
                         </td>
                     </tr>
                 </table>
@@ -134,7 +134,7 @@
                 <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
             </div>
             
-            <img src="/Images/line.gif" />
+            <hr />
             <br /><br />
             <div id="divUserList">
                 <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="RoomCode"

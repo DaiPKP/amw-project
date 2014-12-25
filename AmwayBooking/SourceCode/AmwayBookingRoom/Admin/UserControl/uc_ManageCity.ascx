@@ -3,11 +3,11 @@
 <div style="text-align: center; width: 100%; height: auto; float: right; font-size: 12px; font-family: Tahoma; color: #4c4c27;">
     <asp:UpdatePanel ID="update" runat="server">
         <ContentTemplate>
-            <div>
+            <div style="text-align:center;">
                 <span class="titleText">Quản lý thông tin thành phố</span><br />
-                <img src="/Images/line.gif" />
+                <hr />
                 <br />
-                <table width="100%" style="margin-left: auto; margin-right: auto;">
+                <table width="100%" style="margin-left: auto; margin-right: auto; text-align:center;">
                     <tr>
                         <td class="td_title" width="45%">Mã thành phố
                         </td>
@@ -37,11 +37,11 @@
                     <tr>
                         <td colspan="2">
 
-                            <asp:Button CssClass="button" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btSearch" runat="server" Text="Tìm Kiếm" OnClick="btSearch_Click" />
 
-                            <asp:Button CssClass="button" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btClear" runat="server" Text="Xóa Trắng" OnClick="btClear_Click" />
 
-                            <asp:Button CssClass="button" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
+                            <asp:Button CssClass="btn_admin" ID="btSave" runat="server" Text="Thêm Mới" OnClick="btSave_Click" />
                         </td>
                     </tr>
                 </table>
@@ -49,9 +49,7 @@
             <div style="width:100%; text-align:center; color:red;">
                 <asp:Label ID="lblAlerting" runat="server" CssClass="Alerting"></asp:Label>
             </div>
-            
-            <img src="/Images/line.gif" />
-            <br /><br />
+            <hr />
             <div id="divUserList">
                 <asp:GridView ID="grdList" runat="server" AutoGenerateColumns="false" DataKeyNames="CityCode"
                     Width="100%" CssClass="grid" AllowPaging="True"
