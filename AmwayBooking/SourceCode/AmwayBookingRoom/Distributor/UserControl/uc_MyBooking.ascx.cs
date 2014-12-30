@@ -33,7 +33,7 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
             ddlRoomMove.Items.Insert(0, lstParent);
             ddlRoomMove.SelectedIndex = ddlRoom.Items.IndexOf(lstParent);
 
-            LoadBookingGrid("", "","", "Y","Y");
+            LoadBookingGrid("", "",Session["ADA"].ToString(), "Y","Y");
             btMove.Visible = false;
             MoveRoom.Visible = false;
         }
@@ -154,7 +154,7 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
             strPaymentStatus = "N";
         }
 
-        Search(txtBookingCode.Text.Trim(), ddlRoom.SelectedValue.ToString(), txtADAID.Text.Trim(), strPaymentStatus, strBookingStatus);
+        Search(txtBookingCode.Text.Trim(), ddlRoom.SelectedValue.ToString(), Session["ADA"].ToString(), strPaymentStatus, strBookingStatus);
     }
     protected void btMove_Click(object sender, EventArgs e)
     {
@@ -198,7 +198,7 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
             strPaymentStatus = "N";
         }
 
-        Search(txtBookingCode.Text.Trim(), ddlRoom.SelectedValue.ToString(), txtADAID.Text.Trim(), strPaymentStatus, strBookingStatus);
+        Search(txtBookingCode.Text.Trim(), ddlRoom.SelectedValue.ToString(), Session["ADA"].ToString(), strPaymentStatus, strBookingStatus);
         grdList.PageIndex = e.NewPageIndex;
         grdList.DataBind();
     }
@@ -227,7 +227,7 @@ public partial class Distributor_UserControl_uc_MyBooking : System.Web.UI.UserCo
         }
         if(iResult > 2)
         {
-            lblAlerting.Text = "Giao dịch chuyển phòng thành công, mã đặt phòng mới của bạn là : " + iResult.ToString() + "-" + ddlRoomMove.SelectedValue.ToString() + "-" + txtADAID.Text.Trim();
+            lblAlerting.Text = "Giao dịch chuyển phòng thành công, mã đặt phòng mới của bạn là : " + iResult.ToString() + "-" + ddlRoomMove.SelectedValue.ToString() + "-" + Session["ADA"].ToString();
         }
     }
 }

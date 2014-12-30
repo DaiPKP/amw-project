@@ -39,12 +39,17 @@ public partial class UserControl_uc_Menu : System.Web.UI.UserControl
         //tao ra 1 session chua quyen
         // if (Session["Permission"] 
         string strQuyen = "";
+        strQuyen = "47,48,";
         MenuBO menu = new MenuBO();
         if (Session["UserID"] != null)
         {
             foreach (RepeaterItem item in repMenuParent.Items)
             {
                 string MSMENU = ((HiddenField)item.FindControl("hdfMenuParent")).Value;
+                if(int.Parse(MSMENU) == 37)
+                {
+                    strQuyen += "37,";
+                }
                 string GroupMenu = ((HiddenField)item.FindControl("hdfGroupMenu")).Value;
                 List<DAL.PRC_SYS_AMW_MENU_GETBY_USERID_AND_MENUPARENTIDResult> resultChild = new List<DAL.PRC_SYS_AMW_MENU_GETBY_USERID_AND_MENUPARENTIDResult>();
                 resultChild = menu.Menu_GetBy_UserIDAndMenuParentId(int.Parse(Session["UserID"].ToString()), int.Parse(MSMENU));

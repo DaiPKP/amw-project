@@ -152,18 +152,21 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
             lbDate.Text = e.CommandArgument.ToString();
             lbSection.Text = "Ca Sáng";
             btCapNhat.Visible = false;
+            LoadInfo();
         }
         if (e.CommandName.ToString() == "Ca2")
         {
             lbDate.Text =e.CommandArgument.ToString();
             lbSection.Text = "Ca Chiều";
             btCapNhat.Visible = false;
+            LoadInfo();
         }
         if (e.CommandName.ToString() == "Ca3")
         {
             lbDate.Text = e.CommandArgument.ToString();
             lbSection.Text = "Ca Tối";
             btCapNhat.Visible = false;
+            LoadInfo();
         }
         if (e.CommandName.ToString() == "Update")
         {
@@ -196,6 +199,24 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
             }
         }
         popup.Show();
+    }
+    private void LoadInfo()
+    {
+        UserBO BO = new UserBO();
+        PRC_SYS_AMW_USER_GETLISTBYUSERIDResult info = new PRC_SYS_AMW_USER_GETLISTBYUSERIDResult();
+        info = BO.UserGetListByUserID(int.Parse(Session["UserID"].ToString()));
+
+        ddlType.Enabled = false;
+        txtADAID.Text = info.ADA;
+        txtADAID.Enabled = false;
+        txtName.Text = info.FULLNAME;
+        txtName.Enabled = false;
+        txtAddress.Text = info.ADDRESS;
+        txtEmail.Text = info.EMAIL;
+        txtPhone.Text = info.TELEPHONE;
+
+        ddlStatus.Enabled = false;
+        chkPaid.Enabled = false;
     }
     protected void btDatPhong_Click(object sender, EventArgs e)
     {

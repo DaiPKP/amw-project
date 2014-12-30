@@ -53,7 +53,7 @@
                         <td class="td_title">ADA ID
                         </td>
                         <td class="td_value">
-                            <asp:TextBox ID="txtADAID" runat="server"></asp:TextBox>
+                            <asp:Label ID="txtADAID" runat="server"></asp:Label>
 
                         </td>
                         <td class="td_title">Tên NPP
