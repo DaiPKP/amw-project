@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using DAL;
+using System.Globalization;
 
 public partial class Report_UserControl_uc_ReportUtilization : System.Web.UI.UserControl
 {
@@ -60,19 +61,22 @@ public partial class Report_UserControl_uc_ReportUtilization : System.Web.UI.Use
         data.Columns.Add("VND", typeof(float));
         data.Columns.Add("USD", typeof(float));
 
+        DateTime fromDate = DateTime.ParseExact(txtFromDate.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+        DateTime toDate = DateTime.ParseExact(txtToDate.Text.Trim(), "dd/MM/yyyy", CultureInfo.InvariantCulture);
+
         CategoryBO BO = new CategoryBO();
 
         List<SP_ROOM_GET_CBO_BY_CENTERCODEResult> listRoom = new List<SP_ROOM_GET_CBO_BY_CENTERCODEResult>();
         listRoom = BO.GetRoom(ddlCenter.SelectedValue.ToString());
 
         List<SP_GET_REGISTRYROOM_USED_REPORTResult> listSection = new List<SP_GET_REGISTRYROOM_USED_REPORTResult>();
-        listSection = BO.GetRegistryRoomUsedReport(DateTime.Parse(txtFromDate.Text.Trim()), DateTime.Parse(txtToDate.Text.Trim()));
+        listSection = BO.GetRegistryRoomUsedReport(fromDate, toDate);
 
         int iNomalMorning, iNomalAfternoon, iNomalEvening, iWeekendlMorning, iWeekendAfternoon, iWeekendEvening, iTotalSection;
         float fUtilization, fVND, fUSD;
         int iNomalPlanSection, iWeekendPlanSection, iPlanTotal;
         iNomalPlanSection = iWeekendPlanSection = iPlanTotal = 0;
-        for (DateTime i = DateTime.Parse(txtFromDate.Text.Trim()); i <= DateTime.Parse(txtToDate.Text.Trim()); i = i.AddDays(1))
+        for (DateTime i = fromDate; i <= toDate; i = i.AddDays(1))
         {
             if (i.DayOfWeek == DayOfWeek.Saturday || i.DayOfWeek == DayOfWeek.Sunday)
             {
