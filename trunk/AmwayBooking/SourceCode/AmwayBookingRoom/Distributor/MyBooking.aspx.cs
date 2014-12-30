@@ -9,7 +9,7 @@ public partial class Distributor_MyBooking : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if ((Session["UserID"] == null) || (!CheckPermission("37")))
+        if ((Session["UserID"] == null) || (Session["ADA"] == null) || (!CheckPermission("37")))
         {
             Response.Redirect("~/home");
         }

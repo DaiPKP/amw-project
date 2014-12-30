@@ -79,6 +79,7 @@ public partial class Process_AjaxProcess : System.Web.UI.Page
             if (result != null)
             {
                 Session["UserID"] = result.USERID;
+                Session["ADA"] = result.ADA;
                 Session.Timeout = 60;
                 return true;
             }
