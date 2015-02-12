@@ -257,30 +257,67 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
         booking.Note = txtNote.Text.Trim();
         int result=BO.InsertBooking(booking);
 
-        //    //Begin send email
-        //    //Load Row
-        //    StreamReader srRow = new StreamReader(Server.MapPath("Row.txt"));
-        //    srRow = File.OpenText(Server.MapPath("Row.txt"));
-        //    string strRow = srRow.ReadToEnd();
-        //    srRow.Close();
-        //    strRow = strRow.Replace("[Room]", ddlCenter.SelectedItem.Text.Trim());
-        //    strRow = strRow.Replace("[MeetingDate]", date.Date.ToString("dd/MM/yyyy"));
-        //    strRow = strRow.Replace("[MeetingTime]", strSection);
-        //    strRow = strRow.Replace("[Money]", strGia);
-        //    //End Load Row
-        //    StreamReader sr = new StreamReader(Server.MapPath("EmailTemplate.htm"));
-        //    sr = File.OpenText(Server.MapPath("EmailTemplate.htm"));
-        //    string content = sr.ReadToEnd();
-        //    sr.Close();
-        //    content = content.Replace("[Name]", txtName.Text.Trim());
-        //    content = content.Replace("[ADA]", txtADAID.Text.Trim());
-        //    content = content.Replace("[Room]", ddlCenter.SelectedItem.Text.Trim());
-        //    content = content.Replace("[Content]", strRow);
-        //    content = content.Replace("[TotalMoney]", strGia);
-        //    content = content.Replace("[Date]", DateTime.Now.AddDays(1).Date.ToString("dd/MM/yyyy"));
-        //    SendMail("Amway - Thông báo phí thuê phòng hội họp", content, txtEmail.Text.Trim(), true, true);
-        //    // End
-        //}
+        string strGia = "";
+        string strSection = "";
+        if(strWeekend.Equals("N"))
+        {
+            switch(lbSection.Text.ToString())
+            {
+                case "Ca Sáng":
+                    strSection = "Từ 8 giờ đến 12 giờ";
+                    strGia = lbGiaPhong.Text.ToString();
+                    break;
+                case "Ca Chiều":
+                    strSection = "Từ 13 giờ đến 17 giờ";
+                    strGia = lbGiaChieuThuong.Text.ToString();
+                    break;
+                case "Ca Tối":
+                    strSection = "Từ 18 giờ đến 22 giờ";
+                    strGia = lbGiaToiThuong.Text.ToString();
+                    break;
+            }
+        }
+        else
+        {
+            switch (lbSection.Text.ToString())
+            {
+                case "Ca Sáng":
+                    strSection = "Từ 8 giờ đến 12 giờ";
+                    strGia = lbGiaCuoiTuan.Text.ToString();
+                    break;
+                case "Ca Chiều":
+                    strSection = "Từ 13 giờ đến 17 giờ";
+                    strGia = lbGiaChieuCuoi.Text.ToString();
+                    break;
+                case "Ca Tối":
+                    strSection = "Từ 18 giờ đến 22 giờ";
+                    strGia = lbGiaToiCuoi.Text.ToString();
+                    break;
+            }
+        }
+        //Begin send email
+        //Load Row
+        StreamReader srRow = new StreamReader(Server.MapPath("~/Row.txt"));
+        srRow = File.OpenText(Server.MapPath("~/Row.txt"));
+        string strRow = srRow.ReadToEnd();
+        srRow.Close();
+        strRow = strRow.Replace("[Room]", lbTenPhong.Text.Trim());
+        strRow = strRow.Replace("[MeetingDate]", date.Date.ToString("dd/MM/yyyy"));
+        strRow = strRow.Replace("[MeetingTime]", strSection);
+        strRow = strRow.Replace("[Money]", strGia);
+        //End Load Row
+        StreamReader sr = new StreamReader(Server.MapPath("~/EmailTemplate.htm"));
+        sr = File.OpenText(Server.MapPath("~/EmailTemplate.htm"));
+        string content = sr.ReadToEnd();
+        sr.Close();
+        content = content.Replace("[Name]", txtName.Text.Trim());
+        content = content.Replace("[ADA]", txtADAID.Text.Trim());
+        content = content.Replace("[Room]", lbTenPhong.Text.Trim());
+        content = content.Replace("[Content]", strRow);
+        content = content.Replace("[TotalMoney]", strGia);
+        content = content.Replace("[Date]", DateTime.Now.AddDays(1).Date.ToString("dd/MM/yyyy"));
+        SendMail("Amway - Thông báo phí thuê phòng hội họp", content, txtEmail.Text.Trim(), true, true);
+        // End
         popup.Hide();
         ClearField();
         CheckBooking();
@@ -358,6 +395,7 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
             mail.IsBodyHtml = isHtml;
             SmtpClient client = new SmtpClient();
             client.EnableSsl = isSSL;
+            client.UseDefaultCredentials = false;
             client.Send(mail);
         }
 
