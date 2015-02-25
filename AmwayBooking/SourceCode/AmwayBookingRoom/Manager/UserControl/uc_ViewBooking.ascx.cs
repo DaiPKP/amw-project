@@ -174,7 +174,7 @@ public partial class Manager_UserControl_ViewBooking : System.Web.UI.UserControl
                     }
                 }
             }
-            data.Rows.Add(strCode1, strCode2, strCode3, i.ToLongDateString(), strCa1, strCa2, strCa3, strWeekend, strPaid1, strPaid2, strPaid3);
+            data.Rows.Add(strCode1, strCode2, strCode3, i.DayOfWeek+", "+i.ToString("dd/MM/yyyy"), strCa1, strCa2, strCa3, strWeekend, strPaid1, strPaid2, strPaid3);
         }
         repeat.DataSource = data;
         repeat.DataBind();
