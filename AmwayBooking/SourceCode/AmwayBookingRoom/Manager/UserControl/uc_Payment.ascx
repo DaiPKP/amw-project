@@ -158,7 +158,7 @@
                                     <br />
                                     <br />
                                     <br />
-                                    Lê Thị Kim My
+                                    Nguyễn Phúc Huy
                                 </td>
                                 <td style="text-align: center; width: 50%;">Ngày 
                             <asp:Label ID="lbday2" runat="server" Text=""></asp:Label>

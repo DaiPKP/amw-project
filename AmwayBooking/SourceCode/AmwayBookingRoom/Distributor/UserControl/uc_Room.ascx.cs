@@ -12,6 +12,7 @@ using System.Net.Mail;
 using System.IO;
 using DAL;
 using System.Globalization;
+using System.Text;
 
 public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
 {
@@ -256,7 +257,7 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
         booking.Paid = Char.Parse(strPaid);
         booking.Note = txtNote.Text.Trim();
         int result=BO.InsertBooking(booking);
-
+        string strBookingCode = result.ToString() + "-" + strRoomCode + "-" + txtADAID.Text.Trim();
         string strGia = "";
         string strSection = "";
         if(strWeekend.Equals("N"))
@@ -312,11 +313,16 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
         sr.Close();
         content = content.Replace("[Name]", txtName.Text.Trim());
         content = content.Replace("[ADA]", txtADAID.Text.Trim());
+        content = content.Replace("[BookingCode]", strBookingCode);
         content = content.Replace("[Room]", lbTenPhong.Text.Trim());
         content = content.Replace("[Content]", strRow);
         content = content.Replace("[TotalMoney]", strGia);
         content = content.Replace("[Date]", DateTime.Now.AddDays(1).Date.ToString("dd/MM/yyyy"));
-        SendMail("Amway - Thông báo phí thuê phòng hội họp", content, txtEmail.Text.Trim(), true, true);
+        if (!txtEmail.Text.Trim().Equals(""))
+        {
+            SendMail("Amway - Thông báo phí thuê phòng hội họp", content, txtEmail.Text.Trim(), true, true);
+        }
+        
         // End
         popup.Hide();
         ClearField();
@@ -385,17 +391,27 @@ public partial class Distributor_UserControl_uc_Room : System.Web.UI.UserControl
     }
     public string SendMail(string subject, string body, string to, bool isHtml, bool isSSL)
     {
+        string host = ConfigurationSettings.AppSettings["SmtpServer"].ToString();
+        string password = ConfigurationSettings.AppSettings["ContactPass"].ToString();
+        string userEmail = ConfigurationSettings.AppSettings["ContactEmail"].ToString();
+
         using (MailMessage mail = new MailMessage())
         {
-            mail.From = new MailAddress(FormAddress, "Amway Booking Room");
+            mail.From = new MailAddress(userEmail, "Amway Booking Room");
+            System.Net.NetworkCredential SMTPUserInfo = new System.Net.NetworkCredential(userEmail, password);
 
             mail.To.Add(to);
+            mail.SubjectEncoding = Encoding.UTF8;
+            mail.BodyEncoding = Encoding.UTF8;
             mail.Subject = subject;
             mail.Body = body;
             mail.IsBodyHtml = isHtml;
             SmtpClient client = new SmtpClient();
             client.EnableSsl = isSSL;
             client.UseDefaultCredentials = false;
+            client.Credentials = SMTPUserInfo;
+            client.Port = 587;
+            client.Host = host;
             client.Send(mail);
         }
 
